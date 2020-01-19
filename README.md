@@ -45,7 +45,8 @@ It is used for:
  <hr>
  <pre>
 <h4> @Title: Becas Digitaliza - Cisco. Phase III. </h4>
-<h4> @Description: Cisco Academy. - Devnet. <a href="https://www.netacad.com/portal/learning" target="_blank">Cisco Academy</a> </h4> <img size="4px" src="images/logo.jpg">
+<h4> @Description: Cisco Academy. - Devnet. <a href="https://www.netacad.com/portal/learning" target="_blank">Cisco Academy</a> </h4>
 <h4> @Author: Pauchino09. </h4>
 </pre>
+<img size="4px" src="images/logo.jpg">
 <hr>
