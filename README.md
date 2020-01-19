@@ -34,16 +34,18 @@ It is used for:
    Python can be used for rapid prototyping, or for production-ready software development. <br>
 <p>
 <h3>Why Python?<h3>
-<pre>
+<p>
     Python works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc).
     Python has a simple syntax similar to the English language.
     Python has syntax that allows developers to write programs with fewer lines than some other programming languages.
     Python runs on an interpreter system, meaning that code can be executed as soon as it is written. This means that prototyping can be very quick.
     Python can be treated in a procedural way, an object-orientated way or a functional way.
-<pre>
+</p>
 
  <hr>
+ <pre>
 <h4> @Title: Becas Digitaliza - Cisco. Phase III. </h4>
 <h4> @Description: Cisco Academy. - Devnet. <a href="https://www.netacad.com/portal/learning" target="_blank">Cisco Academy</a> </h4>
 <h4> @Author: Pauchino09. </h4>
+</pre>
 <hr>
