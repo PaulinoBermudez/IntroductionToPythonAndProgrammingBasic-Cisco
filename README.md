@@ -48,5 +48,5 @@ It is used for:
 <h4> @Description: Cisco Academy. - Devnet. <a href="https://www.netacad.com/portal/learning" target="_blank">Cisco Academy</a> </h4>
 <h4> @Author: Pauchino09. </h4>
 </pre>
-<img size="4px" src="images/logo.jpg">
+<img width="12" height="12"  src="images/logo.jpg">
 <hr>
