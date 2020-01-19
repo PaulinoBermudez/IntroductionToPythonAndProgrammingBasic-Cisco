@@ -33,7 +33,7 @@ It is used for:
    Python can be used to handle big data and perform complex mathematics. <br>
    Python can be used for rapid prototyping, or for production-ready software development. <br>
 <p>
-<h3>Why Python?<h3>
+<h3>Why Python?</h3>
 <p>
     Python works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc).
     Python has a simple syntax similar to the English language.
