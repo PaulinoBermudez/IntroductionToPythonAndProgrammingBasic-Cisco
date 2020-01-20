@@ -1857,15 +1857,18 @@ input, select, textarea {
 		}
 
 		.responsive {
-			min-width: 210px;
-			min-height: 105px;
-			max-width: 600px;
-			max-height: 210px;
-			width: auto;
+			width: 100%;
+			max-width: 55%;
 			height: auto;
-			border-radius: 1em;	
+			border-radius: 5px;	
 		}
 
+		.small{
+			width: 100%;
+			max-width: 75%;
+			height: auto;
+			border-radius: 5px;	
+		}
 		.image:before {
 			background: url("images/overlay.png");
 			content: '';

@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<!--
+	@Title: Introduction programming to python basic
+	@Description: Introduction devnet Cisco Becas Digitaliza 2019-2020
+	@Author: Pauchino09
+-->
+<html>
+	<head>
+		<title>Introduction Python. - Cisco Academy</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+		<script src="https://fontawesome.com/icons/python"></script>
+		<link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="index is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="alt">
+					<h1 id="logo"><a href="index.html">Python <span>with Cisco</span></a></h1>
+					<nav id="nav">
+						<ul>
+							<li class="current"><a href="index.html">Welcome</a></li>
+							<li class="submenu">
+								<a href="#">Menu</a>
+								<ul>
+									<li><a href="chapter1.html">Chapter 1</a></li>
+									<li><a href="chapter2.html">Chapter 2</a></li>
+									<li><a href="chapter3.html">Chapter 3</a></li>
+									<li><a href="contact.html">Contact</a></li>
+									<li class="submenu">
+										<a href="#">Media</a>
+										<ul>
+											<li><a href="https://github.com/chunche95/IntroductionToPythonAndProgrammingBasic-Cisco">GitHub repository</a></li>
+											<li><a href="https://www.linkedin.com/in/paulinoestebanbr">Linkedin</a></li>
+											<li><a href="https://www.netacad.com/portal/learning">Cisco Academy</a></li>
+											<li><a href="mailto:paeste95.pb@gmail.com">Mail</a></li>
+											<li><a href="tel:+34667332151">WhatsApp</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="https://github.com/login" class="button primary">Hagamos un cambio!</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+				<section id="banner">
+
+					<!--
+						".inner" is set up as an inline-block so it automatically expands
+						in both directions to fit whatever's inside it. This means it won't
+						automatically wrap lines, so be sure to use line breaks where
+						appropriate (<br />).
+					-->
+					<div class="inner">
+
+						<header>
+							<h2>Pyhton</h2>
+						</header>
+						<p>
+							Use these resources on your path to a SUCCESSFUL career:
+							<ul>
+								<li>Talent Bridge to get a GREAT job</li>
+								<li>Social networking to connect with and get HELP from your peers</li>
+								<li>Packet Tracer network simulator </li>
+								<li>...</li>
+							</ul>
+						</p>
+						<footer>
+							<ul class="buttons stacked">
+								<li><a href="#main" class="button fit scrolly">GO!</a></li>
+							</ul>
+						</footer>
+
+					</div>
+
+				</section>
+
+			<!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="https://img.icons8.com/bubbles/100/000000/development-skill.png"></span>
+						<img class="intro" src="data:image/png;base64,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">
+						<h2>
+							Chapter 1. Introduction
+						</h2>
+						<p>
+							This chapter of the course covers the following objectives:
+							<ul>
+								<li>Describe how Communities of Practice provide value to programmers.</li>
+								<li>Use Python to create programs that accept user input and read and write to external files.</li>
+								<li>Create a Python application that accesses an API based on user input and processes and displays the JSON data that is returned.</li>
+							</ul>
+						</p>
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style2 container special-alt">
+							<div class="row gtr-50">
+								<div class="col-4 col-12-narrower imp-narrower">
+
+									<ul class="featured-icons">
+										<li><img src="https://img.icons8.com/cotton/100/000000/working-with-a-macbook--v2.png"></li>
+										<li><img src="https://img.icons8.com/dusk/100/000000/python.png"></li>
+										<li><img src="https://img.icons8.com/clouds/100/000000/api.png"></li>
+										<li><img src="https://img.icons8.com/nolan/100/json.png"></li>
+									</ul>
+								</div>
+								<div class="col-8 col-12-narrower">
+
+									<header>
+										<h2>Lab - PC Setup for Workshop</h2>
+									</header>
+									<p>
+										In this lab, you will complete the following objectives in order to prepare your computer for the course: 
+										<dl>
+											<dt><a href="#phyton">Part 1. Install and verify Python</a></dt>
+											<dt><a href="#postman">Part 2. Install Postman</a></dt>
+											<dt><a href="#json">Part 3. Install JSONView</a></dt>
+										</dl>
+									</p>
+									<footer>
+										<ul class="buttons">
+											<li><a href="#phyton" class="button">Go part 1</a></li>
+										</ul>
+									</footer>
+								</div>							
+							</div>
+						</section>
+
+					<!-- Two -->
+						<section class="wrapper style1 container special">
+							<div class="row">
+								<div >
+
+									<section>
+										<span class="icon featured fa-check"></span>
+										<header id="python">
+											<h3>Install and verify Python.</h3>
+										</header>
+										<p>
+											<h4>Step 1</h4>
+											<p>
+												Go to <a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Python</a> and download the most recent version of Phyton 3. <br>
+												When installing, make sure you check the "Add Phyton 3.6 to Path" checkbox, when setup finished, click the "Disable path length limit" if this option is available for your installation.
+											</p>
+											<h4>Step 2</h4>
+											<p>
+												For the Windows OS, open a command prompt enter the command <strong>python</strong>, as shown in Example 1. The interactive interpreter should open. Type <code>quit()</code> to exit the Python interactive interpreter. <br>
+												<h5>Example 1. Opening Python on a Windows Computer</h5>
+<pre><blockquote><code class="responsive">c:\>python
+Python 3.6.3 (v3.6.3:2c5fed8, Oct 3 2017, 17:26:49) [MSC v.1900 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+</code></blockquote></pre>
+												<img src="images/quit().PNG" class="responsive" alt="">
+												<h5>Example 2. Opening Python on a Mac or Linux Computer</h5>
+<pre><blockquote><code class="responsive">$ python3
+Python 3.5.2 (default, Oct 3 2017, 17:48:00) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+</code></blockquote></pre>					
+												<img src="images/quit()-Linux.PNG" class="responsive" alt=""> <br>
+												<img src="images/quit()-MacOS.PNG"  class="responsive" alt="">
+											</p>
+											<h4>Step 3</h4>
+											<p>
+												For the Windows OS, open IDLE from the Programs menu: <strong>Start &gt; Python 3.6 &gt; IDLE (Python 3.6 32-bit)</strong>. <br>
+												For the Mac or Linux OS, open a command prompt and enter the command idle3. <br>
+												The IDLE shell should be open. <br>
+												<div>
+													<img src="images/IDLEpython.PNG"  class="responsive" alt="">
+												</div>
+											</p>
+											<h4>Step 4</h4>
+											<p>
+												The default Python installation comes with all the standard modules that most programmers would need to create applications. However, there are many more modules 
+												available that extend the functionality of Python. To keep initial installation of Python small, these modules are not includeing in the default package. <br>
+												Returning to your command prompr window, use Python Package Index (accessed with the pip command) to download the modules requests and tabulate, as show for 
+												Windows in Example 3. for Linux and MAc, use pip3 install module_name.
+												<h5>Example 3. Installing Modules in Windows OS</h5>
+												<p>
+													<img src="images/pip-install-requests.PNG"  class="responsive" alt=""> <br>
+													<img src="images/pip-install-tabulate.PNG"  class="responsive" alt="">
+												</p>
+											</p>
+										</p>
+									</section>
+								</div>
+							</div> 
+						</section>
+
+					<!-- Three -->
+						<section class="wrapper style3 container special">
+
+							<header class="major">
+								<h2>Install Postman</h2>
+							</header>
+
+							<div class="row">
+								<div class="col-6 col-12-narrower">
+									<section>
+										<a href="https://www.getpostman.com/" class="image featured"><img src="https://secureservercdn.net/160.153.136.1/809.828.myftpupload.com/wp-content/uploads/2019/10/postman-banner-1170x500.png" alt="" /></a>
+										<header>
+											<h3>HTTP API</h3>
+										</header>
+										<p>
+											Postman is a n application that you will use this course to make HTTP APLI requests.
+										</p>
+									</section>
+								</div>
+								<div class="col-6 col-12-narrower">
+									<section>
+										<a href="#" class="image featured"><img src="images/download.png" class="responsive" alt="" /></a>
+										<header>
+											<h3>Step 1</h3>
+										</header>
+										<p>
+											Postman is available as an application for Windows, Mac and Linux OS. To install Postman, go to the <a href="https://www.getpostman.com/downloads/" target="_blank" rel="noopener noreferrer">apps page</a> and click 
+											Download for your OS.
+										</p>
+									</section>
+								</div>
+								<div class="col-6 col-12-narrower">
+									<section>
+										<header>
+											<h3>Step 2</h3>
+										</header>
+										<p>
+											Sign up to use Postman or choose to create an account at another time.
+										</p>
+									</section>
+								</div>
+								<div class="col-6 col-12-narrower">
+									<section>
+										<header>
+											<h3>Step 3</h3>
+										</header>
+										<p>
+											<div>
+												<img src="images/postman-program.PNG" class="small" alt="">
+											</div>
+											Verify that the Postman application is installed. 
+										</p>
+									</section>
+								</div>
+							</div>							
+						</section>
+
+				</article>
+
+			<!-- CTA -->
+				<section id="cta">
+
+					<header>
+						<h2>Install JSON View</h2>
+						<p>
+							JSON View is a Chrome extension that you will use in this course to better view JSON data.
+						</p>
+					</header>
+					<footer>
+						<ul class="buttons">
+							<li><a href="#" class="button primary">Install extension</a></li>
+							<li><a href="#" class="button">Steps</a></li>
+						</ul>
+					</footer>
+
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+
+					<ul class="icons">
+						<li><a href="mailto:paeste95.pb@gmail.com" class="icon circle fa-laptop-code"><span class="label">Mail</span></a></li>
+						<li><a href="https://www.linkedin.com/in/paulinoestebanbr" class="icon circle fa-linkedin"><span class="label">Linkedln</span></a></li>
+						<li><a href="https://github.com/chunche95?tab=repositories" class="icon circle fa-github"><span class="label">Github</span></a></li>
+						<li>
+							<use xlink:href=></use>
+							<span class="label">Cisco Academy</span>
+						</li>
+						
+						
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
