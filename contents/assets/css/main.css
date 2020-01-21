@@ -1944,7 +1944,16 @@ input, select, textarea {
 				.icon.circle.fa-twitter:hover {
 					background: #7fb7d2;
 				}
+			
+			.icon.circle.fa-code:hover {
+				background: #7fb7d2;
+			}
 
+				.icon.circle.fa-code {
+					background: #70aecd;
+					color: #fff;
+				}
+	
 			.icon.circle.fa-facebook {
 				background: #7490c3;
 				color: #fff;
@@ -1953,8 +1962,25 @@ input, select, textarea {
 				.icon.circle.fa-facebook:hover {
 					background: #829bc9;
 				}
+			
+			.icon.circle.fa-linkedin {
+				background: #7490c3;
+				color: #fff;
+			}
+
+				.icon.circle.fa-linkedin:hover {
+					background: #829bc9;
+				}	
 
 			.icon.circle.fa-google-plus {
+				background: #db6b67;
+				color: #fff;
+			}
+
+			.icon.circle.fa-trophy:hover {
+				background: #df7b77;
+			}
+			.icon.circle.fa-trophy {
 				background: #db6b67;
 				color: #fff;
 			}
@@ -1962,7 +1988,6 @@ input, select, textarea {
 				.icon.circle.fa-google-plus:hover {
 					background: #df7b77;
 				}
-
 			.icon.circle.fa-github {
 				background: #dcad8b;
 				color: #fff;
