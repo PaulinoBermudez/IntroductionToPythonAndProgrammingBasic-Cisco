@@ -8,7 +8,7 @@ git sube
 git add ../images/*
 git nota "Images"
 git sube
-git add jupyterNotebook.py
+git add ../jupyterNotebook.py
 git nota "JupyterNoteBook Demo"
 git sube
 git add README.md
