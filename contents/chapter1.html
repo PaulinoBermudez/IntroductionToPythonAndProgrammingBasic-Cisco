@@ -170,6 +170,33 @@
 													Due to some very fundamental reasons, a particular high-level programming language is designed to fall into one these two categories. <br>
 													There are few languages that can be both compiled and interpreted. Usually, a programming language is projected with this factor in its constructors minds- will it be compiled or interpreted?
 												</p>
+												<h2>What does the interpreter actually do?</h2>
+												<p>
+													Let's assume once more that you have written a program. Now, it exists as a computer file: a computer program is actually a piece of text, so the source code is usually placed in text files.  <br>
+													Note: it has to be pure text, without any decorations like different fonts, colors, embedded images or other media. Now you have to invoke the interpreter and let it read your source file. <br>
+													The interpreter reads the source code in a way that is common in Western culture: from top to bottom and from left to right. There are some exceptions - they'll be covered later in the course. <br>
+													First of all, the interpreter checks if all subsequent lines are correct (using the four aspects covered earlier). <br>
+													If the compiler finds an error, it finishes its work immediately. The only result in this case is an error message. The interpreter will inform you where the error is located and what caused it. However, these messages may be misleading, as the interpreter isn't able to follow your exact intentions, and may detect errors at some distance from their real causes.
+													For example, if you try to use an entity of an unknown name, it will cause an error, but the error will be discovered in the place where it tries to use the entity, not where the new entity's name was introduced. <br>
+													In other words, the actual reason is usually located a little earlier in the code, e.g., in the place where you had to inform the interpreter that you were going to use the entity of the name. <br>
+													If the line looks good, the interpreter tries to execute it (note: each line is usually executed separately, so the trio "read-check-execute" can be repeated many times - more times than the actual number of lines in the source file, as some parts of the code may be executed more than once).
+													It is also possible that a significant part of the code may be executed successfully before the interpreter finds an error. This is normal behavior in this execution model. <br>
+													You may ask now: which is better? The "compiling" model or the "interpreting" model? There is no obvious answer. If there had been, one of these models would have ceased to exist a long time ago. Both of them have their advantages and their disadvantages. <br>
+													<table>
+														<tr>
+															<td></td>
+															<td>Compilation</td>
+															<td>Interpretation</td>
+														</tr>
+														<tr>
+															<td>Advantages</td>
+															<td>
+																The executation of the traslated code is usally faster, only the user has to  have the compiler - the end - user  may use the code without it. The traslated code is stored using machine language - as it is very hard to understand
+															</td>
+															<td></td>
+														</tr>
+													</table>
+												</p>
 											</section>
 										</div>
 								</div>
