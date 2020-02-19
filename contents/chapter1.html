@@ -329,7 +329,21 @@
 													How are these two contradictions reconciled? One solution is to write your mathematical ideas using Python, and when you're absolutely sure that your code is correct and produces valid results, you can translate it into "C". Certainly, "C" will run much faster than pure Python. <br>
 													This is what Cython is intended to do - to automatically translate the Python code (clean and clear, but not too swift) into "C" code (complicated and talkative, but agile).
 												</p>
-												1.1.4.3
+												<h2>Jython</h2>
+												<p>
+													Another version of Python is called Jython. <br>
+													"J" is for "Java". Imagine a Python written in Java instead of C. This is useful, for example, if you develop large and complex systems written entirely in Java and want to add some Python flexibility to them. The traditional CPython may be difficult to integrate into such an environment, as C and Java live in completely different worlds and don't share many common ideas.
+													Jython can communicate with existing Java infrastructure more effectively. This is why some projects find it usable and needful. <br>
+													<b>Note:</b> the current Jython implementation follows Python 2 standards. There is no Jython conforming to Python 3, so far.
+												</p>
+												<h2>PyPy and RPython</h2>
+												<p>
+													Take a look at the logo below. It's a rebus. Can you solve it? <br>
+													It's a logo of the PyPy - a Python within a Python. In other words, it represents a Python environment written in Python-like language named RPython (Restricted Python). It is actually a subset of Python. The source code of PyPy is not run in the interpretation manner, but is instead translated into the C programming language and then executed separately. <br>
+													This is useful because if you want to test any new feature that may be (but doesn't have to be) introduced into mainstream Python implementation, it's easier to check it with PyPy than with CPython. This is why PyPy is rather a tool for people developing Python than for the rest of the users.This doesn't make PyPy any less important or less serious than CPython, of course. <br>
+													In addition, PyPy is compatible with the Python 3 language. <br>
+													There are many more different Pythons in the world. You'll find them if you look, but this course will focus on CPython.
+												</p>
 											</section>
 										</div>
 								</div>
