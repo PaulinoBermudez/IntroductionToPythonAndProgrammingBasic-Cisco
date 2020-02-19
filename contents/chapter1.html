@@ -292,6 +292,43 @@
 														</li>
 													</ul>
 												</p>
+												<h2>There is more Python</h2>
+												<p>
+													There are two main kinds of Python, called Python 2 and Python 3. <br>
+													Python 2 is an older version of the original Python. Its development has since been intentionally stalled, although that doesn't mean that there are no updates to it. On the contrary, the updates are issued on a regular basis, but they are not intended to modify the language in any significant way. 
+													They rather fix any freshly discovered bugs and security holes. <br>
+													Python 2's development path has reached a dead end already, but Python 2 itself is still very much alive. <br>
+													<strong>
+														Python 3 is the newer ( to be precise, the current) version of the language. It's going through its own evolution path, creating its own standars and habits.
+													</strong>
+													The former is more traditional, more conservative than Python, and resembles some of the good old languages derived from the classic C programming language. <br>
+													These two versions of Python aren't compatible with each other. Python 2 scripts won't run in a Python 3 environment and vice versa, so if you want the old Python 2 code to be run by a Python 3 interpreter, the only possible solution is to rewrite it, not from scratch, of course, 
+													as large parts of the code may remain untouched, but you do have to revise all the code to find all possible incompatibilities. Unfortunately, this process cannot be fully automatized. <br>
+													It's too hard, too time-consuming, too expensive, and too risky to migrate an old Python 2 application to a new platform. It's possible that rewriting the code will introduce new bugs to it. It's easier and more sensible to leave these systems alone and to improve the existing 
+													interpreter, instead of trying to work inside the already functioning source code. <br>
+													Python 3 isn't just a better version of Python 2 - it is a completely different language, although it's very similar to its predecessor. When you look at them from a distance, they appear to be the same, but when you look closely, though, you notice a lot of differences. <br>
+													If you're modifying an old existing Python solution, then it's highly likely that it was coded in Python 2. This is the reason why Python 2 is still in use. There are too many existing Python 2 applications to discard it altogether. <br>
+													<strong>Note</strong> If you're going to start a new Python project, you should use Python 3, and this is the version of Python that will be used during this course. <br>
+													It is important to remember that there may be smaller or bigger differences between subsequent Python 3 releases (e.g., Python 3.6 introduced ordered dictionary keys by default under the CPython implementation) - the good news, though, is that all the newer versions of Python 3 
+													are backwards compatible with the previous versions of Python 3. Whenever meaningful and important, we will always try to highlight those differences in the course. <br>
+													All the code samples you will find during the course have been tested against Python 3.4, Python 3.6, and Python 3.7.
+												</p>
+												<h2>Python aka CPython</h2>
+												<p>
+													In addition to Python 2 and Python 3, there is more than one version of each.
+													First of all, there are the Pythons which are maintained by the people gathered around the PSF (Python Software Foundation), a community that aims to develop, improve, expand, and popularize Python and its environment. The PSF's president is Guido von Rossum himself, and for this reason, these Pythons are called canonical. 
+													They are also considered to be reference Pythons, as any other implementation of the language should follow all standards established by the PSF. <br>
+													Guido van Rossum used the "C" programming language to implement the very first version of his language and this decision is still in force. All Pythons coming from the PSF are written in the "C" language. There are many reasons for this approach and it has many consequences. <br>
+													One of them (probably the most important) is that thanks to it, Python may be easily ported and migrated to all platforms with the ability to compile and run "C" language programs (virtually all platforms have this feature, which opens up many expansion opportunities for Python). <br>
+													This is why the PSF implementation is often referred to as CPython. This is the most influential Python among all the Pythons in the world.
+												</p>
+												<h2>Cython</h2>
+												<p>
+													Another Python family member is Cython.
+													Cython is one of a possible number of solutions to the most painful of Python's trait - the lack of efficiency. Large and complex mathematical calculations may be easily coded in Python (much easier than in "C" or any other traditional language), but the resulting code's execution may be extremely time-consuming.
+													How are these two contradictions reconciled? One solution is to write your mathematical ideas using Python, and when you're absolutely sure that your code is correct and produces valid results, you can translate it into "C". Certainly, "C" will run much faster than pure Python.
+													This is what Cython is intended to do - to automatically translate the Python code (clean and clear, but not too swift) into "C" code (complicated and talkative, but agile).
+												</p>
 											</section>
 										</div>
 								</div>
