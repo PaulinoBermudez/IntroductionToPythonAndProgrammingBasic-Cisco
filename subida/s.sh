@@ -2,10 +2,10 @@
 
 # Script de subida de contenidos
 git pull
-git add ../contents/*
+git add ../contents/.
 git nota "Contents"
 git sube
-git add ../images/*
+git add ../images/.
 git nota "Images"
 git sube
 git add ../jupyterNotebook.py
@@ -14,7 +14,7 @@ git sube
 git add README.md
 git nota "README"
 git sube
-git add subida/*
+git add subida/.
 git nota "Push the content in GitHub"
 git sube
 sleep 5
