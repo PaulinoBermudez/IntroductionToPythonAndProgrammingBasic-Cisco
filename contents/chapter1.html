@@ -372,14 +372,14 @@
 													Besides its many useful components, the Python 3 standar installation contains a very simple but extremely useful application named IDLE. <br>
 													<b>IDLE</b> is an acronym: Integrated Development and Learning Enviromnment. <br>
 													Navigate through your OS menus, find IDLE somewhere under Python 3.x and launch it. This is what you should see:
-													<div><img src="images/pythonShell.PNG" alt=""></div>
+													<div><img src="images/pythonShell.PNG"  class="responsive" alt=""></div>
 												</p>
 												<h2>How to write and run your very first program</h2>
 												<p>
 													It is now time to write and run your first Python 3 program. It will be very simple, for now. <br>
 													The first step is to create a new source file and fill it with code. Click File in the IDLE’s menu and choose New file.	As you can see, IDLE opens a new window for you. You can use it to write and amend your code.
 													This is the <b>editor window</b>. Its only purpose is to be a workplace in which your source code is treated. Do not confuse the editor window with the shell window. They perform different functions. <br>
-													<img src="images/NewFile.PNG" alt=""> <br>
+													<img src="images/NewFile.PNG" class="responsive" alt=""> <br>
 													Click File (in the new window), then click Save as..., select a folder for the new file (the desktop is a good place for your first programming attempts) and choose a name for the new file. <br>
 													<b>Note:</b> Don't set any extension for the file name you are going to use. Python needs its files to have the <i>.py</i> extension, so you should rely on the dialog window's defaults. Using the standard .py extension enables the OS to properly open these files.
 												</p>
@@ -400,7 +400,7 @@
 												<h2>How to spoil and fix your code</h2>
 												<p>
 													Now start IDLE again. Click File, Open, point the file you saved previously and let IDLE read it in. Try to run it again by pressing F5 when the editor window is active. <br>
-													<img src="images/fisrtScript.PNG" alt=""> <br>
+													<img src="images/fisrtScript.PNG" class="responsive alt=""> <br>
 													As you can see, IDLE is able to save your code and retrieve it when you need it again. IDLE contains one additional and helpful feature. First, remove the closing parenthesis.	Then enter the parenthesis again. <br>
 													Every time you put the closing parenthesis in your program, IDLE will show the part of the text limited with a pair of corresponding parentheses. This helps you to remember to place them in pairs. <br>
 													Remove the closing parenthesis again. The code becomes erroneous. It contains a syntax error now. IDLE should not let you run it. <br>
@@ -409,7 +409,7 @@
 												<hr>
 												<p>
 													Watch all the windows carefully. A new window appears – it says that the interpreter has encountered an EOF (end-of-file) although (in its opinion) the code should contain some more text. The editor window shows clearly where it happened. <br>
-													<img src="images/sintaxError.PNG" alt=""> <br>
+													<img src="images/sintaxError.PNG" class="responsive" alt=""> <br>
 													Fix the code now. It shoul look like this:
 													<div>
 														<code>
@@ -418,6 +418,10 @@
 													</div>
 													Run it to see if it ""HELLO" again. <br>
 													Let's spoil the code one more time. Remove one letter from the word <code>print</code>. Run the code by pressing <i>F5</i>. As you can see, <b> Python is not able to recognize the error.</b>
+												</p>
+												<hr>
+												<p>
+													You may have noticed that the error message generated for the previous error is quite different from the first one, this's because the nature of the error is different and the error is discovered at a different stage of interpretation.
 												</p>
 											</section>
 										</div>
