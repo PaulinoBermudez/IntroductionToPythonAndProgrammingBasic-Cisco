@@ -3171,7 +3171,7 @@ input, select, textarea {
 
 /* Mobile */
 
-	@media screen and (max-width: 736px) {
+	@media screen and (max-width: 480px) {
 
 		/* Basic */
 
@@ -3189,9 +3189,11 @@ input, select, textarea {
 				letter-spacing: 0.025em;
 			}
 
-			p {
+			section, p, ul, li {
 				text-align: justify;
 				font-size: 2.1vw;
+				justify-content: space-around;
+				margin: 0 2em;
 			}
 
 		/* Section/Article */
