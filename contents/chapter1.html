@@ -481,7 +481,7 @@ print("THIS IS SANDBOX MODE.")</code></pre>
 														Data types, variables, basic output-input operations. Basic operators
 													</h3>
 												</header>
-												<h2>Hello, Word!</h2>
+												<h2>Hello, World!</h2>
 												<p>
 													It's time to start writing some real, working Python code. It'll be very simple for the time being. <br>
 													As we're going to show you some fundamental concepts and terms, these snippets of code won't be serious or complex. Run the code in the editor window on 
@@ -516,7 +516,68 @@ print("THIS IS SANDBOX MODE.")</code></pre>
 														<li>You can write them yourself, placing as many functions as you want and need inside your program to make it simpler, clearer and more elegant.</li>
 													</ul>
 													The name of the function should be significant (the name of the print function is self-evident). <br>
-													Of course, if you're going to make use of any already existing function, you have no influence on its name, but when you start writing your own functions, you should consider carefully your choice of names.
+													Of course, if you're going to make use of any already existing function, you have no influence on its name, but when you start writing your own functions, you should consider carefully your choice of names. 
+												<hr>
+													As we said before, a function may have: 
+													<ul>
+														<li>an <b>effect</b></li>
+														<li>a <b>result</b></li>
+													</ul>
+													There's also a third, very import , function component - the <b>argument(s)</b>. <br>
+													Mathematical functions usually take one argument, e.g sin(x) takes an x, which is the measure of an angle. Python functions, on the other hand, are more versatile. Depending  on the individual needs, they may accept any number of arguments - as many as necessary to perform their tasks. 
+													<b>Note:</b> any number includes zero - some Python functions don't need any argument. <br>
+													<code>
+														print("Hello, World!")
+													</code> <br>						
+													In spite of the number of needed/provided arguments, Python functions strongly demand the presence of a pair of parentheses - opening and closing ones, respectively. <br>
+													If you want to deliver one or more arguments to a function, you place them inside the parentheses. If you're going to use a function which doesn't take any argument, you still have to have the parentheses. <br>
+													<b>Note:</b> to distinguish ordinary words from function names, place a pair of empty parentheses after their names, even if the corresponding function wants one or more arguments. This is a standard convention.	The function we're talking about here is <b>print()</b>. Does the print() function in our example have any arguments? <br>
+													Of course it does, but what are they? 
+												<hr>
+													The only argument delivered to the print() function in this example is a string: <br>
+													<code>print("Hello, World!")</code> <br>
+													As you can see, <strong>the string is delimited with quotes</strong> - in fact, the quotes make the string - they cut out a part of the code and assign a different meaning to it. <br>
+													You can imagine that the quotes say something like: the text between us is not code. It isn't intended to be executed, and you should take it as is. Almost anything you put inside the quotes will be taken literally, not as code, but as data. Try to play with this particular string - modify it, enter some new content, delete some of the existing content. 
+													There's more than one way to specify a string inside Python's code, but for now, though, this one is enough. <br>
+													So far, you have learned about two important parts of the code: the function and the string. We've talked about them in terms of syntax, but now it's time to discuss them in terms of semantics.
+												<hr>
+													The function name (print in this case) along with the parentheses and argument(s), forms the <b>function invocation</b>. We'll discuss this in more depth soon, but we should just shed a little light on it right now. <br>
+													<code>
+														print("Hello, World!")
+													</code> <br>
+													What happens when Python encounters an invocation like this one below? <br>
+													<code>
+														function_name(argument)
+													</code> <br>
+													Let's see:
+													<ul>
+														<li>First, Python checks if the name specified is legal (it browses its internal data in order to find an existing function of the name; if this search fails, Python aborts the code). </li>
+														<li>Second, Python checks if the function's requirements for the number of arguments allows you to invoke the function in this way (e.g., if a specific function demands exactly two arguments, any invocation delivering only one argument will be considered erroneous, and will abort the code's execution). </li>
+														<li>Third, Python leaves your code for a moment and jumps into the function you want to invoke; of course, it takes your argument(s) too and passes it/them to the function. </li>
+														<li>Fourth, the function executes its code, causes the desired effect (if any), evaluates the desired result(s) (if any) and finishes its task. </li>
+														<li>Finally, Python returns to your code (to the place just after the invocation) and resumes its execution. </li>
+													</ul>
+												</p>
+												<h2>LAB: The print</h2>
+												<p>
+													Estimated time <br>
+													5 minutes <br>
+													Level of difficulty <br>
+													Very easy <br>
+													<b>Objectives </b> <br>
+													becoming familiar with the print() function and its formatting capabilities, experimenting with Python code. <br>
+													Scenario <br>
+													The print() command, which is one of the easiest directives in Python, simply prints out a line to the screen. <br>
+													In your first lab:
+													<p>
+														use the print() function to print the line Hello, Python! to the screen. Use double quotes around the string. <br>
+														having done that, use the print() function again, but this time print your first name. <br>
+														remove the double quotes and run your code. Watch Python's reaction. What kind of error is thrown? <br>
+														then, remove the parentheses, put back the double quotes, and run your code again. What kind of error is thrown this time? <br>
+														experiment as much as you can. Change double quotes to single quotes, use multiple print() functions on the same line, and then on different lines. See what happens. 
+														<hr>
+														<img src="images/lab-print().PNG" class="responsive" alt="">
+													</p>
 												</p>
 											</section>
 										</div>
