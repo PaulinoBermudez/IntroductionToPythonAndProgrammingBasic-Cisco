@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Ubuntu&display=swap');
 
 /*
  	Styles pages
@@ -99,9 +100,9 @@ input, select, textarea {
 		}
 
 	body, input, select, textarea {
-		color: #7c8081;
-		font-family: 'Lato', sans-serif;
-		font-size: 15pt;
+		color: #515555;
+		font-family: 'Ubuntu', sans-serif;
+		font-size: 12pt;
 		font-weight: 300;
 		letter-spacing: 0.025em;
 		line-height: 1.75em;
@@ -126,12 +127,13 @@ input, select, textarea {
 	}
 
 	p, ul, ol, dl, table, blockquote {
-		margin: 0 0 2em 0;
+		margin: 2em 0 2em 1em;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Source Code Pro', sans-serif;
 		color: inherit;
-		font-weight: 300;
+		font-weight: 800;
 		line-height: 1.75em;
 		margin-bottom: 1em;
 		text-transform: uppercase;
@@ -2366,7 +2368,7 @@ input, select, textarea {
 			position: absolute;
 			right: 1.5em;
 			text-transform: uppercase;
-			top: 0.75em;
+			top: -1.75em;
 		}
 
 			#header nav ul {

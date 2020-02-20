@@ -702,6 +702,28 @@ print("THIS IS SANDBOX MODE.")</code></pre>
 														<li> The print() function puts a space between the outputted arguments on its own initiative.</li>
 													</ul>
 												</p>
+												<h2>The positional way of passing the arguments</h2>
+												<p>
+													Now that you know a bit about <code>print()</code> function customs, we're going to show you how to change them, you should be able to predict the output without running the code in the editor. <br>
+													The way in which we are passing the arguments into the <b>print() function</b> is the most common in Python, and is called the positional way (this name comes from the fact that the meaning of the argument is dictated by its position, e.g., the second argument will be outputted after the first, not the other way round). <br>													
+													Run the code and check if the output matches your predictions.													
+												</p>
+												<h2>The keyword arguments</h2>
+												<p>
+													Python offers another mechanism for the passing of arguments, which can be helpful when you want to convince the print() function to change its behavior a bit. We aren't going to explain it in depth right now. We plan to do this when we talk about functions. For now, 
+													we simply want to show you how it works. Feel free to use it in your own programs. <br>
+													The mechanism is called keyword arguments. The name stems from the fact that the meaning of these arguments is taken not from its location (position) but from the special word (keyword) used to identify them. <br>
+													The print() function has <b>two keyword arguments</b> that you can use for your purposes. The first of them is named <code>end</code>, in the editor window you can see a very simple example of using a keyword argument. In order to use it, it is necessary to know some rules:
+													<ul>
+														<li>a keyword argument consists of three elements: a keyword identifying the argument (<b>end</b> here); an <b> equal sign (=)</b>; and <b>a value</b> assigned to that argument.</li>
+														<li>any keyword arguments have to be put after the last positional argument (this is very important), in our example, we have made use of <b> the end keyword argument</b>, and set it to a string containing one space.</li>
+													</ul>
+													Run the code to see how it works, the console should now be showing the following text: <br>
+													<code>
+														My name is Python. Monty Python.
+													</code> <br>
+													As you can see, the end keyword argument determines the characters the print() function sends to the output once it reaches the end of its positional arguments. The default behavior reflects the situation where the end keyword argument is implicitly used in the following way: <code><b>end="\n"</b></code>.
+												</p>
 											</section>
 										</div>
 								</div>
