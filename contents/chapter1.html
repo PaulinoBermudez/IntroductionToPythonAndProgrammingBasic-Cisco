@@ -619,6 +619,7 @@ print("THIS IS SANDBOX MODE.")</code></pre>
 														</li>
 													</ul>
 												</p>
+												<h2>The escape and newline characters</h2>
 												<p>
 													We've changed the example a bit - we've added one empty print() function invocation. We call it empty because we haven't delivered any arguments to the function, you can see it in the editor window. Run the code. <br>
 													<b>What happens?</b> <br>
@@ -644,6 +645,62 @@ print("THIS IS SANDBOX MODE.")</code></pre>
 														and washed the spider out.
 													</code>
 													As you can see, two newlines appear in the nursery rhyme, in the places where the \n have been used.													
+												</p>
+												<p>
+													<b><i>This convention has two important consequences:</i></b> <br>
+													<ul>
+														<ol>
+															1. If you want to put just one backslash inside a string, don't forget its escaping nature - you have to double it, e.g., such an invocation will cause an error: <br>
+															<code>
+																print("\")
+															</code> <br>
+															while this one won't: <br>
+															<code>
+																print("\\")
+															</code> <br>
+														</ol>
+														<ol>
+															2. Not all escape pairs (the backslash coupled with another character) mean something.
+															Experiment with your code in the editor, run it, and see what happens.
+														</ol>
+													</ul>
+												</p>
+												<p>
+													This convention has two important consequences:
+													<ul>
+														<ol>
+															1. If you want to put just one backslash inside a string, don't forget its escaping nature - you have to double it, e.g., such an invocation will cause an error: <br>
+															<code>
+															print("\")													
+															</code> <br>
+															while this one won't: <br>
+															<code>
+																print("\\")
+															</code>
+														</ol>
+														<ol>
+															2. Not all escape pairs (the backslash coupled with another character) mean something.													
+														</ol>
+													</ul>
+													Experiment with your code in the editor, run it, and see what happens.													
+												</p>
+												<h2>Using multiple arguments</h2>
+												<p>
+													So far we have tested the print() function behavior with no arguments, and with one argument. It's also worth trying to feed the print() function with more than one argument. Look at the editor window. This is what we're going to test now: <br>
+													<code>
+														print("The itsy bitsy spider" , "climbed up" , "the waterspout.")
+													</code> <br>
+													There is one print() function invocation, but it contains three arguments. All of them are strings. <br>													
+													The arguments are separated by commas. We've surrounded them with spaces to make them more visible, but it's not really necessary, and we won't be doing it anymore, in this case, the commas separating the arguments play a completely different role than the comma inside the string. 
+													The former is a part of Python's syntax, the latter is intended to be shown in the console, if you look at the code again, you'll see that there are no spaces inside the strings.	<br>
+													Run the code and see what happens, the console should now be showing the following text: <br>
+													<code>The itsy bitsy spider climbed up the waterspout.</code> <br>																										
+													<b>The spaces, removed from the strings, have appeared again. Can you explain why? </b>													
+													Two conclusions emerge from this example:
+													<ul>
+														<li> A print() function invoked with more than one argument outputs them all on one line.</li>
+														<li> The print() function puts a space between the outputted arguments on its own initiative.</li>
+													</ul>
 												</p>
 											</section>
 										</div>
