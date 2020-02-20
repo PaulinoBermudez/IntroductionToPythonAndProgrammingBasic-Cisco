@@ -724,6 +724,18 @@ print("THIS IS SANDBOX MODE.")</code></pre>
 													</code> <br>
 													As you can see, the end keyword argument determines the characters the print() function sends to the output once it reaches the end of its positional arguments. The default behavior reflects the situation where the end keyword argument is implicitly used in the following way: <code><b>end="\n"</b></code>.
 												</p>
+												<p>
+													And now it's time to try something more difficult, if you look carefully, you'll see that we've used the end argument, but the string assigned to it is empty (it contains no characters at all). <br>
+													What will happen now? Run the program in the editor to find out, as the end argument has been set to nothing, the print() function outputs nothing too, once its positional arguments have been exhausted, the console should now be showing the following text:
+													<code>
+														My name is Monty Python.
+													</code>
+													<b>Note:</b> no newlines have been sent to the output.													
+													The string assigned to the end keyword argument can be of any length. Experiment with it if you want.
+													<div>
+														<img src="images/keyword arguments.PNG" class="responsive" alt="">
+													</div>											
+												</p>
 											</section>
 										</div>
 								</div>
