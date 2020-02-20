@@ -601,6 +601,50 @@ print("THIS IS SANDBOX MODE.")</code></pre>
 															None. Its effect is enough - print() does not evaluate anything.
 														</p>
 												</p>
+												<h2>The print() function - instructions</h2>
+												<p>
+													You already know that this program contains one function invocation. In turn, the function invocation is one of the possible kinds of Python instruction. Ergo, this program consists of just one instruction, of course, any complex program usually contains many more instructions than one. 
+													The question is: how do you couple more than one instruction into the Python code? <br>
+													Python's syntax is quite specific in this area. Unlike most programming languages, Python requires that there cannot be more than one instruction in a line. A line can be empty (i.e., it may contain no instruction at all) but it must not contain two, three or more instructions. This is strictly prohibited. <br>
+													<b>Note:</b> Python makes one exception to this rule - it allows one instruction to spread across more than one line (which may be helpful when your code contains complex constructions). Let's expand the code a bit, you can see it in the editor. Run it and note what you see in the console. Your Python console should now look like this: <br>
+													<code>
+														The itsy bitsy spider climbed up the waterspout.
+														Down came the rain and washed the spider out.
+													</code> <br>
+													This is a good opportunity to make some observations:
+													<ul>
+														<li> the program invokes the print() function twice, and you can see two separate lines in the console - this means that print() begins its output from a new line each time it starts its execution; you can change this behavior, but you can also use it to your advantage. </li>
+														<li> each print() invocation contains a different string, as its argument and the console content reflects it - this means that the instructions in the code are executed in the same order in which they have been placed in the source file; no next instruction is executed until 
+															the previous one is completed (there are some exceptions to this rule, but you can ignore them for now). 
+														</li>
+													</ul>
+												</p>
+												<p>
+													We've changed the example a bit - we've added one empty print() function invocation. We call it empty because we haven't delivered any arguments to the function, you can see it in the editor window. Run the code. <br>
+													<b>What happens?</b> <br>
+													If everything goes right, you should see something like this: <br>
+													<code>
+														The itsy bitsy spider climbed up the waterspout.
+														<br>
+														Down came the rain and washed the spider out. 
+													</code> <br>
+													As you can see, the empty print() invocation is not as empty as you may have expected - it does output an empty line, or (this interpretation is also correct) its output is just a newline. This is not the only way to produce a newline in the output console. We're now going to show you another way.
+												</p>
+												<p>
+													We've modified the code again. Look at it carefully. There are two very subtle changes - we've inserted a strange pair of characters inside the rhyme. They look like this: <code>\n</code>. Interestingly, while you can see two characters, Python sees one. <br>
+													The <b>backslash (\)</b> has a very special meaning when used inside strings - this is called the escape character. <br>
+													The word escape should be understood specifically - it means that the series of characters in the string escapes for the moment (a very short moment) to introduce a special inclusion.
+													In other words, the backslash doesn't mean anything in itself, but is only a kind of announcement, that the next character after the backslash has a different meaning too, the letter n placed after the backslash comes from the word newline. <br>
+													Both the backslash and the n form a special symbol named a newline character, which urges the console to start a new output line, run the code. Your console should now look like this:
+													<code>
+														The itsy bitsy spider
+														climbed up the waterspout.
+														<br>
+														Down came the rain
+														and washed the spider out.
+													</code>
+													As you can see, two newlines appear in the nursery rhyme, in the places where the \n have been used.													
+												</p>
 											</section>
 										</div>
 								</div>
