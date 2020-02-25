@@ -930,8 +930,10 @@ print("THIS IS SANDBOX MODE.")</code></pre>
 													Now it's time to talk about another type, which is designed to represent and to store the numbers that (as a mathematician would say) have a non-empty decimal fraction.
 													They are the numbers that have (or may have) a fractional part after the decimal point, and although such a definition is very poor, it's certainly sufficient for what we wish to discuss.													
 													Whenever we use a term like two and a half or minus zero point four, we think of numbers which the computer considers floating-point numbers: <br>
-													<pre class="responsive"><code>2.5
--0.4</code></pre> <br>
+													<blockquote>
+<pre>2.5
+-0.4</pre>														
+													</blockquote>
 													<b>Note:</b> two and a half looks normal when you write it in a program, although if your native language prefers to use a comma instead of a point in the number, you should ensure that your number doesn't contain any commas at all.													
 													Python will not accept that, or (in very rare but possible cases) may misunderstand your intentions, as the comma itself has its own reserved meaning in Python.													
 													If you want to use just a value of two and a half, you should write it as shown above. Note once again - there is a point between 2 and 5 - not a comma.													
@@ -949,6 +951,31 @@ print("THIS IS SANDBOX MODE.")</code></pre>
 														4.
 													</code> <br>
 													This will change neither its type nor its value.
+												</p>
+												<h2>Ints vs floats</h2>
+												<p>
+													The decimal point is essentially important in recognizing floating-point numbers in Python.
+													Look at these two numbers:
+													<blockquote><pre>4
+4.0</pre></blockquote> 
+													You may think that they are exactly the same, but Python sees them in a completely different way.
+													4 is an integer number, whereas 4.0 is a floating-point number.
+													The point is what makes a float. <br>
+													On the other hand, it's not only points that make a float. You can also use the letter e. <br>
+													When you want to use any numbers that are very large or very small, you can use <b>scientific notation</b>. 
+													Take, for example, the speed of light, expressed in meters per second. Written directly it would look like this: <b>300000000</b>. <br>
+													To avoid writing out so many zeros, physics textbooks use an abbreviated form, which you have probably already seen: <br>
+													<code>
+														3 x 10<sup>8</sup>.
+													</code> <br>
+													It reads: three times ten to the power of eight. In Python, the same effect is achieved in a slightly different way - take a look: <br>
+													<code>3E8</code> <br>
+													The letter E (you can also use the lower-case letter e - it comes from the word exponent) is a concise record of the phrase times ten to the power of. <br>
+													<div>
+														<b>Note:</b>
+														<li> the exponent (the value after the E) has to be an integer. </li>
+														<li> the base (the value in front of the E) may be an integer. </li>
+													</div>
 												</p>
 											</section>
 										</div>
