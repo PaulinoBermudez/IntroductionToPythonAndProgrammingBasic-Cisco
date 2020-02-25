@@ -907,6 +907,24 @@ print("THIS IS SANDBOX MODE.")</code></pre>
 														11111111
 													</code>.
 												</p>
+												<h2>Integers: Octal and hexadecimal numbers</h2>
+												<p>
+													There are two additional conventions in Python that are unknown to the world of mathematics. The first allows us to use numbers in an octal representation.
+													If an integer number is preceded by an <b>0O or 0o prefix (zero-o)</b>, it will be treated as an octal value. This means that the number must contain digits taken from the [0..7] range only.													
+													<b>0o123 is an octal number</b> with a (decimal) value equal to <b>83</b>.													
+													The print() function does the conversion automatically. Try this: <br>
+													<code>
+														print(0o123)
+													</code> <br>
+													The second convention allows us to use <b>hexadecimal numbers</b>. Such numbers should be preceded by the prefix <b>0x or 0X (zero-x)</b>.
+													0x123 is a hexadecimal number with a (decimal) <b>value equal to 291</b>. The print() function can manage these values too. Try this: <br>										
+													<code>
+														print(0x123)
+													</code> 
+													<div>
+														<img src="images/OctalAndHexadecimal.PNG" class="responsive alt="">
+													</div>
+												</p>
 											</section>
 										</div>
 								</div>
