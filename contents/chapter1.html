@@ -977,6 +977,32 @@ print("THIS IS SANDBOX MODE.")</code></pre>
 														<li> the base (the value in front of the E) may be an integer. </li>
 													</div>
 												</p>
+												<h2>Coding floats</h2>
+												<p>
+													Let's see how this convention is used to record numbers that are very small (in the sense of their absolute value, which is close to zero).
+													A physical constant called <b>Planck's constant (and denoted as h)</b>, according to the textbooks, has the value of: <b>6.62607 x 10<sup>-34</sup></b>.
+													If you would like to use it in a program, you should write it this way: <br>
+													<code>
+														6.62607E-34
+													</code>
+													<div>
+														<b>Note:</b> the fact that you've chosen one of the possible forms of coding float values doesn't mean that Python will present it the same way.
+													</div>
+													Python may sometimes choose different notation than you, for example, let's say you've decided to use the following float literal: <br>
+													<code>
+														0.0000000000000000000001
+													</code> <br>
+													When you run this literal through Python: <br>
+													<code>
+														print(0.0000000000000000000001)
+													</code> <br>
+													this is the result: <br>
+													<code>
+														1e-22
+													</code> <br>
+													Python always chooses the more economical form of the number's presentation, and you should take this into consideration when creating literals.
+												</p>
+												2.1.2.8
 											</section>
 										</div>
 								</div>
