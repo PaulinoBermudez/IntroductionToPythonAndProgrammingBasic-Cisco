@@ -1,0 +1,85 @@
+#!/bin/python
+import math
+# Menú
+print('********************')
+print('***  CALCULADORA ***')
+print('********************')
+print()
+print("Seleccione una de las opciones:")
+print("1- Suma")
+print("2- Resta")
+print("3- Multiplicación")
+print("4- División")
+print("5- Porcentaje")
+print("6- Exponencial al cuadrado")
+print("7- Exponencial a 'x'")
+print("8- Calcular polinomio de primer grado")
+print("9- Calcular polinomio de segundo grado")
+print("10- Calcular raiz cuadrada")
+print()
+x=input("Opción: ")
+y=int(x) 
+# Árbol condicional de opciones.
+if (y==1):
+    a=int(input("Introduzca el primer número: "))
+    b=int(input("Introduzca el segundo número: "))
+    print("\n")
+    resultado=(a+b)
+    print("El resultado es: ", resultado)
+elif (y==2):    
+    a=int(input("Introduzca el primer número: "))
+    print("\n")
+    b=int(input("Introduzca el segundo número: "))
+    resultado=a-b
+    print("El resultado es: ", resultado)
+elif (y==3):
+    a=int(input("Introduzca el primer número: "))
+    print("\n")
+    b=int(input("Introduzca el segundo número: "))
+    resultado=(a*b)
+    print("El resultado es: ", resultado)
+elif (y==4):
+    a=int(input("Introduzca el primer número: "))
+    print("\n")
+    b=int(input("Introduzca el segundo número: "))
+    resultado=(a/b)
+    resto=(a%b)
+    print("El resultado es: ", resultado, " y de resto: ", resto)
+elif (y==5):
+    a=int(input("Introduzca el primer número: "))
+    print("\n")
+    b=int(input("Introduzca el segundo número: "))
+    resultado=((a*b)/100)
+    print("El ", b ,"% de ",a  ," es: ", resultado)
+elif (y==6):
+    a=int(input("Introduzca el primer número: "))
+    resultado=(a**2)
+    print("El resultado es: ", resultado)
+elif (y==7):
+    a=int(input("Introduzca el primer número: "))
+    print("\n")
+    b=int(input("Introduzca el segundo número: "))
+    resultado=(a**b)
+    print("El resultado es: ", resultado)
+elif (y==8):
+    a=int(input("Introduzca valores de las 'X's' : "))
+    b=int(input("Introduzca valores de los enteros : "))
+    print("\n")
+    resultado=(b/a)
+    print("El resultado es: ", resultado)
+elif (y==9):
+    a=int(input("Introduzca valores de las 'X^2' : "))
+    b=int(input("Introduzca valores de las 'X' : "))
+    c=int(input("Introduzca valores de los enteros : "))
+    print("\n")
+    resultado1=((-b)+math.sqrt((b**2)-(a*c))/(2*a))
+    resultado2=((-b)-math.sqrt((b**2)-(a*c))/(2*a))
+    print("El resultado para +X es: ", resultado1)
+    print("El resultado para -X es: ", resultado2)
+elif (y==10):
+    a=int(input("Introduzca el número: "))
+    print("\n")
+    resultado=(math.sqrt(a))
+    print("El resultado es:", resultado)
+else:
+    print("Número inválido!")    
