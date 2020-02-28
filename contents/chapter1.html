@@ -1026,7 +1026,83 @@ print("THIS IS SANDBOX MODE.")</code></pre>
 														<li>remove the double quotes and run your code. Watch Python's reaction. What kind of error is thrown?</li>
 														<li>then, remove the parentheses, put back the double quotes, and run your code again. What kind of error is thrown this time?</li>
 														<li>experiment as much as you can. Change double quotes to single quotes, use multiple print() functions on the same line, and then on different lines. See what happens.</li>
+														<img src="images/lab-print()Function.PNG" class="responsive" alt="">
 													</ul>
+												</p>
+												<h2>The print() function</h2>
+												<p>
+													Three important questions have to be answered as soon as possible: <hr>
+													<strong>1. What is the effect the print() function causes?</strong> <br>
+													The effect is very useful and very spectacular. The function:
+													<ul>
+														<li> <b>Takes its arguments</b> (it may accept more than one argument and may also accept less than one argument)</li>
+														<li> <b>Converts them into human-readable</b> form if needed (as you may suspect, strings don't require this action, as the string is already readable)</li>
+														<li> And <b>sends the resulting data to the output device</b> (usually the console); in other words, anything you put into the print() function will appear on your screen.</li>
+													</ul>
+													No wonder then, that from now on, you'll utilize print() very intensively to see the results of your operations and evaluations.
+													<hr>
+													<strong>2. What arguments does print() expect?</strong>
+													Any. We'll show you soon that print() is able to operate with virtually all types of data offered by Python. Strings, numbers, characters, logical values, objects - any of these may be successfully passed to <code>print()</code>.
+													<hr>
+													<strong>3. What value does the print() function evaluate?</strong>
+													None. Its effect is enough - print() does not evaluate anything.
+												</p>
+												<h2>The print() function - instructions</h2>
+												<p>
+													You already know that this program contains one function invocation. In turn, the function invocation is one of the possible kinds of Python instruction. Ergo, this program consists of just one instruction. <br>
+													Of course, any complex program usually contains many more instructions than one. The question is: <b> how do you couple more than one instruction into the Python code?</b> <br>
+													Python's syntax is quite specific in this area. Unlike most programming languages, Python requires that <b>there cannot be more than one instruction in a line.</b> <br>
+													A line can be empty (i.e., it may contain no instruction at all) but it must not contain two, three or more instructions. This is strictly prohibited. <br>
+													<b>Note:</b> Python makes one exception to this rule - it allows one instruction to spread across more than one line (which may be helpful when your code contains complex constructions). <br>
+													Let's expand the code a bit, you can see it in the editor. Run it and note what you see in the console. <br>
+													Your Python console should now look like this:
+<pre><code>The itsy bitsy spider climbed up the waterspout.
+Down came the rain and washed the spider out.</code></pre> <hr>
+													<div><img src="images/yourveryfirstprogram.PNG" class="responsive" alt=""></div>
+													This is a good opportunity to make some observations: 
+													<ul>
+														<li>
+															The program invokes the print() function twice, and you can see two separate lines in the console - this means that print() begins its output from a new line each time it starts its execution; you can change this behavior, but you can also use it to your advantage.
+														</li>
+														<li>
+															Each print() invocation contains a different string, as its argument and the console content reflects it - this means that the instructions in the code are executed in the same order in which they have been placed in the source file; no next instruction is executed until the previous one is completed (there are some exceptions to this rule, but you can ignore them for now)
+														</li>
+													</ul>
+												</p>
+												<h2>The <code>print()</code> function - the escape and newline characters</h2>
+												<p>
+													We've modified the code again. Look at it carefully. <br>
+													There are two very subtle changes - we've inserted a strange pair of characters inside the rhyme. They look like this:  <br>
+													<code>
+														\n 
+													</code> <br>
+													Interestingly, while <b>you can see two characters, Python sees one</b>. <br>
+													The <b>backslash</b> <code>(\)</code> has a very special meaning when used inside strings - this is called the <b>escape character</b>. <br>
+													The word escape should be understood specifically - it means that the series of characters in the string escapes for the moment (a very short moment) to introduce a special inclusion. <br>
+													In other words, the backslash doesn't mean anything in itself, but is only a kind of announcement, that the next character after the backslash has a different meaning too. <br>
+													The letter 'n' placed after the backslash comes from the word newline. <br>
+													Both the backslash and the n form a special symbol named a newline character, which urges the console to start a new output line. <br>
+													Run the code. Your console should now look like this:
+<pre><code>The itsy bitsy spider
+climbed up the waterspout.
+	
+Down came the rain
+and washed the spider out.</code></pre>	
+													As you can see, two newlines appear in the nursery rhyme, in the places where the \n have been used. <br>
+													<img src="images/escapeAndNewlineCharacters.PNG" class="responsive" alt="">
+												</p>
+												<p>
+													This convention has two important consequences: <br>
+													<b>1.</b> If you want to put just one backslash inside a string, don't forget its escaping nature - you have to double it, e.g., such an invocation will cause an error: <br>
+													<code>
+														print("\")
+													</code>
+													while this one won't: <br>
+													<code>
+														print("\\")
+													</code>
+													<b>2.</b> Not all escape pairs (the backslash coupled with another character) mean something. <br>
+													Experiment with your code in the editor, run it, and see what happens.													
 												</p>
 											</section>
 										</div>
