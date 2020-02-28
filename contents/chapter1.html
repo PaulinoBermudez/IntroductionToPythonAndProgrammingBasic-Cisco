@@ -1096,13 +1096,33 @@ and washed the spider out.</code></pre>
 													<b>1.</b> If you want to put just one backslash inside a string, don't forget its escaping nature - you have to double it, e.g., such an invocation will cause an error: <br>
 													<code>
 														print("\")
-													</code>
+													</code> <br>
 													while this one won't: <br>
 													<code>
 														print("\\")
 													</code> <br>
 													<b>2.</b> Not all escape pairs (the backslash coupled with another character) mean something. <br>
-													Experiment with your code in the editor, run it, and see what happens.													
+													Experiment with your code in the editor, run it, and see what happens. <br>
+													<img src="images/backslash.PNG" class="responsive" alt="">
+												</p>
+												<h2>The print function - using multiples argumets</h2>
+												<p>
+													So far we have tested the print() function behavior with no arguments, and with one argument. It's also worth trying to feed the print() function with more than one argument. <br>
+													Look at the editor window. This is what we're going to test now: 
+<pre><code>print("The itsy bitsy spider" , "climbed up" , "the waterspout.")</code></pre>
+													There is one print() function invocation, but it contains <b>three arguments</b>. All of them are strings. <br>
+													<b>The arguments are separated by commas</b>. We've surrounded them with spaces to make them more visible, but it's not really necessary, and we won't be doing it anymore. <br>
+													In this case, the commas separating the arguments play a completely different role than the comma inside the string. The former is a part of Python's syntax, the latter is intended to be shown in the console. <br>
+													If you look at the code again, you'll see that there are no spaces inside the strings. Run the code and see what happens. <br>
+													The console should now be showing the following text: <br>
+													<code>The itsy bitsy spider climbed up the waterspout.</code> <br>
+													<b>The spaces, removed from the strings, have appeared again. Can you explain why? </b> <br>
+													Two conclusions emerge from this example:
+													<ul>
+														<li> a print() function invoked with more than one argument outputs them all on one line.</li>
+														<li> The print() function puts a space between the outputted arguments on its own initiative.</li>
+													</ul>
+													<img src="images/3argumets.PNG" class="responsive" alt="">
 												</p>
 											</section>
 										</div>
