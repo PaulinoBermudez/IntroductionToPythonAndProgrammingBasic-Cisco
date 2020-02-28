@@ -1133,6 +1133,25 @@ and washed the spider out.</code></pre>
 													Run the code and check if the output matches your predictions. <br>
 													<img src="images/the position way of pass the arguments.PNG" class="responsive" alt="">
 												</p>
+												<h2>The print() function - the keyword arguments</h2>
+												<p>
+													Python offers another mechanism for the passing of arguments, which can be helpful when you want to convince the print() function to change its behavior a bit. <br>
+													We aren't going to explain it in depth right now. We plan to do this when we talk about functions. For now, we simply want to show you how it works. Feel free to use it in your own programs. <br>
+													The mechanism is called keyword arguments. The name stems from the fact that the meaning of these arguments is taken not from its location (position) but from the special word (keyword) used to identify them. <br>
+													The print() function has two keyword arguments that you can use for your purposes. The first of them is named end. <br>
+													In the editor window you can see a very simple example of using a keyword argument. <br>
+													In order to use it, it is necessary to know some rules:
+													<ul>
+														<li> A keyword argument consists of three elements: a keyword identifying the argument (end here); an equal sign (=); and a value assigned to that argument. </li>
+														<li>Any keyword arguments have to be put after the last positional argument (this is very important) </li>
+													</ul>
+													In our example, we have made use of the end keyword argument, and set it to a string containing one space. Run the code to see how it works. <br>
+													The console should now be showing the following text: <br>
+													<code>My name is Python. Monty Python.</code> <br>
+													As you can see, the end keyword argument determines the characters the print() function sends to the output once it reaches the end of its positional arguments. <br>
+													The default behavior reflects the situation where the end keyword argument is implicitly used in the following way: <code>end="\n"</code>. <br>
+													<img src="images/the keyword arguments.PNG" class="responsive" alt="">													
+												</p>
 											</section>
 										</div>
 								</div>
