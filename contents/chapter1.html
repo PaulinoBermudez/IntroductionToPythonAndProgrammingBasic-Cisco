@@ -1270,6 +1270,37 @@ and washed the spider out.</code></pre>
 													You cannot choose the roght one without some additional knowledge. And this is the clue: <code>123</code> is a literal, and <code>c</code> is not. <br>
 													You use literals <b>to encode data and to put them into your code</b>. We're now going to show you some conventions you have obey when using Python.
 												</p>
+												<p>
+													Let's start with a simple experiment - take a look at the snippet in the editor. <br>
+													The first line looks familiar. The second seems to be erroneous due to the visible lack of quotes. <br>													
+													Try to run it. <br>													
+													If everything went okay, you should now see two identical lines. <br>													
+													<i>What happened? What does it mean?</i> <br>						
+													Through this example, you encounter two different types of literals:
+													<ul>
+														<li> a string, which you already know. </li>
+														<li> and an integer number, something completely new. </li>
+													</ul>
+													The print() function presents them in exactly the same way - this example is obvious, as their human-readable representation is also the same. 
+													Internally, in the computer's memory, these two values are stored in completely different ways - the string exists as just a string - a series of letters. <br>
+													The number is converted into machine representation (a set of bits). The print() function is able to show them both in a form readable to humans.													
+													We're now going to be spending some time discussing numeric literals and their internal life. <br>
+													<img src="images/pythonLiterals.PNG" alt="">
+												</p>
+												<h2>Integers</h2>
+												<p>
+													You may already know a little about how computers perfom calculations on numbers. Perhaps you've heard of the <b>binary system</b>, and know that it's the system computers use for storing numbers, and that they can perform any operation upon them. <br>
+													We won't explore the intrincacies of positional numeral systems here, but we'll say that the numbers handled by moderm computers are of two types:
+													<ul>
+														<li>
+															<b>Integers</b> that is, those which are devoid of the fractional part.
+														</li>
+														<li>
+															And <b>floating-point</b> numbers (or simply <b>floats</b> ) that contain (or are able to contain) the fraction part.
+														</li>
+													</ul>
+													This definition isn't entirely accurate, but quite sufficient for now. The distinction is very important, and the boundary between these two types of numbers is very strict.
+												</p>
 											</section>
 										</div>
 								</div>
