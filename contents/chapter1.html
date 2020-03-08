@@ -1604,7 +1604,103 @@ and washed the spider out.</code></pre>
 													The operator preserves the sign of its only argument - the right one. <br>
 													Although such a construction is syntactically correct, using it doesn't make much sense, and it would be hard to find a good rationale for doing so.													
 												</p>
-												
+												<h2>Operators and their priorities</h2>
+												<p>
+													So far, we've treated each operator as if it had no connection with the others. Obviously, such an ideal and simple situation is a rarity in real programming.
+													Also, you will very often find more than one operator in one expression, and then this presumption is no longer so obvious.													
+													Consider the following expression:
+													<code>2 + 3 * 5</code>	<br>
+													You probably remember from school that multiplications precede additions.
+													You surely remember that you should first multiply 3 by 5 and, keeping the 15 in your memory, then add it to 2, thus getting the result of 17.
+													The phenomenon that causes some operators to act before others is known as the <b>hierarchy of priorities</b>. <br>
+													Python precisely defines the priorities of all operators, and assumes that operators of a larger (higher) priority perform their operations before the operators of a lower priority. <br>
+													So, if you know that * has a higher priority than +, the computation of the final result should be obvious.
+												</p>
+												<h2>Operators and their bindings</h2>
+												<p>
+													The binding of the operator determines the order of computations performed by some operators with equal priority, put side by side in one expression.
+													Most of Python's operators have left-sided binding, which means that the calculation of the expression is conducted from left to right.<br>									
+													This simple example will show you how it works. Take a look:
+													<code>print(9 % 6 % 2)</code> <br>
+													There are two possible ways of evaluating this expression:
+													<ul>
+														<li> From left to right: first 9 % 6 gives 3, and then 3 % 2 gives 1. </li>
+														<li> From right to left: first 6 % 2 gives 0, and then 9 % 0 causes <b>a fatal error</b>. </li>
+													</ul>
+													Run the example and see what you get. The result should be <code>1</code>. This operator has left-sided binding. But there's one interesting exception.
+												</p>
+												<h2>Operators and their bindings: exponentiation</h2>
+												<p>
+													Repeat the experiment, but now with exponentiation. Use this snippet of code:
+													<code>
+														print(2 ** 2 ** 3)
+													</code> <br>
+													The two possible results are:
+													<ul>
+														<li>
+															<code>2 ** 2 &rarr; 4; 4 ** 3 &rarr; 64</code>
+														</li>
+														<li>
+															<code>2 ** 3 &rarr; 8; 2 ** 8 &rarr; 256</code>
+														</li>
+													</ul>
+													Run the code. What do you see? <br>
+													<img src="images/exponentiation.PNG" class="responsive" alt="">
+													<b>The result clearly shows that the exponentiation operator uses right-sided binding.	</b>												
+												</p>
+												<h2>List of priorities</h2>
+												<p>
+													Since you're new Python operators, we don't want to present the complete list of operator priorities right now. <br>
+													Instead, we'll show you it's truncated form, and we'll expand it consistently as we introduce new operators. Look at the table below: <br>
+													<table>
+														<tr>
+															<td><b>Priority</b></td>
+															<td><b>Operator</b></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td>+ , -</td>
+															<td>unary</td>
+														</tr>
+														<tr>
+															<td>2</td>
+															<td>**</td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>3</td>
+															<td>* , / , %</td>
+															<td></td>
+														</tr>
+														<tr>
+															<td>4</td>
+															<td>+ , -</td>
+															<td>binary</td>
+														</tr>
+													</table>
+													<b>Note:</b> We've enumerated the operators in order <b>from the highest (1) to the lowest (4) priorities.</b> <br>
+													Try ro work through the following expression: <code>print(2*3%5)</code> <br>
+													Both operators (<code>*</code> and <code>%</code> ) have the same priority, so the result can be guessed only when you know the binding direction. How do you think? What is the result? <br>
+													<blockquote>
+														<code>1</code>
+													</blockquote>
+												</p>
+												<h2>Operators and parentheses</h2>
+												<p>
+													Of course, you're always allowed to use parentheses, which can change the natural order of a calculation. In accordance with the arithmetic rules, subexpressions in parentheses are always calculated first. <br>
+													You can use as many parentheses as you need, and they're often used to improve the readability of an expression, even if they don't change the order of the operations. <br>
+													An example of an expression with multiple parentheses is here: <br>
+													<code>print((5 * ((25 % 13) + 100) / (2 * 13)) // 2)</code>
+													Try to compute the value that's printed to the console. What's the result of the print() function? 
+													<blockquote>
+														<code>10.0</code>
+													</blockquote>
+												</p>
+												<h2>Key takeways</h2>
+												<p>
+													2.1.3.10
+												</p>
 											</section>
 										</div>
 								</div>
