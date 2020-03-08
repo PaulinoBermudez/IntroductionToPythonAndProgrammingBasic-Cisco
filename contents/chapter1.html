@@ -1542,6 +1542,44 @@ and washed the spider out.</code></pre>
 													<br>
 													Note: Integer division can also be called <b>floor division</b>. You will definitely come across this term in the future.
 												</p>
+												<h2>Operators: Remainder (Modulo)</h2> 
+												<p>
+													The next operator is quite a peculiar one, because it has no equivalent among traditional arithmetic operators. Its graphical representation in Python is the <code>% </code>(percent) sign, which may look a bit confusing.
+													Try to think of it as of a slash (division operator) accompanied by two funny little circles. The result of the operator is a <b>remainder left after the integer division</b>. <br>
+													In other words, it's the value left over after dividing one value by another to produce an integer  quotient. <br>
+													<b>Note</b> The operator is sometimes called <b>modulo</b> in other programming lenguages. <br>
+													Take a look at the snippet - try to predicts it's results and then run it: <br>
+													<img src="images/modulo.PNG" class="responsive" alt=""> <br>
+													As you can see, the results is two. This is why:
+													<ul>
+														<li>
+															<code>14//4</code> gives <code>3</code> &rarr; This is the integer <b>quotient.</b>
+														</li>
+														<li>
+															<code>3*4</code> gives <code>12</code> &rarr; As a result of <b>quotient and divisor multiplication.</b>
+														</li>
+														<li>
+															<code>14 - 12</code> gives <code>2</code> &rarr; This is the <b>remainder.</b>
+														</li>
+													</ul>
+													This example is somewhat more complicated: <code>print(12 % 4.5)</code> The result is: <br>
+													<img src="images/print(12%4.5).PNG" class="responsive" alt=""> 
+													<div>
+														<blockquote>
+															3.0 - not 3 but 3.0 (the rule still works: 12 // 4.5 gives 2.0; 2.0 * 4.5 gives 9.0; 12 - 9.0 gives 3.0). 
+														</blockquote>
+													</div>
+												</p>
+												<h2>Operators: How not to divide</h2>
+												<p>
+													As you probably know,  division by <b>zero</b> doesn't work. <br>
+													Do no try to:
+													<ul>
+														<li>Perform a division by zero.</li>
+														<li>Perform an integer division by zero.</li>
+														<li>Find a remainder of a division by zero.</li>
+													</ul>
+												</p>
 											</section>
 										</div>
 								</div>
