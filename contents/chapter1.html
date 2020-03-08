@@ -1518,6 +1518,30 @@ and washed the spider out.</code></pre>
 													Is this a problem? Yes, it is. It happens sometimes that you really need a division that provides an integer value, not a float. <br>
 													Fortunately, Python can help you with that.
 												</p>
+												<h2>Arithmetic operators: integer</h2>
+												<p>
+													A <code>//</code> (double slash) sign is an <b>integer division</b> operator. It differs from the standard <code>/</code> operator in two details:
+													<ul>
+														<li>
+															It result lacks the fractional part - It's absent (for integers), or is always equal to zero (for floats). This means that <b>the results are always rounded.</b>
+														</li>
+														<li>	
+															It conforms to the integer vs float rule.
+														</li>
+													</ul>
+													Run the example below and see the results: <br>
+													<img src="images/arithmetics-operators-IntegerDivision.PNG" alt="" class="responsive"> <br>
+													As you can see, integer by integer division gives an <b>integer result</b>. All other cases produce floats. Let's do some more advanced test. Look at the following snippet: <br>
+													<img src="images/IntegerByIntegerDivision.PNG" class="responsive" alt=""> <br>
+													Imagine that we used <code>/</code>  instead of <code>//</code> - could you predict the results? Yes, it would be <code>1.5</code> in both cases. That's clear. But what results should we expect with <code>//</code> division? <br>
+													Run the code and see for yourself, the result of intger division is always rounded to the nearest integer value that os less than the real (not rounded) result. This is very important: <b>rounding always goes to the lesser integer.</b> <br>
+													Look at the code below and try to predict the results once again: <br>
+													<img src="images/roundingAlwaysGoesToTheLesserInteger.PNG" class="responsive" alt=""> <br>
+													<b>Note:</b>some of the values are negative. This will obviously affect the result. But how? <br>
+													The result is two negative twos. The real (not rounded) result is <code>-1.5</code> in both cases. However, the results are the subjects of rounding. The rounding goes toward the lesser integer value, and the lesser integer value is -2, hence: -2 and -2.0.
+													<br>
+													Note: Integer division can also be called <b>floor division</b>. You will definitely come across this term in the future.
+												</p>
 											</section>
 										</div>
 								</div>
