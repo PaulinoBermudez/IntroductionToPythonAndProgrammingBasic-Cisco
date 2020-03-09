@@ -1927,7 +1927,69 @@ and washed the spider out.</code></pre>
 													</ul>
 													<img src="images/lab-variables.PNG" class="responsive" alt="">
 												</p>
-												
+												<h2>Shrtcut operators</h2>
+												<p>
+													It's time for the next set of operators that make a developer's life easier. <br>
+													Very often, we want to use one and the same variable both to the right and left sides of the = operator. <br>													
+													For example, if we need to calculate a series of successive values of powers of 2, we may use a piece like this:	 <br>												
+													<code>x = x * 2</code> <br>													
+													You may use an expression like this if you can't fall asleep and you're trying to deal with it using some good, old-fashioned methods: <br>													
+													<code>sheep = sheep + 1</code>													 <br>
+													Python offers you a shortened way of writing operations like these, which can be coded as follows:	 <br>												
+													<blockquote>
+														x *= 2 <br>
+														sheep += 1 
+													</blockquote>	<br>												
+													Let's try to present a general description for these operations. <br>													
+													If op is a two-argument operator (this is a very important condition) and the operator is used in the following context:	 <br>												
+													<code>variable = variable op expression</code> <br>													
+													It can be simplified and shown as follows:	 <br>												
+													<code>variable op= expression</code>	 <br>												
+													Take a look at the examples below. Make sure you understand them all. <br>													
+													<code>i = i + 2 * j ⇒ i += 2 * j</code>
+													<br>
+													<code>var = var / 2 ⇒ var /= 2</code>
+													<br>
+													<code>rem = rem % 10 ⇒ rem %= 10</code>
+													<br>
+													<code>j = j - (i + var + rem) ⇒ j -= (i + var + rem)</code>
+													<br>
+													<code>x = x ** 2 ⇒ x **= 2</code>
+												</p>
+												<h2>Lab: Variables</h2>
+												<p>
+													<b>Lab</b> <br>
+													<h4>Estimated time</h4>
+													10 minutes
+													<h4>Level of difficulty</h4>
+													Easy
+													<h4>Objectives</h4>
+													Becomming familiar with the concept of and working with variables. <br>
+													Performing basic computations and conversions. <br>
+													Expermienting with Python code.
+													<h4>Scenario</h4>
+													Miles and kilometers are units of length or distance. <br>
+													Bearing in mind that 1 mile is equal to approximately 1.61 kilometers, complete the program in the editor so that it converts: <br>
+														- Miles to kilometers. <br>
+														- Kilometers to miles. <br>
+													Do not change anything in the existing code. Write your code in the places indicated by ###. Test your program with the data we've provided in the source code. <br>
+													Pay particular attention to what is going on inside the print() function. Analyze how we provide multiple arguments to the function, and how we output the expected data. <br>
+													<b>Note</b> that some of the arguments inside the print() function are strings (e.g., "miles is", whereas some other are variables (e.g., miles). 
+													<h4>Tip</h4>
+													<p>
+														There's one more interesting thing happening there. Can you see another function inside the print() function? It's the round() function. Its job is to round the outputted result to the number of decimal places specified in the parentheses, 
+														and return a float (inside the round() function you can find the variable name, a comma, and the number of decimal places we're aiming for). We're going to talk about functions very soon, so don't worry that everything may not be fully clear 
+														yet. We just want to spark your curiosity. <br>
+														After completing the lab, open Sandbox, and experiment more. Try to write different converters, e.g., a USD to EUR converter, a temperature converter, etc. - let your imagination fly! Try to output the results by combining strings and variables. 
+														Try to use and experiment with the round() function to round your results to one, two, or three decimal places. Check out what happens if you don't provide any number of digits. Remember to test your programs. <br>
+														Experiment, draw conclusions, and learn. Be curious. 
+													</p>
+													<h4>Expect output</h4>
+													<blockquote>
+														7.38 miles is 11.88 kilometers <br>
+														12.25 kilometers is 7.61 miles
+													</blockquote>
+												</p>
 											</section>
 										</div>
 								</div>
