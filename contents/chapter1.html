@@ -1779,8 +1779,155 @@ and washed the spider out.</code></pre>
 												</p>
 												<h2>Keywords</h2>
 												<p>
-													
+													Take a look at the list of words that play a very special role in every Python program. <br>
+													<code>
+														['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+													</code> <br>
+													They are called keywords or (more precisely) <b>reserved keywords</b>. They are reserved because you mustn't use them as names: neither for your variables, nor functions, nor any other named entities you want to create. The meaning of the reserved word is predefined, and mustn't be changed in any way. <br>
+													Fortunately, due to the fact that Python is case-sensitive, you can modify any of these words by changing the case of any letter, thus creating a new word, which is not reserved anymore. For example - you can't name your variable like this:
+													<code>
+														import
+													</code> <br>
+													You mustn't have a variable named in such a way - it is prohibited. But you can do this instead: <br>
+													<code>
+														Import
+													</code> <br>
+													These words might be a mystery to you now, but you'll soon learn the meaning of them.
 												</p>
+												<h2>Creating variables</h2>
+												<p>
+													What can you put inside a variable? <br>
+													Anything. <br>
+													You can use a variable to store any value of any of the already presented kinds, and many more of the ones we haven't shown you yet. <br>
+													The value of a variable is what you have put into it. It can vary as often as you need or want. It can be an integer one moment, and a float a moment later, eventually becoming a string. <br>
+													Let's talk now about two important things - how variables are created, and how to put values inside them (or rather - how to give or pass values to them). <br>
+													<b>REMEMBER</b> <br>
+													A variable comes into existence as a result of assigning a value to it. Unlike in other languages, you don't need to declare it in any special way.
+													If you assign any value to a nonexistent variable, the variable will be automatically created. You don't need to do anything else. <br>
+													The creation (or otherwise - its syntax) is extremely simple: just use the name of the desired variable, then the equal sign (=) and the value you want to put into the variable. <br>
+													The concept of 'you can put anything inside a variable'. Take a look at the snippet: 
+													<blockquote>
+														var = 1 <br>
+														print(var)
+													</blockquote>
+													It consists of two simple instructions:
+													<ul>
+														<li> The first of them creates a variable named var, and assigns a literal with an integer value equal to 1.  </li>
+														<li> The second prints the value of the newly created variable to the console.  </li>
+													</ul>
+													Note: <code>print()</code> has yet another side to it - it can handle variables too. Do you know what the output of the snippet will be? <br>
+													<code>1</code>
+												</p>
+												<h2>Using variables</h2>
+												<p>
+													You're allowed to use as many variable declarations as you need to achieve your goal, like this: <br>
+													<blockquote>
+														var = 1 <br>
+														account_balance = 1000.0 <br>
+														client_name = 'John Doe' <br>
+														print(var, account_balance, client_name) <br>
+														print(var) 
+													</blockquote> <br>
+													You're not allowed to use a variable which doesn't exist, though (in other words, a variable that was not given a value). This example will cause an error: <br>
+													<blockquote>
+														<b>v</b>ar = 1 <br>
+														print( <b>V</b>ar)
+													</blockquote>
+													We've tried to use a variable named Var, which doesn't have any value (note: var and Var are different entities, and have nothing in common as far as Python's concerned). <br>
+													<b>REMEMBER</b> <br>
+													You can use the print() statement and combine text and variables using the + operator to output strings and variables, e.g.: <br>
+													<blockquote>
+														var = "3.7.1" <br>
+														print("Python version: " + var)
+													</blockquote>
+													Can you guess the output of the snippet above? <br>
+													<code>
+														Python version: 3.7.1
+													</code>
+												</p>
+												<h2>Assigning a new value to an already existing variable</h2>
+												<p>
+													How do you assign a new value to an already created variable? In the same way. You just need to use the equal sign. The equal sign is in fact an assignment operator. Although this may sound strange, the operator has a simple syntax and unambiguous interpretation.  <br>
+													It assigns the value of its right argument to the left, while the right argument may be an arbitrarily complex expression involving literals, operators a nd already defined variables.	 <br>
+													Look at the code below:
+													<blockquote>
+														var = 1 <br>
+														print(var) <br>
+														var = var + 1 <br>
+														print(var)
+													</blockquote> <br>
+													The code sends two lines to the console: <br>
+													<blockquote>
+														1 <br>
+														2
+													</blockquote> <br>
+													The first line of the snippet creates a new variable named var and assigns 1 to it. The statement reads: assign a value of 1 to a variable named var.We can say it shorter: assign 1 to var. Some prefer to read such a statement as: var becomes 1. <br>
+													The third line assigns the same variable with the new value taken from the variable itself, summed with 1. Seeing a record like that, a mathematician would probably protest - no value may be equal to itself plus one. This is a contradiction. But Python treats the sign = not as equal to, but as assign a value. <br>
+													So how do you read such a record in the program? <br>
+													Take the current value of the variable var, add 1 to it and store the result in the variable var. <br>
+													In effect, the value of variable var has been incremented by one, which has nothing to do with comparing the variable with any value. <br>
+													Do you know what the output of the following snippet will be? <br>
+													<blockquote>
+														var = 100 <br>
+														var = 200 + 300 <br>
+														print(var)
+													</blockquote>	<br>
+													<div>
+														<code>500</code> - why? Well, first, the <code>var</code> variable is created and assigned a value of 100. Then, the same variable is assigned a new valued: the result of adding 200 to 300, which is 500.
+													</div>										
+												</p>
+												<h2>Solving simple mathematical problems</h2>
+												<p>
+													Now you should be able to construct a short program solving simple mathematical problems such as the Pythagorean theorem. <br>
+													<i>
+														The square od the hypotenuse is equal to the sum of the squeares of the other two sides.
+													</i> <br>
+													The following code evaluates the length of the hypotenuse (i.e, the longest side of a right angled triangle, the one opposite of the right angle) using the Pythagorean theorem: <br>
+													<blockquote>
+														a = 3.0 <br>
+														b = 4.0 <br>
+														c = (a**2 + b**2)**0.5 <br>
+														print("c = ", c) 
+													</blockquocte> <br>
+													<b>Note:</b> We need to make use of the <code>**</code> operator to evaluate the square root as: <br>
+														&radic;(x) = x<sup>(1/2)</sup> <br>
+													and <br>
+														c= &radic;(a<sup>2</sup>+b<sup>2</sup>) <br>
+													Can you guess the output of the code? <br>
+													<img src="images/pythagoreanTheorem.PNG" class="responsive" alt="">
+												</p>
+												<h2>Lab: variables</h2>
+												<p>
+													<b> Estimated time</b> <br>
+													10 minutes <br>
+													<b>Level of difficulty</b> <br>
+													Easy <br>
+													<b>Objectives</b> <br>
+													Becoming familiar with the concept of storing and working with different data types in Python, experimenting with Python code. <br>
+													<b>Scenario</b> <br>
+													Here is a short story: <br>
+													Once upon a time in Appleland, John had three apples, Mary had five apples, and Adam had six apples. They were all very happy and lived for a long time. End of story. <br>
+													Your task is to: <br>
+													<ul>
+														<li>
+															Create the variables: john, mary, and adam.
+														</li>
+														<li>
+															Assign values to the variables. The values must be equal to the numbers of fruit possessed by John, Mary, and Adam respectively.
+														</li>
+														<li>
+															Having stored the numbers in the variables, print the variables on one line, and separate each of them with a comma.
+														</li>
+														<li>
+															Now create a new variable named totalApples equal to addition of the three former variables.
+														</li>
+														<li>
+															print the value stored in totalApples to the console.
+														</li>
+													</ul>
+													<img src="images/lab-variables.PNG" class="responsive" alt="">
+												</p>
+												
 											</section>
 										</div>
 								</div>
