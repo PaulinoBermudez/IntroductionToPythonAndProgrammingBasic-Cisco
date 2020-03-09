@@ -1699,7 +1699,87 @@ and washed the spider out.</code></pre>
 												</p>
 												<h2>Key takeways</h2>
 												<p>
-													2.1.3.10
+													<ul>
+													<ol> 1. An expression  is a combination of values (or variables, operators, calls to functions - you will learn about them soon) which evaluates to a value, e.g., 1 + 2.  </ol>
+													<ol> 2. Operators are special symbols or keywords which are able to operate on the values and perform (mathematical) operations, e.g., the * operator multiplies two values: x * y. </ol>													
+													<ol> 3. Arithmetic operators in Python: + (addition), - (subtraction), * (multiplication), / (classic division - returns a float if one of the values is of float type), % 
+														(modulus - divides left operand by right operand and returns the remainder of the operation, e.g., 5 % 2 = 1), ** (exponentiation - left operand raised to the power of right operand, 
+														e.g., 2 ** 3 = 2 * 2 * 2 = 8), // (floor/integer division - returns a number resulting from division, but rounded down to the nearest whole number, e.g., 3 // 2.0 = 1.0) </ol>													
+													<ol> 4. A unary operator is an operator with only one operand, e.g., -1, or +3. </ol>													
+													<ol> 5. A binary operator is an operator with two operands, e.g., 4 + 5, or 12 % 5. </ol>													
+													<ol> 6. Some operators act before others - the hierarchy of priorities: 
+														<ul>
+															<li>
+																unary + and - have the highest priority.
+															</li>
+															<li>
+																then: **, then: *, /, and %, and then the lowest priority: binary + and -.
+															</li>
+														</ul>	
+													</ol>
+													<ol> 7. Subexpressions in parentheses are always calculated first, e.g., 15 - 1 * (5 * (1 + 2)) = 0. </ol>													
+													<ol> 8. The exponentiation operator uses right-sided binding, e.g., 2 ** 2 ** 3 = 256. </ol>
+													</ul>
+													<h4>Exercise 1</h4>
+													<p>
+														What is the output od the following snippet? <code>print((2**4), (2*4), (2*4))</code> &rarr; <code>16 8.0 8</code>
+													</p>
+													<h4>Exercise 2</h4>
+													<p>
+														What is the output od the following snippet? <code>print((-2/4), (2/4), (2//4), (-2//4))</code> &rarr; <code>-0.5 0.5 0 -1</code>
+													</p>
+													<h4>Exercise 3</h4>
+													<p>
+														What is the output od the following snippet? <code>print((2%-4), (2%4), (2**3**2))</code> &rarr; <code>2 -2 512</code>
+													</p>
+												</p>
+												<h2>What are variables?</h2>
+												<p>
+													It seems fairly obvious that Python should allow you to encode literals carrying number and text values. <br>
+ 													You already know that you can do some arithmetic operations with these numbers: add, subtract, etc. You'll be doing that many times. <br>													
+													But it's quite a normal question to ask how to store the results of these operations, in order to use them in other operations, and so on. How do you save the intermediate results, and use them again to produce subsequent ones?	<br>
+													Python will help you with that. It offers special "boxes" (containers) for that purpose, and these boxes are called variables - the name itself suggests that the content of these containers can be varied in (almost) any way. <br>													
+													What does every Python variable have? <br>
+													<ul>
+														<li> A name. </li>
+														<li> A value (the content of the container) </li>
+													</ul>
+													Let's start with the issues related to a variable's name. Variables do not appear in a program automatically. As developer, you must decide how many and which variables to use in your programs. You must also name them. <br>
+													If you want to give a name to a variable, you must follow some strict rules: <br>
+													<ul>
+														<li> The name of the variable must be composed of upper-case or lower-case letters, digits, and the character <code>_</code> (underscore). </li>
+														<li> The name of the variable must begin with a letter. </li>
+														<li> The underscore character is a letter. </li>
+														<li> Upper- and lower-case letters are treated as different (a little differently than in the real world - Alice and ALICE are the same first names, but in Python they are two different variable names, and consequently, two different variables). </li>
+														<li> The name of the variable must not be any of Python's reserved words (the keywords - we'll explain more about this soon). </li>
+													</ul>
+												</p>
+												<h2>Correct and incorrect variable names</h2>
+												<p>
+													<b>Note</b> That the same restrictions apply to function names. <br>
+													Python does not impose restrictions on the length of variable names, but that doesn't mean that a long variable name is always better than a short one. <br>
+													Here are some correct, but not always convenient variable names: <br>
+													<code>MyVariable, i, t34, Exchange_Rate, counter, days_to_christmas, TheNameIsSoLongThatYouWillMakeMistakesWithIt, _</code>. 
+													Moreover, Python lets you use not only Latin letters but also characters specific to languages that use other alphabets. These variable names are also correct: <br>
+													<code>Adiós_Señora, sûr_la_mer, Einbahnstraße, переменная</code>.
+													And now for some <b>incorrect names</b>: <br>
+													<code>10t</code> (does not begin with a letter), <code>Exchange Rate</code> (contains a space) <br>
+													The <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener noreferrer">PEP 8- Style Guide for Python</a> recommends the following naming  convention for variables and functions in Python: 
+													<ul>
+														<li>
+															Variable names should be lowercase, with words separated by underscores to improve readability (e.g <code>var</code>, <code>my_variable</code> )
+														</li>
+														<li>
+															Function names follow the same convention as variable names (e.g. <code>fun</code> <code>my_function</code> )
+														</li>
+														<li>
+															It's also possible to use mixed case (e.g <code>myVariable</code> ), but  only in contexts where that's already the prevailing style, to retain backwards compatibilit with the adopted convention.
+														</li>
+													</ul>
+												</p>
+												<h2>Keywords</h2>
+												<p>
+													
 												</p>
 											</section>
 										</div>
