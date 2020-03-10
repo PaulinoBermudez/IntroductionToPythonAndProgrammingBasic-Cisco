@@ -2172,7 +2172,50 @@ and washed the spider out.</code></pre>
 													<h5>Note</h5>
 													Comments are very important. They are used not only to make your programs easier to understand, but also to disable those pieces of code that are currently not needed (e.g., when you need to test some parts of your code only, and ignore other). Good programmers describe each important piece of code, and give self-commenting names to variables, as sometimes it is simply much better to leave information in the code. <br>
 													It's good to use readable variable names, and sometimes it's better to divide your code into named pieces (e.g., functions). In some situations, it's a good idea to write the steps of computations in a clearer way. <br>
-													One more thing: it may happen that a comment contains a wrong or incorrect piece of information - you should never do that on purpose!
+													One more thing: it may happen that a comment contains a wrong or incorrect piece of information - you should never do that on purpose! <br>
+													<img src="images/LAB- Comments.PNG" alt="" class="responsive">
+												</p>
+												<h2>Key takeaways</h2>
+												<p>
+													<ul>
+														<ol>
+															1. Comments can be used to leave additional information in code. They are omitted at runtime. The information left in source code is addressed to human readers. In Python, a comment is a piece of text that begins with <code>#</code>. The comment extends to the end of line.
+														</ol>
+														<ol>
+															2. If you want to place a comment that spans several lines, you need to place # in front of them all. Moreover, you can use a comment to mark a piece of code that is not needed at the moment (see the last line of the snippet below), e.g.: <br>
+															<blockquote>
+																# This program prints <br>
+																# an introduction to the screen. <br>
+																print("Hello!")  # Invoking the print() function <br>
+																# print("I'm Python.") <br>
+															</blockquote>
+														</ol>
+														<ol>	
+															3. Whenever possible and justified, you should give <b>self-commenting names</b> to variables, e.g., if you're using two variables to store a length and width of something, the variable names <b>length</b> and <b>width</b> may be a better choice than <b>myvar1</b> and <b>myvar2</b>.
+														</ol>
+														<ol>
+															4. It's important to use comments to make programs easier to understand, and to use readable and meaningful variable names in code. However, it's equally important not to use variable names that are confusing, or leave comments that contain wrong or incorrect information!
+														</ol>	
+														<ol>
+															5. Comments can be important when you are reading your own code after some time (trust us, developers do forget what their own code does), and when others are reading your code (can help them understand what your programs do and how they do it more quickly).
+														</ol>
+													</ul>
+												</p>
+												<h2>The <code>input()</code> function</h2>
+												<p>
+													We're now going to introduce you to a completely new function, which seems to be a mirror reflection of the good old <code>print()</code> function. <br>
+													Why? Well, <code> print()</code> sends data to the console. <br>
+													The new function gets data from it. <br>
+													print() has no usable result. The meaning of the new function is to <b>return a very usable result</b>. <br>
+													The function is named <code> input()</code>. The name of the function says everything. The <code>input()</code> function is able to read data entered by the user and to return the same data to the running program. <br>
+													The program can manipulate the data, making the code truly interactive. <br>
+													Virtually all programs <b>read and process data</b>. A program which doesn't get a user's input is a <b>deaf program</b>.
+													Take a look at our example:
+													<blockquote>
+														print("TRell me anything...") <br>
+														anything = input() <br>
+														print("Hmmm .... ", anything , "... Really?")
+													</blockquote>
 												</p>
 											</section>
 										</div>
