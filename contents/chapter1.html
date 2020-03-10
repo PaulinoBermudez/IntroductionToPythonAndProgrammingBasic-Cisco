@@ -2115,7 +2115,36 @@ and washed the spider out.</code></pre>
 												</p>
 												<h2>Leaving comments in code: why, how and when.</h2>
 												<p>
-													2.1.5.1
+													You may want to put in a few words addressed not to Python but to humans, usually to explain to other readers of the code how the tricks used in the code work, or the meanings of the variables, and eventually, 
+													in order to keep stored information on who the author is and when the program was written. <br>
+													A remark inserted into the program, which is <b>omitted at runtime</b> , is called a <b>comment</b>. <br>
+													How do you leave this kind of comment in the source code? It has to be done in a way that won't force Python to interpret it as part of the code. <br>
+													Whenever Python encounters a comment in your program, the comment is completely transparent to it - from Python's point of view, this is only one space (regardless of how long the real comment is). <br>
+													In Python, a comment is a piece of text that begins with a # (hash) sign and extends to the end of the line. <br>
+													If you want a comment that spans several lines, you have to put a hash in front of them all. <br>
+													Just like here:
+													<blockquote>
+														# This program evaluates the hypotenuse c. <br>
+														# a and b are the lengths of the legs. <br>
+														a = 3.0 <br>
+														b = 4.0 <br>
+														c = (a**2 + b**2) ** 0.5 # We use ** instead of squeare root <br>
+														print("c =", c) <br>
+													</blockquote>
+													Good, responsible  developers <b>describes each important piece of code</b>, e.g. explianing role of the variables, althought it must be started that the best way of commenting variables is to name them in an unambiguous manner. <br>
+													For example, if a particular variable is designed to store an area of some unique square, the name squareArea will obviously be better than auntJane. We say that the first name is self-commenting. <br>
+													Comments may be useful in another respect - you can use them to mark a piece of code that currently isn't needed for whatever reason. Look at the example below, if you uncomment the highlighted line, this will affect the output of the code: <br>
+													<blockquote>
+														# This is a test program. <br>
+														x = 1 <br>
+														y = 2 <br>
+														<b># y = y + x</b> <br>
+														print(x + y) <br>
+													</blockquote>
+													This is often done during the testing of a program, in order to isolate the place where an error might be hidden.
+													<h4>TIP</h4>
+													If you'd like to quickly comment or uncomment multiple lines of code, select the line(s) you wish to modify and use the following keyboard shortcut: CTRL + / (Windows) or CMD + / (Mac OS). It's a very useful trick, isn't it? Try this code in Sandbox. <br>
+													<img src="images/comments in Python.PNG" class="responsive" alt=""> 
 												</p>
 											</section>
 										</div>
