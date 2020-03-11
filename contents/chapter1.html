@@ -2253,6 +2253,17 @@ and washed the spider out.</code></pre>
 													</ul>
 													This variant of the input() invocation simplifies the code and makes it clearer.
 												</p>
+												<h2>The result of the <code>input()</code> function</h2>
+												<p>
+													We've said it already, but it must be unambiguously stated once again: <b>the result of the input() function is a string</b>. <br>
+													A string containing all the characters the user enters from the keyboard. It is not an integer or a float. <br>											
+													This means that <b>you mustn't use it as an argument of any arithmetic operation</b>, e.g., you can't use this data to square it, divide it by anything, or divide anything by it. <br>
+													<blockquote>
+														anything = input("Enter a number: ") <br>
+														something = anything ** 2.0 <br>
+														print(anything, "to the power of 2 is", something)
+													</blockquote>													
+												</p>
 											</section>
 										</div>
 								</div>
