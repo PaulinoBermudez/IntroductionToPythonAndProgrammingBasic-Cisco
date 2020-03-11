@@ -2216,6 +2216,42 @@ and washed the spider out.</code></pre>
 														anything = input() <br>
 														print("Hmmm .... ", anything , "... Really?")
 													</blockquote>
+													It shows a very simple case of using the <code>input()</code> function. <br>
+													<div>
+														<b>Note:</b> <br>
+														<ul>
+															<li>
+																The program <b>prompts the user to input some data</b> from the console (most likely using  a keyboard,although it is also possible to input data using voice or image).
+															</li>
+															<li>
+																The <code>input()</code> function is invoked without arguments (this is the simplest way of using the function), the function will <b>switch the console  to input mode</b>, you'll  see a blinking cursor, and you'll  be able to input some keystrokes, finishing off by hitting 
+																the Enter key, all the inputted data will be <b>sent to your program</b> through the function's result.
+															</li>
+															<li>
+																<b>Note:</b> you need to assign the result to a variable, this is crucial - missing out this step will cause the entered data to be lost.
+															</li>
+															<li>
+																Then we use the <code>print()</code> function to output the data we get, with some additional remarks.
+															</li>
+														</ul>
+													</div>
+													Try to run the code and let the function show you what it can do for you.
+												</p>
+												<h2>The <code>input()</code> function with an argument</h2>
+												<p>
+													The <code>input()</code> function can do  something else: it can prompt the user without any help from <code>print()</code>. <br>
+													We've modified our example a bit, look at the code. <br>
+													<blockquote>
+														anything = <b>input("Tell me anything...")</b> <br>
+														print("Hmmmm...", anything, "...Really?")
+													</blockquote> <br>
+													Note:
+													<ul>
+														<li> The input() function is invoked with one argument - it's a string containing a message. </li>
+														<li> The message will be displayed on the console before the user is given an opportunity to enter anything. </li>
+														<li> Input() will then do its job. </li>
+													</ul>
+													This variant of the input() invocation simplifies the code and makes it clearer.
 												</p>
 											</section>
 										</div>
