@@ -2264,6 +2264,43 @@ and washed the spider out.</code></pre>
 														print(anything, "to the power of 2 is", something)
 													</blockquote>													
 												</p>
+												<h2>The <code>input()</code> function -  prohibited operations</h2>
+												<p>
+													Look at the code in the editor. Run it, enter any number and press Enter. <br>
+													What happens? <br>
+													Python should  have given you the following output: <br>
+													<blockquote>
+														Traceback (most recent call last): <br>
+														File ".main.py", line 4, in &lt;module&gt; <br>
+														something = anything ** 2.0 <br>
+														TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'float' <br>
+													</blockquote>
+													The last line of the sentence explains everythings - you tried to apply the <code>**</code> operators to <code>'str'</code> (string) accompained with <code>'float'</code>. <br>
+													This is prohibited. <br>
+													This should be obvious - can you predict the value of <code>'to be or not to be'</code> raised to the power of <code>2</code>? <br>
+													We can't. Python can't either. <br>
+													Have we fallen into a deadlock? Is there a solution to this  issue?  Of course there is. 
+												</p>
+												<img src="images/the input() function - prohibited operations.PNG" class="responsive" alt=""> 
+												<h2>Type casting</h2>
+												<p>
+													Python offers two simple functions to specify a type of data and solve this problem - here they are: int() and float().
+
+													Their names are self-commenting:
+													
+													 - the int() function takes one argument (e.g., a string: int(string)) and tries to convert it into an integer; if it fails, the whole program will fail too (there is a workaround for this situation, but we'll show you this a little later);
+													 - the float() function takes one argument (e.g., a string: float(string))and tries to convert it into a float (the rest is the same).
+													
+													This is very simple and very effective. Moreover, you can invoke any of the functions by passing the input() results directly to them. There's no need to use any variable as an intermediate storage.
+													
+													We've implemented the idea in the editor - take a look at the code.
+													
+													Can you imagine how the string entered by the user flows from input() into print()?
+													
+													Try to run the modified code. Don't forget to enter a valid number.
+													
+													Check some different values, small and big, negative and positive. Zero is a good input, too.
+												</p>
 											</section>
 										</div>
 								</div>
