@@ -2328,7 +2328,23 @@ and washed the spider out.</code></pre>
 												</p>
 												<h2>Concatenation</h2>
 												<p>
-													The <code>+</code> (plus) 
+													The <code>+</code> (plus) sign, whaen applied to two strings, becomes a <b>concatenation operator:</b> <br>
+													<code>
+														string + string
+													</code> <br>
+													It simply <b>concatenates</b> (glues) two strings into one. Of course, like its arithmetic sibling, it can be used more that once expression, and in such a context it behaves according to left-sided binding. <br>
+													In contrast to its arithmetic sibling, the concatenation operator is <b>not commutative</b>, i.e. <code>"ab" + "ba"</code> is not the same as <code>"ba" + "ab"</code>. <br>
+													Don't forget - if you want the <code>+</code>  sign to be a <b>concatenator</b>, not an adder, you must ensure that  <b>both its arguments are strings</b>. <br>
+													You cannot mix types here. <hr>
+													This simple programm shows the <code>+</code> sign in its second use: <br>
+													<blockquote>
+														fnam = input("May I have your first name, please? ") <br>
+														lnam = input("May I have your last name, please? ") <br>
+														print("Thank you.") <br>
+														print("\nYour name is " + fnam + " " + lnam + "." <br>
+													</blockquote> 
+													<b>Note:</b> using + to concatenate strings lets you construct the output in a more precise way than with a pure print() function, even if enriched with the end= and sep= keyword arguments. Run the code and see if the output matches your predictions. <br>
+													<img src="images/how to talk a computer-string operators.PNG" class="responsive" alt="">
 												</p<>
 											</section>
 										</div>
