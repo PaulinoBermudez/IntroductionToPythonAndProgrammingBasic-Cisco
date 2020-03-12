@@ -2346,6 +2346,30 @@ and washed the spider out.</code></pre>
 													<b>Note:</b> using + to concatenate strings lets you construct the output in a more precise way than with a pure print() function, even if enriched with the end= and sep= keyword arguments. Run the code and see if the output matches your predictions. <br>
 													<img src="images/how to talk a computer-string operators.PNG" class="responsive" alt="">
 												</p>
+												<h2>Replication</h2>
+												<p>
+													The * (asterisk) sign, when applied to a string and number (or a number and string, as it remains commutative in this position) becomes a replication operator: <br>													string * number
+													<code>number * string</code> <br>
+													It replicates the string the same number of times specified by the number. <br>
+													For example:
+													<blockquote>
+														"James" * 3 gives "JamesJamesJames" <br>
+														3 * "an" gives "ananan" <br>
+														5 * "2" (or "2" * 5) gives "22222" (not 10!) <br>
+													</blockquote>
+													<img src="images/replicates the strings.PNG" class="responsive" alt=""> <br>
+													<h4>REMEMBER</h4>
+													A number less than or equal to zero produces an empty string. <br>
+													This simple program "draws" a rectangle, making use of an old operator (+) in a new role: <br>
+													<blockquote>
+													print("+" + 10 * "-" + "+") <br>
+													print(("|" + " " * 10 + "|\n") * 5, end="") <br>
+													print("+" + 10 * "-" + "+") <br>
+													<img src="images/draw rectangle.PNG" class="responsive" alt=""> <br>
+													</blockquote>
+													<b>Note:</b> the way in which we've used the parentheses in the second line of the code. <br>
+													Try practicing to create other shapes or your own artwork!																									
+												</p>
 											</section>
 										</div>
 								</div>
