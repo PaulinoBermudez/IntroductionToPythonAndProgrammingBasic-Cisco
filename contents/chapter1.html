@@ -2365,10 +2365,30 @@ and washed the spider out.</code></pre>
 													print("+" + 10 * "-" + "+") <br>
 													print(("|" + " " * 10 + "|\n") * 5, end="") <br>
 													print("+" + 10 * "-" + "+") <br>
-													<img src="images/draw rectangle.PNG" class="responsive" alt=""> <br>
 													</blockquote>
+													<img src="images/draw rectangle.PNG" class="responsive" alt=""> <br>
 													<b>Note:</b> the way in which we've used the parentheses in the second line of the code. <br>
 													Try practicing to create other shapes or your own artwork!																									
+												</p>
+												<h2>Type conversion: str()</h2>
+												<p>
+													You already know how to use the <code>int() and float()</code> functions to convert a string into a number. <br>
+													This type of conversion is not a one-way street. You can also convert a number into a string, which is way easier and safer - this operation is always possible. <br>
+													A function capable of doing that is called <code>str()</code>: <br>
+													<code>str(number)</code> <br>
+													To be honest, it can do much more than just transform numbers into strings, but that can wait for later. <br>
+													<h3>The "right-angle triangle" again </h3>
+													Here is our "right-angle triangle" program again: <br>
+													<blockquote>
+														leg_a = float(input("Input first leg length: ")) <br>
+														leg_b = float(input("Input second leg length: ")) <br>
+														print("Hypotenuse length is " + str((leg_a**2 + leg_b**2) ** .5)) <br>
+													</blockquote> 
+													<img src="images/right-angle triangle again.PNG" class="responsive" alt="">
+													We've modified it a bit to show you how the str() function works. Thanks to this, we can pass the whole result to the print() function as one string, forgetting about the commas. <br>
+													You've made some serious strides on your way to Python programming. <br>
+													You already know the basic data types, and a set of fundamental operators. You know how to organize the output and how to get data from the user. These are very strong foundations for Module 2. 
+													But before we move on to the next module, let's do a few labs, and recap all that you've learned in this section.
 												</p>
 											</section>
 										</div>
