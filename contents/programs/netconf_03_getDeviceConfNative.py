@@ -6,7 +6,7 @@ con = manager.connect(host="192.168.56.102", port=830, username="cisco", passwor
 # Filtro  para netconf
 netconf_filter = """
 <filter>
-    <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native" />
 </filter>
 """    
 
