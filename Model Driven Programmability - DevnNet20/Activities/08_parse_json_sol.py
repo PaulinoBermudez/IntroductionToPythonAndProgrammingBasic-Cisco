@@ -1,7 +1,7 @@
 #!/bin/python
 
 import urllib.parse
-import request
+import requests
 
 ''' 
  * Lab - Parsing JSON with a Python Application
@@ -19,13 +19,13 @@ import request
 # Creamos las variables 
 
 # main_api aquí se agrega la URL principal a la que se está accediendo.
- main_api = "https://www.mapquestapi.com/directions/v2/route?"
- # Especificamos el punto de partida
- orig = "Washington"
- # Especificamos el punto de destino
- dest = "Baltimaore"
- # Clave del consumidor que recupere del sitio web para desarrolladores.
- key = "AwAipWaBJZPU6yoS7BUJMFrqMxjQEW8u"
+main_api = "https://www.mapquestapi.com/directions/v2/route?"
+# Especificamos el punto de partida
+orig = "Washington"
+# Especificamos el punto de destino
+dest = "Chicago"
+# Clave del consumidor que recupere del sitio web para desarrolladores.
+key = "AwAipWaBJZPU6yoS7BUJMFrqMxjQEW8u"
 
 '''
     La autenticación de una solicitud RESTful se realiza de una de las cuatro maneras posibles:
@@ -36,7 +36,7 @@ import request
 '''
 
 # URL se combina con las cuatro variables anteriores para dar formato a la url solicitada agregando l método urlencode.
- url = main_api + urllib.parse.urlencode({"key" : key, "from" : orig, "to": dest})
+url = main_api + urllib.parse.urlencode({"key":key,"from":orig,"to":dest})
 
 json_data = requests.get(url).json()
 print(json_data)
