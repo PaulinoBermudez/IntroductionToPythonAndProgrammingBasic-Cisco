@@ -2,7 +2,9 @@
 
 import urllib.parse
 import requests
-
+import os
+os.system("clear")
+os.system("cls")
 ''' 
  * Lab - Parsing JSON with a Python Application
  * Objectives:
@@ -39,4 +41,18 @@ key = "AwAipWaBJZPU6yoS7BUJMFrqMxjQEW8u"
 url = main_api + urllib.parse.urlencode({"key":key,"from":orig,"to":dest})
 
 json_data = requests.get(url).json()
-print(json_data)
+
+''' 
+ Print the URL and check the status of the JSON request.
+ * Add the statements below, which will do the following:
+    -   Print the constructed URL so that the user can see the exact request made by he application.
+    -   Parse the JSON data to obtain the status code value.
+    -   Start an if loop that chechs for as successful call, which a value of 0. Add a print statement to display the statuscode value and its meaning. 
+    The \n adds a blank line below the output.
+ '''
+print("URL: " + (url))
+json_data = requests.get(url).json()
+json_status = json_data["info"]["statuscode"]
+
+if json_status == 0:
+    print("API status: " + str(json_status) + " = A successful route call. \n")
