@@ -41,3 +41,18 @@ output2 = sshCli.send_command("show ip int brief")
 print("show ip int brief: \n{}\n".format(output2))
 print("_________________________________________")
 print("Config output from the device: \n{}\n".format(output1))
+
+config_commands = [
+    'int loopback 2',
+    'ip address 2.2.2.2 255.255.255.0',
+    'description LAB INTERFACE2'
+]
+# Output configuration commands.
+output3 = sshCli.send_config_set(config_commands)
+# Sent some simple commands and display the returned output
+print("Sendind 'sh ip int brief' ... ")
+print("_________________________________________")
+print("Config output from the device: \n{}\n".format(output3))
+print("_________________________________________")
+print("Print all info: \n")
+print("Show the IP brief: \n{}\n".format(output2))
