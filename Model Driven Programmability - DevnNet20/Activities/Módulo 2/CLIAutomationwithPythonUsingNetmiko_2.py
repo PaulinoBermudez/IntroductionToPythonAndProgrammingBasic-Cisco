@@ -6,7 +6,6 @@ os.system("cls")
 # Install the library in the SO
 # apt-get install -y python-netmiko || pip install netmiko
 
-
 # Import the netmiko library
 import netmiko
 
@@ -28,9 +27,17 @@ sshCli = ConnectHandler(
     username='cisco',
     password='cisco123!'
 )
-
-
+# Comand code who send the router Cisco, configure the new Interface device - Loopback 1.
+config_commands = [
+    'int loopback 1',
+    'ip address 9.9.9.9 255.255.255.0',
+    'description LAB INTERFACE'
+]
+# Output configuration commands.
+output1 = sshCli.send_config_set(config_commands)
 # Sent some simple commands and display the returned output
 print("Sendind 'sh ip int brief' ... ")
-output = sshCli.send_command("show ip int brief")
-print("show ip int brief: \n{}\n".format(output))
+output2 = sshCli.send_command("show ip int brief")
+print("show ip int brief: \n{}\n".format(output2))
+print("_________________________________________")
+print("Config output from the device: \n{}\n".format(output1))
