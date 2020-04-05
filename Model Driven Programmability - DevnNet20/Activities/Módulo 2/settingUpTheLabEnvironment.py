@@ -3,6 +3,9 @@ import os
 os.system("clear")
 os.system("cls")
 
+import netmiko 
+from netmiko import ConnectHandler()
+
 sshCli = ConnectHandler(
     device_type='cisco_ios',
     host='192..168.156.101',
