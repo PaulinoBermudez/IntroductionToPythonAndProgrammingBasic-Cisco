@@ -7,7 +7,6 @@ os.system("cls")
 # pip install ncclient
 
 import ncclient
-
 from ncclient import manager
 
 manager = manager.connect(
@@ -20,5 +19,5 @@ manager = manager.connect(
 )
 
 print("#Supported Capabilities (YANG models):")
-for capabilities in manager.server_capabilities:
+for capability in manager.server_capabilities:
     print(capability)
