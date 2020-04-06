@@ -33,6 +33,6 @@ for interface in netconf_reply_dict["rpc-reply"]["data"]["interface-state"]["int
             interface["name"],
             interface["phys-address"],
             interface["statistics"]["in-octets"],
-            interface["statistcs"]["out-octets"]
+            interface["statistics"]["out-octets"]
         )
     )
