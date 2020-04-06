@@ -1,10 +1,13 @@
 #!/bin/python
 import os
+import ncclient
+import xml.dom.minidom
+
 os.system("clear")
 os.system("cls")
 
 from ncclient import manager
-import xml.dom.minidom
+
 
 m = manager.connect(
     host="192.168.56.101",
