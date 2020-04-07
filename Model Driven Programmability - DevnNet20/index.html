@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Start Python</h1>
+<pre>
+GitHub
+github-devnet.png
+GitHub is a CoP where programmers come together to openly share software issues and patches. The Git in GitHub refers to the open source software version control system started by Linus Torvalds, the creator of Linux.
+
+Contributing members of GitHub gain the trust of others in the community. As Torvalds told participants at the Open Source Leadership Summit (Links to an external site.) in February 2017:
+
+You shoot off a lot of small patches until the point where the maintainers trust you, and at that point you become more than just a guy who sends patches, you become part of the network of trust.
+
+The level of trust you establish on GitHub has real value to others in the CoP as well as potential employers who can check your reputation at http://www.gitscore.com/ (Links to an external site.).
+
+Click here (Links to an external site.) to learn more about GitHub and to sign up for an account. 
+<hr>
+
+<hr>
+Stack Overflow
+stackoverflow.png
+Stack Overflow (Links to an external site.) is CoP devoted to "building a library of detailed answers to every question about programming". Like GitHub, your reputation on Stack Overflow has value in the community and the work force.
+
+Click here (Links to an external site.) to learn how your Stack Overflow reputation is calculated. 
+<hr>
+Cisco DevNet
+devnet.png
+Cisco DevNet is a CoP for developers and programmers who want to build Cisco-enable applications or use Cisco APIs to enhance and manage their networks. DevNet is a fully-integrated developer program comprising a website, an interactive developer community, coordinated developer tools, integrated discussion forums, and sandboxes.
+
+Click here (Links to an external site.) to explore the Cisco DevNet portal. Login with your NetAcad Account, as shown below, and get access to additional Learning Lab resources. 
+
+devnet-login-options.png
+
+Click here  (Links to an external site.)to access the DevNet Sandbox environment where you can view a lab catalog and reserve equipment.
+<hr>
+Start Python.
+To start Python on Windows computer, open a command line window and type python, as shown in Example 1.
+
+Example 1: Starting Python on a Windows Computer
+
+C:\> python
+Python 3.6.3 (v3.6.3:2c5fed8, Oct 3 2017, 17:26:49) [MSC v.1900 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+To start Python on Mac or Linux, open a command line window and type python3, as shown in Example 2.
+
+Example 2: Starting Python on Mac or Linux Computers
+
+$ python3
+Python 3.5.2 (default, Aug 18 2017, 17:48:00)
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+Note: If you are having trouble getting Python to start, make sure you completed all the steps in the Lab - PC Setup for the Workshop.
+
+<hr>
+Use Interactive Interpreter as a Calculator
+The three angle brackets (>>>) indicate that you are in Python's interactive interpreter. From here, you can do a variety of basic programming tasks including math operations. Table 1 shows the Python syntax to use for the most common math operators.
+
+Table 1: Math Operators and Python Syntax Comparison
+
+Operation	Math	Syntax
+Addition	a+b	a+b
+Subtraction	a-b	a-b
+Multiplication	axb	a*b
+Division	a÷b	a/b
+Exponents	a^b	a**b
+Example 1 shows a few math operations using the Python syntax.
+
+ Example 1: Basic Arithmetic Operations
+
+$$ python3
+Python 3.5.2 (default, Aug 18 2017, 17:48:00) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 2+3
+5
+>>> 10-4
+6
+>>> 2*4
+8
+>>> 20/5
+4
+>>> 3**2
+9
+ 
+
+Python uses the standard order of operations commonly known as PEMDAS. Mathematical expressions are evaluated in the following order.
+
+Parentheses
+Exponents
+Multiplication and Division
+Addition and Subtraction
+
+Try entering an expression with a complex order of operations in the interactive interpreter. 
+<hr>
+Use Interpreter to Print a String
+A string is any sequence of characters such as letters, numbers, symbols, or punctuation marks. The interactive interpreter will directly output text that you enter as a string as long as you enclose the string in either single quotes (') or double quotes ("). 
+
+The print command can be used in a script to output a string, as shown in Example 1.
+
+ Example 1: Printing a String
+
+>>> "Hello World!"
+'Hello World!'
+>>> 'Hello World!'
+'Hello World!'
+>>> print("Hello World!")
+Hello World!
+<hr>
+Open IDLE Interactive Interpreter
+There are many development environments available for programmers to manage their coding projects. However, in this workshop you will use Python's Integrated Development Environment (IDLE). 
+
+To access IDLE on a Windows computer, click Start > Python 3.6 >  IDLE (Python 3.6 32-bit).
+
+To access IDLE on Mac and Linux computers, enter quit() in the interactive interpreter to exit and then type idle3 at the command line to launch, as shown in Example 1.
+
+ Example 1: Launching IDLE on Mac and Linux Computers.
+
+>>> "Hello World!"
+'Hello World!'
+>>> 'Hello World!'
+'Hello World!'
+>>> print("Hello World!")
+Hello World!
+>>> quit()
+$ idle3
+IDLE has two main windows:
+
+IDLE Shell
+IDLE Editor
+The IDLE Shell provides an interactive interpreter with colorizing of code input, output, and error messages. It also includes a tool popup that provides syntactical help for the command you are currently using, as shown in Figure 1.
+
+Figure 1: IDLE Shell Window
+
+ IDLE_Shell.png
+
+The IDLE Editor provides a text editor with code colorization and syntatical help for writing python scripts. To open the IDLE Editor, in the IDLE Shell, click File > New File, as shown in Figure 2. 
+
+Figure 2: Opening the IDLE Editor
+
+open-editor.png
+
+The IDLE Editor includes the ability to immediately test a script in the shell by using the Run Module (F5) command, as shown in Figure 3.
+
+Figure 3: Running a Script from the IDLE Editor Window
+
+ Editor_F5.png
+<hr>
+Activity - Write, Save, and Run Your First Program
+Complete the following steps in IDLE:
+
+In IDLE shell, click File > New File (Ctrl+N) to open an Untitled script file
+Save the file as 01_hello-world.py
+Enter the following in the script: print("Hello World!")
+Save the script; click File > Save (Ctrl+S)
+Run the script; click Run > Run Module (F5)
+Figure 1 shows the results of following these steps.
+
+Figure 1: Running Your First Program
+<hr>
+Basic Data Types
+In programming, data types are a classification which tells the interpreter how the programmer intends to use the data. For example, the interpreter needs to know if the data the programmer entered is a number or a string. Although there are several different data types, we will focus only on the following: 
+
+Integer - used to specify whole numbers (no decimals), such as 1, 2, 3, and so on. If an integer is entered with a decimal, the interpreter ignores the decimal. For example, 3.75 is interpreted as 3.
+Float - used to specify numbers that need a decimal value, such as 3.14159. 
+String - any sequence of characters such as letters, numbers, symbols, or punctuation marks.
+Boolean - any data type that has a value of either True or False.
+Use the type() function to determine the data type, as shown in Example 1.
+
+Example 1: Determine the Data Type
+
+>>> type(98)
+<class 'int'>
+>>> type(98.6)
+<class 'float'>
+>>> type("Hi!")
+<class 'str'>
+>>> type(True)
+<class 'bool'>
+<hr>
+Boolean Operators
+The Boolean data type makes use of the operators shown in Table 1.
+
+Table 1: Boolean Operators
+
+Operator	Meaning
+>	Greater than
+<	Less than
+==	Equal to
+!=	Not equal to
+>=	Greater than or equal to
+<=	Less than or equal to
+ In the IDLE shell, try out the different Boolean operators, as shown in Example 1.
+
+Example 1: Boolean Operators Comparisons
+
+>>> 1<2
+True
+>>> 1>2
+False
+>>> 1==1
+True
+>>> 1!=1
+False
+>>> 1>=1
+True
+>>> 1<=1
+True
+<hr>
+Creating and Using a Variable
+The Boolean operator for determining whether two values are equal is the double equal sign (==). A single equal sign (=) is used to assign a value to a variable. The variable can then be used in other commands to recall value, as shown in Example 1.
+
+Example 1: Assigning a Value to Variable and Using It in a Command
+
+>>> x=3
+>>> x*5
+15
+>>> "Cisco"*x
+'CiscoCiscoCisco'
+<hr>
+Concatenate Multiple String Variables
+Concatenation is the process of combining multiple strings into one string. For example, the concatenation of "foot" and "ball" is "football". In Example 1, four variables are concatenated together in a print() statement with the plus sign (+). Notice that the space variable was defined for use as white space between the words. 
+
+Example 1: Concatenating String Variables
+
+>>> str1="Cisco"
+>>> str2="Networking"
+>>> str3="Academy"
+>>> space=" "
+>>> print(str1+space+str2+space+str3)
+Cisco Networking Academy
+>>>
+Challenge: Try writing a print() statement with a space between the words without using a variable to create the space.
+<hr>
+Converting Data Types
+Concatenation does not work for joining different data types, as shown in Example 1.
+
+Example 1: Error Message When Concatenating Different Data Types
+
+>>> x=3
+>>> print("This value of X is " + x)
+Traceback (most recent call last):
+ File "<pyshell#27>", line 1, in <module>
+ print("This value of X is " + x)
+TypeError: Can't convert 'int' object to str implicitly
+Use the str() function to convert the value of a variable to a string, as shown in Example 2. 
+
+Example 2: Converting a Variable's Value to a String
+
+>>> x=3
+>>> print("The value of x is " + x)
+Traceback (most recent call last):
+ File "<pyshell#27>", line 1, in <module>
+ print("This value of X is " + x)
+TypeError: Can't convert 'int' object to str implicitly
+>>> print("The value of x is " + str(x))
+The value of x is 3
+>>> type(x)
+<class 'int'> 
+Notice that the data type for the variable x is still an integer. To convert the data type, reassign the variable to the new data type, as shown in Example 3.
+
+Example 3: Converting the Data Type of a Variable
+
+>>> x=3
+>>> print("The value of x is " + x)
+Traceback (most recent call last):
+ File "<pyshell#27>", line 1, in <module>
+ print("This value of X is " + x)
+TypeError: Can't convert 'int' object to str implicitly
+>>> print("The value of x is " + str(x))
+The value of x is 3
+>>> type(x)
+<class 'int'>
+>>> x=str(x)
+>>> type(x)
+<class ‘str'>
+You may want to display a float to a specific number of decimal places instead of the full number. To do this, use the   
+"{:.2f}".format function, as shown in Example 4.
+
+Example 4: Format a Float to 2 Decimal Places
+
+>>> num = 22/7
+>>> print(num)
+3.142857142857143
+>>> print("{:.2f}".format(num))
+3.14
+>>>  
+<hr>
+Lists
+In programming, a list variable is used to store multiple pieces of ordered information. Example 1 shows how to create a list variable called hostnames. 
+
+Create a list using brackets [ ] and enclosing each item in the list with quotes.
+Separate the items with a comma.
+Use the type() command to verify the data type.
+Use the len() command return the number of items in a list.
+Call the list variable name to display it’s contents.
+Example 1: Creating a List
+
+>>> hostnames=["R1","R2","R3","S1","S2"]
+>>> type(hostnames)
+<class 'list'>
+>>> len(hostnames)
+5
+>>> hostnames
+['R1', 'R2', 'R3', 'S1', 'S2']
+Also called an array in some programming environments, an item in a list can be referenced and manipulated using its index, as shown in Example 2.
+
+The first item in a list is indexed as zero, the second is indexed as one, and so on.
+The last item can be referenced with index [-1].
+Replace an item by assigning a new value to the index.
+Use the del command to remove an item from a list.
+Example 2: Referencing and Manipulating a List
+
+>>> hostnames[0]
+'R1'
+>>> hostnames[-1]
+'S2'
+>>> hostnames[0]="RTR1"
+>>> hostnames
+['RTR1', 'R2', 'R3', 'S1', 'S2']
+>>> del hostnames[3]
+>>> hostnames
+['RTR1', 'R2', 'R3', 'S2']
+>>>
+<hr>
+Dictionaries
+Dictionaries are unordered lists of objects. Each object contains a key/value pair. In Example 1, a dictionary ipAddress is created with three key/value pairs to specify the IP address values for three routers.
+
+Create a dictionary using the braces { }.
+Each dictionary entry includes a key and a value.
+Separate a key and its value with a colon.
+Use quotes for keys and values that are strings.
+Example 1: Creating a Dictionary
+
+>>> ipAddress = {"R1":"10.1.1.1","R2":"10.2.2.1","R3":"10.3.3.1"}
+>>> type(ipAddress)
+<class 'dict'>
+Unlike lists, objectives inside a dictionary cannot be referenced by their sequence number. Instead, you reference a dictionary object using its key, as shown in Example 2.
+
+The key is enclosed with brackets [ ].
+Keys that are strings can be referenced using single or double quotes, as shown for R1 and S1 in Example 2.
+Add a key/value pair by setting the new key equal to a value.
+Use a key in dictionary statement to verify if a key exists in the dictionary.
+Example 2: Referencing and Modifying a Dictionary
+
+>>> ipAddress
+{'R1': '10.1.1.1', 'R2': '10.2.2.1', 'R3': '10.3.3.1'}
+>>> ipAddress['R1']
+'10.1.1.1’
+>>> ipAddress["S1"]="10.1.1.10"
+>>> ipAddress
+{'R1': '10.1.1.1', 'R2': '10.2.2.1', 'R3': '10.3.3.1', 'S1': '10.1.1.10'}
+>>> "R3" in ipAddress
+True
+>>>
+ Values in a key/value pair can be any other data type including lists and dictionaries. For example, if R3 has more than one IP address, how would you represent that inside the ipAddress dictionary? Create a list for the value of the R3 key, as shown in Example 3.
+
+Example 3: Embedding a List in a Dictionary
+
+>>> ipAddress["R3"]=["10.3.3.1","10.3.3.2","10.3.3.3"]
+>>> ipAddress
+{'S1': '10.1.1.10', 'R2': '10.2.2.1', 'R1': '10.1.1.1', 'R3': ['10.3.3.1', '10.3.3.2', '10.3.3.3']}
+>>>
+
+<hr>
+Activity - Troubleshoot List and Dictionary Code
+Open the script 02_list-dicts.py, which is also shown in Example 1. This script creates a list of the BRICS countries (Brazil, Russia, India, China, and South Africa). It then creates a dictionary for each country's capital(s). A list is used for South Africa's three capitals. The script is then supposed to print the country list, capital dictionary, and the 2nd listed capital for the value of South Africa. However, there are errors in the script. 
+
+Note: Click here to download the Chapter 1 files if you did not get them when completing the Lab - PC Setup for Workshop.
+
+Example 1: Script for 02_list-dicts.py
+
+country=["Brazil","Russia","India","China","South Africa"]
+capitals={"Brazil":"Brasilia","Russia":"Moscow","India":"New Delhi",
+ "China":"Beijing","South Africa":["Pretoria","Cape Town","Bloemfontein"]}
+print("country")
+print("capitals")
+print(capitals["South Africa"[1]])
+Troubleshoot the code until the script runs without errors, as shown in Example 2.
+
+Example 2: Output for Script 02_list-dicts.py
+
+======= RESTART: /home/user/Documents/GitHub/02_list-dicts.py ==========
+['Brazil', 'Russia', 'India', 'China', 'South Africa']
+{'South Africa': ['Pretoria', 'Cape Town', 'Bloemfontein'], 'India': 'New Delhi', 'Russia': 'Moscow', 'China': 'Beijing', 'Brazil': 'Brasilia'}
+Cape Town
+>>>
+<hr>
+The Input Function
+Most programs require some type of input either from a database, another computer, mouse clicks, or keyboard input. For keyboard input, use the function input() which includes an optional parameter to provide a prompt string.
+
+If the input function is called, the program will stop until the user provides input and hits the Enter key, as shown in Example 1. 
+
+Example 1: Accepting Input from the User
+
+>>> firstName = input("What is your first name? ")
+What is your first name? Bob
+>>> print("Hello " + firstName +"!")
+Hello Bob!
+>>>
+<hr>
+Activity - Create a Script to Collect Personal Information
+Create and run a script to collect personal information.
+
+Open a blank script file and save it as 03_personal-info.py.
+Create a script that asks for four pieces of information such as: first name, last name, location, and age.
+Create a variable for a space: space = " ".
+Add a print statement that that combines all the information in one sentence.
+Your script should run without any errors, as shown in Example 1.
+Example 1: Output for Personal Information Script
+
+======= RESTART: /home/user/Documents/GitHub/03_personal-info.py =======
+What is your first name? Bob
+What is your last name? Smith
+What is your location? London
+What is your age? 36
+Hi Bob Smith! Your location is London and you are 36 years old.
+>>>
+<hr>
+If/Else Function
+In programming, conditional statements check if something is true and then carry out instructions based on the evaluation. If the evaluation is false, different instructions are carried out.
+
+Example 1 demonstrates the if/else function in a simple script:
+
+Example 1: The If/Else Function
+
+nativeVLAN = 1
+dataVLAN = 100
+if nativeVLAN == dataVLAN:
+ print("The native VLAN and the data VLAN are the same.")
+else:
+ print("The native VLAN and the data VLAN are different.")
+Create this script for your files:
+
+Open a blank script and save it as 04_if-vlan.py.
+Copy the script in Example 1.
+Run the script and troubleshoot any errors. Your output should look like Example 2.
+Change the values to test the else print statement and run the script again.
+Example 2: Output for First Run of Script 04_if-vlan.py
+
+========== RESTART: /home/user/Documents/GitHub/04_if-VLAN.py ==========
+The native VLAN and the data VLAN are different.
+>>>
+Modify the variables so that nativeVLAN and dataVLAN have the same value. Save and run the script again. Your output should look like Example 3.
+
+Example 3: Output for Second Run of Script 04_if-vlan.py
+
+========== RESTART: /home/user/Documents/GitHub/04_if-VLAN.py ==========
+The native VLAN and the data VLAN are the same.
+>>>
+<hr>
+If/Elif/Else Function
+What if we have more than two conditional statements to consider? In this case, we can use elif statements in the middle of the if/else function. An elif statement is evaluated if the if statement is false and before the else statement. You can have as many elif statements as you would like. However, the first one matched will be executed and none of the remaining elif statements will be checked. Nor will the else statement.
+
+The script in Example 1 asks the user to input the number of an IPv4 ACL and then checks whether that number is a standard IPv4 ACL, extended IPv4 ACL, or neither standard or extended IPv4 ACL.
+
+Note: The data type for the input function is changed from the default string to an integer so that the if and elif evaluations will work.
+
+Example 1: The If/Elif/Else Function
+
+aclNum = int(input("What is the IPv4 ACL number? "))
+if aclNum >= 1 and aclNum <= 99:
+ print("This is a standard IPv4 ACL.")
+elif aclNum >=100 and aclNum <= 199:
+ print("This is a extended IPv4 ACL.")
+else:
+ print("This is not a standard or extended IPv4 ACL.")
+ Create this script for your files:
+
+Open a blank script and save it as 05_if-acl.py.
+Copy the script in Example 1.
+Run multiple times to test each statement. Troubleshoot any errors. Your output should look like Example 2.
+Example 2: Output for Script 05_if-acl.py
+
+=========== RESTART: /home/user/Documents/GitHub/05_if-ACL.py ===========
+What is the IPv4 ACL number? 10
+This is a standard IPv4 ACL.
+>>>
+=========== RESTART: /home/user/Documents/GitHub/05_if-ACL.py ===========
+What is the IPv4 ACL number? 100
+This is a extended IPv4 ACL.
+>>>
+=========== RESTART: /home/user/Documents/GitHub/05_if-ACL.py ===========
+What is the IPv4 ACL number? 2000
+This is not a standard or extended IPv4 ACL.
+>>>
+<hr>
+For Loop
+The Python for command is used to loop or iterate through the elements in a list or perform an operation on a series of values. Example 1 demonstrates how a for loop can be used to print the elements in a list. The variable name item is arbitrary and can be anything the programmer chooses.
+
+Example 1: For Loop
+
+>>> devices=["R1","R2","R3","S1","S2"]
+>>> for item in devices:
+ print(item)
+
+ 
+R1
+R2
+R3
+S1
+S2
+>>> 
+What if you only want to list the items that begin with the letter R? An if statement can be embedded in a for loop to achieve this, as shown in Example 2.
+
+Example 2: For Loop with Embedded If
+
+>>> for item in devices:
+        if "R" in item:
+                print(item)
+
+
+R1
+R2
+R3
+>>>
+You can also use a combination of the for loop and if statement to create a new list. Example 3 shows how to use the append() method to create a new list called switches.
+
+Example 3: Use a For Loop to Create a New List
+
+>>> switches=[]
+>>> for item in devices:
+        if "S" in item:
+                switches.append(item)
+
+ 
+>>> switches
+['S1', 'S2']
+>>>
+<hr>
+Create a While Loop
+Instead of running a block of code once, as in an if statement, you can use a while loop. A while loop keeps executing a code block as long as a boolean expression remains true. This can cause a program to run endlessly if you do not make sure your script includes a condition for the while loop to stop. While loops will not stop until the boolean expression evaluates as false.
+
+In Example 1, the while loop counts from 1 to a number entered by the user. 
+
+Open a blank script and save it as 06_while-loop.py.
+Create a program with a while loop that counts to a user’s supplied number.
+Convert the string to an integer: x = int(x).
+Set a variable to start the count: y = 1.
+While y <= x, print the value of y and increment y by 1.
+Example 1: Counting Using a While Loop
+
+x=input("Enter a number to count to: ")
+x=int(x)
+y=1
+while y<=x:
+    print(y)
+    y=y+1
+Example 2 shows the output for the script when the user enters 10.
+
+Example 2: Output for First Run of 06_while-loop.py
+
+========== RESTART: /home/user/Documents/GitHub/07_while-loop.py ==========
+Enter a number to count to: 10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+>>>
+Instead of using while y <= x, we can modify the while loop to use a Boolean check and break to stop the loop when the check evaluates as false, as shown in Example 3.
+
+Example 3: Modify the While Loop to Use Break
+
+x=input("Enter a number to count to: ")
+x=int(x)
+y=1
+while True:
+    print(y)
+    y=y+1
+    if y>x:
+        break
+ Modify the 06_while-loop.py script as shown in Example 3 and run it. You should not have any errors and your output should look similar to Example 2.
+<hr>
+Use a While Loop to Check for User Quit Command
+What if we want the program to run as many times as the user wants until the user quits the program? To do this, we can embed the program in a while loop that checks if the user enters a quit command, such as q or quit.
+
+In your 06_while-loop.py script, make the following changes, as shown in Example 1.
+
+Add another while loop to the beginning of the script which will check for a quit command.
+Add an if function to the while loop to check for q or quit.
+Example 1: Add a While Loop to Check for Quit Command
+
+while True:
+    x=input("Enter a number to count to: ")
+    if x == 'q' or x == 'quit':
+        break
+
+    x=int(x)
+    y=1
+    while True:
+        print(y)
+        y=y+1
+        if y>x:
+            break
+ Your output should look similar to Example 2 in which the user entered two different values before quitting the program.
+
+Example 2: Output for 06_while-loop.py
+
+========= RESTART: /home/user/Documents/GitHub/06_while-loop_sol.py =========
+Enter a number to count to: 3
+1
+2
+3
+Enter a number to count to: 5
+1
+2
+3
+4
+5
+Enter a number to count to: quit
+>>>
+<hr>
+Read an External File
+In addition to user input, you can access a database, another computer program, or a file to provide input to your program. The open() function can be used to access a file using the following syntax:
+
+open(name, [mode])
+The name parameter is the name of the file to be opened. If the file is in a different directory than your script, you will also need to provide path information. For our purposes, we are only interested in three mode parameters:
+
+r - read the file (default mode if mode is omitted).
+w - write over the file, replacing the content of the file.
+a - append to the file.
+Complete the following steps to read and print a file:
+
+Open a blank script and save it as 07_file-access.py.
+Create a script to read and print the content of a file, as shown in Example 1.
+The devices.txt file should be in the same directory as your script.
+After printing the contents of the file, use the close() function to remove it from the computer's memory.
+Note: The contents of the file are set to a variable named file. However, that variable can be called anything the programmer chooses.
+
+Example 1: Read and Print a File
+
+file=open("devices.txt","r")
+for item in file:
+    print(item)
+file.close()
+Run the script and troubleshoot, if necessary. Your output should look like Example 2.
+
+Example 2: Output for the Script 07_file-access.py
+
+========== RESTART: /home/user/Documents/GitHub/07_file-access.py ==========
+Cisco 819 Router
+
+Cisco 881 Router
+
+Cisco 888 Router
+
+Cisco 1100 Router
+
+Cisco 4321 Router
+
+Cisco 4331 Router
+
+Cisco 4351 Router
+
+Cisco 2960 Catalyst Switch
+
+Cisco 3850 Catalyst Switch
+
+Cisco 7700 Nexus Switch
+
+Cisco Meraki MS220-8 Cloud Managed Switch
+
+Cisco Meraki MX64W Security Appliance
+
+Cisco Meraki MX84 Security Appliance
+
+Csico Meraki MC74 VoIP Phone
+
+Cisco 3860 Catalyst Switch
+
+>>>
+ Note: Click here to download the Chapter 1 files if you did not get them when completing the Lab - PC Setup for Workshop.
+<hr>
+Remove Blank Lines from the Output
+You may have noticed that Python added a blank line after each entry. We can remove this blank line using the strip() method. Edit your 07_file-access.py script as shown in Example 1.
+
+Example 1: Stripping the Blank Line
+
+file=open("devices.txt","r")
+for item in file:
+   item=item.strip()
+   print(item)
+file.close()
+Run and, if necessary, troubleshoot your script. Your output should look like Example 2.
+
+Example 2: Output for the Script 07_file-access.py
+
+========== RESTART: /home/user/Documents/GitHub/07_file-access.py ==========
+Cisco 819 Router
+Cisco 881 Router
+Cisco 888 Router
+Cisco 1100 Router
+Cisco 4321 Router
+Cisco 4331 Router
+Cisco 4351 Router
+Cisco 2960 Catalyst Switch
+Cisco 3850 Catalyst Switch
+Cisco 7700 Nexus Switch
+Cisco Meraki MS220-8 Cloud Managed Switch
+Cisco Meraki MX64W Security Appliance
+Cisco Meraki MX84 Security Appliance
+Csico Meraki MC74 VoIP Phone
+Cisco 3860 Catalyst Switch
+>>>
+<hr>
+Copy File Content Into a List Variable
+Most of the time when programmers access an external resource such as a database or file, they are wanting to copy that content into a local variable that can then be referenced and manipulated without impacting the original resource. 
+
+The devices.txt file is a list of Cisco devices that can easily be copied into a Python list using the following steps:
+
+Create an empty list.
+Use the append parameter to copy file content to the new list.
+Modify your 07_file-access.py as shown in Example 1.
+
+Example 1: Copying a File into a List
+
+devices=[]
+file=open("devices.txt","r")
+for item in file:
+   item=item.strip()
+   devices.append(item)
+file.close()
+print(devices)
+Run and, if necessary, troubleshoot your script. Your output should look like Example 2.
+
+Example 2: Output for the Script 07_file-access.py
+
+========== RESTART: /home/user/Documents/GitHub/07_file-access.py ==========
+['Cisco 819 Router', 'Cisco 881 Router', 'Cisco 888 Router', 'Cisco 1100 Router', 'Cisco 4321 Router', 'Cisco 4331 Router', 'Cisco 4351 Router', 'Cisco 2960 Catalyst Switch', 'Cisco 3850 Catalyst Switch', 'Cisco 7700 Nexus Switch', 'Cisco Meraki MS220-8 Cloud Managed Switch', 'Cisco Meraki MX64W Security Appliance', 'Cisco Meraki MX84 Security Appliance', 'Csico Meraki MC74 VoIP Phone', 'Cisco 3860 Catalyst Switch']
+
+<hr>
+Activity – Create a Script to Allow User to Add Devices
+What if you want to add more devices to the devices.txt file? You can open the file in append mode and then ask the user to provide the name of the new devices. Complete the following steps to create a script:
+
+Open a new file and save it as 07_file-access_actvity.py.
+For the open() function use the mode a, which will allow you to append a item to the devices.txt file.
+Inside a while True: loop, embed an input() function command that asks the user for the new device.
+Set the value of the user's input to a variable named newItem.
+Use an if statement that breaks the loop if the user types exit and prints the statement "All done!".
+Use the command file.write(newItem + “\n”) to add the new user provided device.
+Run and troubleshoot your script until you get output similar to Example 1.
+
+Example 1: Output for Script 07_file-access_activity.py
+
+==== RESTART: /home/user/Documents/GitHub/07_file-access_sol_activity.py ====
+Enter device name: Cisco 1941 Router
+Enter device name: Cisco 2950 Catalyst Switch
+Enter device name: exit
+All done!
+>>>
+<hr>
+Application Programming Interface (API)
+An API allows one piece of software talk to another. An API is analogous to a power outlet. Without a power outlet, what would you have to do to power your laptop?
+
+Open the wall
+Unsheath wires
+Splice wires together
+Understand all the wires in the wall
+An API defines how a programmer can write one piece of software to talk to an existing application’s features or even build entirely new applications.
+<hr>
+API Example
+A good example of the power of using an API is a restaurant recommendation app that returns a list of relevant restaurants in the area. Instead of creating a mapping function from scratch, the app integrates a third-party API to provide map functionality. The creator of the API specifies how and under what circumstances programmers can access the interface.
+<hr>
+Web Services Interface using HTTP
+Web browsers use Hypertext Transfer Protocol (HTTP) to request (GET) a web page. If successfully requested (HTTP status code 200), web servers respond to GET requests with a Hypertext Markup Language (HTML) coded web page, as shown in Figure 1.
+
+Figure 1: HTTP Process for Requesting a Web Page
+
+http-services.png
+<hr>
+RESTful API using HTTP
+Representation State Transfer (REST) APIs use HTTP to interface with RESTful services. In Figure 1, the HTTP request asks for JavaScript Object Notation (JSON) formatted data. If the request is successfully constructed according to the API documentation, the server will respond with JSON data.
+
+Figure 1: RESTful Request for JSON Data
+REST-http.png
+
+<hr>
+Anatomy of a RESTful Request
+Figure 1 shows the anatomy of a RESTful request to the MapQuest directions API. The full parameters are not shown.
+
+Figure 1: RESTful Request Anatomy
+
+1.3.1.5-REST-anatomy.png
+
+The parts of the request are as follows:
+
+API Server: The URL for the server that answers REST requests
+Resources: Specifies the API that is being requested
+Format: Usually JSON or XML
+Parameters: Specifies what data is being requested
+
+<hr>
+API Documentation
+To successfully construct an API request, you must follow the API documentation. As shown in Figure 1, you can quickly find API documentation using an Internet search.
+
+Figure 1: Search for API Documentation
+
+1.3.1.6-1-Search.png
+
+At a minimum, the API documentation will specify the following:
+
+The request format (JSON, XML, or text)
+The request parameters
+The response format
+Figure 2 shows a partial screenshot of the MapQuest Directions API documentation. Click here  (Links to an external site.)for the full documentation.
+
+Figure 2: Example of API Request Format Documentation
+
+1.3.1.6-2-Documentation.png
+<hr>
+JSON Response Data
+JavaScript Object Notation (JSON) is a format for storing and exchanging text between a server and a client application. It is easy to read and write. JSON is a very popular format that web services and APIs use to provide public data because it is easy to parse and can be used with most modern programming languages including Python.
+
+Click here  (Links to an external site.)to see publicly available information for the International Space Station (ISS). The example calls the ISS Pass Predictions API and returns the time a duration for the next 5 passes of the ISS over Austin, Texas. 
+
+Note: Search the Internet to learn more about the ISS APIs. 
+
+You should get JSON response data similar to what is shown in Figure 1, which looks a lot like a collection of Python lists and dictionaries. This similarity makes it easy to convert JSON objects and arrays into Python data structures.
+
+Figure 1: ISS JSON Response Data for Austin, Texas
+
+ 1.3.2.1-1_JSONview1.png
+
+Note: To be able to expand and collapse the JSON data, make sure you should have the JSONView (Links to an external site.) extension installed in your Chrome browser. 
+
+In JSON, objects are indicated by curly braces and resemble Python dictionaries. JSON arrays are held in square brackets and resemble Python lists. To simplify the discussion, we will refer to the JSON structures using the familiar Python terms. Keep in mind however, that JSON data is usually converted to Python data structures before it is used by Python programs.
+
+Collapse the JSON data, as shown in Figure 2. At the highest level, the JSON data is contained in a dictionary, as indicated by the curly braces { }. Notice that message, request, and response are key/value pairs in the dictionary. The request element contains another dictionary and the response element contains a list, as indicated by the square brackets [ ]. 
+
+Figure 2: ISS API Dictionary Root Elements
+
+1.3.2.1-2_JSONview2.png
+
+Expand the dictionary inside the response element to view each of the key/value pairs in the dictionary (Figure 3). 
+
+Figure 3: Elements in the Response List
+
+1.3.2.1-3_JSONview3.png
+
+To be able to parse JSON data, it is important to understand this feature of embedding dictionaries and lists within each other. For example, to extract the rise time when the ISS passes over Austin, Texas, you would need to specify three levels of embedded lists and dictionaries, as shown in the script in Example 1.
+
+Example 1: Script to Retrieve and Extract the Rise Time when ISS Passes over Austin
+
+import urllib.parse
+import requests
+import time
+
+url = 'http://api.open-notify.org/iss/v1/?lat=30.26715&lon=-97.74306'
+json_data = requests.get(url).json()
+epoch = json_data['response'][0]['risetime']
+next_pass = time.strftime("%a, %d %b %Y %H:%M:%S %Z", time.localtime(epoch))
+print("The next ISS pass will be: " + (next_pass))
+Run the above code in your Python instance to test it. You should get output that gives the timestamp for the ISS pass over Austin, Texas. Change the coordinates to reflect your location. Make sure you use the correct positive and/or negative designations for your chosen latitude and longitude.
+<hr>
+XML Response Data
+Extensible Markup Language (XML) extends the functionality of HTML allowing web programmers to construct custom tags. To get XML data instead of JSON from the MapQuest API, replace json with xml in the URL structure as shown here:
+
+https://www.mapquestapi.com/directions/v2/route?outFormat=xml&key=KEY&from=Chicago&to=Boston
+
+Note: The above URL does not work. You would first need to replace KEY with a valid key to call the MapQuest API. You will get a key in the next topic.
+
+You can see in the XML response in Figure 1 that the embedded data has the same basic structure as the previous JSON response. However, in XML, it is not easy to distinguish between dictionaries and lists. Instead, each element is enclosed by an opening and closing tag, such as <results> and </results>. Parsing XML data is more difficult than parsing JSON. Therefore, we will be using JSON data exclusively in this course.
+
+Figure 1: XML Response Data for Direction from Chicago to Boston
+
+1.3.2.2_XML.png
+<hr>
+Demonstration - MapQuest Directions API Application
+In this topic, you will create an application that retrieves JSON data from the MapQuest Directions API, parses the data, and formats it for output to the user. Click herePreview the document to download a PDF of the full lab.
+
+You will use the GET Route request from the MapQuest Directions API. Review the GET Route Directions API documentation here:
+
+https://developer.mapquest.com/documentation/directions-api/route/get/ (Links to an external site.)
+
+Example 1 shows output from a functioning version of the program. Notice that the user entered ask for directions for two different trips.
+
+To build this application, you will complete the following objectives:
+
+Obtain a MapQuest API Key.
+Import necessary modules.
+Create API request variables and construct a URL.
+Add user input functionality.
+Add a quit feature so that the user can end the application.
+Display trip information for time, distance, and fuel usage.
+Iterate through the JSON data to extract and output the directions.
+Display error messages for invalid user input.
+Example 1: Output for the MapQuest Directions API Application
+
+========= RESTART: /home/user/Documents/GitHub/08_parse-json_sol.py =========
+Starting Location: Washington
+Destination: Baltimore
+URL: https://www.mapquestapi.com/directions/v2/route?key=your_api_key&from=Washington&to=Baltimore
+API Status: 0 = A successful route call.
+
+Directions from Washington to Baltimore
+Trip Duration:   00:49:19
+Kilometers:      61.32
+Fuel Used (Ltr): 6.24
+=============================================
+Start out going north on 6th St/US-50 E/US-1 N toward Pennsylvania Ave/US-1 Alt N. (1.28 km)
+Turn right onto New York Ave/US-50 E. Continue to follow US-50 E (Crossing into Maryland). (7.51 km)
+Take the Balt-Wash Parkway exit on the left toward Baltimore. (0.88 km)
+Merge onto MD-295 N. (50.38 km)
+Turn right onto W Pratt St. (0.86 km)
+Turn left onto S Calvert St/MD-2. (0.43 km)
+Welcome to BALTIMORE, MD. (0.00 km)
+=============================================
+
+Starting Location: Moscow
+Destination: Beijing
+URL: https://www.mapquestapi.com/directions/v2/route?key=your_api_key&from=Moscow&to=Beijing
+API Status: 0 = A successful route call.
+
+Directions from Moscow to Beijing
+Trip Duration:   84:31:10
+Kilometers:      7826.83
+Fuel Used (Ltr): 793.20
+=============================================
+Start out going west on Кремлёвская набережная/Kremlin Embankment. (0.37 km)
+Turn slight right onto ramp. (0.15 km)
+Turn slight right onto Боровицкая площадь. (0.23 km)
+[output omitted]
+Turn left onto 广场东侧路/E. Guangchang Rd. (0.82 km)
+广场东侧路/E. Guangchang Rd becomes 东长安街/E. Chang'an Str. (0.19 km)
+Welcome to BEIJING. (0.00 km)
+=============================================
+
+Starting Location: Washington
+Destination: Beijing
+URL: https://www.mapquestapi.com/directions/v2/route?key=your_api_key&from=WashingtonTurn+right+onto+%E5%89%8D%E9%97%A8%E8%A5%BF%E5%A4%A7%E8%A1%97%2FQianmen+West+Street.+%281.01+km%29&to=Beijing
+
+****************************************************************
+Staus Code: 402; Invalid user inputs for one or both locations.
+****************************************************************
+
+Starting Location: Washington
+Destination: Balt
+URL: https://www.mapquestapi.com/directions/v2/route?key=your_api_key&from=Washington&to=Balt
+
+************************************************************************
+Staus Code: 602; Refer to:
+https://developer.mapquest.com/documentation/directions-api/status-codes
+************************************************************************
+
+Starting Location: Washington
+Destination: 
+URL: https://www.mapquestapi.com/directions/v2/route?key=your_api_key&from=Washington&to=
+
+************************************************************************
+Staus Code: 611; Refer to:
+https://developer.mapquest.com/documentation/directions-api/status-codes
+************************************************************************
+
+Starting Location: q
+>>> 
+Note: Your instructor may demonstrate the program and show you the script to create it. In addition, your instructor may allow you to have the solution script, 08_parse-json_sol.py. However, you will create this script step by step in this topic of the course.
+
+<hr>
+Authenticating a RESTful Request
+Before building the application, you will need to obtain a key from MapQuest developer site, which you will do in the next step. Previously, you used no authentication to access the ISS Pass Predictions API. However, many APIs require some form of authentication.
+
+Authenticating a RESTful request is done in one of four ways:
+
+None: The API resource is public and anybody can place the request. This is the method you have used up to this point.
+Basic HTTP: The username and password are passed to the server in an encoded string. This method is less common than token and OAuth authentication.
+Token: A secret key generally retrieved from the Web API developer portal.
+Open Authorization (OAuth): An open standard for retrieving an access token from an Identity Provider. The token is then passed with each API call.
+For your purposes, you will use token authentication. To add a token to your RESTful request, simply add key=your_api_key, as shown in Figure 1. 
+
+Figure 1: Adding a Token to a RESTful Request
+
+1.3.3.2_Request-with-Key.png
+<hr>
+Activity - Get Your MapQuest API Key
+Complete the following steps to get a MapQuest API key:
+
+Go to: https://developer.mapquest.com/ (Links to an external site.).
+Click Sign Up at the top of the page.
+Fill out the form to create a new account. For Company, enter Cisco Networking Academy Student.
+After clicking Sign Me Up, you are redirected to the Manage Keys
+Click Approve All Keys and expand My Application.
+Copy your Consumer Key to Notepad for future use. This will be the key you use for the rest of this lab.
+Note: MapQuest may change the process for obtaining a key. If the steps above are no longer valid, search for “steps to generate mapquest api key”.
+<hr>
+Importing Modules
+To begin our script for parsing JSON data, you will need to import two modules from the Python library: requests and urllib.parse. The request module provides functions for retrieving JSON data from a URL. The urllib.parse module provides a variety of functions that will enable us to parse and manipulate the JSON data you receive from a request to a URL. 
+
+Open a blank script file and save it as 08_parse-json1.py.
+Import the urllib.parse and requests modules, as shown in Example 1.
+Example 1: Importing Modules
+
+import urllib.parse
+import requests
+
+<hr>
+Create Variables for API Request
+The first step in creating our API request is to construct the URL that our program will use to make the call. Initially, the URL will be the combination of the following variables, as shown in Example 1:
+
+main_api - the main URL that you are accessing
+orig - the parameter to specify your point of origin
+dest - the parameter to specify your destination
+key - the MapQuest API key you retrieved from the developer website.
+Add the variables in Example 1 to your 08_json-parse1.py script, replacing "your_api_key" with your API key.
+
+Example 1: Create the Variable to Construct the URL
+
+main_api = "https://www.mapquestapi.com/directions/v2/route?"
+orig = "Washington"
+dest = "Baltimaore"
+key = "your_api_key"
+Those variables are combined to create the url variable, as shown in Example 2. Use the urlencode method to properly format the address value. This function builds the parameters part of the URL and converts possible special characters in the address value (e.g. space into “+” and a comma into “%2C”).
+
+Add the url variable in Example 2 to your 08_json-parse1.py script.
+
+Example 2: Create the Variable for the URL
+
+url = main_api + urllib.parse.urlencode({"key": key, "from":orig, "to":dest})
+Now you are ready to make the request by creating the json_data variable, as shown in Example 3. The variable makes use of the get method of the requests module and specifies JSON as the requested format. The print statement is used to test that the request was successful.
+
+Add the json_data variable and print statement in Example 3 to your 08_json-parse1.py script.
+
+Example 3: Create the JSON Request Variable
+
+json_data = requests.get(url).json()
+print(json_data)
+ 
+<hr>
+Activity - Test the URL Request
+Run your 08_json-parse1.py script and verify it works. Troubleshoot your code, if necessary. Although your output might be slightly different, you should get a JSON response similar what is shown in Example 1.
+
+Example 1: Output for Testing the URL Request
+
+========== RESTART: /home/user/08_parse-json1.py ==========
+{'route': {'distance': 38.089, {'route': {'distance': 38.089, 'hasHighway': True, 'hasUnpaved': False, 'hasAccessRestriction': False, 'options': {'mustAvoidLinkIds': [], 'maxWalkingDistance': -1, 'manmaps': 'true', 'urbanAvoidFactor': -1, 'stateBoundaryDisplay': True, 'cyclingRoadFactor': 1, 'routeType': 'FASTEST', 'countryBoundaryDisplay': True, 'drivingStyle': 2, 'highwayEfficiency': 22, 'narrativeType': 'text', 'routeNumber': 0, 'tryAvoidLinkIds': [], 'generalize': -1, 'returnLinkDirections': False, 'doReverseGeocode': True, 'avoidTripIds': [], 'timeType': 0, 'sideOfStreetDisplay': True, 'filterZoneFactor': -1, 'walkingSpeed': -1, 'useTraffic': False, 'unit': 'M', 'tr 
+[output omitted]
+>>>
+<hr>
+Print the URL and Check the Status of the JSON Request
+Now that you know the JSON request is working, you can add some more functionality to the application.
+
+Save your script as 08_json-parse2.py.
+Delete the print(json_data) statement as you no longer need to test that the request is properly formatted.
+Add the statements below, which will do the following:
+Print the constructed URL so that the user can see the exact request made by the application.
+Parse the JSON data to obtain the statuscode value
+Print the statuscode value and a message if the request is successful. The \n adds a blank line after the message.
+Example 1: Print the URL and Request Status
+
+print("URL: " + (url))
+
+json_data = requests.get(url).json()
+json_status = json_data["info"]["statuscode"]
+
+if json_status == 0:
+    print("API Status: " + str(json_status) + " = A successful route call.\n")
+<hr>
+Activity - Test Status and URL Print Commands
+Run your 08_json-parse2.py script and verify it works. Troubleshoot your code, if necessary. You should get output similar to what is shown in Example 1.
+
+Example 1: Output for Printing the URL and Request Status
+
+========== RESTART: /home/user/08_parse-json2.py ==========
+URL: https://www.mapquestapi.com/directions/v2/route?key=your_api_key&from=Washington&to=Baltimore
+API Status: 0 = A successful route call.
+
+>>>
+<hr>
+Add User Input for Address
+Up to this point, you have used Washington and Baltimore as the static values for the location variables. However, the application requires that the user input these.
+
+Complete the following steps to update your application:
+
+Save your script as 08_json-parse3.py.
+Delete the current orig and dest
+Rewrite the orig and dest to be within a while loop in which it requests user input for the starting location and destination. The while loop allows the user to continue to make requests for different directions.
+Be sure all the remaining code is indented within the while loop, as shown in Example 1.
+Example 1: While Loop for User Input
+
+while True:
+    orig = input("Starting Location: ")
+    dest = input("Destination: ")
+    url = main_api + urllib.parse.urlencode({"key": key, "from":orig, "to":dest})
+    print("URL: " + (url))
+
+    json_data = requests.get(url).json()
+    json_status = json_data["info"]["statuscode"]
+
+    if json_status == 0:
+        print("API Status: " + str(json_status) + " = A successful route call.\n")
+
+<hr>
+Activity - Test User Input
+Run your 08_json-parse3.py script and verify it works. Troubleshoot your code, if necessary. You should get output similar to what is shown in Example 1. 
+
+You will add quit functionality later. For now, enter Ctrl+C to quit the program.
+
+Example 1: Output for Testing User Input for the Address
+
+========== RESTART: /home/user/08_parse-json3.py ==========
+Starting Location: Washington
+Destination: Baltimore
+URL: https://www.mapquestapi.com/directions/v2/route?key=your_api_key&from=Washington&to=Baltimore
+API Status: 0 = A successful route call.
+
+Starting Location: <Ctrl+C>
+ Note: The output has been modified to remove the API key.
+<hr>
+Add Quit Functionality
+Instead of entering Ctrl+C to quit the program, you will add the ability for the user to enter q or quit as keywords to quit the program. 
+
+Complete the following steps to update your application:
+
+Save your script as 08_json-parse4.py.
+Add an if statement after the address variable to check if the user enters q or quit, as shown in Example 1.
+Example 1: Add an If Statement to Check for Quit Commands
+
+while True:
+    orig = input("Starting Location: ")
+    if orig == "quit" or orig == "q":
+        break
+    dest = input("Destination: ")
+    if dest == "quit" or dest == "q":
+        break
+<hr>
+Activity - Test Quit Functionality
+Run your 08_json-parse4.py script twice to verify that both quit and q will end the application. Troubleshoot your code, if necessary. You should get output similar to what is shown in Example 1. 
+
+Example 1: Output for Testing Quit Functionality
+
+Starting Location: q
+>>> 
+Starting Location: quit
+>>> 
+Starting Location: Washington
+Destination: q
+>>> 
+Starting Location: Washington
+Destination: quit
+>>> 
+<hr>
+Parse and Display Trip Data
+Copy your URL into your web browser. If you collapse all the JSON data, you will see that there are two root dictionaries: route and info.
+
+Expand the route dictionary and investigate the rich data. There are values to indicate whether the route has toll roads, bridges, tunnels, highways, closures, or crosses into other countries. You should also see values for distance, the total time the trip will take, and fuel usage, as highlighted below. To parse and display this, specify the route dictionary and select key/value pair you want to print.
+
+1.3.3.13_route.png
+Complete the following steps to print this trip data
+
+Save your script as 08_json-parse5.py.
+Below the API status print command, add print statements that display the from and to locations, as well as the formattedTime, distance, and fuelUsed
+Add a print statement that will display a double line before the next request for a starting location as shown below.
+    if json_status == 0:
+        print("API Status: " + str(json_status) + " = A successful route call.\n")
+        print("Directions from " + (orig) + " to " + (dest))
+        print("Trip Duration:   " + (json_data["route"]["formattedTime"]))
+        print("Miles:           " + str(json_data["route"]["distance"]))
+        print("Fuel Used (Gal): " + str(json_data["route"]["fuelUsed"]))
+Run 08_json-parse5.py to see the following output:
+Starting Location: Washington
+Destination: Baltimore
+URL: https://www.mapquestapi.com/directions/v2/route?to=Baltimore&key=Your_api_key&from=Washington
+API Status: 0 = A successful route call.
+
+Directions from Washington to Baltimore
+Trip Duration:   00:49:19
+Miles:           38.089
+Fuel Used (Gal): 1.65
+=============================================
+Starting Location: q
+>>> 
+MapQuest uses the imperial system and there is not a request parameter to change data to the metric system. Therefore, you should probably convert your application to display metric values, as shown below.
+        print("Kilometers:      " + str((json_data["route"]["distance"])*1.61))
+        print("Fuel Used (Ltr): " + str((json_data["route"]["fuelUsed"])*3.78))
+Run the modified 08_json-parse5.py script to see the following output:
+Starting Location: Washington
+Destination: Baltimore
+URL: https://www.mapquestapi.com/directions/v2/route?key=Your_api_key&to=Baltimore&from=Washington
+API Status: 0 = A successful route call.
+
+Directions from Washington to Baltimore
+Trip Duration:   00:49:19
+Kilometers:      61.32329
+Fuel Used (Ltr): 6.236999999999999
+=============================================
+Starting Location: q
+>>>
+Use the "{:.2f}".format argument to format the float values to 2 decimal places before converting them to string values, as shown below. Each statement should be on one line.
+
+        print("Kilometers:      " + str("{:.2f}".format((json_data["route"]["distance"])*1.61)))
+        print("Fuel Used (Ltr): " + str("{:.2f}".format((json_data["route"]["fuelUsed"])*3.78)))
+Run the modified 08_json-parse5.py script to see the following output:
+Starting Location: Washington
+Destination: Baltimore
+URL: https://www.mapquestapi.com/directions/v2/route?key=your_api_key&to=Baltimore&from=Washington
+API Status: 0 = A successful route call.
+
+Directions from Washington to Baltimore
+Trip Duration:   00:49:19
+Kilometers:      61.32
+Fuel Used (Ltr): 6.24
+=============================================
+Starting Location: q
+>>> 
+<hr>
+Test the Parsing and Formatting Functionality
+Run your 08_json-parse5.py script to verify it works. Troubleshoot your code, if necessary. Make sure you have all the proper opening and closing parentheses. You should get output similar to the following.
+
+Starting Location: Washington
+Destination: Baltimore
+URL: https://www.mapquestapi.com/directions/v2/route?key=your_api_key&to=Baltimore&from=Washington
+API Status: 0 = A successful route call.
+
+Directions from Washington to Baltimore
+Trip Duration:   00:49:19
+Kilometers:      61.32
+Fuel Used (Ltr): 6.24
+=============================================
+Starting Location: q
+>>> 
+<hr>
+Inspect the Maneuvers JSON Data
+Now you are ready to display the step-by-step directions from the starting location to the destination. Locate the legs list inside the route dictionary. The legs list includes one big dictionary with most of the JSON data.
+
+Find the maneuvers list and collapse each of the seven dictionaries inside, as shown below.
+
+1.3.3.15-1_Maneuvers.png
+Expand the first dictionary in the maneuvers list. Each dictionary contains a narrative key with a value, such as “Start out going north...”, as shown below. You need to parse the JSON data to extract the value for the narrative key to display inside your application.
+1.3.3.15-2_Narrative.png
+<hr>
+Add a For Loop to Iterate Through the Maneuvers JSON Data
+Complete the following steps to update your application:
+
+Save your script as 08_json-parse6.py.
+Add a for loop below the second double line print statement. The for loop iterates through each maneuvers list and does the following:
+Prints the narrative
+Converts miles to kilometers with *1.61.
+Formats the kilometer value to print only two decimal places with the "{:.2f}".format
+Add a print statement that will display a double line before the next request for a starting location as shown below.
+Note: The second double line print statement is not indented within the for loop. It therefore is part of the previous if statement that checks the statuscode parameter.
+
+    if json_status == 0:
+        print("API Status: " + str(json_status) + " = A successful route call.\n")
+        print("Directions from " + (orig) + " to " + (dest))
+        print("Trip Duration:   " + str(json_data["route"]["formattedTime"]))
+        print("Kilometers:      " + str("{:.2f}".format((json_data["route"]["distance"])*1.61)))
+        print("Fuel Used (Ltr): " + str("{:.2f}".format((json_data["route"]["fuelUsed"])*3.78)))
+        print("=============================================")
+        for each in json_data["route"]["legs"][0]["maneuvers"]:
+            print((each["narrative"]) + " (" + str("{:.2f}".format((each["distance"])*1.61) + " km)"))
+        print("=============================================\n")
+<hr>
+Activity - Test JSON Iteration and Application Functionality
+Run your 08_json-parse6.py script and verify it works. Troubleshoot your code, if necessary. You should get an output similar to the following:
+Starting Location: Washington
+Destination: Baltimore
+URL: https://www.mapquestapi.com/directions/v2/route?key=Your_api_key&to=Baltimore&from=Washington
+API Status: 0 = A successful route call.
+
+Directions from Washington to Baltimore
+Trip Duration:   00:49:19
+Kilometers:      61.32
+Fuel Used (Ltr): 6.24
+=============================================
+Start out going north on 6th St/US-50 E/US-1 N toward Pennsylvania Ave/US-1 Alt N. (1.28 km)
+Turn right onto New York Ave/US-50 E. Continue to follow US-50 E (Crossing into Maryland). (7.51 km)
+Take the Balt-Wash Parkway exit on the left toward Baltimore. (0.88 km)
+Merge onto MD-295 N. (50.38 km)
+Turn right onto W Pratt St. (0.86 km)
+Turn left onto S Calvert St/MD-2. (0.43 km)
+Welcome to BALTIMORE, MD. (0.00 km)
+=============================================
+
+Starting Location: q
+>>>
+<hr>
+Check for Invalid User Input
+Now you are ready to add one final feature to your application to report an error when the user enters invalid data. Recall that you started an if loop to make sure the returned statuscode equals 0 before parsing the JSON data:
+
+    json_status = json_data["info"]["statuscode"]
+
+    if json_status == 0:
+        print("API Status: " + str(json_status) + " = A successful route call.\n")
+Starting Location: Washington
+Destination: Beijing
+URL: https://www.mapquestapi.com/directions/v2/route?to=Beijing&key=your_api_key&from=Washington
+Starting Location: Washington
+Destination: Balt
+URL: https://www.mapquestapi.com/directions/v2/route?to=Balt&key=your_api_key&from=Washington
+Starting Location: Washington
+Destination: [no user input]
+URL: https://www.mapquestapi.com/directions/v2/route?to=&key=your_api_key&from=Washington
+Starting Location: q
+Save your script as 08_jsont-parse7.py.
+
+To provide error information when this happens, add elif and else statements to your if loop. After the last double line print statement under the if json_status == 0, add the following elif and else statements:
+
+        for each in json_data["route"]["legs"][0]["maneuvers"]:
+            print((each["narrative"]) + " (" + str("{:.2f}".format((each["distance"])*1.61) + " km)"))
+        print("=============================================\n")
+    elif json_status == 402:
+        print("\n****************************************************************")
+        print("Status Code: " + str(json_status) + "; Invalid user inputs for one or both locations.")
+        print("****************************************************************\n")
+    else:
+        print("\n************************************************************************")
+        print("Status Code: " + str(json_status) + "; Refer to:")
+        print("https://developer.mapquest.com/documentation/directions-api/status-codes")
+        print("************************************************************************\n")
+The elif statement prints if the statuscode value is 402 for an invalid location. The else statement prints for all other statuscode values, such as no entry for one or more locations. The else statement ends the if/else loop and returns the application to the while loop.
+<hr>
+Activity - Test Full Application Functionality
+Run your 08_json-parse7.py script and verify it works. Troubleshoot your code, if necessary. Test all the features of the application. For error testing, you should get output similar to the following:
+
+Starting Location: Washington
+Destination: Beijing
+URL: https://www.mapquestapi.com/directions/v2/route?from=Washington&to=Beijing&key=your_api_key
+
+****************************************************************
+Staus Code: 402; Invalid user inputs for one or both locations.
+****************************************************************
+
+Starting Location: Washington
+Destination: Balt
+URL: https://www.mapquestapi.com/directions/v2/route?from=Washington&to=Balt&key=your_api_key
+
+************************************************************************
+Staus Code: 602; Refer to:
+https://developer.mapquest.com/documentation/directions-api/status-codes
+************************************************************************
+
+Starting Location: Washington
+Destination: [no user input]
+URL: https://www.mapquestapi.com/directions/v2/route?from=Washington&to=&key=your_api_key
+
+************************************************************************
+Staus Code: 611; Refer to:
+https://developer.mapquest.com/documentation/directions-api/status-codes
+************************************************************************
+
+Starting Location: q
+>>> 
+<hr>
+Chapter 2: Model Driven Programmability
+In this chapter, you will learn some basic network programmability concepts and learn how to program a network device using YANG device models and the RESTCONF and NETCONF APIs. The workshop will consist of three main parts:
+
+Network Programmability
+YANG Models
+Experimenting with RESTCONF
+Experimenting with NETCONF
+Security considerations
+At the end of this workshop you will be able to:
+
+Explain the concept of APIs and the importance of RESTful APIs for software integration.
+Explain how network programmability enhances network management and automation.
+Explain the advantages of using model based device APIs, compared with a traditional CLI based approach for network automation.
+Explain how YANG device models define the structure, syntax and validation rules for device data.
+Interact with networking devices using RESTCONF and NETCONF API interfaces.
+Use Python with combination of RESTCONF and NETWORK APIs to retrieve and update the device’s configuration.
+<hr>
+Computer Requirements
+If you completed the Lab - PC Setup for Workshop, then your computer should be ready with the following:
+
+Python 3
+IDLE
+Installed Python modules: requests and tabulate
+The Postman application
+<hr>
+Why Are We Here?
+mag-covers.png
+Data networking is experiencing a period of disruption for the following reasons:
+
+Everything becomes connected: The Internet of Things which is connecting millions of devices to the Internet.
+Everything becomes software-based: Cisco is redefining itself as a software and services company in addition to its role as a leader in providing networking hardware.
+Everything generates data: Along with the move towards digitization everywhere comes the opportunities and demands of Big Data and Analytics.
+Everything can be automated: The network can become adaptive and intention-based.
+Everything needs to be secured: Security needs to be everywhere, especially with millions of things attaching to the network.
+You are here today to gain knowledge and skills about the programmability aspects of the emerging network.
+
+<hr>
+Building an Industry Ecosystem with DevNet
+devnet-ecosystem.png
+DevNet, formerly known as the Cisco Developer's Network, is a place for developers to test out software with actual Cisco networks and devices that are programmable. DevNet offers numerous sandboxed virtual environments that are either open or reservable by registered users. In addition, DevNet offers many learning tracks and hours of courses designed for networking professionals who are learning network programmability. The Networking Academy Program is working with DevNet to bring learners and developers together in a powerful ecosystem. DevNet access is free.
+
+Please visit DevNet (Links to an external site.) and login as a NetAcad user so that you can explore what DevNet has to offer you.
+<hr>
+Control Plane and Data Plane
+control-and-data-planes.png
+With the networking devices that we are familiar with, you may tend to think of a router or switch as a single device. However, the major functions of these devices can be divided into two planes:
+
+Control plane - Makes forwarding decisions. The control plane contains Layer 2 and Layer 3 route forwarding mechanisms. Information sent to the control plane is processed by the CPU.
+Data plane - Also called the forwarding plane, this plane is used to forward traffic flows. Routers and switches use information from the control plane to forward incoming traffic out the appropriate egress interface. 
+By separating the control plane and data plane, network programmers can centralize information that devices use to make forwarding decisions and perform other functions.
+<hr>
+Programmable API interfaces for the network
+In Software Defined Architectures, the SDN controller provides an abstraction layer on top of the physical network, making it easier to configure, maintain and troubleshoot. The controller itself comes usually with built-in features that help network administrators out of the box. Moreover, the controllers expose a Northbound RESTful API interface that enables developers to build their own custom applications and features on top of the abstraction layer. Such applications can extend the build-in functionality of the controller or solve specific business requirements.
+
+On the Southbound side, the controller uses various protocols to communicate with the networking devices. Common Southbound protocols are SSH, SNMP, but also emerging new model driven protocols as well such as RESTCONF and NETCONF.
+
+SDN
+
+In this workshop, you will learn more about protocols such as RESTCONF and NETCONF and the YANG models to build your own simple examples of network automation using reusable Python scripts and other tools.
+<hr>
+Lab activities
+The workshop is designed to be run using the Instructor's PowerPoint slides to provide the background context for the 10 hands on lab activities:
+
+1.0.1.2 Lab - PC Setup for WorkshopPreview the document
+2.1 Lab - Setting Up the Lab EnvironmentPreview the document
+2.2 Lab - CLI Automation with Python using netmikoPreview the document
+2.3 Lab - Explore YANG models using the pyang toolPreview the document
+2.4 Lab - RESTCONF with PostmanPreview the document
+2.5 Lab - RESTCONF with PythonPreview the document
+2.6 Lab - raw NETCONFPreview the document
+2.7 Lab - NETCONF wPython List CapabilitiesPreview the document
+2.8 Lab - NETCONF wPython Device ConfigurationPreview the document
+2.9 Lab - NETCONF wPython Get Operational DataPreview the document
+ 
+
+Once your instructor has completed all the Chapter 2 slides and after you have finished with all the lab activities, please continue with the Course Survey and Final Exam to get your Certificate of Course Completion.
+<hr><br><br><br>
+<a href="https://1384600.netacad.com/courses" target="_blank" rel="noopener noreferrer">Model Driven Programmability - Becas Digitaliza: DevNet - Ene 20</a>
+
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>
