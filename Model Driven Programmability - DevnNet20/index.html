@@ -1567,18 +1567,196 @@ The figure shows example output from an API call displayed in the Postman applic
 <img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378652/REST-response.png?response-content-disposition=attachment%3B%20filename%3D%22REST-response.png%22%3B%20filename%2A%3DUTF-8%27%27REST%252Dresponse.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T095206Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a188bf0da9117acd5e381e02e5b8c9f2ffcde08e1096fe0ce82a30434d2dcc6e" alt="">
 <hr>
 
+Authenticating with the APIC-EM
+
+Recall that authenticating a RESTful request is done in one of four ways:
+
+    None: The API resource is public and anybody can place the request. 
+    Basic HTTP: The username and password are passed to the server in an encoded string. This method is less common than token and OAuth authentication.
+    Token: A secret key generally retrieved from the Web API developer portal.
+    Open Authorization (OAuth): An open standard for retrieving an access token from an Identity Provider. The token is then passed with each API call.
+
+APIC-EM uses Token for authentication management. The APIC-EM calls this token a service ticket. In the first lab, you will use Postman to request a service ticket by supplying the username and password, as shown in the figure.  After the token (service ticket) is received, it is used instead of account credentials. APIC-EM service tickets timeout, so they must be repeatedly requested.. 
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378654/postman-service-ticket-request.png?response-content-disposition=attachment%3B%20filename%3D%22postman-service-ticket-request.png%22%3B%20filename%2A%3DUTF-8%27%27postman%252Dservice%252Dticket%252Drequest.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T095328Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=683800faefd285936cd6082ff555cd08810095b44c91c050ee1970afb784a0c2" alt="">
+
+<hr>
+Activity - APIC-EM Swagger Documentation
+
+Swagger is a framework for development and documentation of RESTful APIs under the OpenAPI specification. It provides a standard way do document APIs that is consistent in presentation and functionality.
+The APIC-EM uses a token for authentication. Tokens are called a service tickets. To request a service ticket, you send POST request to the API /ticket endpoint.
+Complete the following steps to inside the Swagger documentation to request a service ticket for the APIC-EM.
+Note: Use the APIC-EM URL and credentials that have been supplied by your instructor. The examples provided in this activity refer to the public DevNet APIC-EM instance.
+    1. Login to your APIC-EM instance with the appropriate credentials..
+    2. Click API in the top right corner of the home screen.
+    3. Click Role Based Access Control > ticket > POST /ticket. You should see the documentation for the method to create a new user ticket, as shown in Figure 1.
+    Figure 1: Documentation for Creating a New Ticket
+    <img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378683/APIC-EM-Swagger1.png?response-content-disposition=attachment%3B%20filename%3D%22APIC-EM-Swagger1.png%22%3B%20filename%2A%3DUTF-8%27%27APIC%252DEM%252DSwagger1.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T095915Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d3ca8d1b8972aee799a24cb4a0ba9acaa3e5b5893d705aaae39eb705ecba6283" alt="">
+    APIC-EM-Swagger1.png
+    4. Click Model Schema.
+    5. Click the yellow box under Model Schema.
+    6. Enter the password and username credentials between the quotes.
+    7. Click Try it out!.
+    8. If successful, the ticket number will be in the response body JSON, as shown in Figure 2.
+    Figure 2: JSON Response with Ticket Number
+    <img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378678/APIC-EM-Swagger2.png?response-content-disposition=attachment%3B%20filename%3D%22APIC-EM-Swagger2.png%22%3B%20filename%2A%3DUTF-8%27%27APIC%252DEM%252DSwagger2.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T095916Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=7c93e1031a289341063e99847ca2a7ec7c44f7d3576bef2bdbdfe7187b0b4917" alt="">
+    APIC-EM-Swagger2.png
+
+Next, you will learn how to use Postman and Python to request a service ticket.
+<hr>
+
+Lab - Getting a Service Ticket with Python
+
+This page summarizes the steps in Lab - Getting a Service Ticket with Python. Click herePreview the document to download the lab PDF if you would like a more detailed explanation.
+
+In this lab, you will complete the following objectives in order to prepare your computer for the course:
+
+    Part 1: Get a Service Ticket in Postman
+    Part 2: Get a Service Ticket in Python
+
+Required Resources
+
+    Postman
+    Python 3 with IDLE
+    Python requests module
+    Access to the Internet
+
+Note: Use the APIC-EM sandbox URL and credentials provided by your instructor. Only use the public APIC-EM URL and credentials for additional study after the conclusion of the workshop. For example purposes, this activity uses the URL and credentials of the public sandbox.
+Part 1: Get a Service Ticket in Postman
+
+In this part, you will request a service ticket number from APIC-EM using Postman.
+Step 1: Configure Postman.
+
+In Postman, click File > Settings > General tab and set the SSL certificate verification to OFF.
+
+postman-ssl-setting.png
+Step 2: Select the method and enter the required URL.
+
+Select POST as the method and enter the URL https://{YOUR-APICEM}.cisco.com/api/v1/ticket in the Enter request URL field. (Replace {YOUR-APICEM} with the subdomain of the APIC-EM sandbox instance used in this workshop.)
+
+postman-post-enter-url.png
+Step 3: Enter the header information.
+
+Select Headers, enter Content-Type in the New key field, and application/json in the Value field.
+
+postman-headers.png
+Step 4: Enter the authentication information.
+
+Select Body and raw. Then enter the APIC-EM credentials using the following code:
+
+{
+    "username": "devnetuser",
+    "password": "Cisco123!"
+}
+
+postman-authentication.png
+Step 5: Send the request.
+
+Click Send. After a brief delay, you should see the response JSON that includes the value of the serviceTicket key. 
+
+postman-request.png
+Part 2: Get a Service Ticket in Python
+
+In this part, you will use Python to request a service ticket number from the APIC-EM.
+Step 1: Setup the Python script environment.
+
+    Open IDLE.
+    Click Options > Configure IDLE > General.
+    Change Initial Window Size to Width = 100 and click Ok.
+
+Step 2: Import modules and disable SSL warnings.
+
+    Click File > New File to open IDLE Editor.
+    Save the file as get_ticket.py.
+    Enter the following statements: 
+
+import json
+import requests
+requests.packages.urllib3.disable_warnings()
+
+Step 3: Build the request components.
+
+    Create a variable named api_url and assign the URL.
+    Create a dictionary variable named headers that has a single key for content-type and assign the key the value application/json.
+    Create a dictionary variable named body_json that has two keys needed for authentication.
+
+api_url = "https://{YOUR-APICEM}.cisco.com/api/v1/ticket"
+headers = {
+    "content-type": "application/json"
+}
+body_json = {
+    "username": "!!!REPLACE ME with the Username!!!",
+    "password": "!!!REPLACE ME with the Password!!!"
+}
+
+Step 4: Send the request.
+
+    Create a variable named resp to send the request. This variable will hold the JSON response from the API.
+    Save your script and run it. There will not be any output yet but the script should run without errors. If not, review the steps and make sure your code does not contain any errors.
+
+resp=requests.post(api_url,json.dumps(body_json),headers=headers,verify=False)
+
+Step 5: Evaluate the response.
+
+    Display the status of the request by printing the status_code property of the resp variable with a short string that identifies the value.
+    Create a variable named response_json that will convert the response data to Python format.
+    Create a variable named serviceTicket that will parse the service ticket number from the response_json variable.
+    Add a print statement to print the value of the serviceTicket key.
+
+print("Ticket request status: ", resp.status_code)
+
+response_json = resp.json()
+serviceTicket = response_json["response"]["serviceTicket"] 
+print("The service ticket number is: ", serviceTicket)
+
+Save and run your script. You should get output similar to the following although your serviceTicket value will be different.
+
+Ticket request status: 200
+The service ticket number is: ST-5719-wqCr5bdUWAUn9LqabWl0-cas
+>>>
+
+Step 6: Create a function from the program.
+
+Rather than recreating code in every program that it is used in, you can import and refer to the same code repeatedly by calling a function that resides in a separate file.
+
+Complete the following steps to create a script that contains your get_ticket.py program as a function:
+
+    Open a new file in IDLE Editor and save it as my_apic_em_functions.py.
+    Copy all of the code from your get_ticket.py file and paste it into the new file.
+    Enter a few blank lines below the import statements.
+    Add the statement def get_ticket(): to define your code as the function get_ticket(). Be sure you include the colon.
+    Select all of the statements below the def get_ticket():
+    From the IDLE Editor menu, click Format > Indent Region.
+    Add the statement return serviceTicket to the end of the indented code. Your code should look like the following:
+
+python-def-get-ticket_2.png
+
+Save and run the my_apic_em_functions.py script. The file will run in the IDLE Shell, although nothing is displayed. Call your function by entering get_ticket() in the IDLE Shell. You should see output similar to the following:
+
+>>> get_ticket()
+Ticket request status: 200
+The service ticket number is: ST-5274-Ey2TCHlMVqntwNqEkGzs-cas
+'ST-5274-Ey2TCHlMVqntwNqEkGzs-cas'
+>>>
+
+<hr>
+
+<hr>
+
+<hr>
 
 
 
-
-
-
-
-
-Once your instructor has completed all the Chapter 2 slides and after you have finished with all the lab activities, please continue with the Course Survey and Final Exam to get your Certificate of Course Completion.
 <hr><br><br><br>
 <a href="https://1384600.netacad.com/courses" target="_blank" rel="noopener noreferrer">Model Driven Programmability - Becas Digitaliza: DevNet - Ene 20</a>
 
+
+
+<footer>
+   <blockquote>
+        Imágenes correspondientes a netacad.com 
+        Derechos reservados.
+   </blockquote>
+</footer>
 </pre>
 </body>
 </html>
