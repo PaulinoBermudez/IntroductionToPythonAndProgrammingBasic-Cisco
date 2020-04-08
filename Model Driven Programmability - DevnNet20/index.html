@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -775,21 +777,21 @@ A good example of the power of using an API is a restaurant recommendation app t
 <hr>
 Web Services Interface using HTTP
 Web browsers use Hypertext Transfer Protocol (HTTP) to request (GET) a web page. If successfully requested (HTTP status code 200), web servers respond to GET requests with a Hypertext Markup Language (HTML) coded web page, as shown in Figure 1.
-
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378671/http-services.png?response-content-disposition=attachment%3B%20filename%3D%22http-services.png%22%3B%20filename%2A%3DUTF-8%27%27http%252Dservices.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T073530Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=57ffc8861236a1c2233ea229aa84e2dcab1fd901e349b14ca93f9109a16d33be" alt="">
 Figure 1: HTTP Process for Requesting a Web Page
 
 http-services.png
 <hr>
 RESTful API using HTTP
 Representation State Transfer (REST) APIs use HTTP to interface with RESTful services. In Figure 1, the HTTP request asks for JavaScript Object Notation (JSON) formatted data. If the request is successfully constructed according to the API documentation, the server will respond with JSON data.
-
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378667/REST-http.png?response-content-disposition=attachment%3B%20filename%3D%22REST-http.png%22%3B%20filename%2A%3DUTF-8%27%27REST%252Dhttp.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T073936Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=4cb54254ec3a7a25cec7117f443bd40a231f86fff3c23e4ecbb3fcd2a8528624" alt="">
 Figure 1: RESTful Request for JSON Data
 REST-http.png
 
 <hr>
 Anatomy of a RESTful Request
 Figure 1 shows the anatomy of a RESTful request to the MapQuest directions API. The full parameters are not shown.
-
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378718/1.3.1.5-REST-anatomy.png?response-content-disposition=attachment%3B%20filename%3D%221.3.1.5-REST-anatomy.png%22%3B%20filename%2A%3DUTF-8%27%271.3.1.5%252DREST%252Danatomy.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T074016Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d6b986b3274460e0006a0048c5171a81402d71d21c6de7a78ebc29274c561803" alt="">
 Figure 1: RESTful Request Anatomy
 
 1.3.1.5-REST-anatomy.png
@@ -806,7 +808,7 @@ API Documentation
 To successfully construct an API request, you must follow the API documentation. As shown in Figure 1, you can quickly find API documentation using an Internet search.
 
 Figure 1: Search for API Documentation
-
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378718/1.3.1.5-REST-anatomy.png?response-content-disposition=attachment%3B%20filename%3D%221.3.1.5-REST-anatomy.png%22%3B%20filename%2A%3DUTF-8%27%271.3.1.5%252DREST%252Danatomy.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T074016Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d6b986b3274460e0006a0048c5171a81402d71d21c6de7a78ebc29274c561803" alt="">
 1.3.1.6-1-Search.png
 
 At a minimum, the API documentation will specify the following:
@@ -815,7 +817,7 @@ The request format (JSON, XML, or text)
 The request parameters
 The response format
 Figure 2 shows a partial screenshot of the MapQuest Directions API documentation. Click here  (Links to an external site.)for the full documentation.
-
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378719/1.3.1.6-2-Documentation.png?response-content-disposition=attachment%3B%20filename%3D%221.3.1.6-2-Documentation.png%22%3B%20filename%2A%3DUTF-8%27%271.3.1.6%252D2%252DDocumentation.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T074201Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f614b43f02731d3e5271f30d6777e8ee2eb5d4e64aa891aedc250a05de324d61" alt="">
 Figure 2: Example of API Request Format Documentation
 
 1.3.1.6-2-Documentation.png
@@ -830,7 +832,7 @@ Note: Search the Internet to learn more about the ISS APIs.
 You should get JSON response data similar to what is shown in Figure 1, which looks a lot like a collection of Python lists and dictionaries. This similarity makes it easy to convert JSON objects and arrays into Python data structures.
 
 Figure 1: ISS JSON Response Data for Austin, Texas
-
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378722/1.3.2.1-1_JSONview1.png?response-content-disposition=attachment%3B%20filename%3D%221.3.2.1-1_JSONview1.png%22%3B%20filename%2A%3DUTF-8%27%271.3.2.1%252D1%255FJSONview1.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T074315Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c2bae6ade437b7545f5ca90ae1adb4d07a76d9f050b95d885baf567fca535aab" alt="">
  1.3.2.1-1_JSONview1.png
 
 Note: To be able to expand and collapse the JSON data, make sure you should have the JSONView (Links to an external site.) extension installed in your Chrome browser. 
