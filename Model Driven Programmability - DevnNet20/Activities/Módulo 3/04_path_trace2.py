@@ -283,3 +283,37 @@ print("Network Elements Information "+json.dumps(networkElementsInfo))
 
 all_devices = [] # create a list variable to store the hosts and devices
 device_no = 1  #this variable is an ordinal number for each device, incremented in the loop
+
+#Iterate through returned Path Trace JSON and populate list of path information
+for networkElement in networkElementsInfo:
+    # test if the devices DOES NOT have a "name", absence of "name" identifies an end host
+    if not 'name' in networkElement:  #assigns values to the variables for the hosts
+       name = 'Unnamed Host'
+       ip = networkElement['ip']
+       egressInterfaceName = 'UNKNOWN'
+       ingressInterfaceName = 'UNKNOWN'
+       device = [device_no,name,ip,ingressInterfaceName,egressInterfaceName]
+    # if there is the "name" key, then it is an intermediary device
+    else: #assigns values to the variables for the intermediary devices
+       name = networkElement['name']
+       ip = networkElement['ip']   
+       if 'egressInterface' in networkElement: #not all intermediary devices have ingress and egress interfaces
+           egressInterfaceName = networkElement['egressInterface']['physicalInterface']['name']
+       else:
+           egressInterfaceName = 'UNKNOWN'
+           
+       if 'ingressInterface' in networkElement:
+           ingressInterfaceName = networkElement['ingressInterface']['physicalInterface']['name']
+       else:
+           ingressInterfaceName = 'UNKNOWN'       
+       device = [device_no,name,ip,ingressInterfaceName,egressInterfaceName] #create the list of info to be displayed
+    all_devices.append(device) #add this list of info for the device as a new line in this variable
+    device_no += 1  #increments the ordinal variable for the device in the list
+
+print("Looping through all the devices")
+
+# Step 8. Exec and see the result
+print('Path trace \n Source: ' + path_source + '\n Destination: ' + path_dest) #print the source and destination IPs for the trace
+print('List of devices on path:')
+print (tabulate(all_devices,headers=['Item','Name','IP','Ingress Int','Egress Int'],tablefmt="rst")) #print the table of devices in the path trace
+
