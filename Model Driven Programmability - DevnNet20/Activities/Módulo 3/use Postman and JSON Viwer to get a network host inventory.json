@@ -1,0 +1,49 @@
+﻿{
+  "response": [
+    {
+      "hostIp": "10.1.15.117",
+      "hostMac": "00:24:d7:43:59:d8",
+      "hostType": "wireless",
+      "connectedNetworkDeviceId": "cd6d9b24-839b-4d58-adfe-3fdf781e1782",
+      "connectedNetworkDeviceIpAddress": "10.1.14.3",
+      "connectedAPMacAddress": "68:bc:0c:63:4a:b0",
+      "connectedAPName": "AP7081.059f.19ca",
+      "vlanId": "600",
+      "lastUpdated": "1479514114932",
+      "source": "200",
+      "pointOfPresence": "ae19cd21-1b26-4f58-8ccd-d265deabb6c3",
+      "pointOfAttachment": "ae19cd21-1b26-4f58-8ccd-d265deabb6c3",
+      "subType": "UNKNOWN",
+      "id": "48cdeb9b-b412-491e-a80c-7ec5bbe98167"
+    },
+    {
+      "hostIp": "10.2.1.22",
+      "hostMac": "5c:f9:dd:52:07:78",
+      "hostType": "wired",
+      "connectedNetworkDeviceId": "26450a30-57d8-4b56-b8f1-6fc535d67645",
+      "connectedNetworkDeviceIpAddress": "10.2.1.17",
+      "connectedInterfaceId": "7075521d-4d7b-4218-92f9-79b60e054635",
+      "connectedInterfaceName": "GigabitEthernet1/0/47",
+      "vlanId": "200",
+      "lastUpdated": "1479514299803",
+      "source": "200",
+      "subType": "UNKNOWN",
+      "id": "f624d4f3-0ab9-4ae3-b09d-62051edbd8f3"
+    },
+    {
+      "hostIp": "10.1.12.20",
+      "hostMac": "e8:9a:8f:7a:22:99",
+      "hostType": "wired",
+      "connectedNetworkDeviceId": "5b5ea8da-8c23-486a-b95e-7429684d25fc",
+      "connectedNetworkDeviceIpAddress": "10.1.12.1",
+      "connectedInterfaceId": "6e4e5ae6-6045-4060-9038-1a64d5a101cc",
+      "connectedInterfaceName": "GigabitEthernet1/0/47",
+      "vlanId": "200",
+      "lastUpdated": "1479513914455",
+      "source": "200",
+      "subType": "UNKNOWN",
+      "id": "572d4065-abd8-4b97-bfc3-ab5ee13f6c08"
+    }
+  ],
+  "version": "1.0"
+}
