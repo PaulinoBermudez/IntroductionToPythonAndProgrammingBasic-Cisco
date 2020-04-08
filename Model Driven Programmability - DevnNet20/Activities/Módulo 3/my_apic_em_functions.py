@@ -1,7 +1,7 @@
 #!/bin/python
 import os
-os.system("clear")
-os.system("cls")
+#os.system("clear")
+#os.system("cls")
 
 import requests
 import json

@@ -1,7 +1,7 @@
 #!/bin/python
 import os
-os.system("clear")
-os.system("cls")
+#os.system("clear")
+#os.system("cls")
 
 import requests
 import json
@@ -49,7 +49,7 @@ response_json = resp.json()
 
 # Parse and format the JSON response data
 # Create a new list
-device_list = []
+host_list = []
 
 # Generate the for loop to create a list
 i = 0
@@ -60,9 +60,9 @@ for item in response_json["response"]:
              item['hostType'],
              item['hostIp'] 
             ]
-     device_list.append( host )
+     host_list.append( host )
 table_header = ["Number", "Type", "IP"]
-print( tabulate(device_list, table_header) )
+print( tabulate(host_list, table_header) )
 
 
 # print("Print the all information devices")
