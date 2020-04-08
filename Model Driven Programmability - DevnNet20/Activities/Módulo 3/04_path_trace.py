@@ -44,5 +44,3 @@ for item in response_json["response"]:
      headers.append( host )
 table_header = ["Number", "Type", "IP"]
 print( tabulate(headers, table_header) )
-print("string")
-function_name()
