@@ -230,3 +230,44 @@ except:
 flowAnalysisId="ce33b3e1-707d-498e-97bb-bc3b264a13dd"
 print('FLOW ANALYSIS ID: ' + flowAnalysisId)
 print(path)
+
+
+#============================
+# Section 5-6 Check status of Path Trace request, output results when COMPLETED
+#============================
+print("This section might take some time to run")
+status = ""
+
+#Add Flow Analysis ID to the endpoint URL in order to check the status of this specific path trace
+check_url = api_url + "/" + flowAnalysisId
+# Variable to increment within the while loop. Will trigger exit from loop after x iterations
+checks = 0 
+print ("START - Current date and time: ")
+# start=datetime.datetime.now()
+# 
+while status != 'COMPLETED':
+    checks += 1
+    r = requests.get(check_url,headers=headers,params="",verify = False)
+    response_json = r.json()
+    status = response_json["response"]["request"]["status"]
+    print('REQUEST STATUS: ' + status)
+    #number of iterations before exit of loop; change depending on conditions
+    if checks == 15:
+        print("Number of status checks exceeds limit. Possible problem with Path Trace.")
+        break
+    elif status == 'FAILED':
+        print('Problem with Path Trace')
+        print('Problem with FlowAnalysisId: ' + check_url)
+        break
+    print('REQUEST STATUS: ' + status)
+print(check_url)
+print("Response in json format")
+print ('==============================================================')
+print(response_json)
+print ('==============================================================')
+# print ("STOP - Current date and time: ")
+# print('START TIME: ' + str(start))
+# stop = datetime.datetime.now()
+# print('END TIME: ' + str(stop))
+# print('TIME NEEDED: '+ str(stop-start))
+
