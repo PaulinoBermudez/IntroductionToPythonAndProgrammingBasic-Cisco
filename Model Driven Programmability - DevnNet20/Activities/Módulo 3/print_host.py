@@ -64,3 +64,8 @@ for item in response_json["response"]:
 table_header = ["Number", "Type", "IP"]
 print( tabulate(device_list, table_header) )
 
+
+# print("Print the all information devices")
+# print("---------------------------------------------------")
+# print(response_json)
+# print("---------------------------------------------------")

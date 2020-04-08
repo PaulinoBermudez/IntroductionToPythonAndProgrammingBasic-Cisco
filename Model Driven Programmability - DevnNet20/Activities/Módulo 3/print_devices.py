@@ -12,7 +12,7 @@ from tabulate import *
 from my_apic_em_functions import *
 
 # Built the request components
-api_url = "https://sandboxapicem.cisco.com/api/v1/host"
+api_url = "https://sandboxapicem.cisco.com/api/v1/network-device"
 ticket = get_ticket()
 headers = {
  "content-type": "application/json",
@@ -31,23 +31,24 @@ response_json = resp.json()
 
 # Parse and format the JSON response data
 # Create a new list
-host_list = []
+devices_list = []
 
 # Generate the for loop to create a list
 i = 0
 for item in response_json["response"]:
-     i+=1
-     host = [
+    i+=1
+    host = [
              i,
-             item["hostType"],
-             item["hostIp"], 
-             item["hostMac"],
-             item["connectedNetworkDeviceId"],
-             item["vlanId"]
+             item["location"],
+             item["type"],
+             item["managementIpAddress"], 
+             item["serialNumber"],
+             item["family"],
+             item["hostname"]
             ]
-     host_list.append( host )
-table_header = ["Number", "Type", "IP", "MAC", "Nombre", "VLAN"]
-print( tabulate(host_list, table_header) )
+    devices_list.append( host )
+table_header = ["Number", "Location","Type", "IP", "S/N", "Family", "hostname"]
+print( tabulate(devices_list, table_header) )
 
 
 # print("Print the all information devices")
