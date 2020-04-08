@@ -54,4 +54,16 @@ while True:
     d_ip = input("Please, Write the DESTINATION IP address for the path trace: ")
     # Error messages
     if s_ip != '' or d_ip != '':
-        # Create the Python library
+        # Create the Python dictionary 
+        path_data = {
+            "sourceIP": s_ip,
+            "destIP":d_ip
+        }
+        print("---------- YOUR DATA -------------")
+        print("Source IP address: " + path_data['sourceIP'])
+        print("Destination IP address: " + path_data['destIP'])
+        break
+    else:
+        print(" YOU MUST ENTER IP ADDRESS TO CONTINUE ... ")
+        print(" Push CTRL+C to quit program")
+        continue
