@@ -45,7 +45,7 @@ body_json = {
 }
 resp=requests.post(api_url,json.dumps(body_json),headers=headers,verify=False)
 
-# SECTION 3. Get the source and destination IP Add for the Path Trace
+# S.4 - SECTION 3. Get the source and destination IP Add for the Path Trace
 
 while True:
     # Source
@@ -53,12 +53,20 @@ while True:
     # Destination
     d_ip = input("Please, Write the DESTINATION IP address for the path trace: ")
     # Error messages
-    if s_ip != '' or d_ip != '':
-        # Create the Python dictionary 
-        path_data = {
-            "sourceIP": s_ip,
-            "destIP":d_ip
-        }
+    if s_ip != '':
+        print("Source ... OK!")
+        if d_ip != '':
+            # Create the Python dictionary 
+            path_data = {
+                "sourceIP": s_ip,
+                "destIP":d_ip
+            }
+            print("Destination IP  ... OK!")
+        else:
+            print("Destination IP ... Fail")
+            print(" YOU MUST ENTER IP ADDRESS TO CONTINUE ... ")
+            print(" Push CTRL+C to quit program")
+            continue
         print("---------- YOUR DATA -------------")
         print("Source IP address: " + path_data['sourceIP'])
         print("Destination IP address: " + path_data['destIP'])
