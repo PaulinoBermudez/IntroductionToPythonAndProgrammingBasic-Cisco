@@ -2,16 +2,18 @@
 # Import the libraries
 import os
 import json
+import request
 import requests
 import tabulate
+import sys
 import threading
 os.system("clear")
 os.system("cls")
 
 from tabulate import *
-from my_apic_em_functions import *
-from print_devices import *
-from print_host import *
+#from my_apic_em_functions import *
+#from print_devices import *
+#from print_host import *
 
 print("--------------------------")
 from my_apic_em_functions import *
@@ -20,7 +22,6 @@ from my_apic_em_functions import *
 ###################################
 #               HOST              #
 ###################################
-
 
 # Create the 'get_ticket' function
 def get_ticket():
@@ -42,7 +43,6 @@ def get_ticket():
     print("The service ticket number is: ", serviceTicket)
     print("______________________________________________________")
     return serviceTicket
-
 # Built the request components
 api_url = "https://sandboxapicem.cisco.com/api/v1/host"
 ticket = get_ticket()
@@ -73,7 +73,18 @@ for item in response_json["response"]:
             ]
      host_list.append( host )
 table_header = ["Number", "Type", "IP"]
-print( tabulate(host_list, table_header) )
+# print( tabulate(host_list, table_header) )
+
+print("============================ HOST =========================================================")
+NADA=input("Pulse para continuar") 
+os.system("clear")
+os.system("cls")
+print("=====================================================================================================")
+ 
+
+
+
+
 
 ###################################
 #             DEVICES             #
@@ -114,16 +125,27 @@ for item in response_json["response"]:
             ]
     devices_list.append( host )
 table_header = ["Number", "Location","Type", "IP", "S/N", "Family", "hostname"]
-print( tabulate(devices_list, table_header) )
+# print( tabulate(devices_list, table_header) )
+# print('List of hosts on the network: ')
+# print('\n') #prints blank line to format output
+# print('List of devices on the network: ')
 
-print("--------------------------")
+print("OK! [>              ] ")
+print("OK! [===>           ] ")
+print("OK! [======>        ] ")
+print("OK! [===========>   ] ")
+print("OK! [==============>] ")
 
-print('List of hosts on the network: ')
-print (tabulate(host_list,headers=['Number','Type','IP'],tablefmt='rst'))
-print('\n') #prints blank line to format output
-print('List of devices on the network: ')
-print (tabulate(devices_list,headers=['Number','Type','IP'],tablefmt='rst'))
+print("")
+print("============================ DEVICES =========================================================")
+NADA=input("Pulse para continuar") 
+os.system("clear")
+os.system("cls")
+print("=====================================================================================================")
+ 
 
+print (tabulate(host_list,headers=['Number','Type','IP','MODEL','TYPE2','LOCATION'],tablefmt='rst'))
+print (tabulate(devices_list,headers=['Number','Type','IP','MODEL','TYPE2','LOCATION'],tablefmt='rst'))
 
 
 # Disable the warnings 
@@ -178,26 +200,33 @@ while True:
 # Section 4. Initiate the Path Trace and get the flowAnalysisId
 #============================
 
-#++++++++++++++++++++++++++++++++++++		
-# Post request to initiate Path Trace
+
 print("....................................................................")
 print("The URL is: " + api_url)
+print("The PATH is: " + json.dumps(path_data))
 print("....................................................................")
-#variable to hold the path_data
-path = json.dumps(path_data) 
-resp = requests.post(api_url,path,headers=headers,verify=False)
+NADA=input("Pulse para continuar .... ")
+resp = requests.post(api_url,json.dumps(path_data),headers=headers,verify=False)
 
+#++++++++++++++++++++++++++++++++++++++	
+# Post request to initiate Path Trace +
+#variable to hold the path_data       +
+path=json.dumps(path_data)
 # Inspect the return, get the Flow Analysis ID, put it into a variable
-response_json = resp.json()
-print(response_json)
+resp_json = resp.json()
+
+print(resp)
+print(resp_json)
 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-# I have a extract to API > Flow Analysis > POST > flowAnalysisRequest	>
-#   {"destIP": "10.2.1.22", "inclusions": ["INTERFACE-STATS", "DEVICE-STATS"], "sourceIP": "10.1.15.117", "periodicRefresh": false}
-# Value: 
-flowAnalysisId="ce33b3e1-707d-498e-97bb-bc3b264a13dd"
 try:
     flowAnalysisId=response_json["response"]["flowAnalysisId"]
     print("FLOW ANALYSIS ID: " + flowAnalysisId)
     print(path)
 except:
     print ("\n For some reason cannot get flowAnalysisId")
+# I have a extract to API > Flow Analysis > POST > flowAnalysisRequest	>
+#   {"destIP": "10.2.1.22", "inclusions": ["INTERFACE-STATS", "DEVICE-STATS"], "sourceIP": "10.1.15.117", "periodicRefresh": false}
+# Value: 
+flowAnalysisId="ce33b3e1-707d-498e-97bb-bc3b264a13dd"
+print('FLOW ANALYSIS ID: ' + flowAnalysisId)
+print(path)
