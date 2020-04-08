@@ -842,13 +842,13 @@ In JSON, objects are indicated by curly braces and resemble Python dictionaries.
 Collapse the JSON data, as shown in Figure 2. At the highest level, the JSON data is contained in a dictionary, as indicated by the curly braces { }. Notice that message, request, and response are key/value pairs in the dictionary. The request element contains another dictionary and the response element contains a list, as indicated by the square brackets [ ]. 
 
 Figure 2: ISS API Dictionary Root Elements
-
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378721/1.3.2.1-2_JSONview2.png?response-content-disposition=attachment%3B%20filename%3D%221.3.2.1-2_JSONview2.png%22%3B%20filename%2A%3DUTF-8%27%271.3.2.1%252D2%255FJSONview2.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T074315Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=e5875e093b9068161026bb6a5b837f0cbbf6e2eacf38f061405c269eb8624be7" alt="">
 1.3.2.1-2_JSONview2.png
 
 Expand the dictionary inside the response element to view each of the key/value pairs in the dictionary (Figure 3). 
 
 Figure 3: Elements in the Response List
-
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378723/1.3.2.1-3_JSONview3.png?response-content-disposition=attachment%3B%20filename%3D%221.3.2.1-3_JSONview3.png%22%3B%20filename%2A%3DUTF-8%27%271.3.2.1%252D3%255FJSONview3.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T074315Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=1a582e15867ed98d946129dad152dd702edd1d76f1bcd9d94c7f7ad6757c6474" alt="">
 1.3.2.1-3_JSONview3.png
 
 To be able to parse JSON data, it is important to understand this feature of embedding dictionaries and lists within each other. For example, to extract the rise time when the ISS passes over Austin, Texas, you would need to specify three levels of embedded lists and dictionaries, as shown in the script in Example 1.
@@ -876,7 +876,7 @@ Note: The above URL does not work. You would first need to replace KEY with a va
 You can see in the XML response in Figure 1 that the embedded data has the same basic structure as the previous JSON response. However, in XML, it is not easy to distinguish between dictionaries and lists. Instead, each element is enclosed by an opening and closing tag, such as <results> and </results>. Parsing XML data is more difficult than parsing JSON. Therefore, we will be using JSON data exclusively in this course.
 
 Figure 1: XML Response Data for Direction from Chicago to Boston
-
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378724/1.3.2.2_XML.png?response-content-disposition=attachment%3B%20filename%3D%221.3.2.2_XML.png%22%3B%20filename%2A%3DUTF-8%27%271.3.2.2%255FXML.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T074655Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=66151b3bf5f8dee5ebd1d7551d2b4251494efb7dd9f62c6a8f6f2a0fa23ef8da" alt="">
 1.3.2.2_XML.png
 <hr>
 Demonstration - MapQuest Directions API Application
@@ -982,7 +982,7 @@ Open Authorization (OAuth): An open standard for retrieving an access token from
 For your purposes, you will use token authentication. To add a token to your RESTful request, simply add key=your_api_key, as shown in Figure 1. 
 
 Figure 1: Adding a Token to a RESTful Request
-
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378725/1.3.3.2_Request-with-Key.png?response-content-disposition=attachment%3B%20filename%3D%221.3.3.2_Request-with-Key.png%22%3B%20filename%2A%3DUTF-8%27%271.3.3.2%255FRequest%252Dwith%252DKey.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T074738Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=07a2b8ce94b2d46521a3b8a1044457baecd2a2113c8a79b1ce4bb3bedc8a4eb8" alt="">
 1.3.3.2_Request-with-Key.png
 <hr>
 Activity - Get Your MapQuest API Key
@@ -1156,7 +1156,7 @@ Parse and Display Trip Data
 Copy your URL into your web browser. If you collapse all the JSON data, you will see that there are two root dictionaries: route and info.
 
 Expand the route dictionary and investigate the rich data. There are values to indicate whether the route has toll roads, bridges, tunnels, highways, closures, or crosses into other countries. You should also see values for distance, the total time the trip will take, and fuel usage, as highlighted below. To parse and display this, specify the route dictionary and select key/value pair you want to print.
-
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378726/1.3.3.13_route.png?response-content-disposition=attachment%3B%20filename%3D%221.3.3.13_route.png%22%3B%20filename%2A%3DUTF-8%27%271.3.3.13%255Froute.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T075042Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=845ce21cb1852d16882073b715485c13b464618abe1f49e51e996d5468806740" alt="">
 1.3.3.13_route.png
 Complete the following steps to print this trip data
 
@@ -1214,7 +1214,7 @@ Kilometers:      61.32
 Fuel Used (Ltr): 6.24
 =============================================
 Starting Location: q
->>> 
+>>>  
 <hr>
 Test the Parsing and Formatting Functionality
 Run your 08_json-parse5.py script to verify it works. Troubleshoot your code, if necessary. Make sure you have all the proper opening and closing parentheses. You should get output similar to the following.
@@ -1428,19 +1428,156 @@ The workshop is designed to be run using the Instructor's PowerPoint slides to p
 2.8 Lab - NETCONF wPython Device ConfigurationPreview the document
 2.9 Lab - NETCONF wPython Get Operational DataPreview the document
  
+<hr>
+The Cisco APIC Approach to SDN
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378714/cisco-apic-architecture.png?response-content-disposition=attachment%3B%20filename%3D%22cisco-apic-architecture.png%22%3B%20filename%2A%3DUTF-8%27%27cisco%252Dapic%252Darchitecture.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T090829Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=31d01b34611db4bcea4057dcfcdb14fcea606eaec0d5b3b908ad2d98a49128e3" alt="">
+cisco-apic-architecture.png
+
+A different SDN approach is represented by the Cisco APIC or APIC-EM SDN controllers. These controllers create abstraction from the physical network fabric at the bottom to applications at the top.
+In this case, the control plane does not need to be decoupled from the data plane. The control plane still resides in every device, which provides local distributed intelligence where it is needed. This approach removes the potential for the controller to become the bottleneck of the network. Existing network devices such as routers and switches continue to be used to build scalable and high performance distributed networks.
+In the past, network staff have had to spend a lot of time on the infrastructure at the bottom of the diagram -- the switches and the routers -- connecting them together to build a network architecture. Where people really need to be spending their time -- what digital business thrives on -- is this application layer at the top of the diagram.
+The SDN controller in this case is very important, because it reconciles the two organizational needs. It presents the application layer with abstractions of the network that is underneath. Because of this, applications can very easily consume network services. This is critical because the digital enterprise is entirely application driven. These software applications control orchestration, automation, collaboration, policy, and security so that network staff can work with the abstract and easy to use representation of the network fabric.
+Opening up the software environment to third-party developers encourages innovation and growth. DevNet is a prime resource for facilitating relationships between Cisco and developers. Here then is the need for developers of network applications that interact with the SDN controller, through REST APIs, to realize business needs in the operation of the physical infrastructure.
+
+<hr>
+The Cisco SDN Model with APIC-EM
+
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378699/Cisco_SDN_Model_APIC-EM.png?response-content-disposition=attachment%3B%20filename%3D%22Cisco_SDN_Model_APIC-EM.png%22%3B%20filename%2A%3DUTF-8%27%27Cisco%255FSDN%255FModel%255FAPIC%252DEM.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T092752Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=404c806eac508b183abd01b5b3152b2815286b8d438d68589f92965470b7543e" alt="">
+Cisco_SDN_Model_APIC-EM.png
+As shown in the figure, the Cisco APIC-EM SDN controller communicates with the physical topology using standard Southbound API protocols such as SNMP, SSH and Telnet rather than a protocol like OpenFlow. This makes an easy to use abstraction of the network fabric available to applications using a standard REST API interface.
+These applications can run from big “all in one” orchestration tools to simple scripts that use a single API call to answer a question such as, “How many computers are connected to our network?” Imagine answering that question with a CCENT level knowledge from your computer by SSHing to every router and switch and entering commands at the CLI like “show ip route”, “show ip arp”, and “show mac address-table." Then imagine trying to make some sense of all that output to create a meaningful answer to the simple question.
+We now take a closer look at how we can answer questions about a network programmatically using the APIC-EM APIs
+<hr>
+What is the Cisco APIC-EM?
+
+The Cisco Application Policy Infrastructure Controller Enterprise Module (APIC-EM) is an SDN controller that has the following characteristics:
+
+    - Enterprise network SDN controller
+    - Can be either a virtual software only appliance or a physical appliance
+    - Creates an intelligent, open, programmable network with open APIs
+    - Can transform business-intent policies into dynamic network configuration
+    - Provides a single point for network-wide automation and control
+
+
+<hr>
+APIC-EM DevNet Login
+APIC-EM-login.png
+
+Access the APIC-EM sandbox environments hosted by DevNet using the following URLs:
+
+NetAcad Americas and Asia-Pacific regions <a href="https://DevNetSBX-NetAcad-APICEM-1.cisco.com " target="_blank" rel="noopener noreferrer">Link</a> -or- <a href="https://DevNetSBX-NetAcad-APICEM-2.cisco.com " target="_blank" rel="noopener noreferrer">Link</a> 
+
+Obtain credentials from instructor.
+NetAcad Europe, Middle East, Africa, Russia regions <a href="https://DevNetSBX-NetAcad-APICEM-3.cisco.com " target="_blank" rel="noopener noreferrer">Link</a> 
+
+Obtain credentials from instructor.
+Open sandbox for general use (available for future exploration) <a href="https://SandBoxAPICEM.cisco.com " target="_blank" rel="noopener noreferrer">Link</a> 
+<div>
+    <strong></strong>User: devnetuser PW: Cisco123!</strong>
+</div>
+ The username and password for the NetAcad sandboxes will change every 3-6 months. If your login no longer works, use the open sandbox.
+<hr>
+APIC-EM Home Page
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378715/APIC-EM-homepage-2.png?response-content-disposition=attachment%3B%20filename%3D%22APIC-EM-homepage-2.png%22%3B%20filename%2A%3DUTF-8%27%27APIC%252DEM%252Dhomepage%252D2.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T094137Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=3a8dd76b0f89f24aa161482150c6e3ce15a6be0e279d69d89d68688dbc4da244" alt="">
+APIC-EM-homepage-2.png
+
+After logging in, you will see the Home page, as shown in the figure. The menu on the left provides access to the GUI for each of the services and applications available on the APIC-EM. Three important places on the home page include:
+
+    -Services - The APIC-EM discovers the devices on the network and places them in host and device inventory tables where details for each device can be viewed. The APIC-EM also creates a topology.
+    -Applications - APIC-EM applications allow configuration of the network and testing of network connectivity. Applications include:
+        * IWAN - Simplifies WAN deployments by providing an intuitive, policy-based interface that helps IT abstract network complexity and design for business intent.
+        * Path Trace - Greatly eases and accelerates the task of connection monitoring and troubleshooting.
+        * Network Plug and Play - Provides a unified approach to provision enterprise networks comprised of Cisco routers, switches, and wireless access points with a near-zero-touch deployment experience.
+        * Easy QoS - Provides a simple way to classify and assign application priority.
+    -API documentation - A link where you can access information about the API that is essential to network programmers.
+
+
+<hr>
+Activity - APIC-EM Topology Page
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378650/APIC-EM-topology-page.png?response-content-disposition=attachment%3B%20filename%3D%22APIC-EM-topology-page.png%22%3B%20filename%2A%3DUTF-8%27%27APIC%252DEM%252Dtopology%252Dpage.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T094230Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=51050b02bb47aad8f576429dba2a2f022f1085c5ba8862e93b02882e311721cd" alt="">
+APIC-EM-topology-page.png
+
+The figure shows an example of a network topology that was discovered and rendered by the APIC-EM. You will work with a similar topology, although it may vary slightly.
+Access the APIC-EM topology page and explore the services and applications that are available.
+<hr>
+REST API Review
+
+Recall that Representational State Transfer (REST) is a standardized way of allowing systems on the Internet to interact with one another. It uses the standard HTTP methods and stateless transport to POST or PUT data and requests to an API and to GET responses from the API.
+
+REST APIs include the following characteristics:
+
+    * Use HTTP protocol methods and transport.
+    * API endpoints exist as server processes that are accessed through URIs.
+    * Webpages present data and functionality in human-machine interaction driven by a user.
+    * APIs present data and functionality in machine-machine interactions driven by software.
+
+Directory of Public APIs: https://www.programmableweb.com/apis/directory (Links to an external site.)
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378668/REST-http.png?response-content-disposition=attachment%3B%20filename%3D%22REST-http.png%22%3B%20filename%2A%3DUTF-8%27%27REST%252Dhttp.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T094405Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=c58dd31d6e962c6e25f39ccd764b603a196b237f1b49026e9eb09a9a1522fae1" alt="">
+REST-http.png
+<hr>
+REST API Operation
+
+An application is used to issue requests to an API endpoint that is accepting HTTP requests. Each endpoint can may have different requirements for the format of the REST request. These requirements are available in the API documentation that is provided to developers.
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378651/APIC-EM_REST_example.png?response-content-disposition=attachment%3B%20filename%3D%22APIC-EM_REST_example.png%22%3B%20filename%2A%3DUTF-8%27%27APIC%252DEM%255FREST%255Fexample.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T095056Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b371d2985f99948a12034da8737b31734bba8823d591eabfbe550c0ef4ebd086" alt="">
+APIC-EM_REST_example.png
+In the figure, a generic APIC-EM URL is shown with path to an endpoint called /host. The host endpoint provides an inventory of hosts on the network that is attached to the APIC-EM. If the GET request is correctly formatted and authenticated, the API will return detailed information about the hosts in the form JSON-formatted data.
+<hr>
+REST Request Elements
+
+REST requests require the following elements (requirements may differ depending on the API):
+
+Method
+
+    - GET, POST, PUT, DELETE
+
+URL
+
+    Example: http://{APIC-EMController}/api/v1/host
+
+Authentication
+
+    - Basic HTTP, OAuth, none, Custom
+
+Custom Headers
+
+    - HTTP Headers
+    Example: Content-Type: application/JSON
+
+Request Body
+
+    - JSON or XML containing data needed to complete request
+
+<hr>
+REST Response Elements
+
+The REST response includes the following elements:
+
+    HTTP Status Code:
+        200 OK
+        201 Created
+        401, 403 Authorization error
+        404 Resource not found
+        500 Internal Error
+    Headers
+    Body
+        JSON
+        XML
+
+The figure shows example output from an API call displayed in the Postman application.
+<img src="https://s3.amazonaws.com/cisco_instructure_uploads/account_9859/attachments/82378652/REST-response.png?response-content-disposition=attachment%3B%20filename%3D%22REST-response.png%22%3B%20filename%2A%3DUTF-8%27%27REST%252Dresponse.png&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5FRZOGWNBN56AT6N%2F20200408%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200408T095206Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=a188bf0da9117acd5e381e02e5b8c9f2ffcde08e1096fe0ce82a30434d2dcc6e" alt="">
+<hr>
+
+
+
+
+
+
+
+
 
 Once your instructor has completed all the Chapter 2 slides and after you have finished with all the lab activities, please continue with the Course Survey and Final Exam to get your Certificate of Course Completion.
 <hr><br><br><br>
 <a href="https://1384600.netacad.com/courses" target="_blank" rel="noopener noreferrer">Model Driven Programmability - Becas Digitaliza: DevNet - Ene 20</a>
-
-
-
-
-
-
-
-
-
 
 </pre>
 </body>
