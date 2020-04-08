@@ -232,9 +232,9 @@ print('FLOW ANALYSIS ID: ' + flowAnalysisId)
 print(path)
 
 
-#============================
+#=========================================================================================================
 # Section 5-6 Check status of Path Trace request, output results when COMPLETED
-#============================
+#=========================================================================================================
 print("This section might take some time to run")
 status = ""
 
@@ -243,8 +243,6 @@ check_url = api_url + "/" + flowAnalysisId
 # Variable to increment within the while loop. Will trigger exit from loop after x iterations
 checks = 0 
 print ("START - Current date and time: ")
-# start=datetime.datetime.now()
-# 
 while status != 'COMPLETED':
     checks += 1
     r = requests.get(check_url,headers=headers,params="",verify = False)
@@ -265,9 +263,23 @@ print("Response in json format")
 print ('==============================================================')
 print(response_json)
 print ('==============================================================')
-# print ("STOP - Current date and time: ")
-# print('START TIME: ' + str(start))
-# stop = datetime.datetime.now()
-# print('END TIME: ' + str(stop))
-# print('TIME NEEDED: '+ str(stop-start))
 
+
+#============================
+# Section 6-7. Display results
+#============================
+
+#+++++++++++Add Values+++++++++++++++
+# Create required variables
+path_source = response_json['response']['request']['sourceIP'] 	#the source address for the trace, printed below
+path_dest = response_json['response']['request']['destIP'] 	#the destination address for the trace, printed below
+networkElementsInfo = response_json['response']['networkElementsInfo'] 	#variable holding a list of all the network element dictionaries
+
+
+print("Responses are being processed")
+print("Path Source "+path_source)
+print("Path Dest "+path_dest)
+print("Network Elements Information "+json.dumps(networkElementsInfo))
+
+all_devices = [] # create a list variable to store the hosts and devices
+device_no = 1  #this variable is an ordinal number for each device, incremented in the loop
