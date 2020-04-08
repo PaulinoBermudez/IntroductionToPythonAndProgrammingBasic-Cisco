@@ -46,21 +46,3 @@ if resp.status_code != 200:
     raise Exception("Status code does not equal 200. Response text: " + resp.text)
 response_json = resp.json()
 
-
-# Parse and format the JSON response data
-# Create a new list
-host_list = []
-
-# Generate the for loop to create a list
-i = 0
-for item in response_json["response"]:
-     i+=1
-     host = [
-             i,
-             item["hostType"],
-             item["hostIp"] 
-            ]
-     host_list.append( host )
-table_header = ["Number", "Type", "IP"]
-print( tabulate(host_list, table_header) )
-

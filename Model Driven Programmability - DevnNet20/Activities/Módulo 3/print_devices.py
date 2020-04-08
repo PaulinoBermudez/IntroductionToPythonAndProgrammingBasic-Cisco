@@ -20,6 +20,9 @@ headers = {
 }
 # Request and handle errors.
 resp = requests.get(api_url, headers=headers, verify=False)
+os.system("clear")
+os.system("cls")
+
 print("Status of /host request: ", resp.status_code)
 if resp.status_code != 200:
     raise Exception("Status code does not equal 200. Response text: " + resp.text)
@@ -37,9 +40,17 @@ for item in response_json["response"]:
      host = [
              i,
              item["hostType"],
-             item["hostIp"] 
+             item["hostIp"], 
+             item["hostMac"],
+             item["connectedNetworkDeviceId"],
+             item["vlanId"]
             ]
      host_list.append( host )
-table_header = ["Number", "Type", "IP"]
+table_header = ["Number", "Type", "IP", "MAC", "Nombre", "VLAN"]
 print( tabulate(host_list, table_header) )
 
+
+# print("Print the all information devices")
+# print("---------------------------------------------------")
+# print(response_json)
+# print("---------------------------------------------------")
