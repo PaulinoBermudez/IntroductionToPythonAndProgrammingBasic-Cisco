@@ -1,0 +1,12 @@
+﻿{
+  "cache-control": "no-cache, no-store, no-cache, no-store",
+  "content-encoding": "gzip",
+  "content-security-policy": "style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'nonce-45e6f79f-cc4e-46cd-8329-a0a07f01a519'",
+  "content-type": "application/json;charset=UTF-8",
+  "date": "Wed, 08 Apr 2020 11:53:39 GMT",
+  "pragma": "no-cache, no-cache",
+  "server": "nginx/1.13.12",
+  "strict-transport-security": "max-age=31536000; includeSubDomains",
+  "x-firefox-spdy": "h2",
+  "x-frame-options": "SAMEORIGIN, SAMEORIGIN"
+}
