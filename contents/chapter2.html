@@ -46,9 +46,25 @@
 
 					<header class="special container">
 						<span class="icon fa-laptop"></span>
-						<h2>Start Python</h2>
+						<h2>
+							Mod.2 - Data types, variables, basic inputs/outputs operations, basic operators.
+						</h2>
 						<p>
-							To start Python on Windows computer, open a command line window and type python...
+							You will learn:
+							<ul>
+								<ol>
+									 I - Data types and the basic methods of formatting, converting,
+								</ol>
+								<ol>
+									 II - inputting and outputting data,
+								</ol>
+								<ol>
+									 III - operators,
+								</ol>
+								<ol>
+									 IV - variables.
+								</ol>
+							</ul>
 						</p>
 					</header>
 					<!-- One -->
@@ -58,13 +74,2085 @@
 								<div class="content">
 									<section>
 										<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-										<header>
-											<h3>Dolore Amet Consequat</h3>
-										</header>
-										<p>Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum massa. Morbi eu faucibus massa. Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam.</p>
-										<p>Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum porta cursus justo. Quisque ultricies lorem in ligula condimentum, et egestas turpis sagittis. Cras ac nunc urna. Nullam eget lobortis purus. Phasellus vitae tortor non est placerat tristique. Sed id sem et massa ornare pellentesque. Maecenas pharetra porta accumsan. </p>
-										<p>In vestibulum massa quis arcu lobortis tempus. Nam pretium arcu in odio vulputate luctus. Suspendisse euismod lorem eget lacinia fringilla. Sed sed felis justo. Nunc sodales elit in laoreet aliquam. Nam gravida, nisl sit amet iaculis porttitor, risus nisi rutrum metus, non hendrerit ipsum arcu tristique est.</p>
-									</section>
+										<section>
+											<header>
+												<h3>
+													Data types, variables, basic output-input operations. Basic operators
+												</h3>
+											</header>
+											<h2>Hello, World!</h2>
+											<p>
+												It's time to start writing some real, working Python code. It'll be very simple for the time being. <br>
+												As we're going to show you some fundamental concepts and terms, these snippets of code won't be serious or complex. Run the code in the editor window on 
+												the right. If everything goes okay here, you'll see the lines of text in the console window. <br>
+												Alternatively, launch IDLE, create a new Python source file, fill with this code, name the file  and save it. Now run it. If everything goes okay, you'll see the rhyme's 
+												line in the IDLE consol windows. The code you have run should look familiar. You saq something very similar when we led you through the setting up of the IDLE environment. 
+											</p>
+											<h2>the <code>print()</code> function</h2>
+											<p>
+												Look at the line of code below: 
+												<div>
+													<code>
+														print("Hello, World!")
+													</code>
+												</div>
+												The word print that you can see here is a function name. That doesn't mean that wherever the word appears it is always a function name. The meaning of the word comes from the context in which the word has been used. <br>
+												You've probably encountered the term function many times before, during math classes. You can probably also list several names of mathematical functions, like sine or log. Python's functions, however, are more flexible, 
+												and can contain more content than their mathematical siblings. A function (in this context) is a separate part of the computer code able to:
+												<ul>
+													<li>
+														<strong>Cause some effect</strong> (e.g. send text to the terminal, create a file, fraw an image, play a sound, etc.) this is something completely unheard of in the world of mathematics.
+													</li>
+													<li>
+														<strong>evaluate a values or some values</strong> (e.g. the square root of a value or the length of a given text), this is what makes Python's functions the relatives of mathematical concepts. 
+													</li>
+												</ul>
+												Moreover, many of Python's functions can do the above two things together. <br>
+												<b>Where do the functions come from?</b>
+												<ul>
+													<li>They may come <b>from Python itself</b>; the print function is one of this kind; such a function is an added value received together with Python and its environment (it is <b>built-in</b> ), you don't have to do anything special (e.g. ask anyone for anything) if you want to make use of it.</li>
+													<li>They may come from one or more of Python's add-ons named <b>modules</b>, some of the modules come with Python, others may require separate installation - whatever the case, they all need to be explicitly connected with your code (we'll show you how to do that soon).</li>
+													<li>You can write them yourself, placing as many functions as you want and need inside your program to make it simpler, clearer and more elegant.</li>
+												</ul>
+												The name of the function should be significant (the name of the print function is self-evident). <br>
+												Of course, if you're going to make use of any already existing function, you have no influence on its name, but when you start writing your own functions, you should consider carefully your choice of names. 
+											<hr>
+												As we said before, a function may have: 
+												<ul>
+													<li>an <b>effect</b></li>
+													<li>a <b>result</b></li>
+												</ul>
+												There's also a third, very import , function component - the <b>argument(s)</b>. <br>
+												Mathematical functions usually take one argument, e.g sin(x) takes an x, which is the measure of an angle. Python functions, on the other hand, are more versatile. Depending  on the individual needs, they may accept any number of arguments - as many as necessary to perform their tasks. 
+												<b>Note:</b> any number includes zero - some Python functions don't need any argument. <br>
+												<code>
+													print("Hello, World!")
+												</code> <br>						
+												In spite of the number of needed/provided arguments, Python functions strongly demand the presence of a pair of parentheses - opening and closing ones, respectively. <br>
+												If you want to deliver one or more arguments to a function, you place them inside the parentheses. If you're going to use a function which doesn't take any argument, you still have to have the parentheses. <br>
+												<b>Note:</b> to distinguish ordinary words from function names, place a pair of empty parentheses after their names, even if the corresponding function wants one or more arguments. This is a standard convention.	The function we're talking about here is <b>print()</b>. Does the print() function in our example have any arguments? <br>
+												Of course it does, but what are they? 
+											<hr>
+												The only argument delivered to the print() function in this example is a string: <br>
+												<code>print("Hello, World!")</code> <br>
+												As you can see, <strong>the string is delimited with quotes</strong> - in fact, the quotes make the string - they cut out a part of the code and assign a different meaning to it. <br>
+												You can imagine that the quotes say something like: the text between us is not code. It isn't intended to be executed, and you should take it as is. Almost anything you put inside the quotes will be taken literally, not as code, but as data. Try to play with this particular string - modify it, enter some new content, delete some of the existing content. 
+												There's more than one way to specify a string inside Python's code, but for now, though, this one is enough. <br>
+												So far, you have learned about two important parts of the code: the function and the string. We've talked about them in terms of syntax, but now it's time to discuss them in terms of semantics.
+											<hr>
+												The function name (print in this case) along with the parentheses and argument(s), forms the <b>function invocation</b>. We'll discuss this in more depth soon, but we should just shed a little light on it right now. <br>
+												<code>
+													print("Hello, World!")
+												</code> <br>
+												What happens when Python encounters an invocation like this one below? <br>
+												<code>
+													function_name(argument)
+												</code> <br>
+												Let's see:
+												<ul>
+													<li>First, Python checks if the name specified is legal (it browses its internal data in order to find an existing function of the name; if this search fails, Python aborts the code). </li>
+													<li>Second, Python checks if the function's requirements for the number of arguments allows you to invoke the function in this way (e.g., if a specific function demands exactly two arguments, any invocation delivering only one argument will be considered erroneous, and will abort the code's execution). </li>
+													<li>Third, Python leaves your code for a moment and jumps into the function you want to invoke; of course, it takes your argument(s) too and passes it/them to the function. </li>
+													<li>Fourth, the function executes its code, causes the desired effect (if any), evaluates the desired result(s) (if any) and finishes its task. </li>
+													<li>Finally, Python returns to your code (to the place just after the invocation) and resumes its execution. </li>
+												</ul>
+											</p>
+											<h2>LAB: The print</h2>
+											<p>
+												Estimated time <br>
+												5 minutes <br>
+												Level of difficulty <br>
+												Very easy <br>
+												<b>Objectives </b> <br>
+												becoming familiar with the print() function and its formatting capabilities, experimenting with Python code. <br>
+												Scenario <br>
+												The print() command, which is one of the easiest directives in Python, simply prints out a line to the screen. <br>
+												In your first lab:
+												<p>
+													use the print() function to print the line Hello, Python! to the screen. Use double quotes around the string. <br>
+													having done that, use the print() function again, but this time print your first name. <br>
+													remove the double quotes and run your code. Watch Python's reaction. What kind of error is thrown? <br>
+													then, remove the parentheses, put back the double quotes, and run your code again. What kind of error is thrown this time? <br>
+													experiment as much as you can. Change double quotes to single quotes, use multiple print() functions on the same line, and then on different lines. See what happens. 
+													<hr>
+													<img src="images/lab-print().PNG" class="responsive" alt="">
+												</p>
+											</p>
+											<h2>The <code>print()</code> function</h2>
+											<p>
+												Three important questions have to be answered as soon as possible:
+												<h5>1. What is the effect the print() function causes?</h5>
+													<p>
+														The effect is very useful and very spectacular. The function:
+														<ul>
+															takes its arguments (it may accept more than one argument and may also accept less than one argument)
+															converts them into human-readable form if needed (as you may suspect, strings don't require this action, as the string is already readable)
+															and sends the resulting data to the output device (usually the console); in other words, anything you put into the print() function will appear on your screen.
+														</ul>
+														No wonder then, that from now on, you'll utilize print() very intensively to see the results of your operations and evaluations.
+													</p>
+												<h5>2. What arguments does print() expect?</h5>
+													<p>
+														Any. We'll show you soon that print() is able to operate with virtually all types of data offered by Python. Strings, numbers, characters, logical values, objects - any of these may be successfully passed to print().
+													</p>
+												<h5>3. What value does the print() function evaluate?</h5>
+													<p>
+														None. Its effect is enough - print() does not evaluate anything.
+													</p>
+											</p>
+											<h2>The print() function - instructions</h2>
+											<p>
+												You already know that this program contains one function invocation. In turn, the function invocation is one of the possible kinds of Python instruction. Ergo, this program consists of just one instruction, of course, any complex program usually contains many more instructions than one. 
+												The question is: how do you couple more than one instruction into the Python code? <br>
+												Python's syntax is quite specific in this area. Unlike most programming languages, Python requires that there cannot be more than one instruction in a line. A line can be empty (i.e., it may contain no instruction at all) but it must not contain two, three or more instructions. This is strictly prohibited. <br>
+												<b>Note:</b> Python makes one exception to this rule - it allows one instruction to spread across more than one line (which may be helpful when your code contains complex constructions). Let's expand the code a bit, you can see it in the editor. Run it and note what you see in the console. Your Python console should now look like this: <br>
+												<code>
+													The itsy bitsy spider climbed up the waterspout.
+													Down came the rain and washed the spider out.
+												</code> <br>
+												This is a good opportunity to make some observations:
+												<ul>
+													<li> the program invokes the print() function twice, and you can see two separate lines in the console - this means that print() begins its output from a new line each time it starts its execution; you can change this behavior, but you can also use it to your advantage. </li>
+													<li> each print() invocation contains a different string, as its argument and the console content reflects it - this means that the instructions in the code are executed in the same order in which they have been placed in the source file; no next instruction is executed until 
+														the previous one is completed (there are some exceptions to this rule, but you can ignore them for now). 
+													</li>
+												</ul>
+											</p>
+											<h2>The escape and newline characters</h2>
+											<p>
+												We've changed the example a bit - we've added one empty print() function invocation. We call it empty because we haven't delivered any arguments to the function, you can see it in the editor window. Run the code. <br>
+												<b>What happens?</b> <br>
+												If everything goes right, you should see something like this: <br>
+												<code>
+													The itsy bitsy spider climbed up the waterspout.
+													<br>
+													Down came the rain and washed the spider out. 
+												</code> <br>
+												As you can see, the empty print() invocation is not as empty as you may have expected - it does output an empty line, or (this interpretation is also correct) its output is just a newline. This is not the only way to produce a newline in the output console. We're now going to show you another way.
+											</p>
+											<p>
+												We've modified the code again. Look at it carefully. There are two very subtle changes - we've inserted a strange pair of characters inside the rhyme. They look like this: <code>\n</code>. Interestingly, while you can see two characters, Python sees one. <br>
+												The <b>backslash (\)</b> has a very special meaning when used inside strings - this is called the escape character. <br>
+												The word escape should be understood specifically - it means that the series of characters in the string escapes for the moment (a very short moment) to introduce a special inclusion.
+												In other words, the backslash doesn't mean anything in itself, but is only a kind of announcement, that the next character after the backslash has a different meaning too, the letter n placed after the backslash comes from the word newline. <br>
+												Both the backslash and the n form a special symbol named a newline character, which urges the console to start a new output line, run the code. Your console should now look like this:
+												<code>
+													The itsy bitsy spider
+													climbed up the waterspout.
+													<br>
+													Down came the rain
+													and washed the spider out.
+												</code>
+												As you can see, two newlines appear in the nursery rhyme, in the places where the \n have been used.													
+											</p>
+											<p>
+												<b><i>This convention has two important consequences:</i></b> <br>
+												<ul>
+													<ol>
+														1. If you want to put just one backslash inside a string, don't forget its escaping nature - you have to double it, e.g., such an invocation will cause an error: <br>
+														<code>
+															print("\")
+														</code> <br>
+														while this one won't: <br>
+														<code>
+															print("\\")
+														</code> <br>
+													</ol>
+													<ol>
+														2. Not all escape pairs (the backslash coupled with another character) mean something.
+														Experiment with your code in the editor, run it, and see what happens.
+													</ol>
+												</ul>
+											</p>
+											<p>
+												This convention has two important consequences:
+												<ul>
+													<ol>
+														1. If you want to put just one backslash inside a string, don't forget its escaping nature - you have to double it, e.g., such an invocation will cause an error: <br>
+														<code>
+														print("\")													
+														</code> <br>
+														while this one won't: <br>
+														<code>
+															print("\\")
+														</code>
+													</ol>
+													<ol>
+														2. Not all escape pairs (the backslash coupled with another character) mean something.													
+													</ol>
+												</ul>
+												Experiment with your code in the editor, run it, and see what happens.													
+											</p>
+											<h2>Using multiple arguments</h2>
+											<p>
+												So far we have tested the print() function behavior with no arguments, and with one argument. It's also worth trying to feed the print() function with more than one argument. Look at the editor window. This is what we're going to test now: <br>
+												<code>
+													print("The itsy bitsy spider" , "climbed up" , "the waterspout.")
+												</code> <br>
+												There is one print() function invocation, but it contains three arguments. All of them are strings. <br>													
+												The arguments are separated by commas. We've surrounded them with spaces to make them more visible, but it's not really necessary, and we won't be doing it anymore, in this case, the commas separating the arguments play a completely different role than the comma inside the string. 
+												The former is a part of Python's syntax, the latter is intended to be shown in the console, if you look at the code again, you'll see that there are no spaces inside the strings.	<br>
+												Run the code and see what happens, the console should now be showing the following text: <br>
+												<code>The itsy bitsy spider climbed up the waterspout.</code> <br>																										
+												<b>The spaces, removed from the strings, have appeared again. Can you explain why? </b>													
+												Two conclusions emerge from this example:
+												<ul>
+													<li> A print() function invoked with more than one argument outputs them all on one line.</li>
+													<li> The print() function puts a space between the outputted arguments on its own initiative.</li>
+												</ul>
+											</p>
+											<h2>The positional way of passing the arguments</h2>
+											<p>
+												Now that you know a bit about <code>print()</code> function customs, we're going to show you how to change them, you should be able to predict the output without running the code in the editor. <br>
+												The way in which we are passing the arguments into the <b>print() function</b> is the most common in Python, and is called the positional way (this name comes from the fact that the meaning of the argument is dictated by its position, e.g., the second argument will be outputted after the first, not the other way round). <br>													
+												Run the code and check if the output matches your predictions.													
+											</p>
+											<h2>The keyword arguments</h2>
+											<p>
+												Python offers another mechanism for the passing of arguments, which can be helpful when you want to convince the print() function to change its behavior a bit. We aren't going to explain it in depth right now. We plan to do this when we talk about functions. For now, 
+												we simply want to show you how it works. Feel free to use it in your own programs. <br>
+												The mechanism is called keyword arguments. The name stems from the fact that the meaning of these arguments is taken not from its location (position) but from the special word (keyword) used to identify them. <br>
+												The print() function has <b>two keyword arguments</b> that you can use for your purposes. The first of them is named <code>end</code>, in the editor window you can see a very simple example of using a keyword argument. In order to use it, it is necessary to know some rules:
+												<ul>
+													<li>a keyword argument consists of three elements: a keyword identifying the argument (<b>end</b> here); an <b> equal sign (=)</b>; and <b>a value</b> assigned to that argument.</li>
+													<li>any keyword arguments have to be put after the last positional argument (this is very important), in our example, we have made use of <b> the end keyword argument</b>, and set it to a string containing one space.</li>
+												</ul>
+												Run the code to see how it works, the console should now be showing the following text: <br>
+												<code>
+													My name is Python. Monty Python.
+												</code> <br>
+												As you can see, the end keyword argument determines the characters the print() function sends to the output once it reaches the end of its positional arguments. The default behavior reflects the situation where the end keyword argument is implicitly used in the following way: <code><b>end="\n"</b></code>.
+											</p>
+											<p>
+												And now it's time to try something more difficult, if you look carefully, you'll see that we've used the end argument, but the string assigned to it is empty (it contains no characters at all). <br>
+												What will happen now? Run the program in the editor to find out, as the end argument has been set to nothing, the print() function outputs nothing too, once its positional arguments have been exhausted, the console should now be showing the following text: <br>
+												<code>
+													My name is Monty Python.
+												</code> <br>
+												<b>Note:</b> no newlines have been sent to the output. <br>
+												The string assigned to the end keyword argument can be of any length. Experiment with it if you want.
+												<div>
+													<img src="images/keyword arguments.PNG" class="responsive" alt="">
+												</div>											
+											</p>
+											<p>
+												We've said previously that the print() function separates its outputted arguments with spaces. This behavior can be changed, too, <b>the keyword argument</b> that can do this is named <code>sep</code> <i>(like separator)</i>. <br>
+												Look at the code in the editor, and run it, the sep argument delivers the following results: <br>
+												<code>
+													My-name-is-Monty-Python.
+												</code> <br>
+												The print() function now uses a dash, instead of a space, to separate the outputted arguments. <br>
+												<b>Note:</b> the sep argument's value may be an empty string, too. Try it for yourself. <br>
+												<div>
+													<img src="images/sep.PNG" class="responsive" alt="">
+												</div>
+											</p>
+											<P>
+												Both keyword arguments may be mixed in one invocation, just like here in the editor window. The example doesn't make much sense, but it visibly presents the interactions between <b><code>end</code> and <code>sep</code></b>. <br>
+												Can you predict the output?	<br>
+												Run the code and see if it matches your predictions, now that you understand the print() function, you're ready to consider how to store and process data in Python. Without print(), you wouldn't be able to see any results. <br>
+												<img src="images/end and sep.PNG" class="responsive" alt="">
+											</P>
+											<h2>Lab The print() function</h2>
+											<p>
+												<h4>Estimated time</h4>
+												<i>5 minutes</i> <br>
+												<b>Level of difficulty</b> <br>
+												Very Easy.
+												<h4>Objectives</h4>
+												becoming familiar with the print() function and its formatting capabilities, experimenting with Python code. <br>
+												<b>Scenario</b> <br>
+												Modify the first line of code in the editor, using the sep and end keywords, to match the expected output. Use the two print() functions in the editor. Don't change anything in the second print() invocation.
+												<h4>Expected output</h4>
+												<code>
+													Programming***Essentials***in...Python 
+												</code>
+												<div>
+													<img src="images/lab-print()-sep_and_end.PNG" class="responsive" alt="">
+												</div>
+											</p>
+											<h2>Lab 2 Formatting the output</h2>
+											<p>
+												<h4>Estimated time</h4>
+												<p> 5-10 minutes</p>													
+												<h4>Level of difficulty</h4>
+												<p> Easy</p>
+												<h4>Objectives</h4>
+												<p> 
+													experimenting with existing Python code,discovering and fixing basic syntax errors,becoming familiar with the print() function and its formatting capabilities.
+												</p>
+												<h4>Scenario</h4>
+												<p>
+													We strongly encourage you to play with the code we've written for you, and make some (maybe even destructive) amendments. Feel free to modify any part of the code, but there is one condition - learn from your mistakes and draw your own conclusions.
+												</p>
+												<h4>Try to:</h4>
+												<p>
+													<ul>
+														<li> Minimize the number of print() function invocations by inserting the \n sequence into the strings</li>
+														<li> make the arrow twice as large (but keep the proportions)</li>
+														<li> duplicate the arrow, placing both arrows side by side; note: a string may be multiplied by using the following trick: "string" * 2 will produce "stringstring" (we'll tell you more about it soon)</li>
+														<li> remove any of the quotes, and look carefully at Python's response; pay attention to where Python sees an error - is this the place where the error really exists?</li>
+														<li> do the same with some of the parentheses.</li>
+														<li> change any of the print words into something else, differing only in case (e.g., Print) - what happens now?</li>
+														<li> replace some of the quotes with apostrophes; watch what happens carefully.</li>
+													</ul>
+													<img src="images/formatting output.PNG" class="responsive" alt="">
+												</p>
+											</p>
+											<h2>Key takeways</h2>
+											<p>
+												<ul>
+													<ol> 1. The print() function is a built-in function. It prints/outputs a specified message to the screen/consol window.</ol>
+													<ol> 2. Built-in functions, contrary to user-defined functions, are always available and don't have to be imported. Python 3.7.1 comes with 69 built-in functions. You can find their full list provided in alphabetical order in the <a href="https://docs.python.org/3/library/functions.html" target="_blank" rel="noopener noreferrer">Python Standard Library</a>.</ol>
+													<ol> 3. To call a function ( <b>function invocation</b> ), you need to use the function name followed by parentheses. You can pass arguments into a function by placing them inside the parentheses. You must separate arguments with a comma, e.g., <code>print("Hello,", "world!")</code>. An "empty" print() function outputs an empty line to the screen.</ol>
+													<ol> 4. Python strings are delimited with <b>quotes</b>, e.g., <code>"I am a string"</code>, or <code>'I am a string, too'</code>.</ol>
+													<ol> 5. Computer programs are collections of <b>instructions</b>. An instruction is a command to perform a specific task when executed, e.g., to print a certain message to the screen.</ol>
+													<ol> 6. In Python strings the <b>backslash</b> (\) is a special character which announces that the next character has a different meaning, e.g., \n (the <b>newline character</b> ) starts a new output line.</ol>
+													<ol> 7. <b>Positional arguments</b> are the ones whose meaning is dictated by their position, e.g., the second argument is outputted after the first, the third is outputted after the second, etc.</ol>
+													<ol> 8. <b>Keyword arguments</b> are the ones whose meaning is not dictated by their location, but by a special word (keyword) used to identify them.</ol>
+													<ol> 9. The <code>end</code> and <code>sep</code> parameters can be used for formatting the output of the print() function. The sep parameter specifies the separator between the outputted arguments (e.g., <code>print("H", "E", "L", "L", "O", sep="-")</code>, whereas the end parameter specifies what to print at the end of the print statement.</ol>
+												</ul>
+											</p>
+											<h2>Literals - the data in itself</h2>
+											<p>
+												Now that you have a little knowledge of some of the powerful features offered by the print() function, it's time to learn about some new issues, and one important new term - the <b>literal</b>. <br>
+												<strong>A literal is data whose values are determined by the literal itself.</strong> <br>
+												As this is a difficult concept to understand, a good example may be helpful. Take a look at the following set of digits: <br>
+												<code>
+													123
+												</code> <br>
+												Can you guess what value it represents? Of course you can - it's one hundred twenty three, but what about this: <br>
+												<code>
+													c
+												</code> <br>
+												Does it represent any value? Maybe. It can be the symbol of the speed of light, for example. It also can be the constant of integration. Or even the length of a hypotenuse in the sense of a Pythagorean theorem. There are many possibilities. <br>
+												You cannot choose the right one without some additional knowledge and this is the clue: 123 is a literal, and c is not, you use literals <strong>to encode data and to put them into your code</strong>. We're now going to show you some conventions you have to obey when using Python.
+											</p>
+											<h2>Literals- the data in itself</h2>
+											<p>
+												Let's start with a simple experiment - take a look at the snippet in the editor. The first line looks familiar. The second seems to be erroneous due to the visible lack of quotes.
+												<h3>Try to run it.</h3>
+												If everything went okay, you should now see two identical lines.
+												What happened? What does it mean?
+												Through this example, you encounter two different types of literals:
+												<ul>
+													<li>
+														a <b>string</b>, wich you alredy know
+													</li>
+													<li>
+														and an <b>integer</b> number, something completely new.
+													</li>
+												</ul>
+												The <code>print()</code> function presents them in exactly the same way -  this example is obvious, as their human-readable representation is also the same: 
+												Internally, in the computer's memory, these two values are stored in completely different ways - the string exists as just a string - a series of letters. <br>
+												The number is converted into machine representation (a set of bits). The <code>print()</code> function is able to show them both in a form readable to humans. <br>
+												We're now going to be spending some time discussing numeric literals and their internal life. <br>
+												<img src="images/literals - the data in itself.PNG" class="responsive" alt="">
+											</p>
+											<h2>Integers</h2>
+											<p>
+												You may already know a little about how computers perfom calculations on numbers. Perhaps ypu're heard of the <b>binary system</b>, and know that it's the system computers use for storing numbers, and that they 
+												can perfom any operation upon them. <br>
+												We won't explore the intricacies of positional numeral system here, but we'll say  that the numbers handled by modern  computers are of two types:
+												<ul>
+													<li>
+														<strong>Integers</strong>, that is, those which are devoid of the fractional part.
+													</li>
+													<li>
+														and <strong>floating-point</strong> numbers (or simply <b>floats</b> ), that contain (or are able to contain) the fractional part.
+													</li>
+												</ul>
+												This definition is not entirely accurate, but quite sufficient for now. The distinction is very important, and the boundary between these two types of numbers is very strict. <br>
+												Both of these kinds of numbers differ significantly in how they're stored in a computer memory and in the range of acceptable values. The characteristic of the numeric value which determines its kind, range, and application, is called the <strong>type</strong>.
+												If you encode a literal and place it inside Python code, the form of the literal determines the representation (type) Python will use to store it in the memory. For now, let's leave the floating-point numbers aside (we'll come back to them soon) and consider 
+												the question of how Python recognizes integers. The process is almost like how you would write them with a pencil on paper - it's simply a string of digits that make up the number. But there's a reservation - you must not interject any characters that are not digits inside the number.
+												Take, for example, the nmber eleven millon one hundred and eleven thousand one  hundred and eleven- If you took a pencil in your hand right now, you write the number like this: <br>
+												<code>
+													11,111,111
+												</code> <br>
+												or like this: <br>
+												<code>
+													11.111.111
+												</code> <br>
+												or even like this: <br>
+												<code>
+													11 111 111
+												</code> <br>
+												It's clear that this provision makes it easier to read, especially when the number consists of many digits. However, Python doesn't accept things like these. It's <b>prohibited</b> . What Python does allow, though, is the use of <i>underscores</i> in numeric literals. <b>*</b>
+												Therefore, you can write this number either like this: <br>
+												<code>
+													11111111
+												</code>, <br> 
+												or like that: <br>
+												<code>
+													11_111_111
+												</code>  
+												<div>
+													<strong>Note:</strong> <b>*</b>Python 3.6 has introduced undescores in numeric literals, allowing for placing single underscores between digits and after base specifiers for improved readability. This feature isn't available in older version of Python. And how do we code negative numbers is Python? 
+													As usual -  by adding a <b>minus</b>. You can write: <br>
+													<code>
+														-11111111
+													</code><br>,
+													or <br>
+													<code>
+														-11_111_111
+													</code>
+												</div> <br>
+												Positive numbers don't need to be preceded by the plus sign, but it's permissible, if you wish to do it. The following lines describe the same number: <br>
+												<code>
+													+11111111
+												</code> and <br>
+												<code>
+													11111111
+												</code>.
+											</p>
+											<h2>Integers: Octal and hexadecimal numbers</h2>
+											<p>
+												There are two additional conventions in Python that are unknown to the world of mathematics. The first allows us to use numbers in an octal representation.
+												If an integer number is preceded by an <b>0O or 0o prefix (zero-o)</b>, it will be treated as an octal value. This means that the number must contain digits taken from the [0..7] range only.													
+												<b>0o123 is an octal number</b> with a (decimal) value equal to <b>83</b>.													
+												The print() function does the conversion automatically. Try this: <br>
+												<code>
+													print(0o123)
+												</code> <br>
+												The second convention allows us to use <b>hexadecimal numbers</b>. Such numbers should be preceded by the prefix <b>0x or 0X (zero-x)</b>.
+												0x123 is a hexadecimal number with a (decimal) <b>value equal to 291</b>. The print() function can manage these values too. Try this: <br>										
+												<code>
+													print(0x123)
+												</code> 
+												<div>
+													<img src="images/OctalAndHexadecimal.PNG" class="responsive alt="">
+												</div>
+											</p>
+											<h2>Floats</h2>
+											<p>
+												Now it's time to talk about another type, which is designed to represent and to store the numbers that (as a mathematician would say) have a non-empty decimal fraction.
+												They are the numbers that have (or may have) a fractional part after the decimal point, and although such a definition is very poor, it's certainly sufficient for what we wish to discuss.													
+												Whenever we use a term like two and a half or minus zero point four, we think of numbers which the computer considers floating-point numbers: <br>
+												<blockquote>
+<pre>2.5
+-0.4</pre>														
+												</blockquote>
+												<b>Note:</b> two and a half looks normal when you write it in a program, although if your native language prefers to use a comma instead of a point in the number, you should ensure that your number doesn't contain any commas at all.													
+												Python will not accept that, or (in very rare but possible cases) may misunderstand your intentions, as the comma itself has its own reserved meaning in Python.													
+												If you want to use just a value of two and a half, you should write it as shown above. Note once again - there is a point between 2 and 5 - not a comma.													
+												As you can probably imagine, the value of zero point four could be written in Python as: <br>
+												<code>
+													0.4
+												</code> <br>
+												But don't forget this simple rule - you can omit zero when it is the only digit in front of or after the decimal point.													
+												In essence, you can write the value 0.4 as:													 <br>
+												<code>
+													.4
+												</code> <br>
+												For example: the value of 4.0 could be written as: <br>
+												<code>
+													4.
+												</code> <br>
+												This will change neither its type nor its value.
+											</p>
+											<h2>Ints vs floats</h2>
+											<p>
+												The decimal point is essentially important in recognizing floating-point numbers in Python.
+												Look at these two numbers:
+												<blockquote><pre>4
+4.0</pre></blockquote> 
+												You may think that they are exactly the same, but Python sees them in a completely different way.
+												4 is an integer number, whereas 4.0 is a floating-point number.
+												The point is what makes a float. <br>
+												On the other hand, it's not only points that make a float. You can also use the letter e. <br>
+												When you want to use any numbers that are very large or very small, you can use <b>scientific notation</b>. 
+												Take, for example, the speed of light, expressed in meters per second. Written directly it would look like this: <b>300000000</b>. <br>
+												To avoid writing out so many zeros, physics textbooks use an abbreviated form, which you have probably already seen: <br>
+												<code>
+													3 x 10<sup>8</sup>.
+												</code> <br>
+												It reads: three times ten to the power of eight. In Python, the same effect is achieved in a slightly different way - take a look: <br>
+												<code>3E8</code> <br>
+												The letter E (you can also use the lower-case letter e - it comes from the word exponent) is a concise record of the phrase times ten to the power of. <br>
+												<div>
+													<b>Note:</b>
+													<li> the exponent (the value after the E) has to be an integer. </li>
+													<li> the base (the value in front of the E) may be an integer. </li>
+												</div>
+											</p>
+											<h2>Coding floats</h2>
+											<p>
+												Let's see how this convention is used to record numbers that are very small (in the sense of their absolute value, which is close to zero).
+												A physical constant called <b>Planck's constant (and denoted as h)</b>, according to the textbooks, has the value of: <b>6.62607 x 10<sup>-34</sup></b>.
+												If you would like to use it in a program, you should write it this way: <br>
+												<code>
+													6.62607E-34
+												</code>
+												<div>
+													<b>Note:</b> the fact that you've chosen one of the possible forms of coding float values doesn't mean that Python will present it the same way.
+												</div>
+												Python may sometimes choose different notation than you, for example, let's say you've decided to use the following float literal: <br>
+												<code>
+													0.0000000000000000000001
+												</code> <br>
+												When you run this literal through Python: <br>
+												<code>
+													print(0.0000000000000000000001)
+												</code> <br>
+												this is the result: <br>
+												<code>
+													1e-22
+												</code> <br>
+												Python always chooses the more economical form of the number's presentation, and you should take this into consideration when creating literals.
+											</p>
+											<h2>Lab: The print() function</h2>
+											<p>
+												<b>LAB</b> <hr>
+												<p>
+													Estimated time
+													5 minutes
+												</p>
+												<p>
+													Level of difficulty
+													Very easy													
+												</p>
+												<b>Objectives</b> <br>
+												<ul>
+													<li>Becoming familiar with the print() function and its formatting capabilities.</li>
+													<li> experimenting with Python code.</li>
+												</ul>
+												<h5>Scenario</h5>
+												The print() command, which is one of the easiest directives in Python, simply prints out a line to the screen. In your first lab:
+												<ul>
+													<li>use the print() function to print the line Hello, Python! to the screen. Use double quotes around the string</li>
+													<li>having done that, use the print() function again, but this time print your first name.</li>
+													<li>remove the double quotes and run your code. Watch Python's reaction. What kind of error is thrown?</li>
+													<li>then, remove the parentheses, put back the double quotes, and run your code again. What kind of error is thrown this time?</li>
+													<li>experiment as much as you can. Change double quotes to single quotes, use multiple print() functions on the same line, and then on different lines. See what happens.</li>
+													<img src="images/lab-print()Function.PNG" class="responsive" alt="">
+												</ul>
+											</p>
+											<h2>The print() function</h2>
+											<p>
+												Three important questions have to be answered as soon as possible: <hr>
+												<strong>1. What is the effect the print() function causes?</strong> <br>
+												The effect is very useful and very spectacular. The function:
+												<ul>
+													<li> <b>Takes its arguments</b> (it may accept more than one argument and may also accept less than one argument)</li>
+													<li> <b>Converts them into human-readable</b> form if needed (as you may suspect, strings don't require this action, as the string is already readable)</li>
+													<li> And <b>sends the resulting data to the output device</b> (usually the console); in other words, anything you put into the print() function will appear on your screen.</li>
+												</ul>
+												No wonder then, that from now on, you'll utilize print() very intensively to see the results of your operations and evaluations.
+												<hr>
+												<strong>2. What arguments does print() expect?</strong>
+												Any. We'll show you soon that print() is able to operate with virtually all types of data offered by Python. Strings, numbers, characters, logical values, objects - any of these may be successfully passed to <code>print()</code>.
+												<hr>
+												<strong>3. What value does the print() function evaluate?</strong>
+												None. Its effect is enough - print() does not evaluate anything.
+											</p>
+											<h2>The print() function - instructions</h2>
+											<p>
+												You already know that this program contains one function invocation. In turn, the function invocation is one of the possible kinds of Python instruction. Ergo, this program consists of just one instruction. <br>
+												Of course, any complex program usually contains many more instructions than one. The question is: <b> how do you couple more than one instruction into the Python code?</b> <br>
+												Python's syntax is quite specific in this area. Unlike most programming languages, Python requires that <b>there cannot be more than one instruction in a line.</b> <br>
+												A line can be empty (i.e., it may contain no instruction at all) but it must not contain two, three or more instructions. This is strictly prohibited. <br>
+												<b>Note:</b> Python makes one exception to this rule - it allows one instruction to spread across more than one line (which may be helpful when your code contains complex constructions). <br>
+												Let's expand the code a bit, you can see it in the editor. Run it and note what you see in the console. <br>
+												Your Python console should now look like this:
+<pre><code>The itsy bitsy spider climbed up the waterspout.
+Down came the rain and washed the spider out.</code></pre> <hr>
+												<div><img src="images/yourveryfirstprogram.PNG" class="responsive" alt=""></div>
+												This is a good opportunity to make some observations: 
+												<ul>
+													<li>
+														The program invokes the print() function twice, and you can see two separate lines in the console - this means that print() begins its output from a new line each time it starts its execution; you can change this behavior, but you can also use it to your advantage.
+													</li>
+													<li>
+														Each print() invocation contains a different string, as its argument and the console content reflects it - this means that the instructions in the code are executed in the same order in which they have been placed in the source file; no next instruction is executed until the previous one is completed (there are some exceptions to this rule, but you can ignore them for now)
+													</li>
+												</ul>
+											</p>
+											<h2>The <code>print()</code> function - the escape and newline characters</h2>
+											<p>
+												We've modified the code again. Look at it carefully. <br>
+												There are two very subtle changes - we've inserted a strange pair of characters inside the rhyme. They look like this:  <br>
+												<code>
+													\n 
+												</code> <br>
+												Interestingly, while <b>you can see two characters, Python sees one</b>. <br>
+												The <b>backslash</b> <code>(\)</code> has a very special meaning when used inside strings - this is called the <b>escape character</b>. <br>
+												The word escape should be understood specifically - it means that the series of characters in the string escapes for the moment (a very short moment) to introduce a special inclusion. <br>
+												In other words, the backslash doesn't mean anything in itself, but is only a kind of announcement, that the next character after the backslash has a different meaning too. <br>
+												The letter 'n' placed after the backslash comes from the word newline. <br>
+												Both the backslash and the n form a special symbol named a newline character, which urges the console to start a new output line. <br>
+												Run the code. Your console should now look like this:
+<pre><code>The itsy bitsy spider
+climbed up the waterspout.
+
+Down came the rain
+and washed the spider out.</code></pre>	
+												As you can see, two newlines appear in the nursery rhyme, in the places where the \n have been used. <br>
+												<img src="images/escapeAndNewlineCharacters.PNG" class="responsive" alt="">
+											</p>
+											<p>
+												This convention has two important consequences: <br>
+												<b>1.</b> If you want to put just one backslash inside a string, don't forget its escaping nature - you have to double it, e.g., such an invocation will cause an error: <br>
+												<code>
+													print("\")
+												</code> <br>
+												while this one won't: <br>
+												<code>
+													print("\\")
+												</code> <br>
+												<b>2.</b> Not all escape pairs (the backslash coupled with another character) mean something. <br>
+												Experiment with your code in the editor, run it, and see what happens. <br>
+												<img src="images/backslash.PNG" class="responsive" alt="">
+											</p>
+											<h2>The print function - using multiples argumets</h2>
+											<p>
+												So far we have tested the print() function behavior with no arguments, and with one argument. It's also worth trying to feed the print() function with more than one argument. <br>
+												Look at the editor window. This is what we're going to test now: 
+<pre><code>print("The itsy bitsy spider" , "climbed up" , "the waterspout.")</code></pre>
+												There is one print() function invocation, but it contains <b>three arguments</b>. All of them are strings. <br>
+												<b>The arguments are separated by commas</b>. We've surrounded them with spaces to make them more visible, but it's not really necessary, and we won't be doing it anymore. <br>
+												In this case, the commas separating the arguments play a completely different role than the comma inside the string. The former is a part of Python's syntax, the latter is intended to be shown in the console. <br>
+												If you look at the code again, you'll see that there are no spaces inside the strings. Run the code and see what happens. <br>
+												The console should now be showing the following text: <br>
+												<code>The itsy bitsy spider climbed up the waterspout.</code> <br>
+												<b>The spaces, removed from the strings, have appeared again. Can you explain why? </b> <br>
+												Two conclusions emerge from this example:
+												<ul>
+													<li> a print() function invoked with more than one argument outputs them all on one line.</li>
+													<li> The print() function puts a space between the outputted arguments on its own initiative.</li>
+												</ul>
+												<img src="images/3argumets.PNG" class="responsive" alt="">
+											</p>
+											<h2>The print() function - the position way of passing the arguments</h2>
+											<p>
+												Now that you know a bit about print() function customs, we're going to show you how to change them. <br>
+												You should be able to predict the output without running the code in the editor. <br>
+												The way in which we are passing the arguments into the <code>print()</code> function is the most common in Python, and is called the <b> positional way</b> (this name comes from the fact that the meaning of the argument is dictated by its position, 
+												e.g., the second argument will be outputted after the first, not the other way round). <br>
+												Run the code and check if the output matches your predictions. <br>
+												<img src="images/the position way of pass the arguments.PNG" class="responsive" alt="">
+											</p>
+											<h2>The print() function - the keyword arguments</h2>
+											<p>
+												Python offers another mechanism for the passing of arguments, which can be helpful when you want to convince the print() function to change its behavior a bit. <br>
+												We aren't going to explain it in depth right now. We plan to do this when we talk about functions. For now, we simply want to show you how it works. Feel free to use it in your own programs. <br>
+												The mechanism is called keyword arguments. The name stems from the fact that the meaning of these arguments is taken not from its location (position) but from the special word (keyword) used to identify them. <br>
+												The print() function has two keyword arguments that you can use for your purposes. The first of them is named end. <br>
+												In the editor window you can see a very simple example of using a keyword argument. <br>
+												In order to use it, it is necessary to know some rules:
+												<ul>
+													<li> A keyword argument consists of three elements: a keyword identifying the argument (end here); an equal sign (=); and a value assigned to that argument. </li>
+													<li>Any keyword arguments have to be put after the last positional argument (this is very important) </li>
+												</ul>
+												In our example, we have made use of the end keyword argument, and set it to a string containing one space. Run the code to see how it works. <br>
+												The console should now be showing the following text: <br>
+												<code>My name is Python. Monty Python.</code> <br>
+												As you can see, the end keyword argument determines the characters the print() function sends to the output once it reaches the end of its positional arguments. <br>
+												The default behavior reflects the situation where the end keyword argument is implicitly used in the following way: <code>end="\n"</code>. <br>
+												<img src="images/the keyword arguments.PNG" class="responsive" alt="">													
+											</p>
+											<p>
+												And now it's time to try something more difficult. If you look carefully, you'll see that we've used the end argument, but the string assigned to it is empty (it contains no characters at all).
+												What will happen now? Run the program in the editor to find out. <br>
+												As the end argument has been set to nothing, the print() function outputs nothing too, once its positional arguments have been exhausted.
+												The console should now be showing the following text: <br>
+												<code>My name is Monty Python.</code> <br>
+												<div>
+													<b>Note:</b> no newlines have been sent to the output.
+												</div>
+												The string assigned to the end keyword argument can be of any length. Experiment with it if you want.
+											</p>
+											<p>
+												We've said previously that the print() function separates its outputted arguments with spaces. This behavior can be changed, too.
+												The keyword argument that can do this is named sep (like separator). Look at the code in the editor, and run it.
+												The sep argument delivers the following results: <br>
+												<code>
+													My-name-is-Monty-Python.
+												</code>	<br>
+												The print() function now uses a dash, instead of a space, to separate the outputted arguments. <br>													
+												<div>
+													Note: the sep argument's value may be an empty string, too. Try it for yourself.
+												</div>
+												<img src="images/the keyword arguments  in this case used the -.PNG" class="responsive" alt="">							
+											</p>
+											<p>
+												Both keyword arguments may be mixed in one invocation, just like here in the editor window. <br>
+												The example doesn't make much sense, but it visibly presents the interactions between <b>end</b> and <b>sep</b>.
+												<b>Can you predict the output?</b> <br>
+												Run the code and see if it matches your predictions. <br>
+												Now that you understand the print() function, you're ready to consider how to store and process data in Python.	<br>
+												Without print(), you wouldn't be able to see any results. <br>
+												<img src="images/sep=and=.PNG" class="responsive alt="">
+											</p>
+											<h2>Lab the print() function</h2>
+											<p>
+												<b>LAB</b>
+												<h4>Estimated time</h4>
+												5 minutes.
+												<h4>Level of difficulty</h4>
+												Very easy.
+												<h4>Objectives</h4>
+												becoming familiar with the print() function and its formatting capabilities, experimenting with Python code. 
+												<h4>Scenario</h4>
+												Modify the first line of code in the editor, using the sep and end keywords, to match the expected output. Use the two print() functions in the editor.
+												Don't change anything in the second print() invocation. Expected output <br>
+												<code>
+													Programming***Essentials***in...Python
+												</code>	<br>
+												<img src="images/lab-print() function - sep= and end=.PNG" class="responsive" alt="">
+											</p>
+											<h2>LAB: Formatting the output</h2>
+											<p>
+												<h4>Estimated time</h4>
+												5-10 minutes
+												<h4>Level of difficulty</h4>
+												Easy
+												<h4>Objectives</h4>
+												experimenting with existing Python code,discovering and fixing basic syntax errors, becoming familiar with the print() function and its formatting capabilities.
+												<h4>Scenario</h4>
+												We strongly encourage you to play with the code we've written for you, and make some (maybe even destructive) amendments. Feel free to modify any part of the code, but there is one condition - learn from your mistakes and draw your own conclusions.
+												<h4>Try to:</h4>
+												- Minimize the number of print() function invocations by inserting the <code>\n</code> sequence into the strings. <br>
+												- Make the arrow twice as large (but keep the proportions) duplicate the arrow, placing both arrows side by side. <br>
+												<b>Note:</b> a string may be multiplied by using the following trick: "string" * 2 will produce "stringstring" (we'll tell you more about it soon) <br>
+												- Remove any of the quotes, and look carefully at Python's response; pay attention to where Python sees an error - is this the place where the error really exists?
+												- Do the same with some of the parentheses. <br>
+												- Change any of the print words into something else, differing only in case (e.g., Print) - what happens now? <br>
+												- Replace some of the quotes with apostrophes; watch what happens carefully. <br>
+												<img src="images/formatting the output.PNG" class="responsive" alt="">
+											</p>
+											<h2>Key takeaways</h2>
+											<p>
+												<ul>
+													<li>
+														The <code>print()</code> function is a <b>built-in</b> function. It print/outputs a sepecified message to the screen/consol windows.
+													</li>
+													<li>
+														Built-in functions, contrary to user-defined funtions, are always available and don't have to be imported. Python 3.7.1 comes with 69 built-in functions. You can their full list provides in alphabetical order in the <a href="https://docs.python.org/3/library/functions.html" target="_blank" rel="noopener noreferrer">Python Standard Library</a>. 
+													</li>
+													<li>
+														To call a function( <b>function invocation</b> ), you need to use the function name followed by parentheses. You can pass arguments into a function by placing them inside the parentheses. You must separate argumets with a comma, e.g, 
+														<code>
+															print("Helli", "World!")
+														</code>. <br>
+														And "empty" <code>print()</code> function outputs an empty line to the screen.
+													</li>
+													<li>
+														Python string are delimited with <b>quotes</b>, e.g. <code>"I am a string"</code> or <code>'I'm a string, too'</code>. 
+													</li>
+													<li>
+														Computer programs are collections of <b>intructions</b>. An intruction is a command to perform a specific task when executed, e.g. to print a certain message to the screen.
+													</li>
+													<li>
+														In Python string the <b>backslash</b> <code>\</code> is a special character which announces that the next character has a different meaning e.g. <code>\n</code> the <b>newline character</b> start a new output line.
+													</li>
+													<li>
+														<b>Positional argumets</b> are the ones whose meaning is dictated by their position, e.g. the second argument is outputted after the first, the outputted after the second, etc.
+													</li>
+													<li>
+														<b>Keyword arguments</b> are the ones whose meaning isn't dictated by their location, but by a special word (keyword) used to identify them.
+													</li>
+													<li>
+														The <code>end</code> and <code>sep</code> parametes can be used for formatting the output of the <code>print()</code> function. The <code>sep</code> parameter specifies the separator between the outputted arguments (e.g. 
+														<code>print("H","E","L","L","O", sep="-")</code>, where as the <code>end</code> parameter specifies what to  print at the end of the print statement. 
+													</li>
+												</ul>
+											</p>
+											<h2>Literals - data in itself</h2>
+											<p>
+												Now that you a little knowledge of some of the powerful features offered by the <code>print()</code> function, it's time to learn abouy some new issues, and one important new term - the <b>literal.</b> <br>
+												<b>A literal is data whose values are determined by the literal itself.</b> <br>
+												As this is a difficult concept to understand, a good example may be helpful. Take a look at the following set of digits: <code>123</code> <br>
+												Can you guess what values it represents? Of course you can - <i>It's one hundred twenty three</i> <br>
+												But what about this: <code>c</code> <br>
+												Does it represent any values? Maybe. It can be the symbol of speed of light, for example. It also can be the contant of integration. Or even the length of a hypotenuse in the sense of a Pythagorean theorem. There are many possibilities <br>
+												You cannot choose the roght one without some additional knowledge. And this is the clue: <code>123</code> is a literal, and <code>c</code> is not. <br>
+												You use literals <b>to encode data and to put them into your code</b>. We're now going to show you some conventions you have obey when using Python.
+											</p>
+											<p>
+												Let's start with a simple experiment - take a look at the snippet in the editor. <br>
+												The first line looks familiar. The second seems to be erroneous due to the visible lack of quotes. <br>													
+												Try to run it. <br>													
+												If everything went okay, you should now see two identical lines. <br>													
+												<i>What happened? What does it mean?</i> <br>						
+												Through this example, you encounter two different types of literals:
+												<ul>
+													<li> a string, which you already know. </li>
+													<li> and an integer number, something completely new. </li>
+												</ul>
+												The print() function presents them in exactly the same way - this example is obvious, as their human-readable representation is also the same. 
+												Internally, in the computer's memory, these two values are stored in completely different ways - the string exists as just a string - a series of letters. <br>
+												The number is converted into machine representation (a set of bits). The print() function is able to show them both in a form readable to humans.													
+												We're now going to be spending some time discussing numeric literals and their internal life. <br>
+												<img src="images/pythonLiterals.PNG" alt="">
+											</p>
+											<h2>Integers</h2>
+											<p>
+												You may already know a little about how computers perfom calculations on numbers. Perhaps you've heard of the <b>binary system</b>, and know that it's the system computers use for storing numbers, and that they can perform any operation upon them. <br>
+												We won't explore the intrincacies of positional numeral systems here, but we'll say that the numbers handled by moderm computers are of two types:
+												<ul>
+													<li>
+														<b>Integers</b> that is, those which are devoid of the fractional part.
+													</li>
+													<li>
+														And <b>floating-point</b> numbers (or simply <b>floats</b> ) that contain (or are able to contain) the fraction part.
+													</li>
+												</ul>
+												This definition isn't entirely accurate, but quite sufficient for now. The distinction is very important, and the boundary between these two types of numbers is very strict. Both of these kinds of numbers differ significantly  in how  they're stored in a computer memory and in the range of 
+												acceptable values. <br>
+												The characteristic of the numeric value which determines its kinds, range, and application, is called the <b>type.</b> <br>
+												If you encode a literal and place it inside Python code, the form of the literal determines the representation (type) Python eill use to <b>store it in the memory</b>. <br>
+												For now, let's leave the floating.point numbers aside (we'll come back to them soon) and consider the question of how Python recognizes integers. <br>
+												The process is almost like how you wolud write them with a pencil on paper - it's simply a string of digits that make up the number. But there's a reservation - you must not interject any characters that are not digits inside the number. <br>
+												Take, for example, the number eleven million one hundred and eleven thousand one hundred and eleven. If you took a pencil in your hand right now, you would write the number like this: <code>11,111,111</code>, or like this: <code>11.111.111</code>, or even like this: <code>11 111 111</code>. <br>
+												It's clear that this provision makes it easier to read, especially when the number consists of many digits. However, Python doesn't accept things like these. It's <b>prohibited</b>. What Python does allow, though, is the use of <b>underscores</b> in numeric literals. <b>*</b> <br>
+												Therefore, you can write this number either like this: 11111111, or like that: 11_111_111. <br>
+												<div>
+													<b>NOTE</b>*Python 3.6 has introduced underscores in numeric literals, allowing for placing single underscores between digits and after base specifiers for improved readability. This feature is not available in older versions of Python.
+												</div>
+												And how do we code negative numbers in Python? As usual - by adding a <b>minus</b>. You can write: <code>-11111111</code>, or <code>-11_111_111</code>. <br>
+												Positive numbers do not need to be preceded by the plus sign, but it's permissible, if you wish to do it. The following lines describe the same number: <code>+11111111 and 11111111</code>. <br>
+											</p>
+											<h2>Strings</h2>
+											<p>
+												Strings are used when you need to process text (like names of all kinds, address, novels, etc), not numbers. <br>
+												You already known a bit about them, e.g. that <b>string need quotes</b> the way floats need points. <br>
+												This's a very typical string: <code>"I am a string</code> <br>
+												However, there's a catch. The catch is how to encode a quote inside a string which is already delimited by quotes. 
+												Let's assume that we want to print a very simple message saying: <br>
+												<code>
+													I like "Monty Python"
+												</code> <br>
+												How do we do it without generation an error? There're two possible solutions. <br>
+												The first is based on the concept we already know of the <b>escape character</b>, which you should remember is played by the <b>backslash</b>. 
+												The backslash can escape quotes too. A quote preceded by a backslash changes its meaning - it's not a delimiter, but just a quote. This will work as intended: <br>
+												<code>
+													print("I like \"Monty Python\"")
+												</code> <br>
+												<div>
+													<b>Note:</b> There're two escaped quotes inside the string - can you see them both?
+												</div>
+												The sencond solution may be a bit susprising. Python can use <b>an apostrophe instead of a quote</b>. If you start a string with an apostrophe, you have to end it with an apostrophe. <br>
+												This example will work too: <br>
+												<code>
+													print('I like "Monty Python"')
+												</code> 
+												<div>
+													<b>Note:</b> You don't need to do any escaping here.
+												</div>
+											</p>
+											<h2>Coding strings</h2>
+											<p>
+												Now, the next question is: how do you embed an apostrophe into a string placed between apostrophes? You should already know the answer, or to be precise, two possible answers.	Try to print out a string containing the following message: <br>
+												<code>
+													I'm Monty Python.
+												</code>	<br>
+												Do you know how to do it? <br>
+												<code>
+													print("I'm Monty Python.")
+												</code> <br> 
+												or <br>
+												<code>
+													print('I'm Monty Python.')
+												</code> <br>
+												<img src="images/coding strings python.PNG" class="responsive" alt=""> <br>
+												As you can see, the backslash is a very powerful tool - it can escape not only quotes, but also apostrophes. We've shown it already, but we want to emphasize this phenomenon once more 
+												- a string can be empty - it may contain no characters at all. An empty string still remains a string: <br>
+												<code>
+													''
+												</code> or
+												<code>	
+													""
+												</code>
+											</p>
+											<h2>Boolean values</h2>
+											<p>
+												To conclude with Python's literals, there are two additional ones. They're not as obvious as any of the previous ones, as they're used to represent a very abstract value - truthfulness.
+												Each time you ask Python if one number is greater than another, the question results in the creation of some specific data - a Boolean value. The name comes from <i>George Boole</i> (1815-1864), 
+												the author of the fundamental work, The Laws of Thought, which contains the definition of <b>Boolean algebra</b> - a part of algebra which makes use of only two distinct values: <code>True and False</code>, denoted as <code>1</code> and <code>0</code>. <br>
+												A programmer writes a program, and the program asks questions. Python executes the program, and provides the answers. The program must be able to react according to the received answers. <br>
+												Fortunately, computers know only two kinds of answers: <br>
+												<ul>
+													<li>Yes, this is true.</li>
+													<li>No, this is false.</li>
+												</ul>
+												You'll never get a response like: <i>I don't know</i> or <i>Probably yes, but I don't know for sure</i>. Python, then, is a <b>binary</b> reptile. <br>
+												These two Boolean values have strict denotations in Python: 
+												<code>True</code> or <code>False</code> <br>
+												You cannot change anything - you have to take these symbols as they are, including <b>case-sensitivity</b>. <br>
+												Challenge: What will be the output of the following snippet of code? <br>
+												<code>
+													print(True &lt; False)
+												</code> <br>
+												<code>
+													print(True &gt; False)
+												</code> <br>
+												Run the code in the Sandbox to check, can you explain the result? <br>
+												<img src="images/boolean values - Sandbox.PNG" class="responsive" alt="">
+											</p>
+											<h2>Lab: Python literals - strings</h2>
+											<p>
+												<h4>Estimated time</h4>
+												<p>
+													5 minutes
+												</p>
+												<h4>Level of difficulty</h4>
+												<p>
+													Easy
+												</p>
+												<h4>Objectives</h4>
+												<p>
+													<ul>
+														<li>Becoming familiar with the <code>print()</code> function and its formatting capabilities.</li>
+														<li>Practicing coding strings.</li>
+														<li>Experimentint with Python code.</li>
+													</ul>
+												</p>
+												<h4>Scenario</h4>
+												<p>
+													Write a one-line piece of code, using the <code>print()</code> function, as well as the newline and escape characters, to match the expected result outputted on three lines.
+												</p>
+												<h4>Expected output</h4>
+												<blockquote>
+													<code>
+														"I'm" 
+													</code> <br>
+													<code>
+														""learning""
+													</code> <br>
+													<code>
+														"""Python"""
+													</code>
+												</blockquote>
+												<img src="images/LAB-PythonLiterals-Strings.PNG" class="responsive" alt=""> <br>
+											</p>
+											<h2>Key takeaways</h2>
+											<p>
+												<ul>
+													<ol>
+														1. <b>Literals</b> are notations for representing some fixed values in code. Python has various types of literals - for exameple, a literal can be a number ( numeric literals, e.g. <code>123</code> ), or string (string literals, e.g. <code>"I am a literal.</code> ).
+													</ol>
+													<ol>
+														2. The <b>binary system</b> is a system of numbers that employs 2 as the base. Therefore,a binary number is made up of 0's and 1's only, e.g. <code>1010</code> is <b>10</b>. <br>
+														Octal and hexadecimal numeration systems, similarly, employ 8 and 16 as their bases respectively. The hexadecimal system uses the decimal numbers and six extra letters.
+													</ol>
+													<ol>
+														3. <b>Integers</b> (or simply <b>int</b>'s) are one of the numerical types supported by Python. They are numbers written without fractional component, e.g. <code>256</code>, or <code>-1</code> (negative integers).
+													</ol>
+													<ol>
+														4. <b>Floating-point</b> numbers (or simply  <b>float</b>'s ) are another one of the numerical types supported by Python. They're numbers that contain (or are able to contain) a fractional component, e.g. <code>1.27</code>. 
+													</ol>
+													<ol>
+														5. To encode an apostrophe or a quote inside a string you can either use the escape character, e.g. <code>'I\'m happy</code>, or open and close the string using an opposite set of symbols to the ones you wish to encode, e.g. <code>"I'm happy."</code> to encode an apostrophe, and 
+														<code>'He said "Python", not "typhoon"'</code> to encode a (double quote).
+													</ol>
+													<ol>
+														6. <b>Boolean values</b> are the two constant objects <code>True</code> and <code>False</code> used to represent truth values (in numeric context <code>1</code> is True, while <code>0</code> is False.)
+													</ol>
+												</ul>
+												<h4>Extra</h4>
+												What types of literals are the following two examples? <br>
+												<code>
+													"Hello", "007"
+												</code> is a <b>strings</b> <br>
+												<code>
+													1.5, 2.0, 528, False
+												</code> The number (1.5, 2.0 and 528) is a float/int type and <b>False</b> value is a Boolean value. <br>
+												<code>
+													1011
+												</code> It's a binary value, represent the 11 number. <br>
+											</p>
+											<h2>Python as a calculator</h2>
+											<p>
+												Now, we're going to show you a completely new side of the print() function. You already know that the function is able to show you the values of the literals passed to it by arguments. <br>
+												In fact, it can do something more. Take a look at the snippet: <br>													
+												<code>print(2+2)</code> <br>													
+												Retype the code in the editor and run it. Can you guess the output? <br>													
+												You should see the number four. Feel free to experiment with other operators. <br>													
+												Without taking this too seriously, you've just discovered that Python can be used as a calculator. Not a very handy one, and definitely not a pocket one, but a calculator nonetheless. <br>													
+												Taking it more seriously, we are now entering the province of <b>operators</b> and <b>expressions</b>.
+											</p>
+											<h2>Basic operators.</h2>
+											<p>
+												An operator is a symbol of the programming language, which is able to operate on the values.
+												For example, just as in arithmetic, the + (plus) sign is the operator which is able to add two numbers, giving the result of the addition. Not all Python operators are as obvious as the plus sign, though, so let's go through some of the operators available in Python, and we'll explain which rules govern their use, and how to interpret the operations they perform.													
+												We'll begin with the operators which are associated with the most widely recognizable arithmetic operations: <br>
+												<code>
+													+, -, *, /, //, %, **
+												</code> <br>
+												The order of their appearance is not accidental. We'll talk more about it once we've gone through them all. <br>
+												<b>Remember</b>: Data and operators when connected together form <b>expressions</b>. The simplest expression is a literal itself. <br>
+												<img src="images/basic operators.PNG" class="responsive" alt="">
+											</p>
+											<h2>Arithmetic operators: exponentiation.</h2>
+											<p>
+												A <code>**</code> (double asterisk) sign is an <b>exponentiation</b> (power) operator. Its left argument is the base, it's right, the exponent. <br>
+												Classical mathematics prefers notation with superscripts, just like thos: <code><b>2<sup>3</sup></b></code>. Pure text editors don't accept that, so Python uses <code>**</code> instead, e.g. 2**3. Take a look at our examples in the editor window. <br>
+												<b>Note:</b> We're surrounded the double asterisks with spaces in our examples. It's not compulsory, but it improves the <b>readability</b> of the code. <br>
+												The examples show a very import feature of virtually all Python <b>numerical operators.</b> <br>
+												Run the code and look carefully at the results it produces. Can you see any regularity here? <br>
+												<img src="images/arithmetics-operators-Exponentiation.PNG" class="responsive" alt=""> <br>
+												<b>Remember:</b> It's possible to formulate the following rules based on this result:
+												<ul>
+													<li>
+														When <b>both</b> <code>**</code> arguments are integers, the result is an integer, too.
+													</li>
+													<li>
+														When <b>at least one</b> <code>**</code> argument is a float, the result is a float, too.
+													</li>
+												</ul>
+												This is an important distinction to remember.
+											</p>
+											<h2>Arithmetic operators: multiplication</h2>
+											<p>
+												An <code>*</code> sign is a <b>multiplication</b> operator. Run the code below and check if our integer vs float rule is still working. <br>
+												<img src="images/arithmetics-operators-Multiplication.PNG" class="responsive" alt=""> 
+											</p>
+											<h2>Arithmetic operators: division</h2>
+											<p>
+												A <code>/</code> sign is a <b>divisional</b> operator. <br>
+												The value in front of the slash is a <b>dividend</b>, the value behind the slash, a <b>divisor</b>. run the code below and analyze the results. <br>
+												<img src="images/arithmetics-operators-Division.PNG" class="responsive" alt=""> <br>
+												You should see that there is an exception to the rule. <b>The result produced by the division operator is always a float</b>, regardless of whether or not the result seems to be a float at first glance: <code>1/2</code>, or if it looks like a pure integer: <code>2/1</code>. <br>
+												Is this a problem? Yes, it is. It happens sometimes that you really need a division that provides an integer value, not a float. <br>
+												Fortunately, Python can help you with that.
+											</p>
+											<h2>Arithmetic operators: integer</h2>
+											<p>
+												A <code>//</code> (double slash) sign is an <b>integer division</b> operator. It differs from the standard <code>/</code> operator in two details:
+												<ul>
+													<li>
+														It result lacks the fractional part - It's absent (for integers), or is always equal to zero (for floats). This means that <b>the results are always rounded.</b>
+													</li>
+													<li>	
+														It conforms to the integer vs float rule.
+													</li>
+												</ul>
+												Run the example below and see the results: <br>
+												<img src="images/arithmetics-operators-IntegerDivision.PNG" alt="" class="responsive"> <br>
+												As you can see, integer by integer division gives an <b>integer result</b>. All other cases produce floats. Let's do some more advanced test. Look at the following snippet: <br>
+												<img src="images/IntegerByIntegerDivision.PNG" class="responsive" alt=""> <br>
+												Imagine that we used <code>/</code>  instead of <code>//</code> - could you predict the results? Yes, it would be <code>1.5</code> in both cases. That's clear. But what results should we expect with <code>//</code> division? <br>
+												Run the code and see for yourself, the result of intger division is always rounded to the nearest integer value that os less than the real (not rounded) result. This is very important: <b>rounding always goes to the lesser integer.</b> <br>
+												Look at the code below and try to predict the results once again: <br>
+												<img src="images/roundingAlwaysGoesToTheLesserInteger.PNG" class="responsive" alt=""> <br>
+												<b>Note:</b>some of the values are negative. This will obviously affect the result. But how? <br>
+												The result is two negative twos. The real (not rounded) result is <code>-1.5</code> in both cases. However, the results are the subjects of rounding. The rounding goes toward the lesser integer value, and the lesser integer value is -2, hence: -2 and -2.0.
+												<br>
+												Note: Integer division can also be called <b>floor division</b>. You will definitely come across this term in the future.
+											</p>
+											<h2>Operators: Remainder (Modulo)</h2> 
+											<p>
+												The next operator is quite a peculiar one, because it has no equivalent among traditional arithmetic operators. Its graphical representation in Python is the <code>% </code>(percent) sign, which may look a bit confusing.
+												Try to think of it as of a slash (division operator) accompanied by two funny little circles. The result of the operator is a <b>remainder left after the integer division</b>. <br>
+												In other words, it's the value left over after dividing one value by another to produce an integer  quotient. <br>
+												<b>Note</b> The operator is sometimes called <b>modulo</b> in other programming lenguages. <br>
+												Take a look at the snippet - try to predicts it's results and then run it: <br>
+												<img src="images/modulo.PNG" class="responsive" alt=""> <br>
+												As you can see, the results is two. This is why:
+												<ul>
+													<li>
+														<code>14//4</code> gives <code>3</code> &rarr; This is the integer <b>quotient.</b>
+													</li>
+													<li>
+														<code>3*4</code> gives <code>12</code> &rarr; As a result of <b>quotient and divisor multiplication.</b>
+													</li>
+													<li>
+														<code>14 - 12</code> gives <code>2</code> &rarr; This is the <b>remainder.</b>
+													</li>
+												</ul>
+												This example is somewhat more complicated: <code>print(12 % 4.5)</code> The result is: <br>
+												<img src="images/print(12%4.5).PNG" class="responsive" alt=""> 
+												<div>
+													<blockquote>
+														3.0 - not 3 but 3.0 (the rule still works: 12 // 4.5 gives 2.0; 2.0 * 4.5 gives 9.0; 12 - 9.0 gives 3.0). 
+													</blockquote>
+												</div>
+											</p>
+											<h2>Operators: How not to divide</h2>
+											<p>
+												As you probably know,  division by <b>zero</b> doesn't work. <br>
+												Do no try to:
+												<ul>
+													<li>Perform a division by zero.</li>
+													<li>Perform an integer division by zero.</li>
+													<li>Find a remainder of a division by zero.</li>
+												</ul>
+											</p>
+											<h2>Operators: addition</h2>
+											<p>
+												The addition operator is the + (plus) sign, which is fully in line with mathematical standards. Again, take a look at the snippet of the program below:
+												<code>
+													print (-4 + 4)
+												</code>
+												<code>
+													print(-4. + 8)
+												</code> <br>
+												The result should be nothing surprising. Run the code to check it. <br>
+												<img src="images/addition.PNG" class="responsive" alt="">
+											</p>
+											<h2>The subtraction operator, unary and binary operators</h2>
+											<p>
+												The <b>subtraction</b> operator is obviously the <code>-</code> (minus) sign, although you should note that this operator also has another meaning - <b>it can change the sign of a number.</b> <br>
+												This is a great opportunity to present a very important distinction between <b>unary and binary</b> operators.	
+												In subtracting applications, the minus operator expects two arguments: the left (a <b>minuend</b> in arithmetical terms) and right (a <b>subtrahend</b> ). <br>		
+												For this reason, the subtraction operator is considered to be one of the binary operators, just like the addition, multiplication and division operators. 
+												But the minus operator may be used in a different (unary) way - take a look at the last line of the snippet below: <br>
+												By the way: there is also a unary <code>+</code> operator. You can use it like this: <code>print(+2)</code> <br>
+												<img src="images/subtraction.PNG" class="responsive" alt=""> <br> 
+												The operator preserves the sign of its only argument - the right one. <br>
+												Although such a construction is syntactically correct, using it doesn't make much sense, and it would be hard to find a good rationale for doing so.													
+											</p>
+											<h2>Operators and their priorities</h2>
+											<p>
+												So far, we've treated each operator as if it had no connection with the others. Obviously, such an ideal and simple situation is a rarity in real programming.
+												Also, you will very often find more than one operator in one expression, and then this presumption is no longer so obvious.													
+												Consider the following expression:
+												<code>2 + 3 * 5</code>	<br>
+												You probably remember from school that multiplications precede additions.
+												You surely remember that you should first multiply 3 by 5 and, keeping the 15 in your memory, then add it to 2, thus getting the result of 17.
+												The phenomenon that causes some operators to act before others is known as the <b>hierarchy of priorities</b>. <br>
+												Python precisely defines the priorities of all operators, and assumes that operators of a larger (higher) priority perform their operations before the operators of a lower priority. <br>
+												So, if you know that * has a higher priority than +, the computation of the final result should be obvious.
+											</p>
+											<h2>Operators and their bindings</h2>
+											<p>
+												The binding of the operator determines the order of computations performed by some operators with equal priority, put side by side in one expression.
+												Most of Python's operators have left-sided binding, which means that the calculation of the expression is conducted from left to right.<br>									
+												This simple example will show you how it works. Take a look:
+												<code>print(9 % 6 % 2)</code> <br>
+												There are two possible ways of evaluating this expression:
+												<ul>
+													<li> From left to right: first 9 % 6 gives 3, and then 3 % 2 gives 1. </li>
+													<li> From right to left: first 6 % 2 gives 0, and then 9 % 0 causes <b>a fatal error</b>. </li>
+												</ul>
+												Run the example and see what you get. The result should be <code>1</code>. This operator has left-sided binding. But there's one interesting exception.
+											</p>
+											<h2>Operators and their bindings: exponentiation</h2>
+											<p>
+												Repeat the experiment, but now with exponentiation. Use this snippet of code:
+												<code>
+													print(2 ** 2 ** 3)
+												</code> <br>
+												The two possible results are:
+												<ul>
+													<li>
+														<code>2 ** 2 &rarr; 4; 4 ** 3 &rarr; 64</code>
+													</li>
+													<li>
+														<code>2 ** 3 &rarr; 8; 2 ** 8 &rarr; 256</code>
+													</li>
+												</ul>
+												Run the code. What do you see? <br>
+												<img src="images/exponentiation.PNG" class="responsive" alt="">
+												<b>The result clearly shows that the exponentiation operator uses right-sided binding.	</b>												
+											</p>
+											<h2>List of priorities</h2>
+											<p>
+												Since you're new Python operators, we don't want to present the complete list of operator priorities right now. <br>
+												Instead, we'll show you it's truncated form, and we'll expand it consistently as we introduce new operators. Look at the table below: <br>
+												<table>
+													<tr>
+														<td><b>Priority</b></td>
+														<td><b>Operator</b></td>
+														<td></td>
+													</tr>
+													<tr>
+														<td>1</td>
+														<td>+ , -</td>
+														<td>unary</td>
+													</tr>
+													<tr>
+														<td>2</td>
+														<td>**</td>
+														<td></td>
+													</tr>
+													<tr>
+														<td>3</td>
+														<td>* , / , %</td>
+														<td></td>
+													</tr>
+													<tr>
+														<td>4</td>
+														<td>+ , -</td>
+														<td>binary</td>
+													</tr>
+												</table>
+												<b>Note:</b> We've enumerated the operators in order <b>from the highest (1) to the lowest (4) priorities.</b> <br>
+												Try ro work through the following expression: <code>print(2*3%5)</code> <br>
+												Both operators (<code>*</code> and <code>%</code> ) have the same priority, so the result can be guessed only when you know the binding direction. How do you think? What is the result? <br>
+												<blockquote>
+													<code>1</code>
+												</blockquote>
+											</p>
+											<h2>Operators and parentheses</h2>
+											<p>
+												Of course, you're always allowed to use parentheses, which can change the natural order of a calculation. In accordance with the arithmetic rules, subexpressions in parentheses are always calculated first. <br>
+												You can use as many parentheses as you need, and they're often used to improve the readability of an expression, even if they don't change the order of the operations. <br>
+												An example of an expression with multiple parentheses is here: <br>
+												<code>print((5 * ((25 % 13) + 100) / (2 * 13)) // 2)</code>
+												Try to compute the value that's printed to the console. What's the result of the print() function? 
+												<blockquote>
+													<code>10.0</code>
+												</blockquote>
+											</p>
+											<h2>Key takeways</h2>
+											<p>
+												<ul>
+												<ol> 1. An expression  is a combination of values (or variables, operators, calls to functions - you will learn about them soon) which evaluates to a value, e.g., 1 + 2.  </ol>
+												<ol> 2. Operators are special symbols or keywords which are able to operate on the values and perform (mathematical) operations, e.g., the * operator multiplies two values: x * y. </ol>													
+												<ol> 3. Arithmetic operators in Python: + (addition), - (subtraction), * (multiplication), / (classic division - returns a float if one of the values is of float type), % 
+													(modulus - divides left operand by right operand and returns the remainder of the operation, e.g., 5 % 2 = 1), ** (exponentiation - left operand raised to the power of right operand, 
+													e.g., 2 ** 3 = 2 * 2 * 2 = 8), // (floor/integer division - returns a number resulting from division, but rounded down to the nearest whole number, e.g., 3 // 2.0 = 1.0) </ol>													
+												<ol> 4. A unary operator is an operator with only one operand, e.g., -1, or +3. </ol>													
+												<ol> 5. A binary operator is an operator with two operands, e.g., 4 + 5, or 12 % 5. </ol>													
+												<ol> 6. Some operators act before others - the hierarchy of priorities: 
+													<ul>
+														<li>
+															unary + and - have the highest priority.
+														</li>
+														<li>
+															then: **, then: *, /, and %, and then the lowest priority: binary + and -.
+														</li>
+													</ul>	
+												</ol>
+												<ol> 7. Subexpressions in parentheses are always calculated first, e.g., 15 - 1 * (5 * (1 + 2)) = 0. </ol>													
+												<ol> 8. The exponentiation operator uses right-sided binding, e.g., 2 ** 2 ** 3 = 256. </ol>
+												</ul>
+												<h4>Exercise 1</h4>
+												<p>
+													What is the output od the following snippet? <code>print((2**4), (2*4), (2*4))</code> &rarr; <code>16 8.0 8</code>
+												</p>
+												<h4>Exercise 2</h4>
+												<p>
+													What is the output od the following snippet? <code>print((-2/4), (2/4), (2//4), (-2//4))</code> &rarr; <code>-0.5 0.5 0 -1</code>
+												</p>
+												<h4>Exercise 3</h4>
+												<p>
+													What is the output od the following snippet? <code>print((2%-4), (2%4), (2**3**2))</code> &rarr; <code>2 -2 512</code>
+												</p>
+											</p>
+											<h2>What are variables?</h2>
+											<p>
+												It seems fairly obvious that Python should allow you to encode literals carrying number and text values. <br>
+												 You already know that you can do some arithmetic operations with these numbers: add, subtract, etc. You'll be doing that many times. <br>													
+												But it's quite a normal question to ask how to store the results of these operations, in order to use them in other operations, and so on. How do you save the intermediate results, and use them again to produce subsequent ones?	<br>
+												Python will help you with that. It offers special "boxes" (containers) for that purpose, and these boxes are called variables - the name itself suggests that the content of these containers can be varied in (almost) any way. <br>													
+												What does every Python variable have? <br>
+												<ul>
+													<li> A name. </li>
+													<li> A value (the content of the container) </li>
+												</ul>
+												Let's start with the issues related to a variable's name. Variables do not appear in a program automatically. As developer, you must decide how many and which variables to use in your programs. You must also name them. <br>
+												If you want to give a name to a variable, you must follow some strict rules: <br>
+												<ul>
+													<li> The name of the variable must be composed of upper-case or lower-case letters, digits, and the character <code>_</code> (underscore). </li>
+													<li> The name of the variable must begin with a letter. </li>
+													<li> The underscore character is a letter. </li>
+													<li> Upper- and lower-case letters are treated as different (a little differently than in the real world - Alice and ALICE are the same first names, but in Python they are two different variable names, and consequently, two different variables). </li>
+													<li> The name of the variable must not be any of Python's reserved words (the keywords - we'll explain more about this soon). </li>
+												</ul>
+											</p>
+											<h2>Correct and incorrect variable names</h2>
+											<p>
+												<b>Note</b> That the same restrictions apply to function names. <br>
+												Python does not impose restrictions on the length of variable names, but that doesn't mean that a long variable name is always better than a short one. <br>
+												Here are some correct, but not always convenient variable names: <br>
+												<code>MyVariable, i, t34, Exchange_Rate, counter, days_to_christmas, TheNameIsSoLongThatYouWillMakeMistakesWithIt, _</code>. 
+												Moreover, Python lets you use not only Latin letters but also characters specific to languages that use other alphabets. These variable names are also correct: <br>
+												<code>Adiós_Señora, sûr_la_mer, Einbahnstraße, переменная</code>.
+												And now for some <b>incorrect names</b>: <br>
+												<code>10t</code> (does not begin with a letter), <code>Exchange Rate</code> (contains a space) <br>
+												The <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener noreferrer">PEP 8- Style Guide for Python</a> recommends the following naming  convention for variables and functions in Python: 
+												<ul>
+													<li>
+														Variable names should be lowercase, with words separated by underscores to improve readability (e.g <code>var</code>, <code>my_variable</code> )
+													</li>
+													<li>
+														Function names follow the same convention as variable names (e.g. <code>fun</code> <code>my_function</code> )
+													</li>
+													<li>
+														It's also possible to use mixed case (e.g <code>myVariable</code> ), but  only in contexts where that's already the prevailing style, to retain backwards compatibilit with the adopted convention.
+													</li>
+												</ul>
+											</p>
+											<h2>Keywords</h2>
+											<p>
+												Take a look at the list of words that play a very special role in every Python program. <br>
+												<code>
+													['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+												</code> <br>
+												They are called keywords or (more precisely) <b>reserved keywords</b>. They are reserved because you mustn't use them as names: neither for your variables, nor functions, nor any other named entities you want to create. The meaning of the reserved word is predefined, and mustn't be changed in any way. <br>
+												Fortunately, due to the fact that Python is case-sensitive, you can modify any of these words by changing the case of any letter, thus creating a new word, which is not reserved anymore. For example - you can't name your variable like this:
+												<code>
+													import
+												</code> <br>
+												You mustn't have a variable named in such a way - it is prohibited. But you can do this instead: <br>
+												<code>
+													Import
+												</code> <br>
+												These words might be a mystery to you now, but you'll soon learn the meaning of them.
+											</p>
+											<h2>Creating variables</h2>
+											<p>
+												What can you put inside a variable? <br>
+												Anything. <br>
+												You can use a variable to store any value of any of the already presented kinds, and many more of the ones we haven't shown you yet. <br>
+												The value of a variable is what you have put into it. It can vary as often as you need or want. It can be an integer one moment, and a float a moment later, eventually becoming a string. <br>
+												Let's talk now about two important things - how variables are created, and how to put values inside them (or rather - how to give or pass values to them). <br>
+												<b>REMEMBER</b> <br>
+												A variable comes into existence as a result of assigning a value to it. Unlike in other languages, you don't need to declare it in any special way.
+												If you assign any value to a nonexistent variable, the variable will be automatically created. You don't need to do anything else. <br>
+												The creation (or otherwise - its syntax) is extremely simple: just use the name of the desired variable, then the equal sign (=) and the value you want to put into the variable. <br>
+												The concept of 'you can put anything inside a variable'. Take a look at the snippet: 
+												<blockquote>
+													var = 1 <br>
+													print(var)
+												</blockquote>
+												It consists of two simple instructions:
+												<ul>
+													<li> The first of them creates a variable named var, and assigns a literal with an integer value equal to 1.  </li>
+													<li> The second prints the value of the newly created variable to the console.  </li>
+												</ul>
+												Note: <code>print()</code> has yet another side to it - it can handle variables too. Do you know what the output of the snippet will be? <br>
+												<code>1</code>
+											</p>
+											<h2>Using variables</h2>
+											<p>
+												You're allowed to use as many variable declarations as you need to achieve your goal, like this: <br>
+												<blockquote>
+													var = 1 <br>
+													account_balance = 1000.0 <br>
+													client_name = 'John Doe' <br>
+													print(var, account_balance, client_name) <br>
+													print(var) 
+												</blockquote> <br>
+												You're not allowed to use a variable which doesn't exist, though (in other words, a variable that was not given a value). This example will cause an error: <br>
+												<blockquote>
+													<b>v</b>ar = 1 <br>
+													print( <b>V</b>ar)
+												</blockquote>
+												We've tried to use a variable named Var, which doesn't have any value (note: var and Var are different entities, and have nothing in common as far as Python's concerned). <br>
+												<b>REMEMBER</b> <br>
+												You can use the print() statement and combine text and variables using the + operator to output strings and variables, e.g.: <br>
+												<blockquote>
+													var = "3.7.1" <br>
+													print("Python version: " + var)
+												</blockquote>
+												Can you guess the output of the snippet above? <br>
+												<code>
+													Python version: 3.7.1
+												</code>
+											</p>
+											<h2>Assigning a new value to an already existing variable</h2>
+											<p>
+												How do you assign a new value to an already created variable? In the same way. You just need to use the equal sign. The equal sign is in fact an assignment operator. Although this may sound strange, the operator has a simple syntax and unambiguous interpretation.  <br>
+												It assigns the value of its right argument to the left, while the right argument may be an arbitrarily complex expression involving literals, operators a nd already defined variables.	 <br>
+												Look at the code below:
+												<blockquote>
+													var = 1 <br>
+													print(var) <br>
+													var = var + 1 <br>
+													print(var)
+												</blockquote> <br>
+												The code sends two lines to the console: <br>
+												<blockquote>
+													1 <br>
+													2
+												</blockquote> <br>
+												The first line of the snippet creates a new variable named var and assigns 1 to it. The statement reads: assign a value of 1 to a variable named var.We can say it shorter: assign 1 to var. Some prefer to read such a statement as: var becomes 1. <br>
+												The third line assigns the same variable with the new value taken from the variable itself, summed with 1. Seeing a record like that, a mathematician would probably protest - no value may be equal to itself plus one. This is a contradiction. But Python treats the sign = not as equal to, but as assign a value. <br>
+												So how do you read such a record in the program? <br>
+												Take the current value of the variable var, add 1 to it and store the result in the variable var. <br>
+												In effect, the value of variable var has been incremented by one, which has nothing to do with comparing the variable with any value. <br>
+												Do you know what the output of the following snippet will be? <br>
+												<blockquote>
+													var = 100 <br>
+													var = 200 + 300 <br>
+													print(var)
+												</blockquote>	<br>
+												<div>
+													<code>500</code> - why? Well, first, the <code>var</code> variable is created and assigned a value of 100. Then, the same variable is assigned a new valued: the result of adding 200 to 300, which is 500.
+												</div>										
+											</p>
+											<h2>Solving simple mathematical problems</h2>
+											<p>
+												Now you should be able to construct a short program solving simple mathematical problems such as the Pythagorean theorem. <br>
+												<i>
+													The square od the hypotenuse is equal to the sum of the squeares of the other two sides.
+												</i> <br>
+												The following code evaluates the length of the hypotenuse (i.e, the longest side of a right angled triangle, the one opposite of the right angle) using the Pythagorean theorem: <br>
+												<blockquote>
+													a = 3.0 <br>
+													b = 4.0 <br>
+													c = (a**2 + b**2)**0.5 <br>
+													print("c = ", c) 
+												</blockquote> <br>
+												<b>Note:</b> We need to make use of the <code>**</code> operator to evaluate the square root as: <br>
+													&radic;(x) = x<sup>(1/2)</sup> <br>
+												and <br>
+													c= &radic;(a<sup>2</sup>+b<sup>2</sup>) <br>
+												Can you guess the output of the code? <br>
+												<img src="images/pythagoreanTheorem.PNG" class="responsive" alt="">
+											</p>
+											<h2>Lab: variables</h2>
+											<p>
+												<b> Estimated time</b> <br>
+												10 minutes <br>
+												<b>Level of difficulty</b> <br>
+												Easy <br>
+												<b>Objectives</b> <br>
+												Becoming familiar with the concept of storing and working with different data types in Python, experimenting with Python code. <br>
+												<b>Scenario</b> <br>
+												Here is a short story: <br>
+												Once upon a time in Appleland, John had three apples, Mary had five apples, and Adam had six apples. They were all very happy and lived for a long time. End of story. <br>
+												Your task is to: <br>
+												<ul>
+													<li>
+														Create the variables: john, mary, and adam.
+													</li>
+													<li>
+														Assign values to the variables. The values must be equal to the numbers of fruit possessed by John, Mary, and Adam respectively.
+													</li>
+													<li>
+														Having stored the numbers in the variables, print the variables on one line, and separate each of them with a comma.
+													</li>
+													<li>
+														Now create a new variable named totalApples equal to addition of the three former variables.
+													</li>
+													<li>
+														print the value stored in totalApples to the console.
+													</li>
+												</ul>
+												<img src="images/lab-variables.PNG" class="responsive" alt="">
+											</p>
+											<h2>Shortcut operators</h2>
+											<p>
+												It's time for the next set of operators that make a developer's life easier. <br>
+												Very often, we want to use one and the same variable both to the right and left sides of the = operator. <br>													
+												For example, if we need to calculate a series of successive values of powers of 2, we may use a piece like this:	 <br>												
+												<code>x = x * 2</code> <br>													
+												You may use an expression like this if you can't fall asleep and you're trying to deal with it using some good, old-fashioned methods: <br>													
+												<code>sheep = sheep + 1</code>													 <br>
+												Python offers you a shortened way of writing operations like these, which can be coded as follows:	 <br>												
+												<blockquote>
+													x *= 2 <br>
+													sheep += 1 
+												</blockquote>	<br>												
+												Let's try to present a general description for these operations. <br>													
+												If op is a two-argument operator (this is a very important condition) and the operator is used in the following context:	 <br>												
+												<code>variable = variable op expression</code> <br>													
+												It can be simplified and shown as follows:	 <br>												
+												<code>variable op= expression</code>	 <br>												
+												Take a look at the examples below. Make sure you understand them all. <br>													
+												<code>i = i + 2 * j ⇒ i += 2 * j</code>
+												<br>
+												<code>var = var / 2 ⇒ var /= 2</code>
+												<br>
+												<code>rem = rem % 10 ⇒ rem %= 10</code>
+												<br>
+												<code>j = j - (i + var + rem) ⇒ j -= (i + var + rem)</code>
+												<br>
+												<code>x = x ** 2 ⇒ x **= 2</code>
+											</p>
+											<h2>Lab: Variables</h2>
+											<p>
+												<b>Lab</b> <br>
+												<h4>Estimated time</h4>
+												10 minutes
+												<h4>Level of difficulty</h4>
+												Easy
+												<h4>Objectives</h4>
+												Becomming familiar with the concept of and working with variables. <br>
+												Performing basic computations and conversions. <br>
+												Expermienting with Python code.
+												<h4>Scenario</h4>
+												Miles and kilometers are units of length or distance. <br>
+												Bearing in mind that 1 mile is equal to approximately 1.61 kilometers, complete the program in the editor so that it converts: <br>
+													- Miles to kilometers. <br>
+													- Kilometers to miles. <br>
+												Do not change anything in the existing code. Write your code in the places indicated by ###. Test your program with the data we've provided in the source code. <br>
+												Pay particular attention to what is going on inside the print() function. Analyze how we provide multiple arguments to the function, and how we output the expected data. <br>
+												<b>Note</b> that some of the arguments inside the print() function are strings (e.g., "miles is", whereas some other are variables (e.g., miles). 
+												<h4>Tip</h4>
+												<p>
+													There's one more interesting thing happening there. Can you see another function inside the print() function? It's the round() function. Its job is to round the outputted result to the number of decimal places specified in the parentheses, 
+													and return a float (inside the round() function you can find the variable name, a comma, and the number of decimal places we're aiming for). We're going to talk about functions very soon, so don't worry that everything may not be fully clear 
+													yet. We just want to spark your curiosity. <br>
+													After completing the lab, open Sandbox, and experiment more. Try to write different converters, e.g., a USD to EUR converter, a temperature converter, etc. - let your imagination fly! Try to output the results by combining strings and variables. 
+													Try to use and experiment with the round() function to round your results to one, two, or three decimal places. Check out what happens if you don't provide any number of digits. Remember to test your programs. <br>
+													Experiment, draw conclusions, and learn. Be curious. 
+												</p>
+												<h4>Expect output</h4>
+												<blockquote>
+													7.38 miles is 11.88 kilometers <br>
+													12.25 kilometers is 7.61 miles
+												</blockquote> <br>
+												<img src="images/lab- variables a simple converter.PNG" class="responsive" alt=""> 
+											</p>
+											<h2>Lab: Operator and expression</h2>
+											<p>
+												<h4>LAB</h4>
+												<h4>Estimated time</h4>
+												10-15 minutes
+												<h4>Level difficulty</h4>
+												Easy
+												<h4>Objectives</h4>
+												<ul>
+													<li>
+														Becoming familiar with the concept of numbers, operators and arithmetic operations in Python.
+													</li>
+													<li>
+														Perfomring basic calculations.
+													</li>
+												</ul>
+												<h4>Scenario</h4>
+												Take a look at the code in the editor: it reads a float value, puts it into a variable named x, and prints the value of a variable named y. Your task is to complete the code in order to evaluate the following expression: <br>
+												<code>3x<sup>3</sup> - 2x<sup>2</sup> + 3x - 1</code> <br>
+												The result should be assigned to y.	<br>							
+												Remember that classical algebraic notation likes to omit the multiplication operator - you need to use it explicitly. Note how we change data type to make sure that x is of type float. <br>					
+												Keep your code clean and readable, and test it using the data we've provided, each time assigning it to the x variable (by hardcoding it). Don't be discouraged by any initial failures. Be persistent and inquisitive.	
+												<h4>Test Data</h4>
+												Sample input: 
+												<blockquote>
+													x = 0 <br>
+													x = 1 <br>
+													x = -1
+												</blockquote> <br>
+												Expect output: <br>
+												<blockquote>
+													y = -1.0 <br>
+													y = 3.0 <br>
+													y = -9.0
+												</blockquote>
+												<img src="images/operator and expression.PNG" class="responsive" alt="">														
+											</p>
+											<h2>Key takeaways</h2>
+											<p>
+												<ul>
+													<ol>
+													1. A variable is a named location reserved to store values in the memory. A variable is created or initialized automatically when you assign a value to it for the first time. (2.1.4.1)
+													</ol>
+													<ol>
+													2. Each variable must have a unique name - an identifier. A legal identifier name must be a non-empty sequence of characters, must begin with the underscore(_), or a letter, and it cannot be a Python keyword. The first character may be followed by underscores, letters, and digits. Identifiers in Python are case-sensitive. (2.1.4.1)
+													</ol>
+													<ol>
+													3. Python is a dynamically-typed language, which means you don't need to declare variables in it. (2.1.4.3) To assign values to variables, you can use a simple assignment operator in the form of the equal (=) sign, i.e., var = 1.
+													</ol>
+													<ol>
+													4. You can also use compound assignment operators (shortcut operators) to modify values assigned to variables, e.g., var += 1, or var /= 5 * 2. (2.1.4.8)
+													</ol>
+													<ol>
+													5. You can assign new values to already existing variables using the assignment operator or one of the compound operators, e.g.: (2.1.4.5) <br>
+													<blockquote>
+														var = 2 <br>
+														print(var) <br>
+														
+														var = 3 <br>
+														print(var) <br>
+														
+														var += 1 <br>
+														print(var) <br>
+													</blockquote>
+													</ol>
+													<ol>
+													6. You can combine text and variables using the + operator, and use the print() function to output strings and variables, e.g.: (2.1.4.4) <br>
+													<code>
+														var = "007"
+														print("Agent " + var)
+													</code>
+													</ol>
+												</ul>
+												<h4>Exercise 1</h4>
+												What is the output of the following snippet?
+												<blockquote>
+													var = 2 <br>
+													var = 3 <br>
+													print(var) <br>
+												</blockquote>
+												<code>3</code>
+												<h4>Exercise 2</h4>
+												Which of the following variable names are illegal in Python?
+												<blockquote>
+													my_var <br>
+													m <br>
+													101 <br>
+													averylongvariablename <br>
+													m101 <br>
+													m 101 <br>
+													Del <br>
+													del <br>
+												</blockquote>
+												<code>
+													101 # incorrect (starts with a digit) <br>
+													m 101 # incorrect (contains a space) <br>
+													del # incorrect (is a keyword)
+												</code>
+												<h4>Exercise 3</h4>
+												What is the output of the following snippet? <br>
+												<blockquote>
+													a = '1' <br>
+													b = "1" <br>
+													print(a + b) <br>
+												</blockquote>
+												<code>
+													11
+												</code>
+												<h4>Exercise 4</h4>
+												What is the output of the following snippet? <br>
+												<blockquote>
+													a = 6 <br>
+													b = 3 <br>
+													a /= 2 * b <br>
+													print(a) <br>
+												</blockquote>
+												<code>1.0</code>
+												<blockquote>
+												2 * b = 6 <br>
+												a = 6 → 6 / 6 = 1.0
+												</blockquote>
+											</p>
+											<h2>Leaving comments in code: why, how and when.</h2>
+											<p>
+												You may want to put in a few words addressed not to Python but to humans, usually to explain to other readers of the code how the tricks used in the code work, or the meanings of the variables, and eventually, 
+												in order to keep stored information on who the author is and when the program was written. <br>
+												A remark inserted into the program, which is <b>omitted at runtime</b> , is called a <b>comment</b>. <br>
+												How do you leave this kind of comment in the source code? It has to be done in a way that won't force Python to interpret it as part of the code. <br>
+												Whenever Python encounters a comment in your program, the comment is completely transparent to it - from Python's point of view, this is only one space (regardless of how long the real comment is). <br>
+												In Python, a comment is a piece of text that begins with a # (hash) sign and extends to the end of the line. <br>
+												If you want a comment that spans several lines, you have to put a hash in front of them all. <br>
+												Just like here:
+												<blockquote>
+													# This program evaluates the hypotenuse c. <br>
+													# a and b are the lengths of the legs. <br>
+													a = 3.0 <br>
+													b = 4.0 <br>
+													c = (a**2 + b**2) ** 0.5 # We use ** instead of squeare root <br>
+													print("c =", c) <br>
+												</blockquote>
+												Good, responsible  developers <b>describes each important piece of code</b>, e.g. explianing role of the variables, althought it must be started that the best way of commenting variables is to name them in an unambiguous manner. <br>
+												For example, if a particular variable is designed to store an area of some unique square, the name squareArea will obviously be better than auntJane. We say that the first name is self-commenting. <br>
+												Comments may be useful in another respect - you can use them to mark a piece of code that currently isn't needed for whatever reason. Look at the example below, if you uncomment the highlighted line, this will affect the output of the code: <br>
+												<blockquote>
+													# This is a test program. <br>
+													x = 1 <br>
+													y = 2 <br>
+													<b># y = y + x</b> <br>
+													print(x + y) <br>
+												</blockquote>
+												This is often done during the testing of a program, in order to isolate the place where an error might be hidden.
+												<h4>TIP</h4>
+												If you'd like to quickly comment or uncomment multiple lines of code, select the line(s) you wish to modify and use the following keyboard shortcut: CTRL + / (Windows) or CMD + / (Mac OS). It's a very useful trick, isn't it? Try this code in Sandbox. <br>
+												<img src="images/comments in Python.PNG" class="responsive" alt=""> 
+											</p>
+											<h2>LAB: Comments</h2>
+											<p>
+												<h4>Estimated time</h4>
+												5 minutes 
+												<h4>Level of difficulty</h4>
+												Very easy 
+												<h4>Objectives</h4>
+												<ul>
+													<li>
+														Becomming familiar with the concept of comments in Python.
+													</li>
+													<li>
+														Using and not using comments.
+													</li>
+													<li>	
+														Replacing comments with code.
+													</li>
+													<li>
+														Experimenting with  Python code.
+													</li>
+												</ul>
+												<h4>Scenario</h4>
+													The code in the editor contains comments. Try to improve it: add or remove comments where you find it appropriate (yes, sometimes removing a comment can make the code more readable), and change variable names where you think this will improve code comprehension.
+												<h5>Note</h5>
+												Comments are very important. They are used not only to make your programs easier to understand, but also to disable those pieces of code that are currently not needed (e.g., when you need to test some parts of your code only, and ignore other). Good programmers describe each important piece of code, and give self-commenting names to variables, as sometimes it is simply much better to leave information in the code. <br>
+												It's good to use readable variable names, and sometimes it's better to divide your code into named pieces (e.g., functions). In some situations, it's a good idea to write the steps of computations in a clearer way. <br>
+												One more thing: it may happen that a comment contains a wrong or incorrect piece of information - you should never do that on purpose! <br>
+												<img src="images/LAB- Comments.PNG" alt="" class="responsive">
+											</p>
+											<h2>Key takeaways</h2>
+											<p>
+												<ul>
+													<ol>
+														1. Comments can be used to leave additional information in code. They are omitted at runtime. The information left in source code is addressed to human readers. In Python, a comment is a piece of text that begins with <code>#</code>. The comment extends to the end of line.
+													</ol>
+													<ol>
+														2. If you want to place a comment that spans several lines, you need to place # in front of them all. Moreover, you can use a comment to mark a piece of code that is not needed at the moment (see the last line of the snippet below), e.g.: <br>
+														<blockquote>
+															# This program prints <br>
+															# an introduction to the screen. <br>
+															print("Hello!")  # Invoking the print() function <br>
+															# print("I'm Python.") <br>
+														</blockquote>
+													</ol>
+													<ol>	
+														3. Whenever possible and justified, you should give <b>self-commenting names</b> to variables, e.g., if you're using two variables to store a length and width of something, the variable names <b>length</b> and <b>width</b> may be a better choice than <b>myvar1</b> and <b>myvar2</b>.
+													</ol>
+													<ol>
+														4. It's important to use comments to make programs easier to understand, and to use readable and meaningful variable names in code. However, it's equally important not to use variable names that are confusing, or leave comments that contain wrong or incorrect information!
+													</ol>	
+													<ol>
+														5. Comments can be important when you are reading your own code after some time (trust us, developers do forget what their own code does), and when others are reading your code (can help them understand what your programs do and how they do it more quickly).
+													</ol>
+												</ul>
+											</p>
+											<h2>The <code>input()</code> function</h2>
+											<p>
+												We're now going to introduce you to a completely new function, which seems to be a mirror reflection of the good old <code>print()</code> function. <br>
+												Why? Well, <code> print()</code> sends data to the console. <br>
+												The new function gets data from it. <br>
+												print() has no usable result. The meaning of the new function is to <b>return a very usable result</b>. <br>
+												The function is named <code> input()</code>. The name of the function says everything. The <code>input()</code> function is able to read data entered by the user and to return the same data to the running program. <br>
+												The program can manipulate the data, making the code truly interactive. <br>
+												Virtually all programs <b>read and process data</b>. A program which doesn't get a user's input is a <b>deaf program</b>.
+												Take a look at our example:
+												<blockquote>
+													print("TRell me anything...") <br>
+													anything = input() <br>
+													print("Hmmm .... ", anything , "... Really?")
+												</blockquote>
+												It shows a very simple case of using the <code>input()</code> function. <br>
+												<div>
+													<b>Note:</b> <br>
+													<ul>
+														<li>
+															The program <b>prompts the user to input some data</b> from the console (most likely using  a keyboard,although it is also possible to input data using voice or image).
+														</li>
+														<li>
+															The <code>input()</code> function is invoked without arguments (this is the simplest way of using the function), the function will <b>switch the console  to input mode</b>, you'll  see a blinking cursor, and you'll  be able to input some keystrokes, finishing off by hitting 
+															the Enter key, all the inputted data will be <b>sent to your program</b> through the function's result.
+														</li>
+														<li>
+															<b>Note:</b> you need to assign the result to a variable, this is crucial - missing out this step will cause the entered data to be lost.
+														</li>
+														<li>
+															Then we use the <code>print()</code> function to output the data we get, with some additional remarks.
+														</li>
+													</ul>
+												</div>
+												Try to run the code and let the function show you what it can do for you.
+											</p>
+											<h2>The <code>input()</code> function with an argument</h2>
+											<p>
+												The <code>input()</code> function can do  something else: it can prompt the user without any help from <code>print()</code>. <br>
+												We've modified our example a bit, look at the code. <br>
+												<blockquote>
+													anything = <b>input("Tell me anything...")</b> <br>
+													print("Hmmmm...", anything, "...Really?")
+												</blockquote> <br>
+												<b>Note:</b>
+												<ul>
+													<li> The input() function is invoked with one argument - it's a string containing a message. </li>
+													<li> The message will be displayed on the console before the user is given an opportunity to enter anything. </li>
+													<li> Input() will then do its job. </li>
+												</ul>
+												This variant of the input() invocation simplifies the code and makes it clearer.
+											</p>
+											<h2>The result of the <code>input()</code> function</h2>
+											<p>
+												We've said it already, but it must be unambiguously stated once again: <b>the result of the input() function is a string</b>. <br>
+												A string containing all the characters the user enters from the keyboard. It is not an integer or a float. <br>											
+												This means that <b>you mustn't use it as an argument of any arithmetic operation</b>, e.g., you can't use this data to square it, divide it by anything, or divide anything by it. <br>
+												<blockquote>
+													anything = input("Enter a number: ") <br>
+													something = anything ** 2.0 <br>
+													print(anything, "to the power of 2 is", something)
+												</blockquote>													
+											</p>
+											<h2>The <code>input()</code> function -  prohibited operations</h2>
+											<p>
+												Look at the code in the editor. Run it, enter any number and press Enter. <br>
+												What happens? <br>
+												Python should  have given you the following output: <br>
+												<blockquote>
+													Traceback (most recent call last): <br>
+													File ".main.py", line 4, in &lt;module&gt; <br>
+													something = anything ** 2.0 <br>
+													TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'float' <br>
+												</blockquote>
+												The last line of the sentence explains everythings - you tried to apply the <code>**</code> operators to <code>'str'</code> (string) accompained with <code>'float'</code>. <br>
+												This is prohibited. <br>
+												This should be obvious - can you predict the value of <code>'to be or not to be'</code> raised to the power of <code>2</code>? <br>
+												We can't. Python can't either. <br>
+												Have we fallen into a deadlock? Is there a solution to this  issue?  Of course there is. 
+											</p>
+											<img src="images/the input() function - prohibited operations.PNG" class="responsive" alt=""> 
+											<h2>Type casting</h2>
+											<p>
+												Python offers two simple functions to specify a type of data and solve this problem - here they are: int() and float().
+
+												Their names are self-commenting:
+												
+												 - the int() function takes one argument (e.g., a string: int(string)) and tries to convert it into an integer; if it fails, the whole program will fail too (there is a workaround for this situation, but we'll show you this a little later);
+												 - the float() function takes one argument (e.g., a string: float(string))and tries to convert it into a float (the rest is the same).
+												
+												This is very simple and very effective. Moreover, you can invoke any of the functions by passing the input() results directly to them. There's no need to use any variable as an intermediate storage.
+												
+												We've implemented the idea in the editor - take a look at the code.
+												
+												Can you imagine how the string entered by the user flows from input() into print()?
+												
+												Try to run the modified code. Don't forget to enter a valid number.
+												
+												Check some different values, small and big, negative and positive. Zero is a good input, too.
+											</p>
+											<h2>More about <code>input()</code> and type casting</h2>
+											<p>
+												Having a team consisting of the trio <code>input()- int()- float()</code> opens up lots of new possibilities. <br>
+												You'll eventually be able to write complete programs, accepting data in the form of numbers, processing them and displaying the results. <br>
+												Of course, these programs will be very primitive and not very usable, as they cannot make decisions, and consequently are not able to react differently to different situations. <br>
+												This is not really a problem, though; we'll show you how to overcome it soon. <br>
+												Our next example refers to the earlier program to find the length of a hypotenuse. Let's rewrite it and make it able to read the lengths of the legs from the console. <br>
+												Check out the editor window - this is how it looks now. <br>
+												The program asks the user twice for both legs' lengths, evaluates the hypotenuse and prints the result. <br>
+												Run it and try to input some negative values. <br>
+												The program - unfortunately - doesn't react to this obvious error. <br>
+												Let's ignore this weakness for now. We'll come back to it soon. <hr>
+												<div>
+													Note that in the program that you can see in the editor, the hypo variable is used for only one purpose - to save the calculated value between the execution of the adjoining line of code.
+												</div>
+												As the print() function accepts an expression as its argument, you can remove the variable from the code. <br>
+												Just like this: <br>
+												<img src="images/more about input() and types casting.PNG" class="responsive" alt="">
+											</p>
+											<h2>String operators - Introduction</h2>
+											<p>
+												It's time  to return to these two arithmetic operators: <code>+</code> and <code>*</code> <br>
+												We want to show you that they have a second function. They are able to do something more just <b>add</b> and <b>multiply.</b> <br>
+												we've seen them in action where their arguments are numbers (floats or integers, it doesn't matter), now we're going to show you that they can handle strings, too, albeit in a very specific way.
+											</p>
+											<h2>Concatenation</h2>
+											<p>
+												The <code>+</code> (plus) sign, whaen applied to two strings, becomes a <b>concatenation operator:</b> <br>
+												<code>
+													string + string
+												</code> <br>
+												It simply <b>concatenates</b> (glues) two strings into one. Of course, like its arithmetic sibling, it can be used more that once expression, and in such a context it behaves according to left-sided binding. <br>
+												In contrast to its arithmetic sibling, the concatenation operator is <b>not commutative</b>, i.e. <code>"ab" + "ba"</code> is not the same as <code>"ba" + "ab"</code>. <br>
+												Don't forget - if you want the <code>+</code>  sign to be a <b>concatenator</b>, not an adder, you must ensure that  <b>both its arguments are strings</b>. <br>
+												You cannot mix types here. <hr>
+												This simple programm shows the <code>+</code> sign in its second use: <br>
+												<blockquote>
+													fnam = input("May I have your first name, please? ") <br>
+													lnam = input("May I have your last name, please? ") <br>
+													print("Thank you.") <br>
+													print("\nYour name is " + fnam + " " + lnam + "." <br>
+												</blockquote> 
+												<b>Note:</b> using + to concatenate strings lets you construct the output in a more precise way than with a pure print() function, even if enriched with the end= and sep= keyword arguments. Run the code and see if the output matches your predictions. <br>
+												<img src="images/how to talk a computer-string operators.PNG" class="responsive" alt="">
+											</p>
+											<h2>Replication</h2>
+											<p>
+												The * (asterisk) sign, when applied to a string and number (or a number and string, as it remains commutative in this position) becomes a replication operator: <br>													string * number
+												<code>number * string</code> <br>
+												It replicates the string the same number of times specified by the number. <br>
+												For example:
+												<blockquote>
+													"James" * 3 gives "JamesJamesJames" <br>
+													3 * "an" gives "ananan" <br>
+													5 * "2" (or "2" * 5) gives "22222" (not 10!) <br>
+												</blockquote>
+												<img src="images/replicates the strings.PNG" class="responsive" alt=""> <br>
+												<h4>REMEMBER</h4>
+												A number less than or equal to zero produces an empty string. <br>
+												This simple program "draws" a rectangle, making use of an old operator (+) in a new role: <br>
+												<blockquote>
+												print("+" + 10 * "-" + "+") <br>
+												print(("|" + " " * 10 + "|\n") * 5, end="") <br>
+												print("+" + 10 * "-" + "+") <br>
+												</blockquote>
+												<img src="images/draw rectangle.PNG" class="responsive" alt=""> <br>
+												<b>Note:</b> the way in which we've used the parentheses in the second line of the code. <br>
+												Try practicing to create other shapes or your own artwork!																									
+											</p>
+											<h2>Type conversion: str()</h2>
+											<p>
+												You already know how to use the <code>int() and float()</code> functions to convert a string into a number. <br>
+												This type of conversion is not a one-way street. You can also convert a number into a string, which is way easier and safer - this operation is always possible. <br>
+												A function capable of doing that is called <code>str()</code>: <br>
+												<code>str(number)</code> <br>
+												To be honest, it can do much more than just transform numbers into strings, but that can wait for later. <br>
+												<h3>The "right-angle triangle" again </h3>
+												Here is our "right-angle triangle" program again: <br>
+												<blockquote>
+													leg_a = float(input("Input first leg length: ")) <br>
+													leg_b = float(input("Input second leg length: ")) <br>
+													print("Hypotenuse length is " + str((leg_a**2 + leg_b**2) ** .5)) <br>
+												</blockquote> 
+												<img src="images/right-angle triangle again.PNG" class="responsive" alt="">
+												We've modified it a bit to show you how the str() function works. Thanks to this, we can pass the whole result to the print() function as one string, forgetting about the commas. <br>
+												You've made some serious strides on your way to Python programming. <br>
+												You already know the basic data types, and a set of fundamental operators. You know how to organize the output and how to get data from the user. These are very strong foundations for Module 2. 
+												But before we move on to the next module, let's do a few labs, and recap all that you've learned in this section.
+											</p>
+											<h2>LAB: Simple input and output</h2>
+											<p>
+												<h4>Lab</h4>
+												<h4>Estimated time</h4>
+												<p>
+													5-10 minutes
+												</p>
+												<h4>Level of difficulty</h4>
+												<p>
+													Easy
+												</p>
+												<h4>Objectives</h4>
+												<ul>
+													<li>Becoming familiar with the inputting and outputting of data in Python.</li>
+													<li>Evaluating simple expressions.</li>
+												</ul>
+												<h4>Scenario</h4>
+												<p>
+													Your task is to complete the code in order to evaluate the results of four basic arithmetic operations. <br>
+													The results have to be printed to the console, you may not be able to protect the code from a user who wants to divide by zero. That's okay, don't worry about it for now. <br>
+													Test your code - does it produce the results you expect? <br>
+													We won't show you any test data - that would be too simple. 
+												</p>
+												<img src="images/LAB- Simple Input and Output.PNG" class="responsive" alt="">
+											</p>
+											<h2>LAB: Operators and expressions</h2>
+											<p>
+												<h4>Estimated time</h4>
+												<p>
+													20 minutes
+												</p>
+												<h4>Level of difficulty</h4>
+												<p>
+													Intermediate
+												</p>
+												<h4>Objetives</h4>
+												<p>
+													<ul>
+														<li>Becoming familiar with the concept of numbers, operators and arithmetic operations in Python.</li>
+														<li>Understanding the precendence and associativity of Python operators, as well as the proper use of parentheses.</li>
+													</ul>
+												</p>
+												<h4>Scenario</h4>
+												<p>
+													Your task is to complete the code in order to evaluate the following expression: <br>
+													<img src="images/scenario.PNG" class=""  max-size="45%"alt="">	<br>
+													The result should be assigned to y. Be careful - watch the operators and keep their priorities in mind. Don't hesitate to use as many parentheses as you need. <br>
+													You can use additional variables to shorten the expression (but it's not necessary). Test your code carefully.
+												</p>
+												<h4>Test Data</h4>
+												<p>
+													Sample input <code>1</code>: <br>
+													Expected output: <br>
+													<code>
+														y = 0.6000000000000001
+													</code> <br>
+													Sample input: <code>10</code> <br> 
+													Expected output: <br>
+													<code>
+														y = 0.09901951266867294
+													</code> <br>
+													Sample input: <code>100</code> <br>
+													Expected output: <br>
+													<code>
+														y = 0.009999000199950014
+													</code> <br>
+													Sample input: <code>-5</code> <br>
+													Expected output: <br>
+													<code>
+														y = -0.19258202567760344
+													</code>
+												</p>
+												<img src="images/LAB-Operators and Expression.PNG" class="responsive" alt="">
+											</p>
+											<h2>LAB: Operators and expressions</h2>
+											<p>
+												<h4> Estimated time</h4>
+												15-20 minutes
+												
+												<h4> Level of difficulty</h4>
+												Easy
+												
+												<h4> Objectives</h4>
+												improving the ability to use numbers, operators, and arithmetic operations in Python. <br>
+												Using the print() function's formatting capabilities, learning to express everyday-life phenomena in terms of programming language. <br>
+												<h4> Scenario</h4>
+												Your task is to prepare a simple code able to evaluate the end time of a period of time, given as a number of minutes (it could be arbitrarily large). The start time is given as a pair of hours (0..23) and minutes (0..59). The result has to be printed to the console. <br>
+												For example, if an event starts at 12:17 and lasts 59 minutes, it will end at 13:16. <br>
+												Don't worry about any imperfections in your code - it's okay if it accepts an invalid time - the most important thing is that the code produce valid results for valid input data. <br>
+												Test your code carefully. Hint: using the % operator may be the key to success.
+												<h4> Test Data</h4>
+												Sample input: <br>
+												<blockquote>
+													12 <br>
+													17 <br>
+													59 <br>
+												</blockquote>
+												Expected output: 13:16 <br>
+												<img src="images/testdata lab 2.6.11.PNG" class="responsive" alt=""> <br>
+												Sample input: <br>
+												<blockquote>
+													23 <br>
+													58 <br>
+													642 <br>
+												</blockquote>
+												Expected output: 10:40 <br>
+												<img src="images/testdata lab 2.6.11-2.PNG" class="responsive" alt=""> <br>
+												Sample input: <br>
+												<blockquote>
+													0 <br>
+													1 <br>
+													2939 <br>
+												</blockquote>
+												Expected output: 1:0 <br>										
+												<img src="images/testdata lab 2.6.11-3.PNG" class="responsive" alt=""> 
+											</p>
+											<h2>Key Takeaways</h2>
+											<p>
+												<ul>
+													<ol>
+														1. The print() function sends data to the console, while the input() function gets data from the console.
+													</ol>
+													<ol>
+														2. The input() function comes with an optional parameter: the prompt string. It allows you to write a message before the user input, e.g.: <br>
+														<blockquote>
+															name = input("Enter your name: ") <br>
+															print("Hello, " + name + ". Nice to meet you!")
+														</blockquote>
+													</ol>
+													<ol>
+														3. When the input() function is called, the program's flow is stopped, the prompt symbol keeps blinking (it prompts the user to take action when the console is switched to input mode) until the user has entered an input and/or pressed the Enter key.
+														<h4>NOTE</h4>
+														You can test the functionality of the input() function in its full scope locally on your machine. For resource optimization reasons, we have limited the maximum program execution time in Edube to a few seconds. 
+														Go to Sandbox, copy-paste the above snippet, run the program, and do nothing - just wait a few seconds to see what happens. Your program should be stopped automatically after a short moment. Now open IDLE, 
+														and run the same program there - can you see the difference? <br>
+														Tip: the above-mentioned feature of the input() function can be used to prompt the user to end a program. Look at the code below: <br>
+														<blockquote>
+															name = input("Enter your name: ") <br>
+															print("Hello, " + name + ". Nice to meet you!") <br>
+															<br>
+															print("\nPress Enter to end the program.") <br>
+															input() <br>
+															print("THE END.") <br>
+														</blockquote>
+													</ol>
+													<ol>
+														4.  The result of the input() function is a string. You can add strings to each other using the concatenation (+) operator. Check out this code: <br>
+														<blockquote>
+															num1 = input("Enter the first number: ") # Enter 12 <br>
+															num2 = input("Enter the second number: ") # Enter 21 <br>
+															<br>
+															print(num1 + num2) # the program returns 1221 <br>
+														</blockquote>
+													</ol>
+													<ol>
+														5. You can also multiply (* - replication) strings, e.g.: <br>
+														<blockquote>
+															myInput = ("Enter something: ") # Example input: hello <br>
+															print(myInput * 3) # Expected output: hellohellohello
+														</blockquote>
+													</ol>
+												</ul>
+											</p>
+										</section>
 								</div>
 
 						</section>
