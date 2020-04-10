@@ -1857,6 +1857,17 @@ input, select, textarea {
 		opacity: 0.5;
 	}
 
+/* Video */
+
+	.responsive0 {
+		max-height: 100%;
+		max-width: 100%;
+		width: 85%;
+		height: 50%;
+		border-radius: 5px;	
+		padding-block: initial;
+	}
+
 /* Image */
 
 	.image {
