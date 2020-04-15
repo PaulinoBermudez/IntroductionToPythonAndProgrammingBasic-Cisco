@@ -174,7 +174,104 @@
 													If we want to find out whether or not we have to wear a warm hat, we ask the following question: <br>
 													<code>
 														centigrade_outside ≥ 0.0 # greater than or equal to
-													</code>
+													</code> 
+												</p>
+												<h2>Comparison operator: less than or equal to</h2>
+												<p>
+													As you've probably already guessed, the operators used in this case are: the <code><</code> (less than) operator and its non-strict sibling: <code><=</code> (less than or equal to). Look at this simple example: <br>
+													<blockquote>
+														current_velocity_mph <b><</b> 85 # less than
+														current_velocity_mph <b>≤</b> 85 # less than or equal to
+													</blockquote>
+													We're going to check if there's a risk of being fined by the highway police (the first question is strict, the second isn't).
+													Making use of the answers <br>
+													What can you do with the answer (i.e., the result of a comparison operation) you get from the computer? <br>
+													There are at least two possibilities: first, you can memorize it (store it in a variable) and make use of it later. How do you do that? Well, you would use an arbitrary variable like this: <br>
+													<code>
+														answer = number_of_lions >= number_of_lionesses
+													</code> <br>
+													The content of the variable will tell you the answer to the question asked. <br>													
+													The second possibility is more convenient and far more common: you can use the answer you get to make a decision about the future of the program. <br>													
+													You need a special instruction for this purpose, and we'll discuss it very soon. Now we need to update our priority table, and put all the new operators into it. It now looks as follows:
+													<table>
+														<tr>
+															<td>
+																Priority
+															</td>
+															<td>
+																Operator
+															</td>
+															<td>
+
+															</td>
+														</tr>
+														<tr>
+															<td>
+																1
+															</td>
+															<td>
+																+,-
+															</td>
+															<td>
+																unary
+															</td>
+														</tr>
+														<tr>
+															<td>
+																2
+															</td>
+															<td>
+																**
+															</td>
+															<td>
+
+															</td>
+														</tr>
+														<tr>
+															<td>	
+																3
+															</td>
+															<td>
+																*,/,//,%
+															</td>
+															<td>
+
+															</td>
+														</tr>
+														<tr>
+															<td>
+																4
+															</td>
+															<td>
+																+,-
+															</td>
+															<td>
+																binary
+															</td>
+														</tr>
+														<tr>
+															<td>	
+																5
+															</td>
+															<td>
+																<, <=, >, >=
+															</td>
+															<td>
+
+															</td>
+														</tr>
+														<tr>
+															<td>
+																6
+															</td>
+															<td>
+																==, !=
+															</td>
+															<td>
+
+															</td>
+														</tr>
+													</table>
 												</p>
 											</section>
 										</div>
