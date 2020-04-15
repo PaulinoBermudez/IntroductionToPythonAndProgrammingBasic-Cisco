@@ -670,11 +670,17 @@
 											<p>
 												We've modified the code again. Look at it carefully. <br>
 												There are two very subtle changes - we've inserted a strange pair of characters inside the rhyme. They look like this:  <br>
-												<code>
-													\n 
-												</code> <br>
+												<blockquote>
+													<code>
+														\n 
+													</code> <br>
+												</blockquote>
 												Interestingly, while <b>you can see two characters, Python sees one</b>. <br>
-												The <b>backslash</b> <code>(\)</code> has a very special meaning when used inside strings - this is called the <b>escape character</b>. <br>
+												The <b>backslash</b>
+												<blockquote>
+													<code>(\)</code>
+												</blockquote>
+												has a very special meaning when used inside strings - this is called the <b>escape character</b>. <br>
 												The word escape should be understood specifically - it means that the series of characters in the string escapes for the moment (a very short moment) to introduce a special inclusion. <br>
 												In other words, the backslash doesn't mean anything in itself, but is only a kind of announcement, that the next character after the backslash has a different meaning too. <br>
 												The letter 'n' placed after the backslash comes from the word newline. <br>
@@ -747,7 +753,10 @@ and washed the spider out.</code></pre>
 												<code>My name is Python. Monty Python.</code> <br>
 												As you can see, the end keyword argument determines the characters the print() function sends to the output once it reaches the end of its positional arguments. <br>
 												The default behavior reflects the situation where the end keyword argument is implicitly used in the following way: <code>end="\n"</code>. <br>
-												<img src="images/the keyword arguments.PNG" class="responsive" alt="">													
+												<img src="images/the keyword arguments.PNG" class="responsive" alt="">			
+												
+												
+												
 											</p>
 											<p>
 												And now it's time to try something more difficult. If you look carefully, you'll see that we've used the end argument, but the string assigned to it is empty (it contains no characters at all).
