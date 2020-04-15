@@ -72,110 +72,6 @@
 												<p>
 													A programmer writes a program and <b>the program asks questions.</b> <br>
 													A computer executes the program and provides the answers
-													<ul>
-														<li>
-															Yes, this is true.
-														</li>
-														<li>
-															No, this is false.
-														</li>
-													</ul>
-													You will never get a response like <i>'Let me think..., i don't know, or probably  yes but I don't know for sure'.</i>
-													To <strong>ask questionsm Python uses a set of very special operators</strong>. Let's go through them one after another, illustrating their effects on some simple examples.
-												</p>
-												<h2>Comparison: equality operator.</h2>
-												<p>
-													Question: <strong>are two values equal?</strong> 
-													<p>	
-														To ask this question, you use the <code>==</code> (equal equal) operator. <br>
-														Don't forget this important distintion:
-														<ul>
-															<li><code>=</code> is an assignment operator, e.g. <code>a=b</code> assigns 'a' with the value of 'b'.</li>
-															<li><code>==</code> is the question are these values equal?, <code>a==b</code> compares 'a' and 'b'.</li>
-														</ul>
-														It's a <strong>binary operator with left-sided binding</strong>. It needs two arguments and <b>check if they are equal</b>.
-													</p>
-													<h3>Exercises.</h3>
-													<p>
-														Now let's ask a few questions. try to guess the answers.
-														<hr>
-														<strong>Q.1</strong> What is the result of the following comparison? <code>2==2</code> <br>
-														<blockquote>
-															<code>True</code> of course, 2 is equal to 2. Python will answer True (remeber this pair of predefined literals, <code>True</code> and <code>False</code> - they're Python keywords, too).
-														</blockquote>
-														<strong>Q.2</strong> What is the result of the following comparison? <code>2==2.</code> <br>
-														<blockquote>
-															This question is not as easy  as their  first one. Luckly, Python is able to convert the integer value into its real equivalent, andconsequently, the answer is <code>True</code>.
-														</blockquote>
-														<strong>Q.3</strong> What is the result of the following comparison? <code>1==2</code> <br>
-														<blockquote>
-															This should be easy. The answer will be (or rather, always is) <code>False</code>.
-														</blockquote>
-													</p>
-												</p>
-												<h2>Equality: the equal to operator (==)</h2>
-												<p>
-													The == (equal to) operator compares the values of two operands. If they are equal, the result of the comparison is <code>True</code>. If they are not equal, the result of the comparison is <code>False</code>. <br>
-													Look at the equality comparison below - what is the result of this operation? <br>
-													<code>
-														var == 0
-													</code> <br>
-													Note that we cannot find the answer if we do not know what value is currently stored in the variable <code>var</code>. <br>
-													If the variable has been changed many times during the execution of your program, or its initial value is entered from the console, the answer to this question can be given only by Python and only at runtime. <br>
-													Now imagine a programmer who suffers from insomnia, and has to count black and white sheep separately as long as there are exactly twice as many black sheep as white ones. <br>
-													The question will be as follows: <br>
-													<code>
-														black_sheep == 2 * white_sheep
-													</code> <br>
-													Due to the low priority of the <code>==</code> operator, the question shall be treated as equivalent to this one: <br>
-													<code>
-														black_sheep == (2 * white_sheep)
-													</code> <br>
-													So, let's practice your understanding of the == operator now - can you guess the output of the code below? <br>
-<pre>	var = 0 # assigning 0 to var
-	print(var == 0)
-	var = 1 # assigning 1 to var
-	print(var == 0)
-	</pre>													
-													Run the code and check if you were right.
-													<div>
-														<img src="images/equality-the equal to operator.PNG" class="responsive" alt=""> <p>Equal to operator.</p>
-													</div>
-												</p>
-												<h2>Inequality: the not equal to operator (!=)</h2>
-												<p>
-													The <code>!=</code> (not equal to) operator compares the values of two operands, too. Here is the difference: if they are equal, the result of the comparison is False. If they are not equal, the result of the comparison is True.
-													Now take a look at the inequality comparison below - can you guess the result of this operation?
-													<pre>
-	var = 0 # assigning 0 to var
-	print(var != 0)
-	var = 1 # assigning 1 to var
-	print(var != 0)														
-													</pre>
-													Run the code and check if you were right.
-													<div>
-														<img src="images/inequality-the not equal to operator.PNG" class="responsive" alt=""> <p>Equal to operator.</p>
-													</div>
-												</p>
-												<h2>Comparison operators: greater than</h2>
-												<p>
-													You can also ask a comparison question using the <code>></code> (greater than) operator.
-													If you want to know if there are more black sheep than white ones, you can write it as follows: <br>
-													<code>
-														black_sheep > white_sheep # greater than
-													</code>  <br>
-													True confirms it; False denies it.
-												</p>
-												<h2>Comparison operators: greater than or equal to</h2>
-												<p>
-													The greater than operator has another special, non-strict variant, but it's denoted differently than in classical arithmetic notation: >= (greater than or equal to).
-
-There are two subsequent signs, not one.
-
-Both of these operators (strict and non-strict), as well as the two others discussed in the next section, are binary operators with left-sided binding, and their priority is greater than that shown by == and !=.
-
-If we want to find out whether or not we have to wear a warm hat, we ask the following question:
-centigrade_outside ≥ 0.0 # greater than or equal to
 												</p>
 											</section>
 										</div>
@@ -222,14 +118,14 @@ centigrade_outside ≥ 0.0 # greater than or equal to
 
 									<section>
 										<header>
-											<h3>Cap. 2</h3>
+											<h3>Cap. 3</h3>
 										</header>
 										<p>
 											Go to content.
 										</p>
 										<footer>
 											<ul class="buttons">
-												<li><a href="chapter2.html" class="button small">Learn More</a></li>
+												<li><a href="chapter3.html" class="button small">Learn More</a></li>
 											</ul>
 										</footer>
 									</section>
@@ -256,14 +152,14 @@ centigrade_outside ≥ 0.0 # greater than or equal to
 
 									<section>
 										<header>
-											<h3>Cap. 5</h3>
+											<h3>Cap. 6</h3>
 										</header>
 										<p>
 											Go to content.
 										</p>
 										<footer>
 											<ul class="buttons">
-												<li><a href="chapter5.html" class="button small">Learn More</a></li>
+												<li><a href="chapter6.html" class="button small">Learn More</a></li>
 											</ul>
 										</footer>
 									</section>
