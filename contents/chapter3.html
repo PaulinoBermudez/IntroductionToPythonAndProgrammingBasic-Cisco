@@ -60,7 +60,7 @@
 						<section class="wrapper style4 container">
 
 							<div class="row gtr-150">
-								<div class="col-8 col-12-narrower">
+								<div class="">
 
 									<!-- Content -->
 										<div class="content">
@@ -367,42 +367,29 @@ have_lunch()
 </pre>														
 													</blockquote>
 												</p>
+												<h2>Conditional execution: the <code>if</code> statement</h2>
+												<p>
+													If s certain sleepless Python developer falls asleep when he or she counts 120 sheep, and the sleep-inducing procedure may be implemented as a special function named <code>sleep_and_dream()</code>, the whole code takes the 
+													following shape:
+													<blockquote>
+<pre>if sheep_counter >= 120: # Evaluate a test expression
+	sleep_and_dream() # execute if test expression is True
+</pre>														
+													</blockquote> <br>
+													You can read it as: if <code>sheep_counter</code> is greater than or equal to 120, then fall asleep and dream (i.e, execute the <code>sleep_and_dream</code> function). <hr>
+													We've said that <b>conditionally executed statements have to be indented.</b> This creates a very legible structure, clearly demostrating all possible execution paths in the code. Take a look at the folloing code:
+													<blockquote>
+<pre>if sheep_counter >= 120:
+	make_a_bed() 
+	take_a_shower() 
+	sleep_and_dream() 
+feed_the_sheepdogs()
+</pre>														
+													</blockquote>
+												</p>
 											</section>
 										</div>
-
-								</div>
-								<div class="col-4 col-12-narrower">
-
-									<!-- Sidebar -->
-										<div class="sidebar">
-											<section>
-												<header>
-													<h3>Magna Feugiat</h3>
-												</header>
-												<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit..</p>
-												<footer>
-													<ul class="buttons">
-														<li><a href="#" class="button small">Learn More</a></li>
-													</ul>
-												</footer>
-											</section>
-
-											<section>
-												<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-												<header>
-													<h3>Amet Lorem Tempus</h3>
-												</header>
-												<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-												<footer>
-													<ul class="buttons">
-														<li><a href="#" class="button small">Learn More</a></li>
-													</ul>
-												</footer>
-											</section>
-										</div>
-
-								</div>
-							</div>
+								</div>								
 						</section>
 
 						<!-- Two -->
