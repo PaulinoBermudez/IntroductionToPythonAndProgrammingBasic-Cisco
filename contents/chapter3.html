@@ -412,6 +412,58 @@ feed_the_sheepdogs()
 														<li>If the condition evaluates to False (it is equal to zero), the perform_if_condition_false statement is executed, and the conditional statement comes to an end.</li>
 													</ul>
 												</p>
+												<h2>The if-else statement: more conditional execution</h2>
+												<p>
+													By using this form of conditional statement, we can describe our plans as follows:
+													<blockquote>
+<pre>if the_weather_is_good:
+    go_for_a_walk()
+else:
+    go_to_a_theater()
+have_lunch()</pre>														
+													</blockquote> <br>
+													If the weather is good, we'll go for a walk. Otherwise, we'll go to a theatre. No matter if the weather is good or bad, we'll have lunch afterwards (after the walk or after going to the theatre). <br>
+													Everything we've said about indentation works in the same manner inside <b>the else branch</b>:
+													<blockquote>
+<pre>if the_weather_is_good:
+    go_for_a_walk()
+    have_fun()
+else:
+    go_to_a_theater()
+    enjoy_the_movie()
+have_lunch()</pre>														
+													</blockquote>
+												</p>
+												<h2>Nested <code>if-else</code> statements</h2>
+												<p>
+													Now let's discuss two special cases of the conditional statement. <br>
+													First, consider the case where the instruction placed after the if is another if. <br>
+													Read what we have planned for this Sunday. If the weather is fine, we'll go for a walk. If we find a nice restaurant, we'll have lunch there. Otherwise, we'll eat a sandwich. 
+													If the weather is poor, we'll go to the theater. If there are no tickets, we'll go shopping in the nearest mall. <br>
+													Let's write the same in Python. Consider carefully the code here:
+													<blockquote>
+<pre>if the_weather_is_good:
+    if nice_restaurant_is_found:
+        have_lunch()
+    else:
+        eat_a_sandwich()
+else:
+    if tickets_are_available:
+        go_to_the_theater()
+    else:
+		go_shopping()
+</pre>														
+													</blockquote> <br>
+													Here are two important points:
+													<ul>
+														<li>
+															This use of the <code>if</code> statement is know as <b>nesting</b>, remeber that every <code>else</code> refers
+														</li>
+														<li>
+
+														</li>
+													</ul>
+												</p>
 											</section>
 										</div>
 								</div>								
