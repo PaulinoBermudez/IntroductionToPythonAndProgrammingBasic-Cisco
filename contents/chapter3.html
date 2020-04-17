@@ -506,6 +506,90 @@ else:
 													</ul>
 													This may sound a little puzzling, but hopefully some simple examples will help shed more light.
 												</p>
+												<h2>Analyzing code samples</h2>
+												<p>
+													Now we're going to show you some simple yet complete programs. We won't explain them in detail, because we consider the comments (and the variable names) inside the code to be sufficient guides. <br>
+													All the programs solve the same problem - they find the largest of several numbers and print it out. 												
+													<h4>Example 1:</h4>
+													<p>
+														We'll start with the simplest case - how to identify the larger of two numbers:
+													<blockquote>
+<pre># read two numbers
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+
+# choose the larger number
+if number1 > number2:
+	larger_number = number1
+else:
+	larger_number = number2
+
+# print the result
+print("The larger number is:", larger_number)
+</pre>														
+													</blockquote>
+													<img src="images/making decisions in python EXAMPLE 1.PNG" class="responsive" alt=""> <br>
+													The above snippet should be clear - it reads two integer values, compares them, and finds which is the larger.<br>
+													</p>
+													<h4>Example 2:</h4>
+													<p>
+													Now we're going to show you one intriguing fact. Python has an interesting feature, look at the code below: <br>
+													<blockquote>
+<pre># read two numbers
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+
+# choose the larger number
+if number1 > number2: larger_number = number1
+else: larger_number = number2
+
+# print the result
+print("The larger number is:", larger_number)
+</pre>														
+													</blockquote>
+													<div>
+														<img src="images/making decisions in python EXAMPLE 2.PNG" class="responsive" alt="">
+													</div>
+													<b>Note:</b> if any of the if-elif-else branches contains just one instruction, you may code it in a more comprehensive form (you don't need to make an indented line after the keyword, 
+													but just continue the line after the colon). <br>
+													This style, however, may be misleading, and we're not going to use it in our future programs, but it's definitely worth knowing if you want to read and understand someone else's programs. <br>
+													There are no other differences in the code. 
+													</p>
+													<h4>Example 3:</h4>
+													It's time to complicate the code - let's find the largest of three numbers. Will it enlarge the code? A bit. <br>
+													We assume that the first value is the largest. Then we verify this hypothesis with the two remaining values. <br>
+													Look at the code below:
+													<blockquote>
+<pre># read three numbers
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+number3 = int(input("Enter the third number: "))
+
+# We temporarily assume that the first number
+# is the largest one.
+# We will verify this soon.
+largest_number = number1
+
+# we check if the second number is larger than current largest_number
+# and update largest_number if needed
+if number2 > largest_number:
+	largest_number = number2
+
+# we check if the third number is larger than current largest_number
+# and update largest_number if needed
+if number3 > largest_number:
+	largest_number = number3
+
+# print the result
+print("The largest number is:", largest_number)
+</pre>														
+													</blockquote>
+													<div>
+														<img src="images/making decisions in python EXAMPLE 3.PNG" class="responsive" alt="">
+													</div>
+													This method is significantly simpler than trying to find the largest number all at once, by comparing all possible pairs of numbers (i.e., first with second, second with third, third with first). 
+													Try to rebuild the code for yourself.
+												</p>
 											</section>
 										</div>
 								</div>								
