@@ -308,6 +308,65 @@
 													</p>
 													<img src="images/LAB- QuestionAndAnswers.PNG" class="responsive" alt="">
 												</p>
+												<h2>Conditions and conditional execution.</h2>
+												<p>
+													You already know how to ask Python questions, but you still don't know how to make reasonable use of the answers. You have to have a machanism which allow you to do something 
+													<b>if a condition is met, and not do it isn't.</b> <br>
+													It's just like in real life: you do certain things or you don't when a specific condition is met or not, e.g. you go for a walk if the weather is good, or stay home if it's wet and cold. <br>
+													To make such decision, Python offers a special instruction. Due to its nature and its application, it's called a <strong>condition instruction</strong> (or conditional statement). <br>
+													There are several variants of it. We'll start with the simplest, increasing the difficulty slowly. <br>
+													The first form of a conditional statement, which you can see below is written very informally but figuratively: <br>
+													<blockquote>
+														<strong>if</strong> true_or_not: <br>
+															&nbsp;&nbsp; do_this_if_true
+													</blockquote> 
+													This conditional statement consists of the following, strictly necessary, elementes in this and this order only: 
+													<ul>
+														<li>
+															The <code>if</code> keyword.
+														</li>
+														<li>
+															One or more white spaces.
+														</li>
+														<li>
+															An expression (a question or an answer) whose value will be interpreted solely in terms of <code>True</code> (when its value is non-zero) and 
+															<code>False</code> (when it's equal to zero).
+														</li>
+														<li>
+															A <strong>colon</strong> followed by a newline.
+														</li>
+														<li>
+															An <strong>indented</strong> instruction or set of instructions (at least one instruction is absolutely required), the <strong>indentation</strong> may be 
+															achieved in two ways - by inserting a particular number of spaces (the recommedation is to use <b>four spaces of indentation</b> ), or by using the <i>tab</i> character; 
+															<b>note</b>: if there is more than one instruction in the indented part, the indentation should be the same in all lines, even though it may look the same if 
+															you use tabs mixed whit spaces, it's important to make all indentations <b>exactly the same</b> Python 3 <b>does not allow mixing spaces and tabs</b> for indentation. 
+														</li>
+													</ul>
+													How does that statement work? 
+													<ul>
+														<li>
+															If the <code>true_or_not</code> expression <b>represent the truth</b>(i.e, its value not equal to zero), the indented statement(s) will be executed.
+														</li>
+														<li>
+															If the <code>true_or_not</code> expression <b>does not represent the truth</b> (i.e, its value is equal to zero), the indented statement(s) will be omitted (ignored), and 
+															the next executed instruction will be the one after the original indentation level.
+														</li>
+													</ul>
+													In real life, we often express a desire: 
+													<blockquote>
+														if the weather is good, we'll go for a walk <br>
+														then, we'll have lunch
+													</blockquote>
+													As you can see, having lunch is not a conditional activity and doesn't depend on the weather. <br>
+													Knowing what conditions influence our behavior,and assuming that we have the parameterless functions <code>go_for_a_walk()</code>
+													and <code>have_lunch()</code>, we can write the following snippet:
+													<blockquote>
+<pre>if the_weather_is_good:
+	go_for_a_walk()
+have_lunch()
+</pre>														
+													</blockquote>
+												</p>
 											</section>
 										</div>
 
