@@ -386,6 +386,31 @@ have_lunch()
 feed_the_sheepdogs()
 </pre>														
 													</blockquote>
+													As you can see, making a bed, taking a shower and falling asleep and dreaming are all executed conditionally - when sheep_counter reaches the desired limit. <br>
+													Feeding the sheepdogs, however, is always done (i.e., the feed_the_sheepdogs() function is not indented and does not belong to the if block, which means it is always executed.) <br>											
+													Now we're going to discuss another variant of the conditional statement, which also allows you to perform an additional action when the condition is not met.	 <br>																									
+												</p>
+												<h2>Conditional execution: the <code>if-else</code> statement</h2>
+												<p>
+													We started out with a simple phrase which read: If the weather is good, we will go for a walk.													
+													Note - there is not a word about what will happen if the weather is bad. We only know that we won't go outdoors, but what we could do instead is not known. We may want to plan something in case of bad weather, too.												
+													We can say, for example: <code>If the weather is good, we will go for a walk, otherwise we will go to a theater</code>.	 <br>												
+													Now we know what we'll do <b>if the conditions are met</b>, and we know what we'll do <b>if not everything goes our way</b>. In other words, we have a "Plan B". <br>													
+													Python allows us to express such alternative plans. This is done with a second, slightly more complex form of the conditional statement, the if-else statement: <br>
+													<blockquote>
+<pre>if true_or_false_condition:
+	perform_if_condition_true
+<b>else:</b>
+	perform_if_condition_false
+</pre>														
+													</blockquote> <br>
+													Thus, there is a new word: <code>else</code> - this is a <b>keyword</b>. <br>													
+													The part of the code which begins with <code>else</code> says what to do if the condition specified for the if is not met (note the <strong>colon</strong> after the word). <br>													
+													The if-else execution goes as follows: 
+													<ul>													
+														<li>If the condition evaluates to True (its value is not equal to zero), the perform_if_condition_true statement is executed, and the conditional statement comes to an end.</li>
+														<li>If the condition evaluates to False (it is equal to zero), the perform_if_condition_false statement is executed, and the conditional statement comes to an end.</li>
+													</ul>
 												</p>
 											</section>
 										</div>
