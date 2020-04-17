@@ -457,11 +457,38 @@ else:
 													Here are two important points:
 													<ul>
 														<li>
-															This use of the <code>if</code> statement is know as <b>nesting</b>, remeber that every <code>else</code> refers
+															This use of the <code>if</code> statement is know as <b>nesting</b>, remeber that every <code>else</code> refers to the <code>if</code> which lies <b>at the same ondentation level</b>, you need to know
+															this to determine how the <i>ifs</i> and <i>elses</i> pair up
 														</li>
 														<li>
-
+															Consider hot the indentation improves <b>readability</b> and makes the code easier to understantd and trace.
 														</li>
+													</ul>
+												</p>
+												<h2>The <code>elif</code> statement</h2>
+												<p>
+													The second special case introduces another new Python keyword: elif. As you probably suspect, it's a shorter form of else if. <br>
+													elif is used to check more than just one condition, and to stop when the first statement which is true is found. <br>									
+													Our next example resembles nesting, but the similarities are very slight. Again, we'll change our plans and express them as follows: If the weather is fine, we'll go for a walk, otherwise if we get tickets, 
+													we'll go to the theater, otherwise if there are free tables at the restaurant, we'll go for lunch; if all else fails, we'll return home and play chess. <br>
+													Have you noticed how many times we've used the word otherwise? This is the stage where the elif keyword plays its role.	<br>				
+													Let's write the same scenario using Python:
+													<blockquote>
+<pre>if the_weather_is_good
+    go_for_a_walk()
+elif tickets_are_available:
+    go_to_the_theater()
+elif table_is_available:
+    go_for_lunch()
+else:
+    play_chess_at_home()
+</pre>														
+													</blockquote>
+													The way to assemble subsequent if-elif-else statements is sometimes called a cascade. <br>
+													Notice again how the indentation improves the readability of the code. <br>									
+													Some additional attention has to be paid in this case:
+													<ul>
+														
 													</ul>
 												</p>
 											</section>
