@@ -590,6 +590,119 @@ print("The largest number is:", largest_number)
 													This method is significantly simpler than trying to find the largest number all at once, by comparing all possible pairs of numbers (i.e., first with second, second with third, third with first). 
 													Try to rebuild the code for yourself.
 												</p>
+												<h2>Pseudocode and introduction to loops</h2>
+												<p>
+													You should now be able to write a program which finds the largest of four, five, six, or even ten numbers. <br>
+													You already know the scheme, so extending the size of the problem will not be particularly complex.	<br>									
+													But what happens if we ask you to write a program that finds the largest of two hundred numbers? Can you imagine the code?	<br>
+													You'll need two hundred variables. If two hundred variables isn't bad enough, try to imagine searching for the largest of a million numbers. <br>
+													Imagine a code that contains 199 conditional statements and two hundred invocations of the <code>input()</code> function. Luckily, you don't need to deal with that. There's a simpler approach.<br>
+													We'll ignore the requirements of Python syntax for now, and try to analyze the problem without thinking about the real programming. In other words, we'll try to write the algorithm, and when we're 
+													happy with it, we'll implement it. <br>
+													In this case, we'll use a kind of notation which is not an actual programming language (it can be neither compiled nor executed), but it is formalized, concise and readable. It's called pseudocode. <br>
+													Let's look at our pseudocode below:
+													<blockquote>
+<pre><code>line 01</code> largest_number = -999999999
+<code>line 02</code> number = int(input())
+<code>line 03</code> if number == -1:
+<code>line 04</code>     print(largest_number)
+<code>line 05</code>     exit()
+<code>line 06</code> if number > largest_number:
+<code>line 07</code>     largest_number = number
+<code>line 08</code> go to line 02
+</pre>														
+													</blockquote>
+													What's happening in it? <br>
+													Firstly, we can simplify the program if, at the very beginning of the code, we assign the variable <code>largestNumber</code> with a value which will be smaller than any of the entered numbers. 
+													We'll use <code>-999999999</code> for that purpose. <br>
+													Secondly, we assume that our algorithm will not know in advance how many numbers will be delivered to the program. We expect that the user will enter as many numbers as she/he wants - the algorithm will 
+													work well with one hundred and with one thousand numbers. How do we do that? <br>
+													
+													We make a deal with the user: when the value <code>-1</code> is entered, it will be a sign that there are no more data and the program should end its work. <br>
+													Otherwise, if the entered value is not equal to <code>-1</code>, the program will read another number, and so on. <br>
+													The trick is based on the assumption that any part of the code can be performed more than once - precisely, as many times as needed. <br>
+													Performing a certain part of the code more than once is called <b>a loop</b>. The meaning of this term is probably obvious to you. <br>
+													<i>Lines 02</i> through <i>08</i> make a loop. We'll <b>pass through them as many times as needed</b> to review all the entered values. <br>
+													Can you use a similar structure in a program written in Python? Yes, you can.
+													<h4><code>Extra info</code></h4>
+													<p>
+														Python often comes with a lot of built-in functions that will do the work for you. For example, to find the largest number of all, you can use a Python built-in function called max(). 
+														You can use it with multiple arguments. Analyze the code below:
+<blockquote><pre>
+# read three numbers
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+number3 = int(input("Enter the third number: "))
+
+# check which one of the numbers is the greatest
+# and pass it to the largest_number variable
+
+largest_number = max(number1, number2, number3)
+
+# print the result
+print("The largest number is:", largest_number)
+</pre></blockquote>
+														By the same fashion, you can use the min() function to return the lowest number. You can rebuild the above code and experiment with it in the Sandbox. <br>
+														<div>
+															<img src="images/pseudocodeAndIntroductionToLoops.PNG" class="responsive" alt=""> <p>Using the Python fucnction: <code>max()</code></p>
+														</div>
+														We're going to talk about these (and many other) functions soon. For the time being, our focus will be put on conditional execution and loops to let you gain more confidence in programming and teach 
+														you the skills that will let you fully understand and apply the two concepts in your code. So, for now, we're not taking any shortcuts. 
+														<div>
+															<img src="images/pseudocodeAndIntroductionToLoops-min().PNG" class="responsive" alt=""> <p>Using the Python function: <code>min()</code></p>
+														</div>
+													</p>
+												</p>
+												<h2>LAB- Comparison operators and conditional execution.</h2>
+												<p>
+													<h4>Estimated time</h4>
+													<p>
+														5-10 minutes
+													</p>
+													<h4>Level of difficulty</h4>
+													<p>
+														Easy
+													</p>
+													<h4>Objectives</h4>
+													<p>
+														Becoming familiar with the the input() function <br>
+														Becoming familiar with comparison operators in Python <br>
+														Becoming familiar with the concept of conditional execution <br>
+													</p>
+													<h4>Scenario</h4>
+													<p>	
+														<a href="https://upload.wikimedia.org/wikipedia/commons/b/bd/Spathiphyllum_cochlearispathum_RTBG.jpg" class="responsive" target="_blank" rel="noopener noreferrer">Spathiphyllum</a>,
+														more commonly known as a peace lily or white sail plant, is one of the most popular indoor houseplants that filters out harmful toxins from the air. 
+														Some of the toxins that it neutralizes include benzene, formaldehyde, and ammonia.
+														Imagine that your computer program loves these plants. Whenever it receives an input in the form of the word Spathiphyllum, it involuntarily shouts to the 
+														console the following string: <code>"Spathiphyllum is the best plant ever!"</code>
+														Write a program that utilizes the concept of conditional execution, takes a string as input, and:
+														<ul>
+															<li>prints the sentence <code>"Yes - Spathiphyllum is the best plant ever!"</code> to the screen if the inputted string is <i>"Spathiphyllum"</i> (upper-case).</li>
+															<li>prints <code>"No, I want a big Spathiphyllum!"</code> if the inputted string is <i>"spathiphyllum"</i> (lower-case).</li>
+															<li>prints <code>"Spathiphyllum! Not [input]!"</code> otherwise. <br>
+																Note: <code>[input]</code> is the string taken as input.
+															</li>
+														</ul>
+														Test your code using the data we've provided for you. And get yourself a Spathiphyllum, too!
+													</p>
+													
+													<h4>Test Data</h4>
+													<p>
+													Sample input: spathiphyllum
+													Expected output: No, I want a big Spathiphyllum!
+													<hr>
+													Sample input: pelargonium
+													Expected output: Spathiphyllum! Not pelargonium!
+													<hr>
+													Sample input: Spathiphyllum
+													Expected output: Yes - Spathiphyllum is the best plant ever!
+													<hr>
+													<h4>My solution</h4>
+													<div>
+														<img src="images/LAB-Comparison operators and conditional execution.PNG" class="responsive" alt="">
+													</div>
+												</p>
 											</section>
 										</div>
 								</div>								
