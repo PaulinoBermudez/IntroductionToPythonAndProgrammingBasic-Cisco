@@ -818,10 +818,10 @@ print("The largest number is:", largest_number)
 																		Returns if operands' values are equal, and False otherwise
 																	</td>
 																	<td> 
-																		<blocquote>
+																		<blockquote>
 																		x == y # False <br>
 																		x == z # True
-																		</blocquote>
+																		</blockquote>
 																	</td>
 																</tr>
 																<tr>
@@ -899,7 +899,67 @@ print("The largest number is:", largest_number)
 															</table>
 														</li>
 														<li>
-
+															When you want to execute some code only if a certain condition is met, you can use a conditional statement: <br>
+															- A single if statement, e.g.: <br>
+<pre><blockquote>x = 10
+if x == 10: # condition
+	print("x is equal to 10") # executed if the condition is True
+</blockquote></pre>											 <br>				
+															- A series of if statements, e.g.: <br>
+<pre><blockquote>x = 10
+if x > 5: # condition one
+	print("x is greater than 5") # executed if condition one is True
+if x < 10: # condition two
+	print("x is less than 10") # executed if condition two is True
+if x == 10: # condition three
+	print("x is equal to 10") # executed if condition three is True
+</blockquote></pre>											<br>
+															Each if statement is tested separately. <br>
+															- An if-else statement, e.g.: <br>
+<pre><blockquote>x = 10
+if x < 10: # condition
+	print("x is less than 10") # executed if the condition is True
+else:
+	print("x is greater than or equal to 10") # executed if the condition is False
+</blockquote></pre>															
+															- A series of if statements followed by an else, e.g.:
+<pre><blockquote>x = 10
+if x > 5: # True
+	print("x > 5")
+if x > 8: # True
+	print("x > 8")
+if x > 10: # False
+	print("x > 10")
+else:
+	print("else will be executed")
+</blockquote></pre><br>					
+															Each if is tested separately. The body of else is executed if the last if is False. <br>
+															- The if-elif-else statement, e.g.:
+<pre><blockquote>x = 10														
+if x == 10: # True
+	print("x == 10")
+if x > 15: # False
+	print("x > 15")
+elif x > 10: # False
+	print("x > 10")
+elif x > 5: # True
+	print("x > 5")
+else:
+	print("else will not be executed")
+</blockquote></pre>	<br>														
+															If the condition for if is False, the program checks the conditions of the subsequent elif blocks - the first elif block that is True is executed. If all the conditions are False, the else block will be executed. <br>															
+															- Nested conditional statements, e.g.:
+<pre><blockquote>x = 10														
+if x > 5: # True
+	if x == 6: # False
+		print("nested: x == 6")
+	elif x == 10: # True
+		print("nested: x == 10")
+	else:
+		print("nested: else")
+else:
+	print("else")
+</blockquote></pre>															
 														</li>
 													</ul>
 												</p>
