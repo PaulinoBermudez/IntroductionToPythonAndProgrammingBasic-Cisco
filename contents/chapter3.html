@@ -1,0 +1,1059 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Python - Module 3</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="shortcut icon" href="../images/logo.jpg" type="image/x-icon">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="left-sidebar is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="index.html"><span>Intro</span></a></h1>
+					<nav id="nav">
+						<ul>
+							<li class="current"><a href="index.html">Home</a></li>
+							<li class="submenu">
+								<a href="#">Menu</a>
+								<ul>
+									<li><a href="chapter1.html">Chapter 1</a></li>
+									<li><a href="chapter2.html">Chapter 2</a></li>
+									<li><a href="chapter3.html">Chapter 3</a></li>
+									<li><a href="chapter4.html">Chapter 4</a></li>
+									<li><a href="chapter5.html">Chapter 5</a></li>
+									<li><a href="chapter6.html">Chapter 6</a></li>
+									<li><a href="contact.html">Contact</a></li>
+									<li class="submenu">
+										<a href="#">S.Media</a>
+										<ul>
+											<li><a href="https://github.com/chunche95/IntroductionToPythonAndProgrammingBasic-Cisco">GitHub repository</a></li>
+											<li><a href="https://www.linkedin.com/in/paulinoestebanbr">Linkedin</a></li>
+											<li><a href="https://www.netacad.com/portal/learning">Cisco Academy</a></li>
+											<li><a href="mailto:paeste95.pb@gmail.com">Mail</a></li>
+											<li><a href="tel:+34667332151">WhatsApp</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="https://github.com/login" class="button primary">Hagamos un cambio!</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="icon fa-laptop"></span>
+						<h2>Boolean values, conditional execution, loops list and processing, logical and bitwise operations.</h2>
+						<p>
+							In this module, you will learn about. <br>
+								Boolean values || If-else-if instruccions || The while and for loops || Flow control || Logical and bitwise operations || Lists and arrays
+							</ul>
+						</p>
+					</header>
+					<!-- One -->
+						<section class="wrapper style4 container">
+
+							<div class="row gtr-150">
+								<div class="">
+
+									<!-- Content -->
+										<div class="content">
+											<section>
+												<a href="https://n9.cl/9l2yo" target="_blank" class="image featured"><img src="images/chapter3-introduction.jpg" alt="" /></a>
+												<header>
+													<h3>Questions and answers</h3>
+												</header>
+												<p>
+													A programmer writes a program and <b>the program asks questions.</b> <br>
+													A computer executes the program and provides the answers
+													<ul>
+														<li>
+															Yes, this is true.
+														</li>
+														<li>
+															No, this is false.
+														</li>
+													</ul>
+													You will never get a response like <i>'Let me think..., i don't know, or probably  yes but I don't know for sure'.</i>
+													To <strong>ask questionsm Python uses a set of very special operators</strong>. Let's go through them one after another, illustrating their effects on some simple examples.
+												</p>
+												<h2>Comparison: equality operator.</h2>
+												<p>
+													Question: <strong>are two values equal?</strong> 
+													<p>	
+														To ask this question, you use the <code>==</code> (equal equal) operator. <br>
+														Don't forget this important distintion:
+														<ul>
+															<li><code>=</code> is an assignment operator, e.g. <code>a=b</code> assigns 'a' with the value of 'b'.</li>
+															<li><code>==</code> is the question are these values equal?, <code>a==b</code> compares 'a' and 'b'.</li>
+														</ul>
+														It's a <strong>binary operator with left-sided binding</strong>. It needs two arguments and <b>check if they are equal</b>.
+													</p>
+													<h3>Exercises.</h3>
+													<p>
+														Now let's ask a few questions. try to guess the answers.
+														<hr>
+														<strong>Q.1</strong> What is the result of the following comparison? <code>2==2</code> <br>
+														<blockquote>
+															<code>True</code> of course, 2 is equal to 2. Python will answer True (remeber this pair of predefined literals, <code>True</code> and <code>False</code> - they're Python keywords, too).
+														</blockquote>
+														<strong>Q.2</strong> What is the result of the following comparison? <code>2==2.</code> <br>
+														<blockquote>
+															This question is not as easy  as their  first one. Luckly, Python is able to convert the integer value into its real equivalent, andconsequently, the answer is <code>True</code>.
+														</blockquote>
+														<strong>Q.3</strong> What is the result of the following comparison? <code>1==2</code> <br>
+														<blockquote>
+															This should be easy. The answer will be (or rather, always is) <code>False</code>.
+														</blockquote>
+													</p>
+												</p>
+												<h2>Equality: the equal to operator (==)</h2>
+												<p>
+													The == (equal to) operator compares the values of two operands. If they are equal, the result of the comparison is <code>True</code>. If they are not equal, the result of the comparison is <code>False</code>. <br>
+													Look at the equality comparison below - what is the result of this operation? <br>
+													<code>
+														var == 0
+													</code> <br>
+													Note that we cannot find the answer if we do not know what value is currently stored in the variable <code>var</code>. <br>
+													If the variable has been changed many times during the execution of your program, or its initial value is entered from the console, the answer to this question can be given only by Python and only at runtime. <br>
+													Now imagine a programmer who suffers from insomnia, and has to count black and white sheep separately as long as there are exactly twice as many black sheep as white ones. <br>
+													The question will be as follows: <br>
+													<code>
+														black_sheep == 2 * white_sheep
+													</code> <br>
+													Due to the low priority of the <code>==</code> operator, the question shall be treated as equivalent to this one: <br>
+													<code>
+														black_sheep == (2 * white_sheep)
+													</code> <br>
+													So, let's practice your understanding of the == operator now - can you guess the output of the code below? <br>
+<pre>	var = 0 # assigning 0 to var
+	print(var == 0)
+	var = 1 # assigning 1 to var
+	print(var == 0)
+	</pre>													
+													Run the code and check if you were right.
+													<div>
+														<img src="images/equality-the equal to operator.PNG" class="responsive" alt=""> <p>Equal to operator.</p>
+													</div>
+												</p>
+												<h2>Inequality: the not equal to operator (!=)</h2>
+												<p>
+													The <code>!=</code> (not equal to) operator compares the values of two operands, too. Here is the difference: if they are equal, the result of the comparison is False. If they are not equal, the result of the comparison is True.
+													Now take a look at the inequality comparison below - can you guess the result of this operation?
+													<pre>
+	var = 0 # assigning 0 to var
+	print(var != 0)
+	var = 1 # assigning 1 to var
+	print(var != 0)														
+													</pre>
+													Run the code and check if you were right.
+													<div>
+														<img src="images/inequality-the not equal to operator.PNG" class="responsive" alt=""> <p>Equal to operator.</p>
+													</div>
+												</p>
+												<h2>Comparison operators: greater than</h2>
+												<p>
+													You can also ask a comparison question using the <code>></code> (greater than) operator.
+													If you want to know if there are more black sheep than white ones, you can write it as follows: <br>
+													<code>
+														black_sheep > white_sheep # greater than
+													</code>  <br>
+													True confirms it; False denies it.
+												</p>
+												<h2>Comparison operators: greater than or equal to</h2>
+												<p>
+													The greater than operator has another special, non-strict variant, but it's denoted differently than in classical arithmetic notation: <code>>=</code>(greater than or equal to). <br>
+													There are two subsequent signs, not one. <br>
+													Both of these operators (strict and non-strict), as well as the two others discussed in the next section, are binary operators with left-sided binding, and their priority is greater than that shown by == and !=. <br>
+													If we want to find out whether or not we have to wear a warm hat, we ask the following question: <br>
+													<code>
+														centigrade_outside ≥ 0.0 # greater than or equal to
+													</code> 
+												</p>
+												<h2>Comparison operator: less than or equal to</h2>
+												<p>
+													As you've probably already guessed, the operators used in this case are: the <code><</code> (less than) operator and its non-strict sibling: <code><=</code> (less than or equal to). Look at this simple example: <br>
+													<blockquote>
+														current_velocity_mph <b><</b> 85 # less than
+														current_velocity_mph <b>≤</b> 85 # less than or equal to
+													</blockquote>
+													We're going to check if there's a risk of being fined by the highway police (the first question is strict, the second isn't).
+													Making use of the answers <br>
+													What can you do with the answer (i.e., the result of a comparison operation) you get from the computer? <br>
+													There are at least two possibilities: first, you can memorize it (store it in a variable) and make use of it later. How do you do that? Well, you would use an arbitrary variable like this: <br>
+													<code>
+														answer = number_of_lions >= number_of_lionesses
+													</code> <br>
+													The content of the variable will tell you the answer to the question asked. <br>													
+													The second possibility is more convenient and far more common: you can use the answer you get to make a decision about the future of the program. <br>													
+													You need a special instruction for this purpose, and we'll discuss it very soon. Now we need to update our priority table, and put all the new operators into it. It now looks as follows:
+													<table>
+														<tr>
+															<td>
+																Priority
+															</td>
+															<td>
+																Operator
+															</td>
+															<td>
+
+															</td>
+														</tr>
+														<tr>
+															<td>
+																1
+															</td>
+															<td>
+																+,-
+															</td>
+															<td>
+																unary
+															</td>
+														</tr>
+														<tr>
+															<td>
+																2
+															</td>
+															<td>
+																**
+															</td>
+															<td>
+
+															</td>
+														</tr>
+														<tr>
+															<td>	
+																3
+															</td>
+															<td>
+																*,/,//,%
+															</td>
+															<td>
+
+															</td>
+														</tr>
+														<tr>
+															<td>
+																4
+															</td>
+															<td>
+																+,-
+															</td>
+															<td>
+																binary
+															</td>
+														</tr>
+														<tr>
+															<td>	
+																5
+															</td>
+															<td>
+																<, <=, >, >=
+															</td>
+															<td>
+
+															</td>
+														</tr>
+														<tr>
+															<td>
+																6
+															</td>
+															<td>
+																==, !=
+															</td>
+															<td>
+
+															</td>
+														</tr>
+													</table>
+												</p>
+												<h2>Lab: Question and answer.</h2>
+												<p>
+													<b>Estimated time</b> <br>
+													<p>5 minutes</p>
+													<b>Level of difficulty</b> <br>
+													<p>
+														Very Easy
+													</p>
+													<b>Objectives</b> <br>
+													<p>
+														Becoming familiar with the the input() function. <br>
+														Becoming familiar with comparison operators in Python.
+													</p>
+													<b>Scenario</b> <br>
+													<p>
+													Using one of the comparison operators in Python, write a simple two-line program that takes the parameter n as input, which is an integer, and prints False if n is less than 100, and True if n is greater than or equal to 100. <br>
+													Don't create any if blocks (we're going to talk about them very soon). Test your code using the data we've provided for you.
+													</p>
+													<b>Test Data</b>
+													<p>
+														Sample input: 55 <br>														
+														Expected output: False <br>														
+														Sample input: 99 <br>														
+														Expected output: False <br>														
+														Sample input: 100 <br>														
+														Expected output: True <br>														
+														Sample input: 101 <br>														
+														Expected output: True <br>														
+														Sample input: -5 <br>														
+														Expected output: False	 <br>													
+														Sample input: +123 <br>														
+														Expected output: True <br>
+													</p>
+													<img src="images/LAB- QuestionAndAnswers.PNG" class="responsive" alt="">
+												</p>
+												<h2>Conditions and conditional execution.</h2>
+												<p>
+													You already know how to ask Python questions, but you still don't know how to make reasonable use of the answers. You have to have a machanism which allow you to do something 
+													<b>if a condition is met, and not do it isn't.</b> <br>
+													It's just like in real life: you do certain things or you don't when a specific condition is met or not, e.g. you go for a walk if the weather is good, or stay home if it's wet and cold. <br>
+													To make such decision, Python offers a special instruction. Due to its nature and its application, it's called a <strong>condition instruction</strong> (or conditional statement). <br>
+													There are several variants of it. We'll start with the simplest, increasing the difficulty slowly. <br>
+													The first form of a conditional statement, which you can see below is written very informally but figuratively: <br>
+													<blockquote>
+														<strong>if</strong> true_or_not: <br>
+															&nbsp;&nbsp; do_this_if_true
+													</blockquote> 
+													This conditional statement consists of the following, strictly necessary, elementes in this and this order only: 
+													<ul>
+														<li>
+															The <code>if</code> keyword.
+														</li>
+														<li>
+															One or more white spaces.
+														</li>
+														<li>
+															An expression (a question or an answer) whose value will be interpreted solely in terms of <code>True</code> (when its value is non-zero) and 
+															<code>False</code> (when it's equal to zero).
+														</li>
+														<li>
+															A <strong>colon</strong> followed by a newline.
+														</li>
+														<li>
+															An <strong>indented</strong> instruction or set of instructions (at least one instruction is absolutely required), the <strong>indentation</strong> may be 
+															achieved in two ways - by inserting a particular number of spaces (the recommedation is to use <b>four spaces of indentation</b> ), or by using the <i>tab</i> character; 
+															<b>note</b>: if there is more than one instruction in the indented part, the indentation should be the same in all lines, even though it may look the same if 
+															you use tabs mixed whit spaces, it's important to make all indentations <b>exactly the same</b> Python 3 <b>does not allow mixing spaces and tabs</b> for indentation. 
+														</li>
+													</ul>
+													How does that statement work? 
+													<ul>
+														<li>
+															If the <code>true_or_not</code> expression <b>represent the truth</b>(i.e, its value not equal to zero), the indented statement(s) will be executed.
+														</li>
+														<li>
+															If the <code>true_or_not</code> expression <b>does not represent the truth</b> (i.e, its value is equal to zero), the indented statement(s) will be omitted (ignored), and 
+															the next executed instruction will be the one after the original indentation level.
+														</li>
+													</ul>
+													In real life, we often express a desire: 
+													<blockquote>
+														if the weather is good, we'll go for a walk <br>
+														then, we'll have lunch
+													</blockquote>
+													As you can see, having lunch is not a conditional activity and doesn't depend on the weather. <br>
+													Knowing what conditions influence our behavior,and assuming that we have the parameterless functions <code>go_for_a_walk()</code>
+													and <code>have_lunch()</code>, we can write the following snippet:
+													<blockquote>
+<pre>if the_weather_is_good:
+	go_for_a_walk()
+have_lunch()
+</pre>														
+													</blockquote>
+												</p>
+												<h2>Conditional execution: the <code>if</code> statement</h2>
+												<p>
+													If s certain sleepless Python developer falls asleep when he or she counts 120 sheep, and the sleep-inducing procedure may be implemented as a special function named <code>sleep_and_dream()</code>, the whole code takes the 
+													following shape:
+													<blockquote>
+<pre>if sheep_counter >= 120: # Evaluate a test expression
+	sleep_and_dream() # execute if test expression is True
+</pre>														
+													</blockquote> <br>
+													You can read it as: if <code>sheep_counter</code> is greater than or equal to 120, then fall asleep and dream (i.e, execute the <code>sleep_and_dream</code> function). <hr>
+													We've said that <b>conditionally executed statements have to be indented.</b> This creates a very legible structure, clearly demostrating all possible execution paths in the code. Take a look at the folloing code:
+													<blockquote>
+<pre>if sheep_counter >= 120:
+	make_a_bed() 
+	take_a_shower() 
+	sleep_and_dream() 
+feed_the_sheepdogs()
+</pre>														
+													</blockquote>
+													As you can see, making a bed, taking a shower and falling asleep and dreaming are all executed conditionally - when sheep_counter reaches the desired limit. <br>
+													Feeding the sheepdogs, however, is always done (i.e., the feed_the_sheepdogs() function is not indented and does not belong to the if block, which means it is always executed.) <br>											
+													Now we're going to discuss another variant of the conditional statement, which also allows you to perform an additional action when the condition is not met.	 <br>																									
+												</p>
+												<h2>Conditional execution: the <code>if-else</code> statement</h2>
+												<p>
+													We started out with a simple phrase which read: If the weather is good, we will go for a walk.													
+													Note - there is not a word about what will happen if the weather is bad. We only know that we won't go outdoors, but what we could do instead is not known. We may want to plan something in case of bad weather, too.												
+													We can say, for example: <code>If the weather is good, we will go for a walk, otherwise we will go to a theater</code>.	 <br>												
+													Now we know what we'll do <b>if the conditions are met</b>, and we know what we'll do <b>if not everything goes our way</b>. In other words, we have a "Plan B". <br>													
+													Python allows us to express such alternative plans. This is done with a second, slightly more complex form of the conditional statement, the if-else statement: <br>
+													<blockquote>
+<pre>if true_or_false_condition:
+	perform_if_condition_true
+<b>else:</b>
+	perform_if_condition_false
+</pre>														
+													</blockquote> <br>
+													Thus, there is a new word: <code>else</code> - this is a <b>keyword</b>. <br>													
+													The part of the code which begins with <code>else</code> says what to do if the condition specified for the if is not met (note the <strong>colon</strong> after the word). <br>													
+													The if-else execution goes as follows: 
+													<ul>													
+														<li>If the condition evaluates to True (its value is not equal to zero), the perform_if_condition_true statement is executed, and the conditional statement comes to an end.</li>
+														<li>If the condition evaluates to False (it is equal to zero), the perform_if_condition_false statement is executed, and the conditional statement comes to an end.</li>
+													</ul>
+												</p>
+												<h2>The if-else statement: more conditional execution</h2>
+												<p>
+													By using this form of conditional statement, we can describe our plans as follows:
+													<blockquote>
+<pre>if the_weather_is_good:
+    go_for_a_walk()
+else:
+    go_to_a_theater()
+have_lunch()</pre>														
+													</blockquote> <br>
+													If the weather is good, we'll go for a walk. Otherwise, we'll go to a theatre. No matter if the weather is good or bad, we'll have lunch afterwards (after the walk or after going to the theatre). <br>
+													Everything we've said about indentation works in the same manner inside <b>the else branch</b>:
+													<blockquote>
+<pre>if the_weather_is_good:
+    go_for_a_walk()
+    have_fun()
+else:
+    go_to_a_theater()
+    enjoy_the_movie()
+have_lunch()</pre>														
+													</blockquote>
+												</p>
+												<h2>Nested <code>if-else</code> statements</h2>
+												<p>
+													Now let's discuss two special cases of the conditional statement. <br>
+													First, consider the case where the instruction placed after the if is another if. <br>
+													Read what we have planned for this Sunday. If the weather is fine, we'll go for a walk. If we find a nice restaurant, we'll have lunch there. Otherwise, we'll eat a sandwich. 
+													If the weather is poor, we'll go to the theater. If there are no tickets, we'll go shopping in the nearest mall. <br>
+													Let's write the same in Python. Consider carefully the code here:
+													<blockquote>
+<pre>if the_weather_is_good:
+    if nice_restaurant_is_found:
+        have_lunch()
+    else:
+        eat_a_sandwich()
+else:
+    if tickets_are_available:
+        go_to_the_theater()
+    else:
+		go_shopping()
+</pre>														
+													</blockquote> <br>
+													Here are two important points:
+													<ul>
+														<li>
+															This use of the <code>if</code> statement is know as <b>nesting</b>, remeber that every <code>else</code> refers to the <code>if</code> which lies <b>at the same ondentation level</b>, you need to know
+															this to determine how the <i>ifs</i> and <i>elses</i> pair up
+														</li>
+														<li>
+															Consider hot the indentation improves <b>readability</b> and makes the code easier to understantd and trace.
+														</li>
+													</ul>
+												</p>
+												<h2>The <code>elif</code> statement</h2>
+												<p>
+													The second special case introduces another new Python keyword: elif. As you probably suspect, it's a shorter form of else if. <br>
+													elif is used to check more than just one condition, and to stop when the first statement which is true is found. <br>									
+													Our next example resembles nesting, but the similarities are very slight. Again, we'll change our plans and express them as follows: If the weather is fine, we'll go for a walk, otherwise if we get tickets, 
+													we'll go to the theater, otherwise if there are free tables at the restaurant, we'll go for lunch; if all else fails, we'll return home and play chess. <br>
+													Have you noticed how many times we've used the word otherwise? This is the stage where the elif keyword plays its role.	<br>				
+													Let's write the same scenario using Python:
+													<blockquote>
+<pre>if the_weather_is_good
+    go_for_a_walk()
+elif tickets_are_available:
+    go_to_the_theater()
+elif table_is_available:
+    go_for_lunch()
+else:
+    play_chess_at_home()
+</pre>														
+													</blockquote>
+													The way to assemble subsequent if-elif-else statements is sometimes called a cascade. <br>
+													Notice again how the indentation improves the readability of the code. <br>									
+													Some additional attention has to be paid in this case:
+													<ul>
+														<li>
+															You <b>mustn't use</b> <code>else</code> <b>without a preceding</b> <code>if</code>
+														</li>
+														<li>
+															<code>else</code> is always the <b>last branch of the cascade</b>, regardless of whether you've used <code>elif</code> or not.
+														</li>
+														<li>	
+															<code>else</code> is an <b>optional</b> part of the cascade, and may be omitted.
+														</li>
+														<li>
+															If there is an else branch in the cascade, only one of all the branches is executed.
+														</li>
+														<li>
+															If there is no else branch, it's possible that none of the available branches is executed.
+														</li>
+													</ul>
+													This may sound a little puzzling, but hopefully some simple examples will help shed more light.
+												</p>
+												<h2>Analyzing code samples</h2>
+												<p>
+													Now we're going to show you some simple yet complete programs. We won't explain them in detail, because we consider the comments (and the variable names) inside the code to be sufficient guides. <br>
+													All the programs solve the same problem - they find the largest of several numbers and print it out. 												
+													<h4>Example 1:</h4>
+													<p>
+														We'll start with the simplest case - how to identify the larger of two numbers:
+													<blockquote>
+<pre># read two numbers
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+
+# choose the larger number
+if number1 > number2:
+	larger_number = number1
+else:
+	larger_number = number2
+
+# print the result
+print("The larger number is:", larger_number)
+</pre>														
+													</blockquote>
+													<img src="images/making decisions in python EXAMPLE 1.PNG" class="responsive" alt=""> <br>
+													The above snippet should be clear - it reads two integer values, compares them, and finds which is the larger.<br>
+													</p>
+													<h4>Example 2:</h4>
+													<p>
+													Now we're going to show you one intriguing fact. Python has an interesting feature, look at the code below: <br>
+													<blockquote>
+<pre># read two numbers
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+
+# choose the larger number
+if number1 > number2: larger_number = number1
+else: larger_number = number2
+
+# print the result
+print("The larger number is:", larger_number)
+</pre>														
+													</blockquote>
+													<div>
+														<img src="images/making decisions in python EXAMPLE 2.PNG" class="responsive" alt="">
+													</div>
+													<b>Note:</b> if any of the if-elif-else branches contains just one instruction, you may code it in a more comprehensive form (you don't need to make an indented line after the keyword, 
+													but just continue the line after the colon). <br>
+													This style, however, may be misleading, and we're not going to use it in our future programs, but it's definitely worth knowing if you want to read and understand someone else's programs. <br>
+													There are no other differences in the code. 
+													</p>
+													<h4>Example 3:</h4>
+													It's time to complicate the code - let's find the largest of three numbers. Will it enlarge the code? A bit. <br>
+													We assume that the first value is the largest. Then we verify this hypothesis with the two remaining values. <br>
+													Look at the code below:
+													<blockquote>
+<pre># read three numbers
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+number3 = int(input("Enter the third number: "))
+
+# We temporarily assume that the first number
+# is the largest one.
+# We will verify this soon.
+largest_number = number1
+
+# we check if the second number is larger than current largest_number
+# and update largest_number if needed
+if number2 > largest_number:
+	largest_number = number2
+
+# we check if the third number is larger than current largest_number
+# and update largest_number if needed
+if number3 > largest_number:
+	largest_number = number3
+
+# print the result
+print("The largest number is:", largest_number)
+</pre>														
+													</blockquote>
+													<div>
+														<img src="images/making decisions in python EXAMPLE 3.PNG" class="responsive" alt="">
+													</div>
+													This method is significantly simpler than trying to find the largest number all at once, by comparing all possible pairs of numbers (i.e., first with second, second with third, third with first). 
+													Try to rebuild the code for yourself.
+												</p>
+												<h2>Pseudocode and introduction to loops</h2>
+												<p>
+													You should now be able to write a program which finds the largest of four, five, six, or even ten numbers. <br>
+													You already know the scheme, so extending the size of the problem will not be particularly complex.	<br>									
+													But what happens if we ask you to write a program that finds the largest of two hundred numbers? Can you imagine the code?	<br>
+													You'll need two hundred variables. If two hundred variables isn't bad enough, try to imagine searching for the largest of a million numbers. <br>
+													Imagine a code that contains 199 conditional statements and two hundred invocations of the <code>input()</code> function. Luckily, you don't need to deal with that. There's a simpler approach.<br>
+													We'll ignore the requirements of Python syntax for now, and try to analyze the problem without thinking about the real programming. In other words, we'll try to write the algorithm, and when we're 
+													happy with it, we'll implement it. <br>
+													In this case, we'll use a kind of notation which is not an actual programming language (it can be neither compiled nor executed), but it is formalized, concise and readable. It's called pseudocode. <br>
+													Let's look at our pseudocode below:
+													<blockquote>
+<pre><code>line 01</code> largest_number = -999999999
+<code>line 02</code> number = int(input())
+<code>line 03</code> if number == -1:
+<code>line 04</code>     print(largest_number)
+<code>line 05</code>     exit()
+<code>line 06</code> if number > largest_number:
+<code>line 07</code>     largest_number = number
+<code>line 08</code> go to line 02
+</pre>														
+													</blockquote>
+													What's happening in it? <br>
+													Firstly, we can simplify the program if, at the very beginning of the code, we assign the variable <code>largestNumber</code> with a value which will be smaller than any of the entered numbers. 
+													We'll use <code>-999999999</code> for that purpose. <br>
+													Secondly, we assume that our algorithm will not know in advance how many numbers will be delivered to the program. We expect that the user will enter as many numbers as she/he wants - the algorithm will 
+													work well with one hundred and with one thousand numbers. How do we do that? <br>
+													
+													We make a deal with the user: when the value <code>-1</code> is entered, it will be a sign that there are no more data and the program should end its work. <br>
+													Otherwise, if the entered value is not equal to <code>-1</code>, the program will read another number, and so on. <br>
+													The trick is based on the assumption that any part of the code can be performed more than once - precisely, as many times as needed. <br>
+													Performing a certain part of the code more than once is called <b>a loop</b>. The meaning of this term is probably obvious to you. <br>
+													<i>Lines 02</i> through <i>08</i> make a loop. We'll <b>pass through them as many times as needed</b> to review all the entered values. <br>
+													Can you use a similar structure in a program written in Python? Yes, you can.
+													<h4><code>Extra info</code></h4>
+													<p>
+														Python often comes with a lot of built-in functions that will do the work for you. For example, to find the largest number of all, you can use a Python built-in function called max(). 
+														You can use it with multiple arguments. Analyze the code below:
+<blockquote><pre>
+# read three numbers
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+number3 = int(input("Enter the third number: "))
+
+# check which one of the numbers is the greatest
+# and pass it to the largest_number variable
+
+largest_number = max(number1, number2, number3)
+
+# print the result
+print("The largest number is:", largest_number)
+</pre></blockquote>
+														By the same fashion, you can use the min() function to return the lowest number. You can rebuild the above code and experiment with it in the Sandbox. <br>
+														<div>
+															<img src="images/pseudocodeAndIntroductionToLoops.PNG" class="responsive" alt=""> <p>Using the Python fucnction: <code>max()</code></p>
+														</div>
+														We're going to talk about these (and many other) functions soon. For the time being, our focus will be put on conditional execution and loops to let you gain more confidence in programming and teach 
+														you the skills that will let you fully understand and apply the two concepts in your code. So, for now, we're not taking any shortcuts. 
+														<div>
+															<img src="images/pseudocodeAndIntroductionToLoops-min().PNG" class="responsive" alt=""> <p>Using the Python function: <code>min()</code></p>
+														</div>
+													</p>
+												</p>
+												<h2>LAB- Comparison operators and conditional execution.</h2>
+												<p>
+													<h4>Estimated time</h4>
+													<p>
+														5-10 minutes
+													</p>
+													<h4>Level of difficulty</h4>
+													<p>
+														Easy
+													</p>
+													<h4>Objectives</h4>
+													<p>
+														Becoming familiar with the the input() function <br>
+														Becoming familiar with comparison operators in Python <br>
+														Becoming familiar with the concept of conditional execution <br>
+													</p>
+													<h4>Scenario</h4>
+													<p>	
+														<a href="https://upload.wikimedia.org/wikipedia/commons/b/bd/Spathiphyllum_cochlearispathum_RTBG.jpg" class="responsive" target="_blank" rel="noopener noreferrer">Spathiphyllum</a>,
+														more commonly known as a peace lily or white sail plant, is one of the most popular indoor houseplants that filters out harmful toxins from the air. 
+														Some of the toxins that it neutralizes include benzene, formaldehyde, and ammonia.
+														Imagine that your computer program loves these plants. Whenever it receives an input in the form of the word Spathiphyllum, it involuntarily shouts to the 
+														console the following string: <code>"Spathiphyllum is the best plant ever!"</code>
+														Write a program that utilizes the concept of conditional execution, takes a string as input, and:
+														<ul>
+															<li>prints the sentence <code>"Yes - Spathiphyllum is the best plant ever!"</code> to the screen if the inputted string is <i>"Spathiphyllum"</i> (upper-case).</li>
+															<li>prints <code>"No, I want a big Spathiphyllum!"</code> if the inputted string is <i>"spathiphyllum"</i> (lower-case).</li>
+															<li>prints <code>"Spathiphyllum! Not [input]!"</code> otherwise. <br>
+																Note: <code>[input]</code> is the string taken as input.
+															</li>
+														</ul>
+														Test your code using the data we've provided for you. And get yourself a Spathiphyllum, too!
+													</p>
+													
+													<h4>Test Data</h4>
+													<p>
+													Sample input: spathiphyllum <br>
+													Expected output: No, I want a big Spathiphyllum!
+													<hr>
+													Sample input: pelargonium <br>
+													Expected output: Spathiphyllum! Not pelargonium!
+													<hr>
+													Sample input: Spathiphyllum <br>
+													Expected output: Yes - Spathiphyllum is the best plant ever!
+													<hr>
+													<h4>My solution</h4>
+													<div>
+														<img src="images/LAB-Comparison operators and conditional execution.PNG" class="responsive" alt="">
+													</div>
+												</p>
+												<h2>LAB - Essentials of the if-else statement</h2>
+												<p>
+													<h4>Estimated time</h4>
+													10-15 minutes													
+													<h4>Level of difficulty</h4>
+													Easy/Medium													
+													<h4>Objectives</h4>
+													Familiarize the student with: <br>													
+														<ul>
+															<li> Using the if-else instruction to branch the control path. </li>
+															<li> Building a complete program that solves simple real-life problems. </li>
+														</ul>
+													<h4>Scenario</h4>
+													Once upon a time there was a land - a land of milk and honey, inhabited by happy and prosperous people. 
+													The people paid taxes, of course - their happiness had limits. The most important tax, called the Personal Income Tax (PIT for short) had to be paid once a year, and was evaluated using the following rule:
+													<ul>
+														<li>If the citizen's income was not higher than 85,528 thalers, the tax was equal to 18% of the income minus 556 thalers and 2 cents (this was the so-called tax relief)</li>
+														<li>If the income was higher than this amount, the tax was equal to 14,839 thalers and 2 cents, plus 32% of the surplus over 85,528 thalers.</li>
+													</ul>
+													Your task is to write a tax calculator.
+													<ul>
+														<li>It should accept one floating-point value: the income.</li>
+														<li>Next, it should print the calculated tax, rounded to full thalers. There's a function named round() which will do the rounding for you - you'll find it in the skeleton code in the editor.</li>
+													</ul>
+													<b>Note:</b> this happy country never returns money to its citizens. If the calculated tax is less than zero, it only means no tax at all (the tax is equal to zero). Take this into consideration during your calculations.													
+													Look at the code in the editor - it only reads one input value and outputs a result, so you need to complete it with some smart calculations. <br>													
+													Test your code using the data we've provided.
+													<h4>Test Data</h4>
+													Sample input: 10000 <br>													
+													Expected output: The tax is: 1244.0 thalers 
+													<hr>
+													Sample input: 100000 <br>
+													Expected output: The tax is: 19470.0 thalers
+													<hr>
+													Sample input: 1000 <br>
+													Expected output: The tax is: 0.0 thalers
+													<hr>
+													Sample input: -100 <br>
+													Expected output: The tax is: 0.0 thalers
+													<div>
+														<img src="images/LAB- Essentials of the is-else statement-code.PNG" class="responsive" alt=""> <p><a href="programs/3.1.1.12LAB.py" target="_blank" rel="noopener noreferrer">Solution Code</a>.</p>
+														<img src="images/LAB- Essentials of the is-else statement-DataTest.PNG" class="responsive" alt=""> <p>Solution Data Test.</p>
+													</div>
+												</p>
+												<h2>LAB - Essentials of the if-elif-else statement</h2>
+												<p>
+													<h4>Estimated time</h4>
+													10-15 minutes
+													
+													<h4>Level of difficulty</h4>
+													Easy/Medium
+													
+													<h4>Objectives</h4>
+													Familiarize the student with: 
+													<ul>
+														<li>Using the <code>if-elif-else</code> statement.</li>
+														<li>Finding the proper implementation of verbally defined rules.</li>
+														<li>Testing code using sample input and output.</li>
+													</ul>
+													
+													<h4>Scenario</h4>
+													As you surely know, due to some astronomical reasons, years may be leap or common. The former are 366 days long, while the latter are 365 days long. <br>													
+													Since the introduction of the Gregorian calendar (in 1582), the following rule is used to determine the kind of year:
+													<ul>													
+														<li>If the year number isn't divisible by four, it's a common year.</li>
+														<li>Otherwise, if the year number isn't divisible by 100, it's a leap year.</li>
+														<li>Otherwise, if the year number isn't divisible by 400, it's a common year.</li>
+														<li>Otherwise, it's a leap year.</li>
+													</ul>
+													Look at the code in the editor - it only reads a year number, and needs to be completed with the instructions implementing the test we've just described. <br>													
+													The code should output one of two possible messages, which are Leap year or Common year, depending on the value entered. <br>													
+													It would be good to verify if the entered year falls into the Gregorian era, and output a warning otherwise: Not within the Gregorian calendar period. Tip: use the != and % operators. <br>													
+													Test your code using the data we've provided.
+													
+													<h4>Test Data</h4>
+													Sample input: <code>2000</code>
+													Expected output: <code>Leap year</code>  <br>
+													Sample input: <code>2015</code>
+													Expected output: <code>Common year</code> <br>
+													Sample input: <code>1999</code> 
+													Expected output: <code>Common year</code>  <br>
+													Sample input: <code>1996</code>
+													Expected output: <code>Leap year</code> <br>
+													Sample input: <code>1580</code> 
+													Expected output: <code>Not within the Gregorian calendar period</code>
+													<h4>Solution</h4>												
+													<p>
+														<img src="images/LAB - Essentials of the if-else-else statement.PNG" class="responsive" alt=""> 
+													</p>
+												</p>
+												<h2>Key takeaways</h2>
+												<p>
+													<ul>
+														<li>
+															The <b>comparison</b> (or the so-called relational) operators are used to compare values. The table below illustrates how the comparison operators work, assuming that x = 0, y = 1, and z = 0:
+															<table>
+																<tr>
+																	<td>
+																		Operator
+																	</td>
+																	<td>
+																		Description
+																	</td>
+																	<td>
+																		Example
+																	</td>
+																</tr>
+																<tr>
+																	<td>
+																		==
+																	</td>
+																	<td>
+																		Returns if operands' values are equal, and False otherwise
+																	</td>
+																	<td> 
+																		<blockquote>
+																		x == y # False <br>
+																		x == z # True
+																		</blockquote>
+																	</td>
+																</tr>
+																<tr>
+																	<td>
+																		!=
+																	</td>
+																	<td>
+																		Returns True if operands' values are not equal, and False otherwise	
+																	</td>
+																	<td> 
+																		<blockquote>
+																		x != y # True <br>
+																		x != z # False
+																		</blockquote>
+																	</td>
+																</tr>
+																<tr>
+																	<td>
+																		>
+																	</td>
+																	<td>
+																		True if the left operand's value is greater than the right operand's value, and False otherwise	
+																	</td>
+																	<td> 
+																		<blockquote>
+																		x > y # False <br>
+																		y > z # True
+																		</blockquote>
+																	</td>
+																</tr>
+																<tr>
+																	<td>
+																		<
+																	</td>
+																	<td>
+																		True if the left operand's value is less than the right operand's value, and False otherwise	
+																	</td>
+																	<td> 
+																		<blockquote>
+																		x < y # True <br>
+																		y < z # False
+																		</blockquote>
+																	</td>
+																</tr>
+																<tr>
+																	<td>
+																		≥
+																	</td>
+																	<td>
+																		True if the left operand's value is greater than or equal to the right operand's value, and False otherwise	
+																	</td>
+																	<td> 
+																		<blockquote>
+																		x >= y # False
+																		x >= z # True <br>
+																		y >= z # True 
+																		</blockquote>
+																	</td>
+																</tr>
+																<tr>
+																	<td>
+																		≤
+																	</td>
+																	<td>
+																		True if the left operand's value is less than or equal to the right operand's value, and False otherwise
+																	</td>
+																	<td> 
+																		<blockquote>
+																		x <= y # True
+																		x <= z # True <br>
+																		y <= z # False
+																		</blockquote>
+																	</td>
+																</tr>	
+															</table>
+														</li>
+														<li>
+															When you want to execute some code only if a certain condition is met, you can use a conditional statement: <br>
+															- A single if statement, e.g.: <br>
+<pre><blockquote>x = 10
+if x == 10: # condition
+	print("x is equal to 10") # executed if the condition is True
+</blockquote></pre>											 <br>				
+															- A series of if statements, e.g.: <br>
+<pre><blockquote>x = 10
+if x > 5: # condition one
+	print("x is greater than 5") # executed if condition one is True
+if x < 10: # condition two
+	print("x is less than 10") # executed if condition two is True
+if x == 10: # condition three
+	print("x is equal to 10") # executed if condition three is True
+</blockquote></pre>											<br>
+															Each if statement is tested separately. <br>
+															- An if-else statement, e.g.: <br>
+<pre><blockquote>x = 10
+if x < 10: # condition
+	print("x is less than 10") # executed if the condition is True
+else:
+	print("x is greater than or equal to 10") # executed if the condition is False
+</blockquote></pre>															
+															- A series of if statements followed by an else, e.g.:
+<pre><blockquote>x = 10
+if x > 5: # True
+	print("x > 5")
+if x > 8: # True
+	print("x > 8")
+if x > 10: # False
+	print("x > 10")
+else:
+	print("else will be executed")
+</blockquote></pre><br>					
+															Each if is tested separately. The body of else is executed if the last if is False. <br>
+															- The if-elif-else statement, e.g.:
+<pre><blockquote>x = 10														
+if x == 10: # True
+	print("x == 10")
+if x > 15: # False
+	print("x > 15")
+elif x > 10: # False
+	print("x > 10")
+elif x > 5: # True
+	print("x > 5")
+else:
+	print("else will not be executed")
+</blockquote></pre>	<br>														
+															If the condition for if is False, the program checks the conditions of the subsequent elif blocks - the first elif block that is True is executed. If all the conditions are False, the else block will be executed. <br>															
+															- Nested conditional statements, e.g.:
+<pre><blockquote>x = 10														
+if x > 5: # True
+	if x == 6: # False
+		print("nested: x == 6")
+	elif x == 10: # True
+		print("nested: x == 10")
+	else:
+		print("nested: else")
+else:
+	print("else")
+</blockquote></pre>															
+														</li>
+													</ul>
+												</p>
+											</section>
+										</div>
+								</div>								
+						</section>
+
+						<!-- Two -->
+						<section class="wrapper style1 container special">
+							<div class="row">
+								<div class="col-4 col-12-narrower">
+
+									<section>
+										<header>
+											<h3>Cap. 2</h3>
+										</header>
+										<p>
+											Go to content.
+										</p>
+										<footer>
+											<ul class="buttons">
+												<li><a href="chapter2.html" class="button small">Learn More</a></li>
+											</ul>
+										</footer>
+									</section>
+
+								</div>
+								<div class="col-4 col-12-narrower">
+
+									<section>
+										<header>
+											<h3>Cap. 4 </h3>
+										</header>
+										<p>
+											Go to content.
+										</p>
+										<footer>
+											<ul class="buttons">
+												<li><a href="chapter4.html" class="button small">Learn More</a></li>
+											</ul>
+										</footer>
+									</section>
+
+								</div>
+								<div class="col-4 col-12-narrower">
+
+									<section>
+										<header>
+											<h3>Cap. 5</h3>
+										</header>
+										<p>
+											Go to content.
+										</p>
+										<footer>
+											<ul class="buttons">
+												<li><a href="chapter5.html" class="button small">Learn More</a></li>
+											</ul>
+										</footer>
+									</section>
+
+								</div>
+							</div>
+						</section>
+
+				</article>
+
+			<!-- Footer -->
+			<footer id="footer">
+
+				<ul class="icons">
+					<li><a href="mailto:paeste95.pb@gmail.com" class="icon circle fa-code"></a></li>
+					<li><a href="https://www.linkedin.com/in/paulinoestebanbr" class="icon circle fa-linkedin"></a></li>
+					<li><a href="https://github.com/chunche95?tab=repositories" class="icon circle fa-github"></a></li>
+					<li><a href="https://www.netacad.com/portal/learning" class="icon circle fa-trophy"></a></li>
+				</ul>
+
+				<ul class="copyright">
+					<li>&copy; Human Computing 3.0</li><li>Design:<a href="https://github.com/chunche95">Chunche95</a></li>
+				</ul>
+
+			</footer>
+
+	</div>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+</body>
+</html>

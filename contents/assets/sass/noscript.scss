@@ -1,0 +1,14 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/vendor';
+@import 'libs/breakpoints';
+@import 'libs/html-grid';
+
+/* Banner */
+
+	#banner {
+		.inner {
+			opacity: 1;
+		}
+	}
