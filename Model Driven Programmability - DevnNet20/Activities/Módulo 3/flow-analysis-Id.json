@@ -1,8 +1,0 @@
-﻿{
-  "response": {
-    "flowAnalysisId": "ce33b3e1-707d-498e-97bb-bc3b264a13dd",
-    "taskId": "68326d6a-3984-41bd-91f0-bac636f84974",
-    "url": "/api/v1/flow-analysis/ce33b3e1-707d-498e-97bb-bc3b264a13dd"
-  },
-  "version": "1.0"
-}

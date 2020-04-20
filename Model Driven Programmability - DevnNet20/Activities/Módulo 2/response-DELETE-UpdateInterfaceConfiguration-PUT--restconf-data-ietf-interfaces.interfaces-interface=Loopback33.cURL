@@ -1,4 +1,0 @@
-curl --location --request DELETE 'https://192.168.56.101/restconf/data/ietf-interfaces:interfaces/interface=Loopback33' \
---header 'Accept: application/yang-data+json' \
---header 'Content-Type: application/yang-data+json' \
---header 'Authorization: Basic Y2lzY286Y2lzY28xMjMh'
