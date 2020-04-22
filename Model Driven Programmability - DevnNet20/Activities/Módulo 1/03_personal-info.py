@@ -2,6 +2,10 @@
 import os
 os.system("clear")
 os.system("cls")
+
+import os
+os.system("clear")
+os.system("cls")
 print("Activity - Create a Scrit to Collect Personal Information")
 print("")
 print("Welcome!")
