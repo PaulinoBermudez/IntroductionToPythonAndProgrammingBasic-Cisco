@@ -1094,7 +1094,63 @@ print("The largest number is:", largest_number)
 												<p>
 													<a href="programs/3.1.2.3LAB.py" target="_blank" rel="noopener noreferrer"><img src="images/LAB-Essentialof the while loop.PNG" class="responsive alt=""></a>
 												</p>
-
+												<h2>Looping your code with <code>for</code></h2>
+												<p>
+													Another kind of loop available in Python comes from the observation that sometimes it's more important to <strong>count the "turns" of the loop</strong> than to check the conditions. <br>
+													Imagine that a loop's body needs to be executed exactly one hundred times. If you would like to use the while loop to do it, it may look like this:
+<pre><blockquote>i = 0
+while i < 100:
+	# do_something()
+	i += 1
+</blockquote></pre>													
+													It would be nice if somebody could do this boring counting for you. Is that possible? <br>													
+													Of course it is - there's a special loop for these kinds of tasks, and it is named for. <br>													
+													Actually, the for loop is designed to do more complicated tasks - <strong>it can "browse" large collections of data item by item</strong>. We'll show you how to do that soon, but right now we're going to present a simpler variant of its application. <br>
+													Take a look at the snippet:
+<pre><blockquote>for i in range(100):
+	# do_something()
+	pass
+</blockquote></pre>													
+													There are some new elements. Let us tell you about them:
+													<ul>
+														<li>The for keyword opens the for loop; note - there's no condition after it; you don't have to think about conditions, as they're checked internally, without any intervention.</li>
+														<li>Any variable after the for keyword is the control variable of the loop; it counts the loop's turns, and does it automatically.</li>
+														<li>The in keyword introduces a syntax element describing the range of possible values being assigned to the control variable.</li>
+														<li>The range() function (this is a very special function) is responsible for generating all the desired values of the control variable; in our example, the function will create (we can even say that it will feed the loop with) subsequent values from the following set: 
+															0, 1, 2 .. 97, 98, 99; note: in this case, the range() function starts its job from 0 and finishes it one step (one integer number) before the value of its argument.</li>
+														<li>Note the pass keyword inside the loop body - it does nothing at all; it's an empty instruction - we put it here because the for loop's syntax demands at least one instruction inside the body (by the way - if, elif, else and while express the same thing). </li>
+													</ul>
+													Our next examples will be a bit more modest in the number of loop repetitions.
+													
+													Take a look at the snippet below. Can you predict its output?
+													
+													for i in range(10):
+														print("The value of i is currently", i)
+													
+													Run the code to check if you were right.
+													
+													Note:
+													
+													the loop has been executed ten times (it's the range() function's argument)
+													the last control variable's value is 9 (not 10, as it starts from 0, not from 1)
+													The range() function invocation may be equipped with two arguments, not just one:
+													
+													for i in range(2, 8):
+														print("The value of i is currently", i)
+													
+													In this case, the first argument determines the initial (first) value of the control variable.
+													
+													The last argument shows the first value the control variable will not be assigned.
+													
+													Note: the range() function accepts only integers as its arguments, and generates sequences of integers.
+													
+													Can you guess the output of the program? Run it to check if you were right now, too.
+													
+													The first value shown is 2 (taken from the range()'s first argument.)
+													
+													The last is 7 (although the range()'s second argument is 8).
+																										
+												</p>
 											</section>
 										</div>
 								</div>								
