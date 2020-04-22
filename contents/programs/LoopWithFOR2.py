@@ -5,6 +5,6 @@ os.system('cls')
 # @author: [ Paulino Bermúdez R.]
 # @Description: 
 
-for i in range (24):
-    print("The value of i is currently ", i)
+for i in range(2, 8):
+	print("The value of i is currently", i)
 print("Final")

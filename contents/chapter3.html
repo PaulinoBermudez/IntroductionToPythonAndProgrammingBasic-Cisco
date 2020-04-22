@@ -1120,24 +1120,22 @@ while i < 100:
 															0, 1, 2 .. 97, 98, 99; note: in this case, the range() function starts its job from 0 and finishes it one step (one integer number) before the value of its argument.</li>
 														<li>Note the pass keyword inside the loop body - it does nothing at all; it's an empty instruction - we put it here because the for loop's syntax demands at least one instruction inside the body (by the way - if, elif, else and while express the same thing). </li>
 													</ul>
-													Our next examples will be a bit more modest in the number of loop repetitions.
+													Our next examples will be a bit more modest in the number of loop repetitions.													
+													Take a look at the snippet below. Can you predict its output?												
+<blockquote><pre>for i in range(10):
+	print("The value of i is currently", i)
+</pre></blockquote>													
+													Run the code to check if you were right. <br>
+													<h4>
+														Note:
+													</h4>
+													- The loop has been executed ten times (it's the range() function's argument) <br>
+													- The last control variable's value is 9 (not 10, as it starts from 0, not from 1) <br>
 													
-													Take a look at the snippet below. Can you predict its output?
-													
-													for i in range(10):
-														print("The value of i is currently", i)
-													
-													Run the code to check if you were right.
-													
-													Note:
-													
-													the loop has been executed ten times (it's the range() function's argument)
-													the last control variable's value is 9 (not 10, as it starts from 0, not from 1)
-													The range() function invocation may be equipped with two arguments, not just one:
-													
-													for i in range(2, 8):
-														print("The value of i is currently", i)
-													
+													<b>The range() function </b> invocation may be equipped with two arguments, not just one:
+<blockquote><pre>for i in range(2, 8):
+	print("The value of i is currently", i)
+</pre></blockquote>													
 													In this case, the first argument determines the initial (first) value of the control variable.
 													
 													The last argument shows the first value the control variable will not be assigned.
