@@ -5,12 +5,30 @@ os.system("cls")
 
 intro = input("""
 
-    What's the output of the following snippet?
+What's the output of the following snippet?
 
-    +- x,y,z = 5,10,8 
-    |  x,y,z = z,y,x
-    |  print(x > z)
-    |> print((y - 5)  == x)
+ +---x = 10 
+ |   if x == 10:
+ |       print( x == 10)
+ |   if x > 5:
+ |       print(x > 5)
+ |   if x < 10:
+ |       print(x < 10)
+ |   else:
+ |       print("else:")
+ +--- END
 
-    ENTER to continue...
+
+ENTER to continue...
 """)
+
+
+x = 10 
+if x == 10:
+    print( x == 10)
+if x > 5:
+    print(x > 5)
+if x < 10:
+    print(x < 10)
+else:
+    print("else:")

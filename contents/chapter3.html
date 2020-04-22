@@ -972,6 +972,85 @@ else:
 													<a href="programs/ex-5.py" target="_blank" rel="noopener noreferrer">Exercise nº 5</a> <br>
 													<a href="programs/ex-6.py" target="_blank" rel="noopener noreferrer">Exercise nº 6</a> 
 												</p>
+												<h2>Looping your code whit <code>while</code></h2>
+												<p>
+													Do you agree with the statement presented below?
+													<blockquote>
+														while there is something to do <br> 
+														&nbsp;&nbsp; do it
+													</blockquote>
+													Note that this rcord also declares that if there is nothing  to do,  at all will happen. In general, in Python, an loop can be represented as follows:
+													<blockquote>
+														<code>while</code> conditional_expression: <br>
+														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  instruction
+													</blockquote>
+													If you notice some similarities to the if instruction, that's quite all right. Indeed, the syntactic difference is only one: you use the word while instead of the word if. <br>
+													The semantic difference is more important: when the condition is met, if performs its statements only once; while repeats the execution as long as the condition evaluates to True. <br>													
+													Note: all the rules regarding indentation are applicable here, too. We'll show you this soon. <br>													
+													Look at the algorithm below:
+													<blockquote>
+														while conditional_expression:
+														&nbsp;&nbsp; &nbsp;&nbsp;  instruction_1 <br>
+														&nbsp;&nbsp; &nbsp;&nbsp;  instruction_2 <br>
+														&nbsp;&nbsp; &nbsp;&nbsp;  instruction_3 <br>
+														&nbsp;&nbsp; &nbsp;&nbsp;  .. <br>
+														&nbsp;&nbsp; &nbsp;&nbsp;  .. <br>
+														&nbsp;&nbsp; &nbsp;&nbsp;  instruction_n
+													</blockquote>
+													It is now important to remember that:
+													<ul>
+														<li>
+															If you want to execute more than one statement inside one while, you must (as with if) indent all the instructions in the same way.
+														</li>
+														<li>
+															An instruction or set of instructions executed inside the while loop is called the loop's body.
+														</li>
+														<li>
+															If the condition is False (equal to zero) as early as when it is tested for the first time, the body is not executed even once (note the analogy of not having to do anything if there is nothing to do).
+														</li>
+														<li>
+															
+															The body should be able to change the condition's value, because if the condition is True at the beginning, the body might run continuously to infinity - notice that doing a thing usually decreases the number of things to do).
+														</li>
+													</ul>
+												</p>
+												<h2>An infinite loop</h2>
+												<p>
+													An infinite loop, also called an <b>endless loop</b>, is a sequence of instructions in a program which repeat indefinitely (loop endlessly).
+													Here's an example of a loop that is not able to finish its execution:
+													<blockquote>
+														while True: <br>
+														&nbsp; &nbsp; print("I'm stuck inside a loop.")
+													</blockquote>
+													This loop will infinitely print <code>"I'm stuck inside a loop."</code> on the screen. <br>													
+													If you want to get the best learning experience from seeing how an infinite loop behaves, launch IDLE, create a New File, copy-paste the above code, save your file, and run the program. 
+													What you will see is the never-ending sequence of <code>"I'm stuck inside a loop."</code> strings printed to the Python console window. To terminate your program, just press <i>Ctrl-C</i> (or Ctrl-Break on some computers). 
+													This will cause the so-called KeyboardInterrupt exception and let your program get out of the loop. We'll talk about it later in the course. <br>													
+													Let's go back to the sketch of the algorithm we showed you recently. We're going to show you how to use this newly learned loop to find the largest number from a large set of entered data.													
+													Analyze the program carefully. <b>Locate the loop's body and find out how the body is exited</b>:
+<pre><blockquote># we will store the current largest number here
+largest_number = -999999999
+
+# input the first value
+number = int(input("Enter a number or type -1 to stop: "))
+
+# if the number is not equal to -1, we will continue
+<code>while number != -1:</code>
+	# is number larger than largest_number?
+	if number > largest_number:
+		# yes, update largest_number
+		largest_number = number
+	# input the next number
+	number = int(input("Enter a number or type -1 to stop: "))
+
+# print the largest number
+print("The largest number is:", largest_number)
+</blockquote></pre>									
+													Check how this code implement the algorithm we showed you earlier. <br>
+													<div>
+														<img src="images/loopWhileInPython.PNG" class="responsive" alt="">
+													</div>			
+												</p>
 											</section>
 										</div>
 								</div>								
