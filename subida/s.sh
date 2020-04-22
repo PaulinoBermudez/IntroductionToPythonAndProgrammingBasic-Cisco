@@ -22,3 +22,6 @@ clear
 git add .
 git nota "Others"
 git sube
+echo "Fin del script"
+sleep 5
+clear
