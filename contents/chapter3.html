@@ -1234,6 +1234,26 @@ while i < 100:
 														<a href="programs/Mississippi.py" target="_blank" rel="noopener noreferrer"><img src="images/Mississippi-loops.PNG" class="responsive" alt=""></a>
 													</div>
 												</p>
+												<h2>The <code>break</code> and <code>continue</code> statements</h2>
+												<p>
+													So far, we've treated the body of the loop as an indivisible and inseparable sequence of instructions that are performed completely at every turn of the loop. However, as developer, you could be faced with the following choices:
+													<ul>
+														<li>It appears that it's unnecessary to continue the loop as a whole; you should refrain from further execution of the loop's body and go further.</li>
+														<li>It appears that you need to start the next turn of the loop without completing the execution of the current turn.</li>
+													</ul>
+													Python provides two special instructions for the implementation of both these tasks. Let's say for the sake of accuracy that their existence in the language is not necessary - an experienced programmer is able to code any algorithm without these instructions. Such additions, 
+													which don't improve the language's expressive power, but only simplify the developer's work, are sometimes called syntactic candy, or <strong>syntactic sugar</strong>. <br>
+													These two instructions are:
+													<ul>
+														<li> <code>break</code> - exits the loop immediately, and unconditionally ends the loop's operation; the program begins to execute the nearest instruction after the loop's body. </li>
+														<li> <code>continue</code> - behaves as if the program has suddenly reached the end of the body; the next turn is started and the condition expression is tested immediately. </li>
+													</ul>
+													Both these words are <b>keywords</b>.	
+													Now we'll show you two simple examples to illustrate how the two instructions work. Look at the code in the editor. Run the program and analyze the output. Modify the code and experiment.	<br>
+													<div>
+														<img src="images/break and continue.PNG" class="responsive alt="">
+													</div>
+												</p>
 											</section>
 										</div>
 								</div>								
