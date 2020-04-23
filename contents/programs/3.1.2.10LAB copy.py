@@ -10,7 +10,7 @@ print("""
 Hello and welcome! 
 
 In this case, you need write a one word and I must drop the vowels...
-If you want to finish, use the 'Q' letter.
+--> If you want to finished, use the 'Q' letter.
 Well! go on! \n
 """)
 
@@ -19,7 +19,7 @@ vowels="AEIOU" # IN THIS CASE, I AMN'T NEED MINUSCULE VOWELS BECAUSE THE WORD IS
 while True:
     userWord = input("Write a word: ")
 
-    if letter != 'Q' or letter != 'q':
+    if userWord != 'Q' or userWord != 'q':
         # Change the input word in upper word.
         userWord = userWord.upper()
 
@@ -45,3 +45,5 @@ while True:
                 continue
             else:
                 print(letter)
+    else:
+        break
