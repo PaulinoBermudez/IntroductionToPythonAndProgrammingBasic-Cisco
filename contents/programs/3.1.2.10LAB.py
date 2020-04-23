@@ -20,11 +20,9 @@ vowels="AEIOU" # IN THIS CASE, I AMN'T NEED MINUSCULE VOWELS BECAUSE THE WORD IS
 # Main
 while True:
     userWord = input("Write a word: ")
-
-    if userWord != 'Q' or userWord != 'q':
-        # Change the input word in upper word.
-        userWord = userWord.upper()
-
+    # Change the input word in upper word.
+    userWord = userWord.upper()
+    if userWord != 'Q':
         # Print the word
         print(32*"__")
         print(userWord)
