@@ -18,14 +18,13 @@ print("""
 """)
 time.sleep(3)
 while True:
-    if word != "chupacabra":
-        os.system('clear')
-        os.system('cls')
-        word = input("Write a secret word: ")
-    else:
-        print("""
-        +_______________________________________________________________+
-        |______________ You've successfully left the loop ______________|
-        +_______________________________________________________________+
-        """)
+    #os.system('clear')
+    #os.system('cls')
+    word = input("Write a secret word: ") 
+    if word == "chupacabra":
         break
+print("""
++_______________________________________________________________+
+|______________ You've successfully left the loop ______________|
++_______________________________________________________________+
+""")
