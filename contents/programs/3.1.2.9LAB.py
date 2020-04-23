@@ -2,9 +2,10 @@
 import os
 os.system('clear')
 os.system('cls')
+import time
 # @author: [ Paulino Bermúdez R.]
 # @Description: Lab the break statement.
-
+word = ''
 print("""
 
   ,                                         ___                                                   ___   __  
@@ -15,6 +16,16 @@ print("""
                                                               /|                           /|              
                                                               \|                           \|              
 """)
+time.sleep(3)
 while True:
-    word = input("Write a secret word: ")
-    if
+    if word != "chupacabra":
+        os.system('clear')
+        os.system('cls')
+        word = input("Write a secret word: ")
+    else:
+        print("""
+        +_______________________________________________________________+
+        |______________ You've successfully left the loop ______________|
+        +_______________________________________________________________+
+        """)
+        break
