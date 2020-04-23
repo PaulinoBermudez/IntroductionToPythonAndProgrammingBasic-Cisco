@@ -18,8 +18,8 @@ print("""
 """)
 time.sleep(3)
 while True:
-    #os.system('clear')
-    #os.system('cls')
+    os.system('clear')
+    os.system('cls')
     word = input("Write a secret word: ") 
     if word == "chupacabra":
         break
