@@ -15,26 +15,28 @@ os.system('cls')
 
 c0 = int(input("Write a number possitive: "))
 loop = 0
-for i in range (c0):
+for i in range (c0+1):
     #print("........................................................................................................ ", i)
     if c0 <= 0:
         print(".............................................. Error")
         print("Error in your input, data is not valied")
     else:
-        
-        while i < c0:
+        #print("..............................................")
+        #print("                                              ", i)
+        #print("..............................................")
+        while c0 >= i:
             if c0 % 2 == 0:
-                print(".............................................. Par")
+                print("...............................................", loop, "Nº - Par")
                 c0 = c0/2
                 i += 1
                 loop +=1
-                print(i , " - " , int(c0))
+                print(" ===> " , int(c0))
             else:
-                print(".............................................. Impar")
+                print("...............................................", loop, "Nº - Impar")
                 c0 = (3 * c0 + 1)
                 i += 1
                 loop +=1
-                print(i , " - " , int(c0))
-
+                print(" ===> " , int(c0))
+    
 print("Loops: ", i+1)        
-print("Steps: ", loop)
+print("Steps: ", loop+1)
