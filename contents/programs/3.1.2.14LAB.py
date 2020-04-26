@@ -83,12 +83,15 @@ while blocks > -1:
         eq2 = int(eq2)
 
         # Muestro el resultado.
+        print("====================================")
         print("The height of the pyramid: ",  eq1)
+        print("====================================")
         print("The eq2 value is: ",  eq2)
+        print("====================================")
 
-        #while eq1 >= 0:
-        #    print(eq1*"*")
-        #    blocks -= 1
-        #    eq1 -= 1
+        while eq1 >= 0:
+            print(eq1*"*")
+            blocks -= 1
+            eq1 -= 1
 else:
     print("Es necesario que vea sus datos de entrada")

@@ -1353,8 +1353,8 @@ while i < 100:
 												<h4>My solution</h4>
 												<p>
 													<a href="images/LAB- The continue statement-code.PNG"><img src="images/LAB- The continue statement-code.PNG" class="responsive" alt=""></a> <p><a href="programs/3.1.2.10LAB.py" target="_blank" rel="noopener noreferrer">My solution code.</a></p>
-													<img src="images/LAB- The continue statement-outputs.PNG" class="responsive" alt=""> <br>
-													<img src="images/LAB- The continue statement.PNG" class="responsive" alt=""> 
+													<img src="images/LAB- The continue statement-outputs.PNG" class="" alt=""> <br>
+													<img src="images/LAB- The continue statement.PNG" class="" alt=""> 
 													<p>Outputs.</p>
 												</p>
 												<h2>The while loop and else branch</h2>
@@ -1379,7 +1379,7 @@ else:
 													The while's condition is False at the beginning - can you see it? <br>
 													Run and test the program, and check whether the else branch has been executed or not. 
 													<div>
-														<img src="images/the while loop and the else branch.PNG" class="responsive" alt="">
+														<img src="images/the while loop and the else branch.PNG" class="" alt="">
 													</div>
 												</p>
 												<h2>The for loop ant the else branch</h2>
@@ -1400,7 +1400,7 @@ else:
 													The loop's body won't be executed here at all. Note: we've assigned the i variable before the loop. <br>
 													Run the program and check its output. <br>
 													<div>
-														<img src="images/the for loop and the else  branch.PNG" class="responsive" alt="">
+														<img src="images/the for loop and the else  branch.PNG" class="" alt="">
 													</div>
 													When the loop's body isn't executed, the control variable retains the value it had before the loop. <br>
 													<b>Note: if the control variable doesn't exist before the loop starts, it won't exist when the execution reaches the else branch</b>. <br>
@@ -1447,6 +1447,143 @@ else:
 													Expected output: <code>The height of the pyramid: 44</code> <br>
 													Sample input: <code>2</code> <br>
 													Expected output: <code>The height of the pyramid: 1</code> <br>
+												</p>
+												<h4>My solution</h4>
+												<p>
+													<a href="programs/3.1.2.14LAB.py" target="_blank" rel="noopener noreferrer"><img src="images/LAB- Essentials of the while loop  - data test results.PNG" class="" alt=""> </a> 
+													<a href="programs/3.1.2.14LAB.py" target="_blank" rel="noopener noreferrer"><p>Result. (Click for go in)</p></a> 
+													<a href="programs/3.1.2.14LAB.py" target="_blank" rel="noopener noreferrer"><img src="images/LAB- Essentials of the while loop  - data test results.PNG" class="" alt=""> </a> 
+													<a href="programs/3.1.2.14LAB.py" target="_blank" rel="noopener noreferrer"><p>Result. (Click for go in)</p></a> 
+												</p>
+												<h2>Lab. Collatz hypothesis</h2>
+												<p>
+													<h4>Estimated time</h4>
+													20 minutes
+													
+													<h4>Level of difficulty</h4>
+													Medium
+													
+													<h4>Objectives</h4>
+													Familiarize the student with:
+													<ul>
+														<li> using the while loop.</li>
+														<li> converting verbally defined loops into actual Python code.</li>
+													</ul>
+													<h4>Scenario</h4>
+													In 1937, a German mathematician named Lothar Collatz formulated an intriguing hypothesis (it still remains unproven) which can be described in the following way:
+													
+													take any non-negative and non-zero integer number and name it c0;
+													if it's even, evaluate a new c0 as c0 ÷ 2;
+													otherwise, if it's odd, evaluate a new c0 as 3 × c0 + 1;
+													if c0 ≠ 1, skip to point 2.The hypothesis says that regardless of the initial value of c0, it will always go to 1.
+													Of course, it's an extremely complex task to use a computer in order to prove the hypothesis for any natural number (it may even require artificial intelligence), but you can use Python to check some individual numbers. Maybe you'll even find the one which would disprove the hypothesis.
+													
+													Write a program which reads one natural number and executes the above steps as long as c0 remains different from 1. We also want you to count the steps needed to achieve the goal. Your code should output all the intermediate values of c0, too.
+													Hint: the most important part of the problem is how to transform Collatz's idea into a while loop - this is the key to success.
+													Test your code using the data we've provided.
+													
+													<h4>Test Data													</h4>
+													Sample input: 15													
+													Expected output:
+													<blockquote>
+<pre>46
+23
+70
+35
+106
+53
+160
+80
+40
+20
+10
+5
+16
+8
+4
+2
+1
+steps = 17
+</pre>														
+													</blockquote>
+													Sample input: 16													
+													Expected output:
+													<blockquote>
+<pre>8
+4
+2
+1
+steps = 4
+</pre>														
+													</blockquote>
+													Sample input: 1023													
+													Expected output:
+													<blockquote>
+<pre>3070
+1535
+4606
+2303
+6910
+3455
+10366
+5183
+15550
+7775
+23326
+11663
+34990
+17495
+52486
+26243
+78730
+39365
+118096
+59048
+29524
+14762
+7381
+22144
+11072
+5536
+2768
+1384
+692
+346
+173
+520
+260
+130
+65
+196
+98
+49
+148
+74
+37
+112
+56
+28
+14
+7
+22
+11
+34
+17
+52
+26
+13
+40
+20
+10
+5
+16
+8
+4
+2
+1
+steps = 62
+</pre>														
+													</blockquote>
 												</p>
 										</div>
 								</div>								
