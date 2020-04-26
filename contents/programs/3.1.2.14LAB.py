@@ -42,8 +42,11 @@ h=1
 
 a = h
 b = h
-c = -blocks
-
+c = -blocks*2
+print("--------------")
+print(a)
+print(c)
+print("--------------")
 interior = ((b**2)-(4*a*c))
 eq1 = (-b + math.sqrt(interior))/2
 # El resultado de eq2 se deshecha porque no son válidos valores negativos
