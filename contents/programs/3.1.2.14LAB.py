@@ -44,19 +44,25 @@ a = h
 b = h
 c = -blocks*2
 print("------ Values: --------")
-print("a & b ", a)
-print("c ", c)
+print("a & b: ", a)
+print("c: ", c)
 print("--------------")
 # Operacion del interior de la raiz
 interior = ((b**2)-(4*a*c))
 
 # Primer resultado
-int (eq1) = (-b + math.sqrt(interior))/2
+eq1 = (-b + math.sqrt(interior))/2
 # El resultado de eq2 se deshecha porque no son válidos valores negativos
-int (eq2) = (-b - math.sqrt(interior))/2
+eq2 = (-b - math.sqrt(interior))/2
 
+# Transformo en entero los resultados:
+eq1 = int(eq1)
+eq2 = int(eq2)
+
+# Muestro el resultado.
 print("The height of the pyramid: ",  eq1)
 print("The eq2 value is: ",  eq2)
+
 while eq1 >= 0:
     print(eq1*"*")
     blocks -= 1
