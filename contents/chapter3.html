@@ -1357,7 +1357,57 @@ while i < 100:
 													<img src="images/LAB- The continue statement.PNG" class="responsive" alt=""> 
 													<p>Outputs.</p>
 												</p>
-											</section>
+												<h2>The while loop and else branch</h2>
+												<p>
+													Both loops, while and for, have one interesting (and rarely used) feature. <br>		
+													We'll show you how it works - try to judge for yourself if it's usable and whether you can live without it or not. <br>
+													In other words, try to convince yourself if the feature is valuable and useful, or is just syntactic sugar. <br>
+													Take a look at the snippet in the editor. There's something strange at the end - the else keyword. <br>
+													As you may have suspected, loops may have the else branch too, like ifs. <br>
+													The loop's else branch is always executed once, regardless of whether the loop has entered its body or not. <br>
+													Can you guess the output? Run the program to check if you were right. <br>
+													Modify the snippet a bit so that the loop has no chance to execute its body even once:
+													<blockquote>
+<pre>i = 5
+while i < 5:
+	print(i)
+	i += 1
+else:
+	print("else: ", i)
+</pre>														
+													</blockquote>
+													The while's condition is False at the beginning - can you see it? <br>
+													Run and test the program, and check whether the else branch has been executed or not. 
+													<div>
+														<img src="images/the while loop and the else branch.PNG" class="responsive" alt="">
+													</div>
+												</p>
+												<h2>The for loop ant the else branch</h2>
+												<p>
+													<code>for</code> loops behave a bit differently - take a look at the snippet in the editor and run it. <br>
+													The output may be a bit surprising.  <br>
+													The i variable retains its last value. <br>
+													Modify the code a bit to carry out one more experiment. <br>
+													<blockquote>
+<pre>i = 111
+for i in range(2, 1):
+	print(i)
+else:
+	print("else:", i)
+</pre>														
+													</blockquote>
+													Can you guess the output? <br>
+													The loop's body won't be executed here at all. Note: we've assigned the i variable before the loop. <br>
+													Run the program and check its output. <br>
+													<div>
+														<img src="images/the for loop and the else  branch.PNG" class="responsive" alt="">
+													</div>
+													When the loop's body isn't executed, the control variable retains the value it had before the loop. <br>
+													<b>Note: if the control variable doesn't exist before the loop starts, it won't exist when the execution reaches the else branch</b>. <br>
+													How do you feel about this variant of else? <br>
+													Now we're going to tell you about some other kinds of variables. Our current variables can <b>only store one value at a time</b>, but there are variables that can do much more - <b>they can store as many values as you want.</b>
+												</p>
+												
 										</div>
 								</div>								
 						</section>
