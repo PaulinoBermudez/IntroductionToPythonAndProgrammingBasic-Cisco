@@ -1,3 +1,11 @@
+#!/bin/python 
+import os
+import math
+os.system('clear')
+os.system('cls')
+# @author: [ Paulino Bermúdez R.]
+# @Description: Laboratorio de alturas de piramides según eñ número de cubos
+
 blocks = int(input("Enter the number of blocks: "))
 
 # Tengo la siguiente situación:
@@ -25,14 +33,24 @@ blocks = int(input("Enter the number of blocks: "))
 
 # Inicializamos con la altura mínima que es 1 
 h=1
-eq=(h^2 + h - (2*blocks))
+# Resolvemos la ecuación de segundo grado:
+# (h^2 + h - (2*blocks))                            =======> (-b +- sqrt ("b^2)-4*a*c))/2*a
+# Los valores son:
+# a: 1
+# b: 1
+# c: nº de bloques de entrada
 
-print("The height of the pyramid: "+ eq)
-while eq >= 0:
+a = h
+b = h
+c = blocks
+
+eq1 = (-b + math.sqrt(b**2)- 4*a*c)/2
+# El resultado de eq2 se deshecha porque no son válidos valores negativos
+eq2 = (-b - math.sqrt((b**2)- (4*a*c)))/2
+
+print("The height of the pyramid: ",  eq1)
+print("The eq2 value is: ",  eq2)
+while eq1 >= 0:
     print("Vuelta nº:" + blocks )
     blocks -= 1
-    eq -= 1
-
-
-
-print("The height of the pyramid:", height)
+    eq1 -= 1
