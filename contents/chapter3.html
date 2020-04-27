@@ -2168,6 +2168,79 @@ flagRegister ^= theMask
 </pre>
 </blockquote>													
 												</p>
+												<h2>Binary left shift and binary right shift</h2>
+												<p>
+													Python offers yet another operation relating to single bits: shifting. This is applied only to integer values, and you mustn't use floats as arguments for it.
+													You already apply this operation very often and quite unconsciously. How do you multiply any number by ten? Take a look: <br>
+													<code>12345 × 10 = 123450</code>
+													As you can see, multiplying by ten is in fact a shift of all the digits to the left and filling the resulting gap with zero. <br>
+													Division by ten? Take a look: <br>
+													<code>12340 ÷ 10 = 1234</code>
+													Dividing by ten is nothing but shifting the digits to the right. <br>
+													The same kind of operation is performed by the computer, but with one difference: as two is the base for binary numbers (not 10), shifting a value one bit to the left thus corresponds to multiplying it by two; respectively, shifting one bit to the right is like dividing by two (notice that the rightmost bit is lost). <br>													
+													The shift operators in Python are a pair of digraphs: << and >>, clearly suggesting in which direction the shift will act. <br>													
+													<blockquote>
+														value << bits
+														value >> bits
+													</blockquote>													
+													The left argument of these operators is an integer value whose bits are shifted. The right argument determines the size of the shift. <br>													
+													It shows that this operation is certainly not commutative. <br>													
+													The priority of these operators is very high. You'll see them in the updated table of priorities, which we'll show you at the end of this section. <br>													
+													Take a look at the shifts in the editor window. <br>
+													<img src="images/binary left shift and binary ight shift.PNG" class="" alt=""> <br>
+													The final print() invocation produces the following output: <br>
+													<blockquote>
+														17 68 8
+													</blockquote>
+													<b>Note:</b>
+													<ul>
+														<li>
+															17 // 2 → 8 (shifting to the right by one bit is the same as integer division by two)															
+														</li>
+														<li>
+															17 * 4 → 68 (shifting to the left by two bits is the same as integer multiplication by four)
+														</li>
+													</ul>													
+													And here is the updated priority table, containing all the operators introduced so far:
+<pre class="responsive">
+		<b>Priority	 Operator</b>	
+			1			~, +, -					unary
+			2			**	
+			3			*, /, //, %	
+			4			+, -						binary
+			5			<<, >>	
+			6			<, <=, >, >=	
+			7			==, !=	
+			8			&	
+			9			|	
+			10			=, +=, -=, *=, /=, %=, 
+						&=, ^=, |=, >>=, <<=							
+</pre>													
+												</p>
+												<h2>Key takeways</h2>
+												<p>													
+													<li>
+														1. Python supports the following logical operators:																						
+															<li> <code>and →</code> if both operands are true, the condition is true, e.g., (True and True) is True. </li>
+															<li> <code>or →</code>if any of the operands are true, the condition is true, e.g., (True or False) is True. </li>
+															<li> <code>not →</code> returns false if the result is true, and returns true if the result is false, e.g., not True is False. </li>
+															
+													<li>
+														2. You can use bitwise operators to manipulate single bits of data. The following sample data:																						
+														<blockquote>
+															x = 15, which is 0000 1111 in binary. <br>
+															y = 16, which is 0001 0000 in binary.
+														</blockquote>
+													</li>
+													will be used to illustrate the meaning of bitwise operators in Python. Analyze the examples below:
+													
+													 	<li><code>& </code> does a bitwise and, e.g., x & y = 0, which is 0000 0000 in binary.</li>
+													 	<li><code>| </code> does a bitwise or, e.g., x | y = 31, which is 0001 1111 in binary.</li>
+													 	<li><code>˜ </code> does a bitwise not, e.g., ˜ x = 240, which is 1111 0000 in binary.</li>
+													 	<li><code>^ </code> does a bitwise xor, e.g., x ^ y = 31, which is 0001 1111 in binary.</li>
+													 	<li><code>>></code>  does a bitwise right shift, e.g., y >> 1 = 8, which is 0000 1000 in binary.</li>
+													 	<li><code><<</code>  does a bitwise left shift, e.g., y << 3 = , which is 1000 0000 in binary.</li>
+												</p>
 										</div>
 								</div>								
 						</section>
