@@ -1679,6 +1679,247 @@ for i in range(6, 1, -2):
 												</p>
 												<h2>Key takeaways: continued</h2>
 												<p>
+													<h4>Exercise 1</h4>
+													Create a for loop that counts from 0 to 10, and prints odd numbers to the screen. Use the skeleton below:													
+													<blockquote>
+														for i in range(1, 11): <br>
+														# line of code <br>
+															# line of code <br>													
+													</blockquote>
+													Sample solution:
+													<blockquote>
+<pre>for i in range(0, 11):
+if i % 2 != 0:
+	print(i)
+</pre>														
+													</blockquote>
+													<h4>Exercise 2</h4>
+													Create a while loop that counts from 0 to 10, and prints odd numbers to the screen. Use the skeleton below:
+													<blockquote>
+														x = 1 <br>
+														while x < 11: <br>
+															# line of code <br>
+																# line of code <br>
+															# line of code 
+													</blockquote>
+													Sample solution:
+													<blockquote>
+<pre>x = 1
+while x < 11:
+	if x % 2 != 0:
+		print(x)
+	x += 1
+</pre>														
+													</blockquote>
+													<h4>Exercise 3</h4>
+													Create a program with a for loop and a break statement. The program should iterate over characters in an email address, exit the loop when it reaches the @ symbol, and print the part before @ on one line. Use the skeleton below:
+													<blockquote>
+														for ch in "john.smith@pythoninstitute.org": <br>
+														if ch == "@": <br>
+															# line of code <br>
+														# line of code <br>
+													</blockquote>													
+													Sample solution:
+													<blockquote>
+<pre>for ch in "john.smith@python-institute.org":
+if ch == "@":
+	break
+print(ch, end="")
+</pre>														
+													</blockquote>
+													<h4>Exercise 4</h4>
+													Create a program with a for loop and a continue statement. The program should iterate over a string of digits, replace each 0 with x, and print the modified string to the screen. Use the skeleton below:
+													<blockquote>
+<pre>for digit in "0165031806510":
+if digit == "0":
+	# line of code
+	# line of code
+# line of code
+</pre>														
+													</blockquote>													
+													Sample solution:
+													<blockquote>
+<pre>for digit in "0165031806510":
+if digit == "0":
+	print("x", end="")
+	continue
+print(digit, end="")
+</pre>														
+													</blockquote>													
+													<h4>Exercise 5</h4>
+													What is the output of the following code?
+													<blockquote>
+<pre>n = 3
+while n > 0:
+	print(n + 1)
+	n -= 1
+else:
+	print(n)
+</pre>														
+													</blockquote>													
+													<blockquote>
+														4 <br>
+														3 <br>
+														2 <br>
+														0 <br>
+													</blockquote>
+													<h4>Exercise 6</h4>
+													What is the output of the following code?
+													<blockquote>
+<pre>n = range(4)
+for num in n:
+	print(num - 1)
+else:
+	print(num)
+</pre>														
+													</blockquote>
+													<blockquote>
+														-1 <br>
+														0 <br>
+														1 <br>
+														2 <br>
+														3 <br>
+													</blockquote>
+													<h4>Exercise 7</h4>
+													What is the output of the following code?
+													<blockquote>
+<pre>
+for i in range(0, 6, 3):
+	print(i)
+</pre>														
+													</blockquote>
+													<blockquote>
+														0 <br>
+														3 <br>
+													</blockquote>
+												</p>
+												<h2>Logic and bit operations in Python. | and, or, not</h2>
+												<p>
+													Have you noticed that the conditions we've used so far have been very simple, not to say, quite primitive? The conditions we use in real life are much more complex. Let's look at this sentence: <br>
+													<i>If we have some free time, <code>and</code> the weather is good, we will go for a walk.</i> <br>
+													We've used the conjunction and, which means that going for a walk depends on the simultaneous fulfilment of these two conditions. In the language of logic, such a connection of conditions is called a conjunction. And now another example: <br>
+													<i>If you are in the mall <code>or</code> I am in the mall, one of us will buy a gift for Mom.</i> <br>
+													The appearance of the word or means that the purchase depends on at least one of these conditions. In logic, such a compound is called a disjunction. <br>													
+													It's clear that Python must have operators to build conjunctions and disjunctions. Without them, the expressive power of the language would be substantially weakened. They're called logical operators.
+
+													<h4>and</h4>
+													<p>
+														One logical conjunction operator in Python is the word and. It's a <b>binary operator with a priority that is lower than the one expressed by the comparison operators</b>. It allows us to code complex conditions without the use of parentheses like this one: 
+														<div>
+															<code>
+																counter > 0 <code>and</code> value == 100
+															</code>
+														</div>													
+														The result provided by the and operator can be determined on the basis of the truth table. <br>													
+														If we consider the conjunction of A and B, the set of possible values of arguments and corresponding values of the conjunction looks as follows:
+														<table class="default">
+															<tr>
+																<td>Argument A</td>
+																<td>False</td>
+																<td>False</td>
+																<td>True</td>
+																<td>True</td>																
+															</tr>
+															<tr>
+																<td>Argument B</td>
+																<td>False</td>
+																<td>True</td>
+																<td>False</td>
+																<td>True</td>															
+															</tr>
+															<tr>
+																<td>A <code>and</code> B</td>
+																<td>False</td>
+																<td>False</td>
+																<td>False</td>
+																<td>True</td>															
+															</tr>
+														</table>
+													</p>
+													<h4>or</h4>
+													<p>
+														A disjunction is the word <code>or</code>. It's a <b>binary operator with a lower priority than </b> <code>and</code> (just like <code>+</code> compared to <code>*</code> ).
+														Its truth table is as follows.
+														<table class="default">
+															<tr>
+																<td>Argument A</td>
+																<td>False</td>
+																<td>False</td>
+																<td>True</td>
+																<td>True</td>																
+															</tr>
+															<tr>
+																<td>Argument B</td>
+																<td>False</td>
+																<td>True</td>
+																<td>False</td>
+																<td>True</td>															
+															</tr>
+															<tr>
+																<td>A <code>or</code> B</td>
+																<td>False</td>
+																<td>True</td>
+																<td>True</td>
+																<td>True</td>															
+															</tr>
+														</table>
+													</p>
+													<h4>not</h4>
+													<p>
+														In addition, there's another operator that can be applied for constructing conditions. It's a <b>unarity operator performing a logical negotion</b>. Its operation is simple : it turns truth into falsehood and falsehood into truth. <br>
+														This operator is written as the word <code>not</code>, and its <b>priority is very high: the same as the unary <code>+</code> and <code>-</code></b>. Its truth table is simple.
+														<table>
+															<tr>
+																<td>Argument</td>
+																<td>False</td>
+																<td>True</td>
+															</tr>
+															<tr>
+																<td><code>not</code> Argument</td>
+																<td>True</td>
+																<td>False</td>
+															</tr>
+														</table>
+													</p>
+												</p>
+												<h2>Logical expressions</h2>
+												<p>
+													Let's create a variable named <code>var</code> and assign <code>1</code> to it. The following conditions are <strong>pairwise equivalent:</strong>
+													<blockquote>
+														print(var > 0) <br>
+														print(<code>not</code> (var <= 0))
+													</blockquote>
+													<blockquote>
+														print(var != 0) <br>
+														print(not (var == 0))
+													</blockquote>
+													You may be familiar with De Morgan's laws. They say that:
+													<div>
+														<i>
+															The negation of a conjuntion is the disjunction of the negations. <br>
+															The negation of a disjunction is the conjunction of the negations.
+														</i>
+													</div>
+													Let's write the same things using Python:
+													<blockquote>
+														not ( p and q ) == ( not p ) or (not q) <br>
+														not (p or q) == (not p) and (not q)
+													</blockquote>
+													Note how the parentheses have been used to code the expressions - we put theem to improve readability. <br>
+													We should add that none of these two-argument operators can be used in the abbreviated form know as <code>op=</code>. This exception 
+													is worth remembering
+												</p>
+												<h2>Logical values vs. single bits</h2>
+												<p>
+													Logical operators take their arguments as a whole regardless of how many bits they contain. The operators are aware only of the value: zero (when all the bits are reset) means <code>False</code>, not zero (when at least ine bit is set) means <code>True</code>. <br>
+													The result of their operations is one of these values: <code>False</code> or <code>True</code>. This means that snippet will assign the value <code>True</code> to the <code>j</code> variable if <code>i</code> is not zero, otherwise, it will be <code>False</code>. 
+													<blockquote>
+														i = 1 <br>
+														j = not not i
+													</blockquote>
+												</p>
+												<h2>Bitwise operators</h2>
+												<p>
 													
 												</p>
 										</div>
