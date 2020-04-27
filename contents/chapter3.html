@@ -2017,6 +2017,41 @@ for i in range(0, 6, 3):
 															</td>
 														</tr>
 													</table>
+													<h4>Bitwise operations (~)</h4>
+													<table class="default">
+														<tr>
+															<td>Arg</td>
+															<td>~Arg</td>
+														</tr>
+														<tr>
+															<td>0</td>
+															<td>1</td>
+														</tr>
+														<tr>
+															<td>1</td>
+															<td>0</td>
+														</tr>
+													</table>
+													Let's make it easier:
+													<ul>
+														<li>
+															<code>&</code> requires exactly two <code>1</code>s to provide <code>1</code>as the result.
+														</li>
+														<li>
+															<code>|</code> requires at least one  <code>1</code> to provide <code>1</code> as the result.
+														</li>
+														<li>
+															<code>^</code> requires exactly one <code>1</code> to provide <code>1</code> as the result.
+														</li>
+													</ul>
+													Let us add an important remark: the arguments of these operators <b> must be integers</b>; we must not use floats here. <br>
+													The difference in the operation of the logical and bit operators is important: the logical operators do not penetrate into the bit level of its argument. They're only interested in the final integer value. <br>
+													Bitwise operators are stricter: they deal with <b>every bit separately</b>. If we assume that the integer variable occupies 64 bits (which is common in modern computer systems), you can imagine the bitwise operation as a 64-fold evaluation of the logical operator for each pair of bits of the arguments. 
+													This analogy is obviously imperfect, as in the real world all these 64 operations are performed at the same time (simultaneously).
+												</p>
+												<h2>Logical vs. bit operations. Continued</h2>
+												<p>
+													
 												</p>
 										</div>
 								</div>								
