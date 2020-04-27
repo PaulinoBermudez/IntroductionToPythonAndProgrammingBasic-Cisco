@@ -2051,6 +2051,52 @@ for i in range(0, 6, 3):
 												</p>
 												<h2>Logical vs. bit operations. Continued</h2>
 												<p>
+													We'll now show you an example of the difference in operation between the logical and bit operations. Let's assume that the following assignments have been performed:													
+													<blockquote>
+														i = 15
+														j = 22
+													</blockquote>													
+													If we assume that the integers are stored with 32 bits, the bitwise image of the two variables will be as follows:
+													<blockquote>
+														i: 00000000000000000000000000001111
+														j: 00000000000000000000000000010110
+													</blockquote>
+													The assignment is given:
+													<blockquote>
+														log = i and j
+													</blockquote>
+													We are dealing with a logical conjunction here. Let's trace the course of the calculations. Both variables i and j are not zeros, so will be deemed to represent True. Consulting the truth table for the and operator, we can see that the result will be True. No other operations are performed.
+													<blockquote>
+														log: True
+													</blockquote>
+													Now the bitwise operation - here it is:
+													<blockquote>
+														bit = i & j
+													</blockquote>
+													
+													The <code>&</code> operator will operate with each pair of corresponding bits separately, producing the values of the relevant bits of the result. Therefore, the result will be as follows:
+													<blockquote>
+														i	000000000000000000000000000<code>01111</code>
+														j	000000000000000000000000000<code>10110</code>
+														bit = i & j	000000000000000000000000000<code>00110</code>
+													</blockquote>
+													These bits correspond to the integer value of six.
+													Let's look at the negation operators now. First the logical one:
+													<blockquote>
+														logneg = not i
+													</blockquote>													
+													The logneg variable will be set to False - nothing more needs to be done. <br>
+													The bitwise negation goes like this:
+													<blockquote>bitneg = ~i</blockquote>
+													It may be a bit surprising: the bitneg variable value is -16. This may seem strange, but isn't at all. If you wish to learn more, you should check out the binary numeral system and the rules governing two's complement numbers.
+													<blockquote>
+														i	0000000000000000000000000000<code>1111</code>
+														bitneg = ~i	1111111111111111111111111111<code>0000</code>
+													</blockquote>
+													Each of these two-argument operators can be used in <b>abbreviated form</b>. These are the examples of their equivalent notations:
+													<code>x = x & y</code>	x <b>&=</b> y
+													<code>x = x | y</code>	x <b>|=</b> y
+													<code>x = x ^ y</code>	x <b>^=</b> y
 													
 												</p>
 										</div>
