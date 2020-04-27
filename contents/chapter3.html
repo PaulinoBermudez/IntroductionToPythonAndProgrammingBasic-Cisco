@@ -2050,16 +2050,15 @@ for i in range(0, 6, 3):
 													This analogy is obviously imperfect, as in the real world all these 64 operations are performed at the same time (simultaneously).
 												</p>
 												<h2>Logical vs. bit operations. Continued</h2>
-												<h3>How do we deal with single bits?</h3>
 												<p>
 													We'll now show you an example of the difference in operation between the logical and bit operations. Let's assume that the following assignments have been performed:													
 													<blockquote>
-														i = 15
+														i = 15 <br>
 														j = 22
 													</blockquote>													
 													If we assume that the integers are stored with 32 bits, the bitwise image of the two variables will be as follows:
 													<blockquote>
-														i: 00000000000000000000000000001111
+														i: 00000000000000000000000000001111 <br>
 														j: 00000000000000000000000000010110
 													</blockquote>
 													The assignment is given:
@@ -2077,8 +2076,8 @@ for i in range(0, 6, 3):
 													
 													The <code>&</code> operator will operate with each pair of corresponding bits separately, producing the values of the relevant bits of the result. Therefore, the result will be as follows:
 													<blockquote>
-														i	000000000000000000000000000<code>01111</code>
-														j	000000000000000000000000000<code>10110</code>
+														i	000000000000000000000000000<code>01111</code> <br> 
+														j	000000000000000000000000000<code>10110</code> <br>
 														bit = i & j	000000000000000000000000000<code>00110</code>
 													</blockquote>
 													These bits correspond to the integer value of six.
@@ -2091,14 +2090,83 @@ for i in range(0, 6, 3):
 													<blockquote>bitneg = ~i</blockquote>
 													It may be a bit surprising: the bitneg variable value is -16. This may seem strange, but isn't at all. If you wish to learn more, you should check out the binary numeral system and the rules governing two's complement numbers.
 													<blockquote>
-														i	0000000000000000000000000000<code>1111</code>
-														bitneg = ~i	1111111111111111111111111111<code>0000</code>
+														i	0000000000000000000000000000<code>1111</code> <br>
+														bitneg = ~i	1111111111111111111111111111<code>0000</code> <br>
 													</blockquote>
-													Each of these two-argument operators can be used in <b>abbreviated form</b>. These are the examples of their equivalent notations:
-													<code>x = x & y</code>	x <b>&=</b> y
-													<code>x = x | y</code>	x <b>|=</b> y
-													<code>x = x ^ y</code>	x <b>^=</b> y
+													Each of these two-argument operators can be used in <b>abbreviated form</b>. These are the examples of their equivalent notations: <br>
+													<code>x = x & y</code>	x <b>&=</b> y <br>
+													<code>x = x | y</code>	x <b>|=</b> y <br>
+													<code>x = x ^ y</code>	x <b>^=</b> y <br>													
+												</p>
+												<h2>How do we deal with single bits?</h2>
+												<p>
+													We'll now show you what you can use bitwise operators for. Imagine that you're a developer obliged to write an important piece of an operating system. You've been told that you're allowed to use a variable assigned in the following way:
+													<blockquote>
+														flagRegister = 0x1234
+													</blockquote>
+													The variable stores the information about various aspects of system operation. Each bit of the variable stores one yes/no value. You've also been told that only one of these bits is yours - the third (remember that bits are numbered from zero, and bit number zero is the lowest one, while the highest is number 31). 
+													The remaining bits are not allowed to change, because they're intended to store other data. Here's your bit marked with the letter x:
+													<blockquote>
+														flagRegister = 0000000000000000000000000000<b>x</b>000
+													</blockquote>
+													You may be faced with the following tasks: <br>
+													1. Check the state of your bit - you want to find out the value of your bit; comparing the whole variable to zero will not do anything, because the remaining bits can have completely unpredictable values, but you can use the following conjunction property:
+													<blockquote>
+<pre>x & 1 = x
+x & 0 = 0
+</pre>														
+													</blockquote>
+													If you apply the & operation to the flagRegister variable along with the following bit image:
+													<blockquote>0000000000000000000000000000<b>1</b>000</blockquote>
+													(note the 1 at your bit's position) as the result, you obtain one of the following bit strings: 
+													<ul>
+														<li>0000000000000000000000000000<b>1</b>000 if your bit was set to <code>1</code> </li>
+														<li>0000000000000000000000000000<b>000</b> if your bit was reset to <code>0</code> </li>
+													</ul>
+													Such a sequence of zeros and ones, whose task is to grab the value or to change the selected bits, is called a <b>bit mask</b>. <br>													
+													Let's build a bit mask to detect the state of your bit. It should point to the third bit. That bit has the weight of 23 = 8. A suitable mask could be created by the following declaration: 
+													<code>theMask = 8</code>
+													You can also make a sequence of instructions depending on the state of your bit i here it is:
+													<blockquote>
+<pre>if flagRegister & theMask:
+	# my bit is set
+else:
+	# my bit is reset
+</pre>														
+													</blockquote>
+													2. Reset your bit - you assign a zero to the bit while all the other bits must remain unchanged; let's use the same property of the conjunction as before, but let's use a slightly different mask - exactly as below:
+													<blockquote>
+														1111111111111111111111111111<code>0</code>111
+													</blockquote>
+													Note That the mask was created as a result of the negation of all the bits of theMask variable. Resetting the bit is simple, and looks like this (choose the one you like more):
+													<blockquote>
+<pre>flagRegister = flagRegister & ~theMask
 													
+ 0flagregister &= ~theMask
+</pre>														
+													</blockquote>
+													3. Set your bit - you assign a 1 to your bit, while all the remaining bits must remain unchanged; use the following disjunction property:
+													<blockquote>
+														x | 1 = 1 <br>
+														x | 0 = x
+													</blockquote>
+													You're now ready to set your bit with one of the following instructions:
+													<blockquote>
+														flagRegister = flagRegister | theMask <br>
+														flagRegister |= theMask
+													</blockquote>
+													4. Negate your bit - you replace a 1 with a 0 and a 0 with a 1. You can use an interesting property of the xor operator:
+													<blockquote>
+														x ^ 1 = ~x <br>
+														x ^ 0 = x
+													</blockquote>
+													and negate your bit with the following instructions:
+<blockquote><pre>
+flagRegister = flagRegister ^ theMask
+	
+flagRegister ^= theMask
+</pre>
+</blockquote>													
 												</p>
 										</div>
 								</div>								
