@@ -2499,6 +2499,23 @@ print(total)
 														</li>
 													</ul>
 												</p>
+												<h2>List in action</h2>
+												<p>
+													Let's leave lists aside for a short moment and look at one intriguing issue. <br>
+													Imagine that you need to rearrange the elements of a list, i.e., reverse the order of the elements: the first and the fifth as well as the second and fourth elements will be swapped. The third one will remain untouched. <br>													
+													Question: how can you swap the values of two variables?	<br>						
+													Take a look at the snippet:
+													<blockquote>
+<pre>var1 = 1
+var2 = 2
+
+var2 = var1
+var1 = var2
+</pre>														
+													</blockquote>
+													If you do something like this, you would <code>lose the value previously stored</code> in <code>var2</code>. Changing the order of the assignements will not help. You need a <b>third variable that serves as an auxiliary storage.</b> <br>
+													This's how you can do it.
+												</p>
 										</div>
 								</div>								
 						</section>
