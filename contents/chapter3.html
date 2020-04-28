@@ -644,7 +644,7 @@ print("The largest number is:", largest_number)
 </pre></blockquote>
 														By the same fashion, you can use the min() function to return the lowest number. You can rebuild the above code and experiment with it in the Sandbox. <br>
 														<div>
-															<img src="images/pseudocodeAndIntroductionToLoops.PNG" class="responsive" alt=""> <p>Using the Python fucnction: <code>max()</code></p>
+															<img src="images/pseudocodeAndIntroductionToLoops.PNG" class="responsive" alt=""> <p>Using the Python function: <code>max()</code></p>
 														</div>
 														We're going to talk about these (and many other) functions soon. For the time being, our focus will be put on conditional execution and loops to let you gain more confidence in programming and teach 
 														you the skills that will let you fully understand and apply the two concepts in your code. So, for now, we're not taking any shortcuts. 
@@ -2362,6 +2362,54 @@ print("New list content: ", numbers) # current list content
 													<div>
 														<img src="images/negative indices are legal.PNG" class="responsive" alt="">
 													</div>
+												</p>
+												<h2>Lab. The basic of list</h2>
+												<p>
+													<h4>Estimated time</h4>
+													5 minutes
+													<h4>Level of difficulty</h4>
+													Very easy
+													<h4>Objectives</h4>
+													Familiarize the student with:
+													<ul>
+														<li>Using basic instructions related to lists;</li>
+														<li>Creating and modifying lists.</li>
+													</ul>
+													<h4>Scenario </h4>
+													There once was a hat. The hat contained no rabbit, but a list of five numbers: 1, 2, 3, 4, and 5. <br>
+													Your task is to:
+													<ul>
+														<li> Write a line of code that prompts the user to replace the middle number in the list with an integer number entered by the user (step 1)</li>
+														<li> Write a line of code that removes the last element from the list (step 2)</li>
+														<li> Write a line of code that prints the length of the existing list (step 3.)</li>
+													</ul>
+													Ready for this challenge?
+												</p>
+												<h2>My solution</h2>
+												<p>
+													<img src="images/LAB-Listas-Código.PNG" class="responsive" alt=""> <p><a href="programs/3.1.4.6LAB.py" target="_blank" rel="noopener noreferrer">Código</a></p>
+													<img src="images/LAB-Listas-Solucion.PNG" alt="">
+												</p>
+												<h2>Functions vs methods</h2>
+												<p>
+													A <b>methods is a specific kind of function</b> - it behaves like a function and looks like a function, but differs in the way in which it acts, and in its invocation style. <br>
+													A <b>function doesn't belong to any data</b> - it gets data, it may create new data and it (generally) produces a result. <br>
+													A method does all these, but is also able to <b>change the state of a selected entity.</b> <br>
+													<b>A method is owned by the data ir works for, while a function is owned by the whole code</b>. <br>
+													This also means that invoking a method requires some specification of the data from which the method is invoked. <br>
+													It may sound puzzling here, but we'll deal with it in depth when we delve into object-oriented programming. <br>
+													In general, a typical function invocation may look like this:
+													<blockquote>
+														result = <code>function(arg)</code>
+													</blockquote>
+													The function takes an argument does something and returns a result. A typical method invocation usually looks like this: 
+													<blockquote>
+														result = <code>data.method(arg)</code>
+													</blockquote>
+													<b>Note:</b> The name of the method is preceded by the name of the data which owns the method. Next, you add a <b>dot</b>, followed by the <b>method name</b> and a pair of <b>parenthesis enclosing the arguments.</b> <br>
+													The method will behave like a function but can do something more - ir can <b>change the internal state of the data</b> from which it has been invoked. <br>
+													You may ask: Why are we talking about  methods, not about lists? <br>
+													This is an essential issue right now, as we're going to show you how to add new elements to an exiting list. This can be done methods owned by all the lists not by functions.
 												</p>
 										</div>
 								</div>								
