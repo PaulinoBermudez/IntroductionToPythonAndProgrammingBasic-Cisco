@@ -25,3 +25,5 @@ git sube
 echo "Fin del script"
 sleep 5
 clear
+sleep 300
+~/subida/s.sh
