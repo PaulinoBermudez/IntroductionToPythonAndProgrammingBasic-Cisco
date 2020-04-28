@@ -24,13 +24,17 @@ for i in range(2):
     addList = input("Please, Add Stu and Pete in the Beatle List: ") 
     beatles.append(addList)
     print("\n", beatles,"\n")
-    print("·······················")
     print("The length is: ", l+1)
 # Paso 4. Eliminar a Stu y Pete de la lista
 print("························Step 4 \n")
-print(beatles)
-delList = int(input("Who delete of list? (Position) "))
-del beatles[delList]
+borra = int(input("How many user delete? "))
+for i in range(borra):
+    l = len(beatles)
+    print(beatles)
+    delList = int(input("Who delete of list? (Position [0-{:l}]) ".format(l)))
+    del beatles[delList]
+    print("OKEY! - Update... \n", beatles)
 # Añadir con insert() a Ringo Starr al comienzo de la lista
-print("························Step 5. \n")
+print("························Step 5. \n Adding Ringo a Beatle group.")
 beatles.insert(0, "Ringo Starr")
+print("The final list is: ", beatles)
