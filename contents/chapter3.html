@@ -2329,6 +2329,40 @@ print("New list content: ", numbers) # current list content
 														<img src="images/length function.PNG" class="responsive" alt="">
 													</div>
 												</p>
+												<h2>Removing elements from a list</h2>
+												<p>
+													Any of the list's elements may be <b>removed</b> at any time - this is done with an instruction named <code>del</code> (delete). Note: it's an <b>instruction</b> not a function. <br>
+													You have to point to the element to be removed. It's vanish from the list, and the list's length will be reduced by one. <br>
+													Look at the snippet below. Can you guess what output it will produce? Run the program in the editor and check.
+													<div>
+														<img src="images/removing elements from a list.PNG" class="responsive" alt="">
+													</div>
+													<strong>You can't access an element which doesn't exist</strong> -  you can neither get its value nor assign it a value. Both of these instructions will cause runtime errors now:
+													<blockquote>
+														print(numbers[4]) <br>
+														numbers[4] = 1
+													</blockquote>
+													Add the snippet above after the last line of code in the editor, run the program and check what happens. <br>
+													<b>Note:</b> we've removed one of the list's elements - there are only four elements in the list now. This means that element number four doesn't exist. <br>
+													<img src="images/error in range 4.PNG"  alt="">
+												</p>
+												<h2>Negative indices are legal</h2>
+												<p>
+													It may look strange, but negative indices are legal, and can be useful. <br>
+													An element with an index equal to <code>-1</code> is <b>the last one in the list</b>.
+													<blockquote>
+														print(numbers[-1])
+													</blockquote>
+													The example snippet will output <code>1</code>. Similarly, the element with an index equal to <code>-2</code> is <b>the one before last in the list</b>. 
+													<blockquote>
+														print(numbers[-2])
+													</blockquote>
+													The example snippet will output <code>2</code>. <br>
+													The last accesible element in out list is <code>numbers[-4]</code> (the fist one) - don't try to go any further!
+													<div>
+														<img src="images/negative indices are legal.PNG" class="responsive" alt="">
+													</div>
+												</p>
 										</div>
 								</div>								
 						</section>
