@@ -22,8 +22,7 @@ for i in range(l+1):
     beatles.append(addList)
 
 # Paso 4. Eliminar a Stu y Pete de la lista
-l = len(beatles)
-for i in range(l):
-    print(beatles)
-    delList = input("Who delete of list? (Position) ")
-    del
+print("Step 4")
+print(beatles)
+delList = input("Who delete of list? (Position) ")
+del beatles[delList]
