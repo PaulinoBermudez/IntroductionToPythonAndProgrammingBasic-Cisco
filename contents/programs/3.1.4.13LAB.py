@@ -19,11 +19,13 @@ print("Beatles List ", beatles ,"\n")
 # Stu Sutcliffe 
 # Pete Best.
 print("························Step. 3 \n")
-l = len(beatles)
-for i in range(l+2):
+for i in range(2):
+    l = len(beatles)
     addList = input("Please, Add Stu and Pete in the Beatle List: ") 
     beatles.append(addList)
     print("\n", beatles,"\n")
+    print("·······················")
+    print("The length is: ", l+1)
 # Paso 4. Eliminar a Stu y Pete de la lista
 print("························Step 4 \n")
 print(beatles)
