@@ -2434,6 +2434,31 @@ print("New list content: ", numbers) # current list content
 														numbers.insert(1, 333)
 													</blockquote>													
 													Print the final list content to the screen and see what happens. The snippet above snippet inserts 333 into the list, making it the second element. The former second element becomes the third, the third the fourth, and so on.																										
+													<div>
+														<img src="images/append and insert methods.PNG" class="responsive" alt="">
+													</div>
+												</p>
+												<h2>Adding elements to a list. Continued</h2>
+												<p>
+													You can <b>start a list's life by making it empty</b> (this is done with an empty pair of square brackets) and then adding new elements to it as needed. <br>
+													Take a look at the snippet in the editor. Try to guess its output after the for loop execution. Run the program to check if you were right. <br> 
+													It'll be a sequence of consecutive integer numbers from 1 (you then add one to all the appended values) to 5. <br>				
+													We've modified the snippet a bit: 
+													<blockquote>
+<pre>myList = [] # creating an empty list
+for i in range(5):
+	myList.insert(0, i + 1)
+print(myList)
+</pre>														
+													</blockquote>
+													<div>
+														<img src="images/add values with a for loop.PNG" alt="">
+													</div>
+													You should get the same sequence, but in reverse order (this is the merit of using the insert() method).
+												</p>
+												<h2>Making use of lists</h2>
+												<p>
+
 												</p>
 										</div>
 								</div>								
