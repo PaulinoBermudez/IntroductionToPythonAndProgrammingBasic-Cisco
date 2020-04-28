@@ -29,12 +29,12 @@ for i in range(2):
 print("························Step 4 \n")
 borra = int(input("How many user delete? "))
 for i in range(borra):
-    l = len(beatles)
+    l = int(len(beatles))
     print(beatles)
-    delList = int(input("Who delete of list? (Position [0-{:l}]) ".format(l)))
+    delList = int(input("Who delete of list? (Position [0-{:2}]) ".format(l-1)))
     del beatles[delList]
-    print("OKEY! - Update... \n", beatles)
+    print("OKEY! - Update... \n")
 # Añadir con insert() a Ringo Starr al comienzo de la lista
-print("························Step 5. \n Adding Ringo a Beatle group.")
+print("\n ························Step 5. \n Adding Ringo a Beatle group.")
 beatles.insert(0, "Ringo Starr")
 print("The final list is: ", beatles)
