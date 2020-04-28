@@ -2458,7 +2458,46 @@ print(myList)
 												</p>
 												<h2>Making use of lists</h2>
 												<p>
-
+													The <b>for loop</b> has a very special variant that can process lists very effectively - let's take a look at that. <br>
+													Let's assume that you want to <b>calculate the sum of all the values stored in the myList list</b>. <br>
+													You need a variable whose sum will be stored and initially assigned a value of <code>0</code> - Its name will be <code>total</code>. <br>
+													<b>Note:</b> We're not going to name it sum as Python uses the same name for one of its built-in functions - <code>sum()</code>. Using the same name would generally be considered a bad practice.) Then you add to it all the elements of the list using the <b>for</b> loop. Take a look at the snippet in the editor. <br>
+													Let's comment on this example:
+													<ul>
+														<li>The list assigned a sequence of five integer values.</li>
+														<li>The 'i' variable takes the value <code>0,1,2,3,4</code> and then it  indexes  the list, selecting the subsequent elements: the first, second, third, dourth and fifth.</li>
+														<li>Each o f these elements is added together by the <code>+=</code> operator to the <code>total</code> variable.</li>
+														<li>Note the way in which the <code>len()</code> function has been employed - it makes the code independent of any possible changes in the list's content</li>
+													</ul>
+													<img src="images/making use of lists.PNG" class="responsive" alt="">
+												</p>
+												<h2>The second face of the <code>for</code> loop.</h2>
+												<p>
+													But the for loop can do much more. It can hide all the actions connected to the list's indexing, and deliver all the list's elements in a handy way. <br>
+													This modified snippet shows how it works:
+													<blockquote>
+<pre>mylist = [10,1,8,3,5]
+total=0
+for i in mylist:
+	total += i 
+print(total)
+</pre>														
+													</blockquote>
+													What happends here?
+													<ul>
+														<li>
+															The <code>for</code> instruction specifies the variable used to browse the list (<code>i</code> here) followed by the <code>in</code> keyword and the name of the list being processed(<code>myList</code> here).
+														</li>
+														<li>
+															The <code>i</code> variable is assigned the values of all the subsequent list's elements, and the process occurs as many times as there are elements in the list.
+														</li>
+														<li>
+															This means that you use the <code>i</code> variable as a copy of the elements values and you don't need to use indices.
+														</li>
+														<li>
+															The <code>len()</code> function is not needed here, either.
+														</li>
+													</ul>
 												</p>
 										</div>
 								</div>								
