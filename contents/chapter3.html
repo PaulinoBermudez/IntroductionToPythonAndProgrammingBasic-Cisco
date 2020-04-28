@@ -2275,6 +2275,60 @@ var6 = int(input())
 													You'll soon get used to it, and it'll become second nature. <br>												
 													Before we go any further in our discussion, we have to state the following: our list is a collection of elements, but each element is a scalar.																										
 												</p>
+												<h2>Indexing list</h2>
+												<p>
+													How do you change the value of a chosen element in the list? <br>
+													Let's <b>assign a new value of <code>111</code> to the first element</b> in the list. We do it this way:
+													<blockquote>
+<pre>numbers = [10,5,7,2,1]
+print("Original list content: ", numbers) # print original list content
+numbers[0] = 111
+print("New list content: ", numbers) # current list content
+</pre>														
+													</blockquote>
+													<div>
+														<img src="images/index lists -1.PNG" class="" alt="">
+													</div> <br>
+													And now we eant <b>the value of the fifth element to be copied to the second element</b> - can you guess how to do it?
+													<blockquote>
+														# We copy the previous code and add the next lines<br>
+														numbers[1] = numbers[4] # copying value of the fifth element to the second
+														print ("New list content: ", numbers) # printing current list content
+													</blockquote>
+													<div>
+														<img src="images/index lists -2.PNG" alt="">
+													</div> <br>
+													The value inside the brackets which selectes one element of the lists is called an <b>index</b>, while the operation of the selecting an element from the list is know as <b>indexing.</b> <br>
+													We're going to use the <code>print()</code> function to print the list content each time we make the changes. This will help us follow each step more carefully and see what's going on after a particular 
+													list modification. <br>
+													<b>Note:</b> All the indices used so far are literals, Their values are fixed at runtime, but <b>any expression can be the index</b>, too. This opens up lots of possibilities.
+												</p>
+												<h2>Accessing list content</h2>
+												<p>
+													Each of the list's elements may be accessed separately. For example, it can be printed:
+													<blockquote>
+														print(numbers[0]) # accessing the list's first element
+													</blockquote>
+													Assuming that all of the previous operations have been completed successfully, the snippet will send <code>111</code> to the console. <br>
+													As you can see in the editor, the list may also be printed as a whole - just like here: 
+													<blockquote>
+														print(numbers) # printing the whole list 
+													</blockquote>
+													As you've probably noticed before, Python decorates the output in a way that suggests that all the presented values form a list. The output from the example snippet above looks like this: 
+													<blockquote>
+														[111, 1, 7, 2, 1]
+													</blockquote>
+												</p>
+												<h2>The <code>len()</code> function</h2>
+												<p>
+													The <b>length of a list</b> may vary during execution. New elements may be added to the list, while others may be removed from it. This means that the list is a very dynamic entity. <br>
+													If you want to check the list's current length, you can use a function named <code>len()</code> (its name comes from <i>length</i> ). <br>
+													The function takes the <b>list's name as an argument, and returns the number of elements currently stored</b> inside the list (in other words - the list's length). <br>
+													Look at the last line of code in the editor, run the program and check what value it will print to the console. Can you guess?
+													<div>
+														<img src="images/length function.PNG" class="responsive" alt="">
+													</div>
+												</p>
 										</div>
 								</div>								
 						</section>
