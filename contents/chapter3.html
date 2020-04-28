@@ -2533,6 +2533,35 @@ var2 = 2
 													Clear, effective and elegant, isn't it?	<br>
 													<img src="images/list in action.PNG" class="" alt="">
 												</p>
+												<h2>Litst in action</h2>
+												<p>
+													Now you can easiy swap the list's elements to <b>reverse their order.</b> <br>
+													<blockquote>
+<pre>myList = [10, 1, 8, 3, 5]
+myList[0], myList[4] = myList[4], myList[0]
+myList[1], myList[3] = myList[3], myList[1]
+print(myList)
+</pre>
+													</blockquote>
+													Run the snippet. Its output should look like this:
+													<blockquote>
+														[5, 3, 8, 1, 10]
+													</blockquote>
+													It looks fine with five elements. <br>
+													Will still be acceptable with a list containing 100 elements? No, it won't. Can you use the <code>for</code> loop to do the same thing automatically, irrespective of the list's length? 
+													Yes, you can. <br>
+													This is how we've done it.
+													<blockquote>
+<pre>myList = [10, 1, 8, 3, 5]
+length = len(myList)
+
+for i in range(length // 2):
+	myList[i], myList[length-i-1]=myList[length-i-1], myList[i]
+
+print(myList)
+</pre>														
+													</blockquote>
+												</p>
 										</div>
 								</div>								
 						</section>
