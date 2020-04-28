@@ -26,4 +26,5 @@ echo "Fin del script"
 sleep 5
 clear
 sleep 300
-sh ~/subida/s.sh
+
+sh s.sh
