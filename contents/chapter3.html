@@ -2859,39 +2859,33 @@ print(newList)
 												</p>
 												<h2>Slices: Continued</h2>
 												<p>
-													If you omit the start in your slice, it is assumed that you want to get a slice beginning at the element with index 0.
-
+													If you omit the start in your slice, it is assumed that you want to get a slice beginning at the element with index 0. <br>
 													In other words, the slice of this form:
-													
-													myList[:end]
-													
+													<blockquote>myList[:end]</blockquote>
 													is a more compact equivalent of:
-													
-													myList[0:end]
-													
+													<blockquote>myList[0:end]</blockquote>
 													Look at the snippet below:
-													
-													myList = [10, 8, 6, 4, 2]
-													newList = myList[:3]
-													print(newList)
-													
-													This is why its output is: [10, 8, 6].
-													
-													Similarly, if you omit the end in your slice, it is assumed that you want the slice to end at the element with the index len(myList).
-													
-													In other words, the slice of this form:
-													
-													myList[start:]
-													
+<blockquote>
+<pre>myList = [10, 8, 6, 4, 2]
+newList = myList[:3]
+print(newList)
+</pre>
+</blockquote>													
+													This is why its output is: [10, 8, 6]. <br>
+													Similarly, if you omit the end in your slice, it is assumed that you want the slice to end at the element with the index len(myList). <br>													
+													In other words, the slice of this form: <br>
+													<blockquote>myList[start:]</blockquote>
 													is a more compact equivalent of:
-													
-													myList[start:len(myList)]
-													
+													<blockquote>
+														myList[start:len(myList)]
+													</blockquote>													
 													Look at the following snippet:
-													
-													myList = [10, 8, 6, 4, 2]
-													newList = myList[3:]
-													print(newList)
+<blockquote>
+<pre>myList = [10, 8, 6, 4, 2]
+newList = myList[3:]
+print(newList)
+</pre>
+</blockquote>													
 													
 													Its output is therefore: [4, 2].
 												</p>
