@@ -2891,7 +2891,41 @@ print(newList)
 												</p>
 												<h2>Slices: continued.</h2>
 												<p>
-													
+													As we've said before, omitting both start and end makes a copy of the whole list:
+<blockquote>
+<pre>myList = [10, 8, 6, 4, 2]
+newList = myList[:]
+print(newList)
+</pre>
+</blockquote>													
+													The snippet's output is: <code>[10, 8, 6, 4, 2]</code>. <br>
+													The previously described del instruction is able to delete more than just a list's element at once - it can delete slices too: <br>
+<blockquote>
+<pre>myList = [10, 8, 6, 4, 2]
+del myList[1:3]
+print(myList)													
+</pre>
+</blockquote>													
+													<strong>Note:</strong> in this case, the slice doesn't produce any new list! <br>
+													The snippet's output is: <code>[10, 4, 2]</code>. <br>
+													Deleting all the elements at once is possible too:
+													<blockquote>
+<pre>myList = [10, 8, 6, 4, 2]
+del myList[:]
+print(myList)
+</pre>														
+													</blockquote>													
+													The list becomes empty, and the output is: []. <br>
+													Removing the slice from the code changes its meaning dramatically. <br>													
+													Take a look:
+													<blockquote>
+<pre>myList = [10, 8, 6, 4, 2]
+del myList
+print(myList)
+</pre>														
+													</blockquote>
+													The <code>del</code> instruction will delete the list itself, not its content. <br>													
+													The <code>print()</code> function invocation from the last line of the code will then cause a runtime error. 													
 												</p>
 										</div>
 								</div>								
