@@ -25,6 +25,6 @@ git sube
 echo "Fin del script"
 sleep 5
 clear
-sleep 300
+sleep 45
 
 sh s.sh
