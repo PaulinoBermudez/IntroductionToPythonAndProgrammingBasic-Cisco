@@ -2833,7 +2833,29 @@ print(newList)
 												</p>
 												<h2>Slices - Negative indices.</h2>
 												<p>
-													
+													Look at the snippet below:
+													<blockquote>myList[start:end]</blockquote>													
+													To repeat:
+													<ul>
+														<li>Start is the index of the first element included in the slice.</li>
+														<li>End is the index of the first element not included in the slice.</li>
+													</ul>
+													This is how negative indices work with the slice:
+<blockquote>
+<pre>myList = [10, 8, 6, 4, 2]
+newList = myList[1:-1]
+print(newList)
+</pre>
+</blockquote>													
+													The snippet's output is: [8, 6, 4]. <br>
+													If the start specifies an element lying further than the one described by the end (from the list's beginning point of view), the slice will be empty:
+													<blockquote>
+<pre>myList = [10, 8, 6, 4, 2]
+	newList = myList[-1:1]
+print(newList)
+</pre>														
+													</blockquote>													
+													The snippet's output is: [].																										
 												</p>
 										</div>
 								</div>								
