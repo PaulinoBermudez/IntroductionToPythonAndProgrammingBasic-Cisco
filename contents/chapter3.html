@@ -2602,6 +2602,69 @@ print(myList)
 														<li>Step 5: use the insert() method to add Ringo Starr to the beginning of the list.</li>
 													</ul>
 													By the way, are you a Beatles fan?
+													<div>
+														<a href="programs/3.1.4.13LAB.py" target="_blank" rel="noopener noreferrer">
+															<img src="images/The Beatles Artist List Code.PNG" class="responsive" alt="">
+														</a> <p><a href="programs/3.1.4.13LAB.py" target="_blank" rel="noopener noreferrer">Code</a></p>
+														<a href="images/The Beatles Artist List Code.PNG"><img src="images/The Beatles Artist List Test.PNG" class="responsive" alt=""></a>
+														<p>
+															Data test.
+														</p>
+													</div>
+												</p>
+												<h2>Key takeaways</h2>
+												<p>
+													1. The list is a type of data in Python used to store multiple objects. It is an ordered and mutable collection of comma-separated items between square brackets, e.g.: 
+													<blockquote>
+														myList = [1, None, True, "I am a string", 256, 0]
+													</blockquote>
+													2. Lists can be indexed and updated, e.g.:
+													<blockquote>
+<pre>myList = [1, None, True, 'I am a string', 256, 0]
+print(myList[3]) # outputs: I am a string
+print(myList[-1]) # outputs: 0
+
+myList[1] = '?'
+print(myList) # outputs: [1, '?', True, 'I am a string', 256, 0]
+
+myList.insert(0, "first")
+myList.append("last")
+print(myList) # outputs: ['first', 1, '?', True, 'I am a string', 256, 0, 'last']
+</pre>
+													</blockquote>
+													3. Lists can be nested, e.g.: <code>myList = [1, 'a', ["list", 64, [0, 1], False]]</code>. <br>
+													You will learn more about nesting in module 3.1.7 - for the time being, we just want you to be aware that something like this is possible, too. <br>
+													4. List elements and lists can be deleted, e.g.:
+													<blockquote>
+<pre>myList = [1, 2, 3, 4]
+del myList[2]
+print(myList) # outputs: [1, 2, 4]
+del myList # deletes the whole list
+</pre>														
+													</blockquote>													
+													Again, you will learn more about this in module 3.1.6 - don't worry. For the time being just try to experiment with the above code and check how changing it affects the output. <br>
+													5. Lists can be iterated through using the for loop, e.g.:
+													<blockquote>
+<pre>myList = ["white", "purple", "blue", "yellow", "green"]
+for color in myList:
+	print(color)
+</pre>														
+													</blockquote>
+													6. The <code>len()</code> function may be used to <b> check the list's length</b>, e.g.:
+													<blockquote>
+														myList = ["white", "purple", "blue", "yellow", "green"] <br>
+														print(len(myList)) # outputs 5 <br>
+														del myList[2] <br>
+														print(len(myList)) # outputs 4
+													</blockquote>
+													7. A typical function invocation looks as follows: result = function(arg), while a typical method invocation looks like this:result = data.method(arg).
+													<h4>Exercises</h4>
+													<p>
+														<a href="programs/3.1.4.14-1.py" target="_blank" rel="noopener noreferrer">Exercise 1</a> <br>
+														<a href="programs/3.1.4.14-2.py" target="_blank" rel="noopener noreferrer">Exercise 2</a> <br>
+														<a href="programs/3.1.4.14-3.py" target="_blank" rel="noopener noreferrer">Exercise 3</a> <br>
+														<a href="programs/3.1.4.14-4.py" target="_blank" rel="noopener noreferrer">Exercise 4</a> 
+													</p>
 												</p>
 										</div>
 								</div>								
