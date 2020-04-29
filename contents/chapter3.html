@@ -2681,9 +2681,9 @@ for color in myList:
 														In the following sections, we'll sort the list in increasing order, so that the numbers will be ordered from the smallest to the largest. Here's the list: <br>
 														<img src="images/bubble1.PNG" alt=""> <br>
 														We'll try to use the following approach: we'll take the first and the second elements and compare them; if we determine that they're in the wrong order (i.e., the first is greater than the second), we'll swap them round; if their order is valid, we'll do nothing. A glance at our list confirms the latter - the elements 01 and 02 are in the proper order, as in 8 < 10. <br>
-														Now look at the second and the third elements. They're in the wrong positions. We have to swap them:
+														Now look at the second and the third elements. They're in the wrong positions. We have to swap them: <br>
 														<img src="images/bubble2.PNG" alt=""> <br>
-														We go further, and look at the third and the fourth elements. Again, this is not what it's supposed to be like. We have to swap them:
+														We go further, and look at the third and the fourth elements. Again, this is not what it's supposed to be like. We have to swap them: <br>
 														<img src="images/bubble3.PNG" alt=""> <br>
 														Now we check the fourth and the fifth elements. Yes, they too are in the wrong positions. Another swap occurs: <br>
 														<img src="images/bubble4.PNG" alt=""> <br>
@@ -2705,6 +2705,131 @@ for color in myList:
 														As you can see, the essence of this algorithm is simple: <strong>we compare the adjacent elements, and by swapping some of them, we achieve our goal.</strong> <br>
 														Let's code in Python all the actions performed during a single pass through the list, and then we'll consider how many passes we actually need to perform it. We haven't explained this so far, and we'll do that a little later. <br>
 													</p>
+													<h2>Sorting a list</h2>
+													<p>
+														How many passes do we need to sort the entire list? <br>
+														We solve this issue in the following way: we introduce another variable; its task is to observe if any swap has been done during the pass or not; if there is no swap, then the list is already sorted, and nothing more has to be done. 
+														We create a variable named swapped, and we assign a value of False to it, to indicate that there are no swaps. Otherwise, it will be assigned True. <br>
+														<blockquote>
+<pre>myList  =  [8, 10, 6, 2, 4] # list to sort <br>
+for i in range(len(myList) - 1): # we need (5 - 1) comparisons <br>
+	if myList[i] > myList[i + 1]: # compare adjacent elements <br>
+		myList[i], myList[i + 1] = myList[i + 1], myList[i] # if we end up here it means that we have to swap the elements <br>		
+</pre>																												 
+														</blockquote>
+														You should be able to read and understand this program without any problems:
+														<blockquote>
+<pre>myList = [8, 10, 6, 2, 4] # list to sort
+swapped = True # it's a little fake - we need it to enter the while loop
+
+while swapped:
+	swapped = False # no swaps so far
+	for i in range(len(myList) - 1):
+		if myList[i] > myList[i + 1]:
+			swapped = True # swap occured!
+			myList[i], myList[i + 1] = myList[i + 1], myList[i]															
+print(myList)
+</pre>															
+														</blockquote>
+														<img src="images/sorting a list.PNG" alt="">
+													</p>
+												</p>
+												<h2>The bubble sort - interactive version.</h2>
+												<p>
+													In the editor you can see a complete program, enriched by a cinversation with the user, and allowing the user to enter and to print elements from the list: <b>The bubble sort - final interactive version.</b> <br>
+													Python, however, has its own sorting mechanisms. No one needs to writes their own sorts, as there is a sufficient number of <strong>ready-to-use tools</strong>. <br>
+													We explained  this sorting system to you because it's important to learn how to process a list's contents, and to show you how real sorting may work. <br>
+													If you want Python to sort your list, you can do it like this:
+													<blockquote>
+<pre>myList = [8, 10, 6, 2, 4]
+myList.sort()
+print(myList)	
+</pre>														
+													</blockquote>
+													It is as simple as that. The snippet's output is as follows:
+													<blockquote>
+														[2,4,6,8,10]
+													</blockquote>
+													As you can see, all the lists have a method named <code>sort()</code>, which sorts them as fast as possible. You've already learned about some of the list methods before, and you're going to learn more about others very soon. <br>
+													<img src="images/the bubble sort - interactive version.PNG" class="responsive" alt="">
+												</p>
+												<h2>Key takeaways</h2>
+												<p>
+													1. You can use the sort() method to sort elements of a list, e.g.:
+<blockquote>
+<pre>lst = [5, 3, 1, 2, 4]
+print(lst)
+<br>
+lst.sort()
+print(lst) # outputs: [1, 2, 3, 4, 5]</pre>
+</blockquote>
+													2. There is also a list method called reverse(), which you can use to reverse the list, e.g.:
+<blockquote>
+<pre>lst = [5, 3, 1, 2, 4]
+print(lst)
+<br>
+lst.reverse()
+print(lst) # outputs: [4, 2, 1, 3, 5]
+</pre>
+</blockquote>													
+												</p>
+												<h2>The inner life of list</h2>
+												<p>
+													Now we want to show you one important, and very surprising, feature of lists, which strongly distinguishes them from ordinary variables. <br>
+													We want you to memorize it - it may affect your future programs, and cause severe problems if forgotten or overlooked. <br>													
+													Take a look at the snippet in the editor. <br>													
+													The program:
+													<ul>
+														<li>Creates a one-element list named <code>list1</code></li>
+														<li>Assigns it to a new list named <code>list2</code></li>
+														<li>Changes the only element of <code>list1</code></li>
+														<li>Prints out <code>list2</code></li>
+													</ul>
+													The surprising part is the fact that the program will output: [2], not [1], which seems to be the obvious solution. <br>
+													Lists (and many other complex Python entities) are stored in different ways than ordinary (scalar) variables. <br>													
+													You could say that: 
+													<ul>
+														<li> The name of an ordinary variable is the name of its content.</li>
+														<li> The name of a list is the name of a memory location where the list is stored.</li>
+													</ul>
+													Read these two lines once more - the difference is essential for understanding what we are going to talk about next. <br>													
+													The assignment: list2 = list1 copies the name of the array, not its contents. In effect, the two names (list1 and list2) identify the same location in the computer memory. 
+													Modifying one of them affects the other, and viceversa.
+													<div>
+														<img src="images/the inner life of lists.PNG" class="" alt="">
+													</div>
+												</p>
+												<h2>Powerful slices.</h2>
+												<p>
+													Fortunately, the solution is at your fingertips - its name is the <b>slice</b>. <br>
+													A slice is an element of Python syntax that allows you to <b>make a brand new copy of a list, or parts of a list</b>. <br>
+													It actually copies the list's contents, not the list's name. <br>													
+													This is exactly what you need. Take a look at the snippet below:
+													<blockquote>
+<pre>list1 = [1]
+list2 = list1[:]
+list1[0] = 2
+print(list2)
+</pre>														
+													</blockquote>													
+													Its output is [1]. <br>													
+													This inconspicuous part of the code described as [:] is able to produce a brand new list. <br>													
+													One of the most general forms of the slice looks as follows:
+													<blockquote>myList[start:end]</blockquote>													
+													As you can see, it resembles indexing, but the colon inside makes a big difference. <br>													
+													A slice of this form makes a new (target) list, taking elements from the source list - the elements of the indices from start to <code>end - 1.</code> <br>
+													Note: not to end but to end - 1. An element with an index equal to end is the first element which <b>does not take part in the slicing</b>. <br>								
+													Using negative values for both start and end is possible (just like in indexing). <br>
+													Take a look at the snippet:
+													<blockquote>
+<pre>
+myList = [10, 8, 6, 4, 2]
+newList = myList[1:3]
+print(newList)
+</pre>														
+													</blockquote>													
+													The newList list will have end - start (3 - 1 = 2) elements - the ones with indices equal to 1 and 2 (but not 3).													
+													The snippet's output is: <code>[8, 6]</code>																								
 												</p>
 										</div>
 								</div>								
