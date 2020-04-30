@@ -312,18 +312,49 @@ def opera(y):
                     - c: {:2}
                     """.format(a,b,c))
                 elif lado == 'B':
-                    ang=input("¿Ángulo de 'A'? ")
-                    b = input("Lado 'b': ")
+                    ang=input("¿Ángulo de 'B'? ")
+                    a = input("Lado 'a': ")
                     c = input("Lado 'c': ")
-                    a = ((b**2)+(c**2)-(2*b*c*math.cos(ang)))
+                    b = ((a**2)+(c**2)-(2*a*c*math.cos(ang)))
                     print()
                     print("""Tenemos:
                     - a: {:2}
                     - b: {:2}
                     - c: {:2}
                     """.format(a,b,c))
+                elif lado == 'C':
+                    ang=input("¿Ángulo de 'C'? ")
+                    a = input("Lado 'a': ")
+                    b = input("Lado 'b': ")
+                    c = ((b**2)+(a**2)-(2*b*a*math.cos(ang)))
+                    print()
+                    print("""Tenemos:
+                    - a: {:2}
+                    - b: {:2}
+                    - c: {:2}
+                    """.format(a,b,c))
+                else:
+                    print("Error en los datos de entrada")
+            else:
+                h=input("Dime la altura")
+                lado=input("¿Qué lado calculamos? (A-C) ")
+                lado = lado.upper
+                if lado == 'A':
+                    ang = input(" ¿Ángulo de 'B'? ")
+                    a = h/(math.sen(ang))
+                    print("El lado 'a' mide: ", a)
+                elif lado == 'B':
+                    ang = input(" ¿Ángulo de 'A'? ")
+                    b = h/(math.sen(ang))
+                    print("El lado 'a' mide: ", b)
+                elif lado == 'C':
+                    ang = input(" ¿Ángulo de 'B'? ")
+                    a = h/(math.sen(ang))
+                    print("El lado 'a' mide: ", a)
 
+                
 
+                
 
     elif (y==18):
         print("Opción: Raíz cuadrada")
