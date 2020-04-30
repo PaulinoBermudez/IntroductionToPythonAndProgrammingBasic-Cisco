@@ -182,46 +182,46 @@ def opera(y):
         
     elif (y==13):
         print("Opción: DEC a HEX")
-        def hexadec(decimal, base):
-            conversion = ''                
-            while decimal // base != 0:                
-                conversion = str(decimal % base) + conversion                
-                decimal = decimal // base
-                primero = str(decimal) 
-                segundo = conversion
-                print(primero, "\n")
-                print(segundo, "\n")
-                #print(type(primero))
-                #print(type(segundo))
-                if primero == '10':
-                    primero = 'A'
-                elif primero == '11':
-                    primero = 'B'
-                elif primero == '12':
-                    primero = 'C'
-                elif primero == '13':
-                    primero = 'D'
-                elif primero == '14':
-                    primero = 'E'
-                elif primero == '15':
-                    primero = 'F'
-                if segundo == '10':
-                    segundo = 'A'
-                elif segundo == '11':
-                    segundo = 'B'
-                elif segundo == '12':
-                    segundo = 'C'
-                elif segundo == '13':
-                    segundo = 'D'
-                elif segundo == '14':
-                    segundo = 'E'
-                elif segundo == '15':
-                    segundo = 'F'
-                return (primero+segundo)
+        # def hexadec(decimal, base):
+        #     conversion = ''                
+        #     while decimal // base != 0:                
+        #         conversion = str(decimal % base) + conversion                
+        #         decimal = decimal // base
+        #         primero = str(decimal) 
+        #         segundo = conversion
+        #         print(primero, "\n")
+        #         print(segundo, "\n")
+        #         #print(type(primero))
+        #         #print(type(segundo))
+        #         if primero == '10':
+        #             primero = 'A'
+        #         elif primero == '11':
+        #             primero = 'B'
+        #         elif primero == '12':
+        #             primero = 'C'
+        #         elif primero == '13':
+        #             primero = 'D'
+        #         elif primero == '14':
+        #             primero = 'E'
+        #         elif primero == '15':
+        #             primero = 'F'
+        #         if segundo == '10':
+        #             segundo = 'A'
+        #         elif segundo == '11':
+        #             segundo = 'B'
+        #         elif segundo == '12':
+        #             segundo = 'C'
+        #         elif segundo == '13':
+        #             segundo = 'D'
+        #         elif segundo == '14':
+        #             segundo = 'E'
+        #         elif segundo == '15':
+        #             segundo = 'F'
+        #         return (primero+segundo)
         numero = int(input('Introduce el número a cambiar de base: '))
         base = 16
-        print("Opción 1: \n", hex(numero)[2:])
-        print("Opción 2: \n", hexadec(numero, base))
+        print(hex(numero)[2:])
+        # print("Opción 2: \n", hexadec(numero, base))
         
         
     elif (y==14):
