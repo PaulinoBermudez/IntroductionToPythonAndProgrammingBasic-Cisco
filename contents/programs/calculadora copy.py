@@ -276,7 +276,7 @@ def opera(y):
             lado2 = input("¿No sabe el lado más corto? (Y/N) ")
             if lado2 == 'y' or lado2 == 'Y':
                 a=int(input("Introduzca valor del lado que conoce: "))
-                interior=(2*(a**2)-(2*(a**2)*math.cos(60))
+                interior=(2*(a**2)-(2*(a**2)*math.cos(60)))
                 b=(math.sqrt(interior))
                 print("El lado que desconoce mide: ", b)
         
