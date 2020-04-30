@@ -185,8 +185,6 @@ def opera(y):
         def hex(decimal, base):
             conversion = ''
             while decimal // base != 0:
-                conversion = str(decimal % base) + conversion
-                decimal = decimal // base
                 def letras (decimal):
                     switcher= {
                         10:'A',
@@ -197,6 +195,9 @@ def opera(y):
                         15:'F',
                     }
                     return switcher.get(decimal, "Invalid decimal number -.-''")
+                conversion = str(decimal % base) + conversion
+                decimal = decimal // base
+                
             return str(decimal) + conversion
 
         numero = int(input('Introduce el número a cambiar de base: '))
