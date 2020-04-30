@@ -190,8 +190,11 @@ def opera(y):
                 
                 decimal = decimal // base
                 print(decimal , "\n")
+                
                 primero = str(decimal) 
                 segundo = conversion
+                print(class primero)
+                print(class segundo)
                 if primero == 10:
                     primero = 'A'
                 elif primero == 11:
