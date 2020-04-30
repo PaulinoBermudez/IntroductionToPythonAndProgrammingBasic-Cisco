@@ -122,8 +122,8 @@ def opera(y):
         if calc < 0:
             print("No puedo calular una raiz negativa... Sorry")
         else:
-            resultado1=((-b)+math.sqrt(calc)/(2*a))
-            resultado2=((-b)-math.sqrt(calc)/(2*a))
+            resultado1=(((-b)+math.sqrt(calc))/(2*a))
+            resultado2=(((-b)-math.sqrt(calc))/(2*a))
             print("El resultado para +X de {:2}X^2+({:2})+({:2}) = 0 es: ".format(a,b,c), resultado1)
             print("El resultado para -X de {:2}X^2+({:2})+({:2}) = 0 es: ".format(a,b,c) ", resultado2)
         
