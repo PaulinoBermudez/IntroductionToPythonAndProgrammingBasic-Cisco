@@ -111,7 +111,7 @@ def opera(y):
         a=int(input("Introduzca valor de las 'X's' : "))
         b=int(input("Introduzca valor de los enteros : "))
         resultado=(b/a)
-        print("El resultado de {:2}x+({:2}), X = ".format(a,b), resultado)
+        print("El resultado de {:2}x+({:2}) = 0, X = ".format(a,b), resultado)
         
     elif (y==9):
         print("Opción: Polinomio de segundo grado")
