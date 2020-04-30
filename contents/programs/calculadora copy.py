@@ -187,17 +187,16 @@ def opera(y):
             while decimal // base != 0:
                 conversion = str(decimal % base) + conversion
                 decimal = decimal // base
-                letras = ''
-                switch (decimal) {
-                    case 10: letras = 'A'; break;
-                    case 11: letras = 'B'; break;
-                    case 12: letras = 'C'; break;
-                    case 13: letras = 'D'; break;
-                    case 14: letras = 'E'; break;
-                    case 15: letras = 'F'; break;
-                    default: decimal = decimal; break;
-                }
-                
+                def letras (decimal):
+                    switcher= {
+                        10: letras = 'A',
+                        11: letras = 'B',
+                        12: letras = 'C',
+                        13: letras = 'D',
+                        14: letras = 'E',
+                        15: letras = 'F',
+                    }
+                    return switcher.get(decimal, "Invalid decimal number -.-''")
             return str(decimal) + conversion
 
         numero = int(input('Introduce el número a cambiar de base: '))
