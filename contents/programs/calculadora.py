@@ -56,6 +56,8 @@ def opera(y):
     if (y == 0):
         exit
         sal=input("He salido del IF")
+        break
+        sal=input("He salido del WHILE")
     elif (y==1):
         print("Opción: Suma")
         a=int(input("Introduzca el primer número: "))
