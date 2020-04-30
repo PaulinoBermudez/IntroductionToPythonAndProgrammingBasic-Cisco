@@ -155,6 +155,72 @@ def opera(y):
         a=int(input("Introduzca el número: "))
         resultado=(math.sqrt(a))
         print("El resultado es:", resultado)
+
+    elif (y==11):
+        print("Opción: Raíz cuadrada")
+        a=int(input("Introduzca el número: "))
+        resultado=(math.sqrt(a))
+        print("El resultado es:", resultado)
+        
+    elif (y==12):
+        print("Opción: Raíz cuadrada")
+        a=int(input("Introduzca el número: "))
+        resultado=(math.sqrt(a))
+        print("El resultado es:", resultado)
+        
+    elif (y==13):
+        print("Opción: Raíz cuadrada")
+        a=int(input("Introduzca el número: "))
+        resultado=(math.sqrt(a))
+        print("El resultado es:", resultado)
+        
+    elif (y==14):
+        print("Opción: Raíz cuadrada")
+        a=int(input("Introduzca el número: "))
+        resultado=(math.sqrt(a))
+        print("El resultado es:", resultado)
+        
+    elif (y==15):
+        print("Opción: Raíz cuadrada")
+        a=int(input("Introduzca el número: "))
+        resultado=(math.sqrt(a))
+        print("El resultado es:", resultado)
+    
+    elif (y==16):
+        print("Opción: Raíz cuadrada")
+        a=int(input("Introduzca el número: "))
+        resultado=(math.sqrt(a))
+        print("El resultado es:", resultado)
+        
+    elif (y==17):
+        print("Opción: Raíz cuadrada")
+        a=int(input("Introduzca el número: "))
+        resultado=(math.sqrt(a))
+        print("El resultado es:", resultado)
+        
+    elif (y==18):
+        print("Opción: Raíz cuadrada")
+        a=int(input("Introduzca el número: "))
+        resultado=(math.sqrt(a))
+        print("El resultado es:", resultado)
+        
+    elif (y==19):
+        print("Opción: Raíz cuadrada")
+        a=int(input("Introduzca el número: "))
+        resultado=(math.sqrt(a))
+        print("El resultado es:", resultado)
+        
+    elif (y==20):
+        print("Opción: Raíz cuadrada")
+        a=int(input("Introduzca el número: "))
+        resultado=(math.sqrt(a))
+        print("El resultado es:", resultado)
+        
+    elif (y==10):
+        print("Opción: Raíz cuadrada")
+        a=int(input("Introduzca el número: "))
+        resultado=(math.sqrt(a))
+        print("El resultado es:", resultado)
         
     else:
         print("Número inválido!")
