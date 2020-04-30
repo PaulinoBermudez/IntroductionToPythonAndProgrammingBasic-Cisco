@@ -195,31 +195,31 @@ def opera(y):
                 segundo = conversion
                 print(type(primero))
                 print(type(segundo))
-                if primero == 10:
+                if primero == '10':
                     primero = 'A'
-                elif primero == 11:
+                elif primero == '11':
                     primero = 'B'
-                elif primero == 12:
+                elif primero == '12':
                     primero = 'C'
-                elif primero == 13:
+                elif primero == '13':
                     primero = 'D'
-                elif primero == 14:
+                elif primero == '14':
                     primero = 'E'
-                elif primero == 15:
+                elif primero == '15':
                     primero = 'F'
-                elif segundo == 10:
+                elif segundo == '10':
                     segundo = 'A'
-                elif segundo == 11:
+                elif segundo == '11':
                     segundo = 'B'
-                elif segundo == 12:
+                elif segundo == '12':
                     segundo = 'C'
-                elif segundo == 13:
+                elif segundo == '13':
                     segundo = 'D'
-                elif segundo == 14:
+                elif segundo == '14':
                     segundo = 'E'
-                elif segundo == 15:
+                elif segundo == '15':
                     segundo = 'F'
-                return primero+segundo
+                return (primero+segundo)
         numero = int(input('Introduce el número a cambiar de base: '))
         base = 16
         print(hex(numero, base))
