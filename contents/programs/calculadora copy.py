@@ -169,6 +169,7 @@ def opera(y):
         print(numero, "> ", binario(numero))
         
     elif (y==12):
+        print("Opción: BIN a DEC")
         def decimal(binario):
             decimal = ''
             while binario // 2 != 0:
