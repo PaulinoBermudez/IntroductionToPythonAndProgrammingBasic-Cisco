@@ -241,9 +241,9 @@ def opera(y):
         
     elif (y==15):
         print("Opción: LOGARITMO EN CUALQUIER BASE.")
-        a=int(input("Introduzca el número: "))
+        a=float(input("Introduzca el número: "))
         b=int(input("¿Qué base? "))
-        if a < 1:
+        if a < 0.1:
             print("TE RECUERDO QUE: \n Los logaritmos no deben ser mayores que cero.")
         else:
             resultado=log(a,b)
