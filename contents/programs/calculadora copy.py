@@ -296,10 +296,10 @@ def opera(y):
                         a
             """)
             h = input("¿Sabes la altura (h)? (Y/N) ")
-            if  h=='Y' or h=='y':
+            if  h=='N' or h=='n':
                 print("Genial!")
                 lado=input("¿Qué lado desconocemos? (a/b/c)")
-                lado= lado.upper
+                lado=lado.upper
                 if lado == 'A' :
                     ang=input("¿Ángulo de 'A'? ")
                     b = input("Lado 'b': ")
