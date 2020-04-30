@@ -158,11 +158,15 @@ def opera(y):
 
     elif (y==11):
         print("Opción: DEC a BIN")
-        decimal=int(input("Introduzca el número decimal: "))
-        while decimal // 2 != 0:
-            binario = ( decimal % 2) + binario
-            decimal = decimal // 2
-        print (str(decimal) +  binario)
+        def binario(decimal):
+            binario = ''
+            while decimal // 2 != 0:
+                binario = str(decimal % 2) + binario
+                decimal = decimal // 2
+            return str(decimal) + binario
+
+        numero = int(input('Introduce el número a convertir a binario: '))
+        print(binario(numero))
         
     elif (y==12):
         print("Opción: Raíz cuadrada")
