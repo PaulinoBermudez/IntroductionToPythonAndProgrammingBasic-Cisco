@@ -56,7 +56,7 @@ def menu():
     print(22*"_","* Operaciones científicas.", 22*"_" )
     print(72*'_')
     print("15- Calcular el log en base 'Y' de 'X' \t 16- Calcula In de 'X'")
-    print("17- Calcular la hipotenusa de un triángulo ")
+    print("17- Calcular el lado desconocido de un triángulo ")
     print("18- Trigonometría \t \t \t 19- Graficar una función f(x)")
     
     print()
@@ -260,13 +260,22 @@ def opera(y):
             print("ESTE DE MOMENTO NO LO HE SACADO...")
         
     elif (y==17):
-        print("Opción: Hipotenusa de un triángulo.")
+        print("Opción: Lado desconocido de un triángulo.")
         tipo = input("""
-            ¿Qué tipo de triángulo es?
+            ¿Qué tipo de triángulo es? (A-D)
+                a. - Equilatero
+                b. - Isóceles
+                c. - Escaleno
+                d. - Rectángulo
         """)
-        if 
-            c1=int(input("Introduzca valor de cateto 1: "))
-            c2=int(input("Introduzca valor de cateto 2: "))
+        if tipo == 'a' or tipo == 'A':
+            lado = int(input("Introduzca valor del lado: "))
+            print("Como es un triángulo equilatero, todos sus lados son iguales, asi que")
+            print("El lado desconocido es: ", lado)
+        elif tipo == 'b' or tipo == 'B':
+            lado2 = input("¿Es el lado más corto? (Y/N) ")
+            if lado2 == 'y' or lado2 == 'Y':
+                c1=int(input("Introduzca valor del lado que conoce: "))
         
         
     elif (y==18):
