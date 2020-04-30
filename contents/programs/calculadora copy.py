@@ -255,9 +255,9 @@ def opera(y):
         if a < 0.1:
             print("TE RECUERDO QUE: \n Los logaritmos no deben ser mayores que cero.")
         else:
-            resultado=math.e(a)
+            resultado=(a)
             print("El resultado del logaritmo neperiano de {:2} es:".format(a), resultado)
-    
+            print("ESTE DE MOMENTO NO LO HE SACADO...")
         
     elif (y==17):
         print("Opción: Raíz cuadrada")
