@@ -55,7 +55,7 @@ def opera(y):
     # Árbol condicional de opciones.
     if (y == 0):
         exit
-        exit
+        sal=input("He salido del IF")
     elif (y==1):
         print("Opción: Suma")
         a=int(input("Introduzca el primer número: "))
