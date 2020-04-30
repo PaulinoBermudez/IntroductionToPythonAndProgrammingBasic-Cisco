@@ -36,7 +36,7 @@ def menu():
     print(72*'*')
     print("{:2} seleccione una de las opciones: \n".format(username))
     print(72*'_')
-    print(22*"_","* Operaciones estándar. ", 22*"_" )
+    print(22*"_","* Operaciones estándar. ", 24*"_" )
     print(72*'_')
     print("1- Suma \t \t \t         2- Resta")
     print("3- Multiplicación \t \t \t 4- División")
@@ -45,7 +45,7 @@ def menu():
     print("9- Polinomio de segundo grado \t \t 10- Raiz cuadrada")
     
     print(72*'_')
-    print(22*"_","* Operaciones informáticas. ", 22*"_" )
+    print(22*"_","* Operaciones informáticas. ", 20*"_" )
     print(72*'_')
     print("11- Convertir de decimal a binario \t 12- Convertir de binario a decimal")
     print("13- Convertir de decimal a hexadecimal \t 14- Convertir de decimal a Octal")
