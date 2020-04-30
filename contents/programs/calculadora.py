@@ -53,6 +53,10 @@ def opera(y):
         print("Error! Necesito una opción correcta. ") 
     # Árbol condicional de opciones.
     if (y == 0):
+        print("Saliendo del programa... Adiós! ")
+        time.sleep(3)
+        os.system('clear')
+        os.system('cls')
         sys.exit()
     elif (y==1):
         print("Opción: Suma")
