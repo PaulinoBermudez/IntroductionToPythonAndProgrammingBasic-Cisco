@@ -10,7 +10,7 @@ pythonv = platform.python_version()
 sist = platform.platform()
 y = input("""
         +-------------------------------------------------+
-        |               CALCULADORA PYTHON.               |
+        |               CALCULADORA PYTHON. \U+1F40D       |
         +-------------------------------------------------+
         | Este es un menú de calculadora básica en Python.|
         | contruida por dos funciones:                    |
