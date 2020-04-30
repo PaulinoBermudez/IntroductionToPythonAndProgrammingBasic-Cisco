@@ -9,20 +9,20 @@ os.system('cls')
 pythonv = platform.python_version()
 sist = platform.platform()
 y = input("""
-        +-------------------------------------------------+
-        |               CALCULADORA PYTHON.               |
-        +-------------------------------------------------+
-        | Este es un menú de calculadora básica en Python.|
-        | contruida por dos funciones:                    |
-        |         - MENU()                                |
-        |         - OPERA()                               |
-        | Para salir del programa, escriba '0'.           |
-        |                                                 |
-        | @Athor: PAULINO BERMÚDEZ.                       |
-        | @Estudio: Becas Digitaliza Cisco. 2019-2020.    |
-        | @Su_version Python: {:2} en {:2}                |
-        |         (Pulse ENTER para continuar.)           |
-        +-------------------------------------------------+
+        +------------------------------------------------------------------+
+        |               CALCULADORA PYTHON.                                |
+        +------------------------------------------------------------------+
+        | Este es un menú de calculadora básica en Python.                 |
+        | contruida por dos funciones:                                     |
+        |         - MENU()                                                 |
+        |         - OPERA()                                                |
+        | Para salir del programa, escriba '0'.                            |
+        |                                                                  |
+        | @Athor: PAULINO BERMÚDEZ.                                        |
+        | @Estudio: Becas Digitaliza Cisco. 2019-2020.                     |
+        | @Su_version Python: {:2} en {:2}         |
+        |         (Pulse ENTER para continuar.)                            |
+        +------------------------------------------------------------------+
 """.format(pythonv,sist)) 
 
 
