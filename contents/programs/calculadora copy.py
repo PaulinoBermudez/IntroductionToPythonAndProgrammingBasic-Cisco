@@ -187,6 +187,15 @@ def opera(y):
             while decimal // base != 0:
                 conversion = str(decimal % base) + conversion
                 decimal = decimal // base
+                switch (decimal){
+                    case 1: 10 = 'A'; break;
+                    case 2: 11 = 'B'; break;
+                    case 3: 12 = 'C'; break;
+                    case 4: 13 = 'D'; break;
+                    case 5: 14 = 'E'; break;
+                    case 6: 15 = 'F'; break;
+                    default: decimal = decimal; break;
+                }
                 
             return str(decimal) + conversion
 
