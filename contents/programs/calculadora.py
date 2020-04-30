@@ -54,7 +54,6 @@ def opera(y):
         print("Error! Necesito una opción correcta. ") 
     # Árbol condicional de opciones.
     if (y == 0):
-        y=("He salido del IF")
         return y
         exit
         
