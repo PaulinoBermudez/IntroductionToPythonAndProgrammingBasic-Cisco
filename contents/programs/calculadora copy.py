@@ -301,7 +301,29 @@ def opera(y):
                 lado=input("¿Qué lado desconocemos? (a/b/c)")
                 lado= lado.upper
                 if lado == 'A' :
-                    
+                    ang=input("¿Ángulo de 'A'? ")
+                    b = input("Lado 'b': ")
+                    c = input("Lado 'c': ")
+                    a = ((b**2)+(c**2)-(2*b*c*math.cos(ang)))
+                    print()
+                    print("""Tenemos:
+                    - a: {:2}
+                    - b: {:2}
+                    - c: {:2}
+                    """.format(a,b,c))
+                elif lado == 'B':
+                    ang=input("¿Ángulo de 'A'? ")
+                    b = input("Lado 'b': ")
+                    c = input("Lado 'c': ")
+                    a = ((b**2)+(c**2)-(2*b*c*math.cos(ang)))
+                    print()
+                    print("""Tenemos:
+                    - a: {:2}
+                    - b: {:2}
+                    - c: {:2}
+                    """.format(a,b,c))
+
+
 
     elif (y==18):
         print("Opción: Raíz cuadrada")
