@@ -169,10 +169,15 @@ def opera(y):
         print(numero, "> ", binario(numero))
         
     elif (y==12):
-        print("Opción: Raíz cuadrada")
-        a=int(input("Introduzca el número: "))
-        resultado=(math.sqrt(a))
-        print("El resultado es:", resultado)
+        def decimal(binario):
+            decimal = ''
+            while binario // 2 != 0:
+                binario = str(decimal * 2) + binario
+                decimal = decimal * 2
+            return str(decimal) + binario
+
+        numero = int(input('Introduce el número a convertir a binario: '))
+        print(numero, "> ", binario(numero))
         
     elif (y==13):
         def cambio_base(decimal, base):
