@@ -30,7 +30,7 @@ def menu():
     # Menú
     username = getpass.getuser()
     print(72*'*')
-    print(33*'*',' CALCULADORA ',24*'*')
+    print(27*'*',' CALCULADORA ',30*'*')
     print(72*'*')
     print(33*' ','*')
     print(72*'*')
