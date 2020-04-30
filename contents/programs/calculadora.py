@@ -138,14 +138,14 @@ def opera(y):
     else:
         print("Número inválido!")
         
-
-while True:  
-    menu()
-    opera(y)
-    pausa=input("Pulse ENTER para continuar.")
-    if y == 0:
-        exit
-else:
-    pausa=input("SALIENDO...MAAAALLL!!!")
+if y == 0:
     exit
+else:
+    while True:  
+        menu()
+        opera(y)
+        pausa=input("Pulse ENTER para continuar.")        
+    else:
+        pausa=input("ALGO SALIO MAL...F...MAAAALLL!!!")
+        exit
     
