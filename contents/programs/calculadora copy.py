@@ -184,22 +184,23 @@ def opera(y):
         print("Opción: DEC a HEX")
         def hex(decimal, base):
             conversion = ''
+            def letras (decimal):
+                switcher= {
+                    10:'A',
+                    11:'B',
+                    12:'C',
+                    13:'D',
+                    14:'E',
+                    15:'F',
+                }
+                return switcher.get(decimal, "Invalid decimal number -.-''")
             while decimal // base != 0:
-                def letras (decimal):
-                    switcher= {
-                        10:'A',
-                        11:'B',
-                        12:'C',
-                        13:'D',
-                        14:'E',
-                        15:'F',
-                    }
-                    return switcher.get(decimal, "Invalid decimal number -.-''")
+                
                 conversion = str(decimal % base) + conversion
                 
                 decimal = decimal // base
                 print(decimal , "\n")
-            return str(decimal) + conversion
+            return str(decimal) + ' ' + conversion
 
         numero = int(input('Introduce el número a cambiar de base: '))
         base = 16
