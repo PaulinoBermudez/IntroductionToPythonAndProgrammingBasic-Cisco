@@ -307,9 +307,9 @@ def opera(y):
                 lado=input("¿Qué lado desconocemos? (a/b/c)")
                 lado=lado.upper
                 if lado == 'A' :
-                    ang=input("¿Ángulo de 'A'? ")
-                    b = input("Lado 'b': ")
-                    c = input("Lado 'c': ")
+                    ang=float(input("¿Ángulo de 'A'? "))
+                    b = float(input("Lado 'b': "))
+                    c = float(input("Lado 'c': "))
                     a = ((b**2)+(c**2)-(2*b*c*math.cos(ang)))
                     print()
                     print("""Tenemos:
@@ -318,9 +318,9 @@ def opera(y):
                     - c: {:2}
                     """.format(a,b,c))
                 elif lado == 'B':
-                    ang=input("¿Ángulo de 'B'? ")
-                    a = input("Lado 'a': ")
-                    c = input("Lado 'c': ")
+                    ang=float(input("¿Ángulo de 'B'? "))
+                    a = float(input("Lado 'a': "))
+                    c = float(input("Lado 'c': "))
                     b = ((a**2)+(c**2)-(2*a*c*math.cos(ang)))
                     print()
                     print("""Tenemos:
@@ -329,9 +329,9 @@ def opera(y):
                     - c: {:2}
                     """.format(a,b,c))
                 elif lado == 'C':
-                    ang=input("¿Ángulo de 'C'? ")
-                    a = input("Lado 'a': ")
-                    b = input("Lado 'b': ")
+                    ang=float(input("¿Ángulo de 'C'? "))
+                    a = float(input("Lado 'a': "))
+                    b = float(input("Lado 'b': "))
                     c = ((b**2)+(a**2)-(2*b*a*math.cos(ang)))
                     print()
                     print("""Tenemos:
@@ -354,9 +354,9 @@ def opera(y):
                     b = h/(math.sin(ang))
                     print("El lado 'a' mide: ", b)
                 elif lado == 'C':
-                    ang = input(" ¿Ángulo de 'C'? ")
-                    a = h/(math.sin(ang))
-                    print("El lado 'a' mide: ", a)
+                    b = input("")
+
+                    print("El lado 'c' mide: ", c)
 
                 
 
