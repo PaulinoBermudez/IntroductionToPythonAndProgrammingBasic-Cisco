@@ -139,7 +139,7 @@ def opera(y):
         print("Número inválido!")
         
 
-while y != 0:  
+while True:  
     menu()
     opera(y)
     pausa=input("Pulse ENTER para continuar.")
