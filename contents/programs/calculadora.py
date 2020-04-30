@@ -50,14 +50,14 @@ def opera(y):
     # En caso de ENTER sin número...
     y = int(input("Opción: "))
     print("__________________")
-    if y == None:
+    if y == '*':
         print("Error! Necesito una opción correcta. ") 
     # Árbol condicional de opciones.
     if (y == 0):
+        y=("He salido del IF")
+        return y
         exit
-        sal=input("He salido del IF")
-        break
-        sal=input("He salido del WHILE")
+        
     elif (y==1):
         print("Opción: Suma")
         a=int(input("Introduzca el primer número: "))
