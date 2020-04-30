@@ -189,8 +189,8 @@ def opera(y):
                 decimal = decimal // base
                 primero = str(decimal) 
                 segundo = conversion
-                #print(primero, "\n")
-                #print(segundo, "\n")
+                print(primero, "\n")
+                print(segundo, "\n")
                 #print(type(primero))
                 #print(type(segundo))
                 if primero == '10':
