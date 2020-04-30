@@ -250,10 +250,14 @@ def opera(y):
             print("El resultado del logaritmo {:2} en base {:2} es:".format(a,b), resultado)
     
     elif (y==16):
-        print("Opción: Raíz cuadrada")
-        a=int(input("Introduzca el número: "))
-        resultado=(math.sqrt(a))
-        print("El resultado es:", resultado)
+        print("Opción: LOGARITMO NEPERIANO DE UN NÚMERO.")
+        a=float(input("Introduzca el número: "))
+        if a < 0.1:
+            print("TE RECUERDO QUE: \n Los logaritmos no deben ser mayores que cero.")
+        else:
+            resultado=math.log(a,4)
+            print("El resultado del logaritmo {:2} en base {:2} es:".format(a,b), resultado)
+    
         
     elif (y==17):
         print("Opción: Raíz cuadrada")
