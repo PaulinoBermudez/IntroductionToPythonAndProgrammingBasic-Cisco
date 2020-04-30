@@ -53,7 +53,8 @@ def opera(y):
         print("Error! Necesito una opción correcta. ") 
     # Árbol condicional de opciones.
     if (y == 0):
-        print("Saliendo del programa... Adiós! ")
+        username = getpass.getuser()
+        print("Saliendo del programa... Adiós {:2}! ".format(username))
         time.sleep(3)
         os.system('clear')
         os.system('cls')
