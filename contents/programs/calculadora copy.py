@@ -29,8 +29,8 @@ def menu():
     os.system('cls')
     # Menú
     username = getpass.getuser()
-    print(58*'*')
-    print(32*'*',' CALCULADORA ',11*'*')
+    print(65*'*')
+    print(32*'*',' CALCULADORA ',31*'*')
     print(58*'*')
     print(38*' ','*')
     print(58*'*')
