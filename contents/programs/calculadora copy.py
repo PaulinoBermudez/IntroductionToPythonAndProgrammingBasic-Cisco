@@ -341,15 +341,15 @@ def opera(y):
                 lado = lado.upper
                 if lado == 'A':
                     ang = input(" ¿Ángulo de 'B'? ")
-                    a = h/(math.sen(ang))
+                    a = h/(math.sin(ang))
                     print("El lado 'a' mide: ", a)
                 elif lado == 'B':
                     ang = input(" ¿Ángulo de 'A'? ")
-                    b = h/(math.sen(ang))
+                    b = h/(math.sin(ang))
                     print("El lado 'a' mide: ", b)
                 elif lado == 'C':
                     ang = input(" ¿Ángulo de 'B'? ")
-                    a = h/(math.sen(ang))
+                    a = h/(math.sin(ang))
                     print("El lado 'a' mide: ", a)
 
                 
