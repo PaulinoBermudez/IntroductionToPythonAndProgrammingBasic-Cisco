@@ -243,8 +243,11 @@ def opera(y):
         print("Opción: LOGARITMO EN CUALQUIER BASE.")
         a=int(input("Introduzca el número: "))
         b=int(input("¿Qué base? "))
-        resultado=(log(a,b))
-        print("El resultado del logaritmo {:2} en base {:2} es:".format(a,b), resultado)
+        if a < 1:
+            print("TE RECUERDO QUE: \n Los logaritmos no deben ser mayores que cero.")
+        else:
+            resultado=(log(a,b))
+            print("El resultado del logaritmo {:2} en base {:2} es:".format(a,b), resultado)
     
     elif (y==16):
         print("Opción: Raíz cuadrada")
