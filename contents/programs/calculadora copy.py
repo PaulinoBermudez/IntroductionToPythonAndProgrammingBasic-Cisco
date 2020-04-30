@@ -283,7 +283,19 @@ def opera(y):
                 print("Como es isóceles, dos de sus lados son iguales.")
                 print("Lado desconocido: ", a)
         elif tipo == 'c' or tipo == 'C':
-            
+            print("""
+                       A
+                       *
+                      /  +      
+                   b /     +    c  
+                    /         +      
+                   /            +    
+                C *---------------* B
+                        a
+            """)
+            h = input("¿Sabes la altura (h)? (Y/N) ")
+            if  h=='Y' or h=='y':
+                print("Genial! y ")
 
     elif (y==18):
         print("Opción: Raíz cuadrada")
