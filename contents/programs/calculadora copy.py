@@ -282,7 +282,8 @@ def opera(y):
             else:
                 print("Como es isóceles, dos de sus lados son iguales.")
                 print("Lado desconocido: ", a)
-        elif
+        elif tipo == 'c' or tipo == 'C':
+            
 
     elif (y==18):
         print("Opción: Raíz cuadrada")
