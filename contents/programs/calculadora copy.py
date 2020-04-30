@@ -1,11 +1,12 @@
 #!/bin/python 
-import os, sys, getpass
+import os, sys, getpass, platform
 import math, time
 
 os.system('clear')
 os.system('cls')
 # @author: [ Paulino Bermúdez R.]
 # @Description: Calculadora en Python.
+pythonv = platform.python_version()
 y = input("""
         +-------------------------------------------------+
         |               CALCULADORA PYTHON.               |
@@ -18,10 +19,10 @@ y = input("""
         |                                                 |
         | @Athor: PAULINO BERMÚDEZ.                       |
         | @Estudio: Becas Digitaliza Cisco. 2019-2020.    |
-        |                                                 |
+        | @Version Python: {:2}                           |
         |         (Pulse ENTER para continuar.)           |
         +-------------------------------------------------+
-""") 
+""".format(pythonv)) 
 
 
 def menu():
