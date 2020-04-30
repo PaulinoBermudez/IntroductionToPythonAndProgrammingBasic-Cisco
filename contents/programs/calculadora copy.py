@@ -48,7 +48,7 @@ def menu():
     print(22*"_","* Operaciones informáticas. ", 20*"_" )
     print(72*'_')
     print("11- Convertir de decimal a binario \t 12- Convertir de binario a decimal")
-    print("13- Convertir de decimal a hexadecimal \t 14- Convertir de decimal a Octal")
+    print("13- Convertir de decimal a hexadecimal \t 14- Convertir de decimal a otra base")
     
     print(72*'_')
     print(22*"_","* Operaciones científicas.", 22*"_" )
