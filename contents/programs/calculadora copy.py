@@ -169,8 +169,7 @@ def opera(y):
         print(numero, "> ", binario(numero))
         # OPCION FÁCIL: bin(numero)
         print()
-        print(str(bin(numero),2))
-        
+        print(bin(numero)[2:])
         
     elif (y==12):
         print("Opción: BIN a DEC")
