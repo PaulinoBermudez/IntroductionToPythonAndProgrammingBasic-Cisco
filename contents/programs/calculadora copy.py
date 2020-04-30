@@ -346,11 +346,11 @@ def opera(y):
                 lado=input("¿Qué lado calculamos? (A-C) ")
                 lado = lado.upper
                 if lado == 'A':
-                    ang = input(" ¿Ángulo de 'B'? ")
+                    ang = float(input(" ¿Ángulo de 'B'? "))
                     a = h/(math.sin(ang))
                     print("El lado 'a' mide: ", a)
                 elif lado == 'B':
-                    ang = input(" ¿Ángulo de 'A'? ")
+                    ang = float(input(" ¿Ángulo de 'A'? "))
                     b = h/(math.sin(ang))
                     print("El lado 'a' mide: ", b)
                 elif lado == 'C':
