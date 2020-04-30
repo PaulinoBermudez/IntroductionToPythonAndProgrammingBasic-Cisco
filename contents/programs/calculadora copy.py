@@ -175,16 +175,28 @@ def opera(y):
         print("El resultado es:", resultado)
         
     elif (y==13):
-        print("Opción: Raíz cuadrada")
-        a=int(input("Introduzca el número: "))
-        resultado=(math.sqrt(a))
-        print("El resultado es:", resultado)
+        def cambio_base(decimal, base):
+            conversion = ''
+            while decimal // base != 0:
+                conversion = str(decimal % base) + conversion
+                decimal = decimal // base
+            return str(decimal) + conversion
+
+        numero = int(input('Introduce el número a cambiar de base: '))
+        base = 16
+        print(cambio_base(numero, base))
         
     elif (y==14):
-        print("Opción: Raíz cuadrada")
-        a=int(input("Introduzca el número: "))
-        resultado=(math.sqrt(a))
-        print("El resultado es:", resultado)
+        def cambio_base(decimal, base):
+            conversion = ''
+            while decimal // base != 0:
+                conversion = str(decimal % base) + conversion
+                decimal = decimal // base
+            return str(decimal) + conversion
+
+        numero = int(input('Introduce el número a cambiar de base: '))
+        base = int(input('Introduce la base: '))
+        print(cambio_base(numero, base))
         
     elif (y==15):
         print("Opción: Raíz cuadrada")
