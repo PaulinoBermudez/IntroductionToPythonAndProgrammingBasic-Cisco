@@ -7,6 +7,7 @@ os.system('cls')
 # @author: [ Paulino Bermúdez R.]
 # @Description: Calculadora en Python.
 pythonv = platform.python_version()
+sist = platform.platform()
 y = input("""
         +-------------------------------------------------+
         |               CALCULADORA PYTHON.               |
@@ -19,10 +20,10 @@ y = input("""
         |                                                 |
         | @Athor: PAULINO BERMÚDEZ.                       |
         | @Estudio: Becas Digitaliza Cisco. 2019-2020.    |
-        | @Su_version Python: {:2}                        |
+        | @Su_version Python: {:2}  en {:2}             |
         |         (Pulse ENTER para continuar.)           |
         +-------------------------------------------------+
-""".format(pythonv)) 
+""".format(pythonv,sist)) 
 
 
 def menu():
