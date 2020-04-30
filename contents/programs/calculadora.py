@@ -118,9 +118,11 @@ def opera(y):
         a=int(input("Introduzca valor de las 'X^2' : "))
         b=int(input("Introduzca valor de las 'X' : "))
         c=int(input("Introduzca valor de los enteros : "))
-        
-        resultado1=((-b)+math.sqrt((b**2)-(4*a*c))/(2*a))
-        resultado2=((-b)-math.sqrt((b**2)-(4*a*c))/(2*a))
+        calc = ((b**2)-(4*a*c))
+        if calc < 0:
+            print("No puedo calular una raiz negativa")
+        resultado1=((-b)+math.sqrt(calc)/(2*a))
+        resultado2=((-b)-math.sqrt((b**2)-calc)/(2*a))
         print("El resultado para +X es: ", resultado1)
         print("El resultado para -X es: ", resultado2)
         
