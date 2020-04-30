@@ -47,7 +47,7 @@ def menu():
     print("11- Convertir de decimal a binario \t 12- Convertir de binario a decimal")
     print("13- Convertir de decimal a hexadecimal \t 14- Convertir de decimal a Octal")
     print("* Operaciones científicas.")
-    print("15- Calcular el logaritmo en base 10 de 'X' \t ")
+    print("16- Calcular el log en base 10 de 'X' \t ")
     print()
     print("0 -  SALIR. ")
     print()
