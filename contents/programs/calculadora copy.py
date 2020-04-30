@@ -55,7 +55,7 @@ def menu():
     print(72*'_')
     print(22*"_","* Operaciones científicas.", 22*"_" )
     print(72*'_')
-    print("15- Calcular el log en base 10 de 'X' \t 16- Calcula In de 'X'")
+    print("15- Calcular el log en base 'Y' de 'X' \t 16- Calcula In de 'X'")
     print("17- Calcular la hipotenusa de un triángulo ")
     print("18- Trigonometría \t \t \t 19- Graficar una función f(x)")
     
@@ -240,10 +240,11 @@ def opera(y):
         print(cambio_base(numero, base))
         
     elif (y==15):
-        print("Opción: Raíz cuadrada")
+        print("Opción: LOGARITMO EN CUALQUIER BASE.")
         a=int(input("Introduzca el número: "))
-        resultado=(math.sqrt(a))
-        print("El resultado es:", resultado)
+        b=int(input("¿Qué base? "))
+        resultado=(log(a,b))
+        print("El resultado del logaritmo {:2} en base {:2} es:".format(a,b), resultado)
     
     elif (y==16):
         print("Opción: Raíz cuadrada")
