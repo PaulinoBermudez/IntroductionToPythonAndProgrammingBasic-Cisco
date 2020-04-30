@@ -262,12 +262,14 @@ def opera(y):
     elif (y==17):
         print("Opción: Lado desconocido de un triángulo.")
         tipo = input("""
-            ¿Qué tipo de triángulo es? (A-D)
-                a. - Equilatero
-                b. - Isóceles
-                c. - Escaleno
-                d. - Rectángulo
+        ¿Qué tipo de triángulo es? (A-D)
+            a. - Equilatero
+            b. - Isóceles
+            c. - Escaleno
+            d. - Rectángulo
         """)
+        print("Genial, ha seleccionado: ", tipo)
+        print()
         if tipo == 'a' or tipo == 'A':
             lado = int(input("Introduzca valor del lado: "))
             print("Como es un triángulo equilatero, todos sus lados son iguales, asi que")
@@ -285,11 +287,11 @@ def opera(y):
         elif tipo == 'c' or tipo == 'C':
             print("""
                        A
-                       *
-                      /  +      
-                   b /     +    c  
-                    /         +      
-                   /            +    
+                       * +
+                      /·   +      
+                   b / ·     +    c  
+                    /  ·h      +      
+                   /   ·         +    
                 C *---------------* B
                         a
             """)
