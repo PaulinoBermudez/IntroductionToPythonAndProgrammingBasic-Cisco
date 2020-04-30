@@ -36,7 +36,7 @@ def menu():
     print(72*'*')
     print(33*' ','*')
     print(72*'*')
-    print("{:2} seleccione una de las opciones: \U+1F40D \n".format(username))
+    print("{:2} seleccione una de las opciones:  \n".format(username))
     print(72*'_')
     print(22*"_","* Operaciones estándar. ", 24*"_" )
     print(72*'_')
