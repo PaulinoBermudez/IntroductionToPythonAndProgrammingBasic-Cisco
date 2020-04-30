@@ -246,7 +246,7 @@ def opera(y):
         if a < 0.1:
             print("TE RECUERDO QUE: \n Los logaritmos no deben ser mayores que cero.")
         else:
-            resultado=log(a,b)
+            resultado=math.log(a,b)
             print("El resultado del logaritmo {:2} en base {:2} es:".format(a,b), resultado)
     
     elif (y==16):
