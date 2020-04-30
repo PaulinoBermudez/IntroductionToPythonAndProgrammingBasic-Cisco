@@ -173,9 +173,9 @@ def opera(y):
         def decimal(binario):
             decimal = ''
             while binario // 2 != 0:
-                binario = str(decimal * 2) + binario
-                decimal = decimal * 2
-            return str(decimal) + binario
+                decimal = str(binario * 2) + decimal
+                binario *= 2
+            return str(binario) + decimal
 
         numero = int(input('Introduce el número a convertir a binario: '))
         print(numero, "> ", binario(numero))
