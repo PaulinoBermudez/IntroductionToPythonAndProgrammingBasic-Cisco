@@ -158,8 +158,8 @@ def opera(y):
 
     elif (y==11):
         print("Opción: DEC a BIN")
-        # OPCION FÁCIL: print(bin(numero))
-        print(bin(numero))
+        # OPCION FÁCIL: bin(numero)
+        print(str(bin(numero),2))
         print()
         def binario(decimal):
             binario = ''
