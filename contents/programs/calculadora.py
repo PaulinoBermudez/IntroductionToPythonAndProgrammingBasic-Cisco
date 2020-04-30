@@ -120,9 +120,9 @@ def opera(y):
         c=int(input("Introduzca valor de los enteros : "))
         calc = ((b**2)-(4*a*c))
         if calc < 0:
-            print(30*"*")
+            print(50*"*")
             print("No puedo calular una raiz negativa... Sorry")
-            print(30*"*")
+            print(50*"*")
         else:
             resultado1=(((-b)+math.sqrt(calc))/(2*a))
             resultado2=(((-b)-math.sqrt(calc))/(2*a))
