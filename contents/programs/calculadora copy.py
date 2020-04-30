@@ -191,8 +191,8 @@ def opera(y):
                 decimal = decimal // base
                 primero = str(decimal) 
                 segundo = conversion
-                print(primero, "\n")
-                print(segundo, "\n")
+                #print(primero, "\n")
+                #print(segundo, "\n")
                 #print(type(primero))
                 #print(type(segundo))
                 if primero == '10':
@@ -207,7 +207,7 @@ def opera(y):
                     primero = 'E'
                 elif primero == '15':
                     primero = 'F'
-                elif segundo == '10':
+                if segundo == '10':
                     segundo = 'A'
                 elif segundo == '11':
                     segundo = 'B'
