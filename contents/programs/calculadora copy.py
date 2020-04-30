@@ -184,10 +184,8 @@ def opera(y):
         print("Opción: DEC a HEX")
         def hex(decimal, base):
             conversion = ''                
-            while decimal // base != 0:
-                
-                conversion = str(decimal % base) + conversion
-                
+            while decimal // base != 0:                
+                conversion = str(decimal % base) + conversion                
                 decimal = decimal // base
                 primero = str(decimal) 
                 segundo = conversion
@@ -223,6 +221,7 @@ def opera(y):
         numero = int(input('Introduce el número a cambiar de base: '))
         base = 16
         print(hex(numero, base))
+        print("Opción 2: \n", hex(numero,16))
         
     elif (y==14):
         print("Opción: DEC a base 'X'")
