@@ -166,7 +166,7 @@ def opera(y):
             return str(decimal) + binario
 
         numero = int(input('Introduce el número a convertir a binario: '))
-        print(binario(numero))
+        print(numero, "> ", binario(numero))
         
     elif (y==12):
         print("Opción: Raíz cuadrada")
