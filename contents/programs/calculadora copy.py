@@ -29,11 +29,11 @@ def menu():
     os.system('cls')
     # Menú
     username = getpass.getuser()
-    print(38*'*')
-    print(12*'*',' CALCULADORA ',11*'*')
-    print(38*'*')
-    print(18*' ','*')
-    print(38*'*')
+    print(58*'*')
+    print(32*'*',' CALCULADORA ',11*'*')
+    print(58*'*')
+    print(38*' ','*')
+    print(58*'*')
     print("{:2} seleccione una de las opciones: \n".format(username))
     
     print(22*"_","* Operaciones estándar. ", 22*"_" )
