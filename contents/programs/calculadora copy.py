@@ -279,6 +279,8 @@ def opera(y):
                 interior=(2*(a**2)-(2*(a**2)*math.cos(60)))
                 b=(math.sqrt(interior))
                 print("El lado que desconoce mide: ", b)
+            else:
+                print("Como es isóceles, dos de sus lados son iguales")
         
     elif (y==18):
         print("Opción: Raíz cuadrada")
