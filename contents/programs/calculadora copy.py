@@ -168,13 +168,13 @@ def opera(y):
         numero = int(input('Introduce el número a convertir a binario: '))
         print(numero, "> ", binario(numero))
         # OPCION FÁCIL: bin(numero)
-        print()
+        print("Opción 2: bin()")
         print(bin(numero)[2:])
-        
+
     elif (y==12):
         print("Opción: BIN a DEC")
         def decimal(binario):
-            decimal=int(bin(binario)[2:])
+            decimal=int(str(binario),2)
             return decimal
 
         numero = int(input('Introduce el número a convertir a decimal: '))
