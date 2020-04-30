@@ -53,9 +53,9 @@ def menu():
     print(72*'_')
     print(22*"_","* Operaciones científicas.", 22*"_" )
     print(72*'_')
-    print("16- Calcular el log en base 10 de 'X' \t 17- Calcula In de 'X'")
-    print("18- Calcular la hipotenusa de un triángulo ")
-    print("19- Trigonometría \t \t \t 20- Graficar una función f(x)")
+    print("15- Calcular el log en base 10 de 'X' \t 16- Calcula In de 'X'")
+    print("17- Calcular la hipotenusa de un triángulo ")
+    print("18- Trigonometría \t \t \t 19- Graficar una función f(x)")
     
     print()
     print("0 -  SALIR. ")
