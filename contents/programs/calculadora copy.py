@@ -297,7 +297,11 @@ def opera(y):
             """)
             h = input("¿Sabes la altura (h)? (Y/N) ")
             if  h=='Y' or h=='y':
-                print("Genial! y ")
+                print("Genial!")
+                lado=input("¿Qué lado desconocemos? (a/b/c)")
+                lado= lado.upper
+                if lado == 'A' :
+                    
 
     elif (y==18):
         print("Opción: Raíz cuadrada")
