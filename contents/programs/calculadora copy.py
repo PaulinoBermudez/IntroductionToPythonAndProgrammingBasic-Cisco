@@ -189,12 +189,12 @@ def opera(y):
                 decimal = decimal // base
                 def letras (decimal):
                     switcher= {
-                        10: letras = 'A',
-                        11: letras = 'B',
-                        12: letras = 'C',
-                        13: letras = 'D',
-                        14: letras = 'E',
-                        15: letras = 'F',
+                        10:'A',
+                        11:'B',
+                        12:'C',
+                        13:'D',
+                        14:'E',
+                        15:'F',
                     }
                     return switcher.get(decimal, "Invalid decimal number -.-''")
             return str(decimal) + conversion
