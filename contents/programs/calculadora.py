@@ -48,8 +48,8 @@ def menu():
     print("13- Convertir de decimal a hexadecimal \t 14- Convertir de decimal a Octal")
     print("* Operaciones científicas.\n", 22*"_" )
     print("16- Calcular el log en base 10 de 'X' \t 17- Calcula In de 'X'")
-    print("18- Calcular la hipotenusa de un triángulo.")
-    
+    print("18- Calcular la hipotenusa de un triángulo ")
+    print("19- Trigonometría \t \t \t 20- Graficar una función f(x)")
     print()
     print("0 -  SALIR. ")
     print()
