@@ -220,7 +220,7 @@ def opera(y):
                 return (primero+segundo)
         numero = int(input('Introduce el número a cambiar de base: '))
         base = 16
-        print("Opción 1: \n", hex(numero))
+        print("Opción 1: \n", hex(numero)[2:])
         print("Opción 2: \n", hexadec(numero, base))
         
         
