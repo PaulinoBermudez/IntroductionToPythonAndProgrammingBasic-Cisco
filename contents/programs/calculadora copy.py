@@ -286,14 +286,20 @@ def opera(y):
                 print("Lado desconocido: ", a)
         elif tipo == 'c' or tipo == 'C':
             print("""
-                       A
-                       * +
-                      /·   +      
-                   b / ·     +    c  
-                    /  ·h      +      
-                   /   ·         +    
-                C *---------------* B
-                        a
+                       
+            A
+            *
+            | + +
+            |  +    +
+            |   +     +    
+        h   |     +     +   c
+            |      +       +        
+            |     b +        +          
+            |        +          +    
+            |         +           +      
+            |          +              +    
+            +-------- C *---------------* B
+                               a
             """)
             h = input("¿Sabes la altura (h)? (Y/N) ")
             if  h=='N' or h=='n':
