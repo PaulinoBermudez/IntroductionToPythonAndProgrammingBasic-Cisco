@@ -348,7 +348,7 @@ def opera(y):
                     b = h/(math.sin(ang))
                     print("El lado 'a' mide: ", b)
                 elif lado == 'C':
-                    ang = input(" ¿Ángulo de 'B'? ")
+                    ang = input(" ¿Ángulo de 'C'? ")
                     a = h/(math.sin(ang))
                     print("El lado 'a' mide: ", a)
 
