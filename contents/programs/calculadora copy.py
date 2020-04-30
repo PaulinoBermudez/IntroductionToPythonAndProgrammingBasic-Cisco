@@ -19,7 +19,7 @@ y = input("""
         |                                                 |
         | @Athor: PAULINO BERMÚDEZ.                       |
         | @Estudio: Becas Digitaliza Cisco. 2019-2020.    |
-        | @Version Python: {:2}                           |
+        | @Su_version Python: {:2}                        |
         |         (Pulse ENTER para continuar.)           |
         +-------------------------------------------------+
 """.format(pythonv)) 
