@@ -260,10 +260,14 @@ def opera(y):
             print("ESTE DE MOMENTO NO LO HE SACADO...")
         
     elif (y==17):
-        print("Opción: Raíz cuadrada")
-        a=int(input("Introduzca el número: "))
-        resultado=(math.sqrt(a))
-        print("El resultado es:", resultado)
+        print("Opción: Hipotenusa de un triángulo.")
+        tipo = input("""
+            ¿Qué tipo de triángulo es?
+        """)
+        if 
+            c1=int(input("Introduzca valor de cateto 1: "))
+            c2=int(input("Introduzca valor de cateto 2: "))
+        
         
     elif (y==18):
         print("Opción: Raíz cuadrada")
