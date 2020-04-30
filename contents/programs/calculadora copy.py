@@ -275,8 +275,9 @@ def opera(y):
         elif tipo == 'b' or tipo == 'B':
             lado2 = input("¿No sabe el lado más corto? (Y/N) ")
             if lado2 == 'y' or lado2 == 'Y':
-                c1=int(input("Introduzca valor del lado que conoce: "))
-
+                b=int(input("Introduzca valor del lado que conoce: "))
+                interior=(2*(a**2)-(2*(a**2)*math.cos(60))
+                b=(math.sqrt(interior))
         
     elif (y==18):
         print("Opción: Raíz cuadrada")
