@@ -193,8 +193,8 @@ def opera(y):
                 
                 primero = str(decimal) 
                 segundo = conversion
-                print(type(primero))
-                print(type(segundo))
+                #print(type(primero))
+                #print(type(segundo))
                 if primero == '10':
                     primero = 'A'
                 elif primero == '11':
