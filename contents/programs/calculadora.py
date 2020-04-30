@@ -1,7 +1,6 @@
 #!/bin/python 
-import os
-import math
-import time
+import os, sys
+import math, time
 
 os.system('clear')
 os.system('cls')
@@ -54,7 +53,7 @@ def opera(y):
         print("Error! Necesito una opción correcta. ") 
     # Árbol condicional de opciones.
     if (y == 0):
-        return y
+        sys.exit()
     elif (y==1):
         print("Opción: Suma")
         a=int(input("Introduzca el primer número: "))
