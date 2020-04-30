@@ -273,10 +273,10 @@ def opera(y):
             print("Como es un triángulo equilatero, todos sus lados son iguales, asi que")
             print("El lado desconocido es: ", lado)
         elif tipo == 'b' or tipo == 'B':
-            lado2 = input("¿Es el lado más corto? (Y/N) ")
+            lado2 = input("¿No sabe el lado más corto? (Y/N) ")
             if lado2 == 'y' or lado2 == 'Y':
                 c1=int(input("Introduzca valor del lado que conoce: "))
-        
+
         
     elif (y==18):
         print("Opción: Raíz cuadrada")
