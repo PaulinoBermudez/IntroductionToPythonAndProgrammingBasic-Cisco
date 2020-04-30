@@ -196,8 +196,9 @@ def opera(y):
                     }
                     return switcher.get(decimal, "Invalid decimal number -.-''")
                 conversion = str(decimal % base) + conversion
-                decimal = decimal // base
                 
+                decimal = decimal // base
+                print(decimal , "\n")
             return str(decimal) + conversion
 
         numero = int(input('Introduce el número a cambiar de base: '))
