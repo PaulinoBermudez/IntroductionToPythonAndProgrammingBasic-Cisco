@@ -1,85 +1,145 @@
-#!/bin/python
+#!/bin/python 
+import os
 import math
-# Menú
-print('********************')
-print('***  CALCULADORA ***')
-print('********************')
-print()
-print("Seleccione una de las opciones:")
-print("1- Suma")
-print("2- Resta")
-print("3- Multiplicación")
-print("4- División")
-print("5- Porcentaje")
-print("6- Exponencial al cuadrado")
-print("7- Exponencial a 'x'")
-print("8- Calcular polinomio de primer grado")
-print("9- Calcular polinomio de segundo grado")
-print("10- Calcular raiz cuadrada")
-print()
-x=input("Opción: ")
-y=int(x) 
-# Árbol condicional de opciones.
-if (y==1):
-    a=int(input("Introduzca el primer número: "))
-    b=int(input("Introduzca el segundo número: "))
-    print("\n")
-    resultado=(a+b)
-    print("El resultado es: ", resultado)
-elif (y==2):    
-    a=int(input("Introduzca el primer número: "))
-    print("\n")
-    b=int(input("Introduzca el segundo número: "))
-    resultado=a-b
-    print("El resultado es: ", resultado)
-elif (y==3):
-    a=int(input("Introduzca el primer número: "))
-    print("\n")
-    b=int(input("Introduzca el segundo número: "))
-    resultado=(a*b)
-    print("El resultado es: ", resultado)
-elif (y==4):
-    a=int(input("Introduzca el primer número: "))
-    print("\n")
-    b=int(input("Introduzca el segundo número: "))
-    resultado=(a/b)
-    resto=(a%b)
-    print("El resultado es: ", resultado, " y de resto: ", resto)
-elif (y==5):
-    a=int(input("Introduzca el primer número: "))
-    print("\n")
-    b=int(input("Introduzca el segundo número: "))
-    resultado=((a*b)/100)
-    print("El ", b ,"% de ",a  ," es: ", resultado)
-elif (y==6):
-    a=int(input("Introduzca el primer número: "))
-    resultado=(a**2)
-    print("El resultado es: ", resultado)
-elif (y==7):
-    a=int(input("Introduzca el primer número: "))
-    print("\n")
-    b=int(input("Introduzca el segundo número: "))
-    resultado=(a**b)
-    print("El resultado es: ", resultado)
-elif (y==8):
-    a=int(input("Introduzca valores de las 'X's' : "))
-    b=int(input("Introduzca valores de los enteros : "))
-    print("\n")
-    resultado=(b/a)
-    print("El resultado es: ", resultado)
-elif (y==9):
-    a=int(input("Introduzca valores de las 'X^2' : "))
-    b=int(input("Introduzca valores de las 'X' : "))
-    c=int(input("Introduzca valores de los enteros : "))
-    print("\n")
-    resultado1=((-b)+math.sqrt((b**2)-(a*c))/(2*a))
-    resultado2=((-b)-math.sqrt((b**2)-(a*c))/(2*a))
-    print("El resultado para +X es: ", resultado1)
-    print("El resultado para -X es: ", resultado2)
-elif (y==10):
-    a=int(input("Introduzca el número: "))
-    print("\n")
-    resultado=(math.sqrt(a))
-    print("El resultado es:", resultado)
+import time
+
+os.system('clear')
+os.system('cls')
+# @author: [ Paulino Bermúdez R.]
+# @Description: Calculadora en Python.
+y = input("""
+        +-------------------------------------------------+
+        |               CALCULADORA PYTHON.               |
+        +-------------------------------------------------+
+        | Este es un menú de calculadora básica en Python.|
+        | contruida por dos funciones:                    |
+        |         - MENU()                                |
+        |         - OPERA()                               |
+        | Para salir del programa, escriba '0'.           |
+        |                                                 |
+        | @Athor: PAULINO BERMÚDEZ.                       |
+        | @Estudio: Becas Digitaliza Cisco. 2019-2020.    |
+        |                                                 |
+        |         (Pulse ENTER para continuar.)           |
+        +-------------------------------------------------+
+""") 
+
+
+def menu():
+    os.system('clear')
+    os.system('cls')
+    # Menú
+    print(38*'*')
+    print(12*'*',' CALCULADORA ',11*'*')
+    print(38*'*')
+    print(18*' ','*')
+    print(38*'*')
+    print("Seleccione una de las opciones:")
+    print("1- Suma \t \t         2- Resta")
+    print("3- Multiplicación \t \t 4- División")
+    print("5- Porcentaje \t \t \t 6- Exponencial al cuadrado")
+    print("7- Exponencial a 'x' \t \t 8- Calcular polinomio de primer grado")
+    print("9- Polinomio de segundo grado \t 10- Raiz cuadrada")
+    print()
+    print("0 -  SALIR. ")
+    print()
+
+
+
+def opera(y):
+    # En caso de ENTER sin número...
+    y = int(input("Opción: "))
+    print("__________________")
+    if y == None:
+        print("Error! Necesito una opción correcta. ") 
+    # Árbol condicional de opciones.
+    if (y == 0):
+        exit
+        exit
+    elif (y==1):
+        print("Opción: Suma")
+        a=int(input("Introduzca el primer número: "))
+        b=int(input("Introduzca el segundo número: "))
+        print("\n")
+        resultado=(a+b)
+        print("El resultado es: ", resultado)
+        
+    elif (y==2):    
+        print("Opción: Resta")
+        a=int(input("Introduzca el primer número: "))
+        b=int(input("Introduzca el segundo número: "))
+        resultado=a-b
+        print("El resultado es: ", resultado)
+        
+    elif (y==3):
+        print("Opción: Multiplicación")
+        a=int(input("Introduzca el primer número: "))
+        b=int(input("Introduzca el segundo número: "))
+        resultado=(a*b)
+        print("El resultado es: ", resultado)
+        
+    elif (y==4):
+        print("Opción: División")
+        a=int(input("Introduzca el primer número: "))
+        b=int(input("Introduzca el segundo número: "))
+        resultado=(a/b)
+        resto=(a%b)
+        print("El resultado es: ", resultado, " y de resto: ", resto)
+        
+    elif (y==5):
+        print("Opción: Porcentaje")
+        b=int(input("¿Porcentaje? (Número) "))
+        a=int(input("¿A qué le calculamos el {:2}% ?: ".format(b)))
+        resultado=((a*b)/100)
+        print("El ", b,"% de ",a  ," es: ", resultado)
+        
+    elif (y==6):
+        print("Opción: Exponencial al cuadrado")
+        a=int(input("Introduzca el número: "))
+        resultado=(a**2)
+        print("El resultado de {:2} a la '2' es: ".format(a), resultado)
+        
+    elif (y==7):
+        print("Opción: Exponente a la 'x'")
+        a=int(input("Introduzca el número natural: "))
+        b=int(input("¿A cuánto lo exponemos? "))
+        resultado=(a**b)
+        print("El resultado de {:2} a la  {:2} es: ".format(a,b), resultado)
+        
+    elif (y==8):
+        print("Opción:Polinomio de primer grado")
+        a=int(input("Introduzca valor de las 'X's' : "))
+        b=int(input("Introduzca valor de los enteros : "))
+        resultado=(b/a)
+        print("El resultado : {:2}x+({:2}) = ".format(a,b), resultado)
+        
+    elif (y==9):
+        print("Opción: Polinomio de segundo grado")
+        a=int(input("Introduzca valor de las 'X^2' : "))
+        b=int(input("Introduzca valor de las 'X' : "))
+        c=int(input("Introduzca valor de los enteros : "))
+        resultado1=((-b)+math.sqrt((b**2)-(4*a*c))/(2*a))
+        resultado2=((-b)-math.sqrt((b**2)-(4*a*c))/(2*a))
+        print("El resultado para +X es: ", resultado1)
+        print("El resultado para -X es: ", resultado2)
+        
+    elif (y==10):
+        print("Opción: Raíz cuadrada")
+        a=int(input("Introduzca el número: "))
+        resultado=(math.sqrt(a))
+        print("El resultado es:", resultado)
+        
+    else:
+        print("Número inválido!")
+        
+
+while y != 0:  
+    menu()
+    opera(y)
+    pausa=input("Pulse ENTER para continuar.")
+    if y == 0:
+        exit
 else:
-    print("Número inválido!")    
+    pausa=input("SALIENDO...MAAAALLL!!!")
+    exit
+    
