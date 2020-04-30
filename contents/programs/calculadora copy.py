@@ -177,8 +177,8 @@ def opera(y):
                 binario *= 2
             return str(binario) + decimal
 
-        numero = int(input('Introduce el número a convertir a binario: '))
-        print(numero, "> ", binario(numero))
+        numero = int(input('Introduce el número a convertir a decimal: '))
+        print(numero, "> ", decimal(numero))
         
     elif (y==13):
         def cambio_base(decimal, base):
