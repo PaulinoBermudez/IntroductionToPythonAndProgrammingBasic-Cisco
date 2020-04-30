@@ -157,10 +157,12 @@ def opera(y):
         print("El resultado es:", resultado)
 
     elif (y==11):
-        print("Opción: Raíz cuadrada")
-        a=int(input("Introduzca el número: "))
-        resultado=(math.sqrt(a))
-        print("El resultado es:", resultado)
+        print("Opción: DEC a BIN")
+        decimal=input("Introduzca el número decimal: ")
+        while decimal // 2 != 0:
+            binario = str( decimal % 2) + binario
+            decimal = decimal // 2
+        print( str(decimal) +  binario)
         
     elif (y==12):
         print("Opción: Raíz cuadrada")
