@@ -157,7 +157,23 @@ class main_API_EM:
             # Ver info de dispositivos en la red
             print("---------- Dispositivos en la red. -------------") 
             self.get_network_devices_list()
-
+            # ¿Qué ID estudiamos?
+            id_select = input("""       INFORMACION DE INTERFACES.
+                > Introduzca el ID del dispositivo del que quiere ver sus interfaces de red: 
+                
+                (Pulse 'Q' para salir.)
+                """)
+            id_select.lower
+            if id_select == 'q':
+                return
+            else:
+                url=url="https://devnetsbx-netacad-apicem-3.cisco.com/api/v1/interface"
+                header = {
+                    # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
+                    "Content_type":"application/json",
+                    # Autenticación
+                    "X-Auth-Token":self.ticket
+                }
 
 
     
