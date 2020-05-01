@@ -239,11 +239,79 @@ class class_API_EM:
                 else:
                     # Ver info de dispositivos en la red
                     print("---------- DISPOSITIVOS DE RED DISPONIBLES. -------------") 
-                    self.get_network_devices_list()                    
-                    # Creamos el diccionario python de los datos JSON.
-                    response_json = respuesta.json()
-                        
+                    self.get_network_devices_list()         
+                    print("---------------------------------------------------------- \n\n")
+                    # Preguntamos las IP's de origen y destino de las direcciones deseadas por el usuario
+                    verified=False 
+                    while True and not verified:
+                        source_ip = input("Introduzca la IP de origen del host: ")
+                        dest_ip = input("Introduzca la IP de destino del host: ")
+                        if source_ip != "" or dest_ip != "":
+                            # Creamos un diccionario con los datos del usuario
+                            path_data = {
+                                "sourceIP":source_ip,
+                                "destIP":dest_ip
+                            }
+                            while not verified:
+                                print("Dirección IP del host de origen : " +  path_data['sourceIP'])
+                                print("Dirección IP del host de destino: "+ path_data['destIP'], end ="\n")
+                                print(50*"·")
+                                pausa = input("¿Son correctos los datos? (Y/N)")
+                                pausa.lower
+                                if pausa == "y":
+                                    verified = True 
+                                if pausa == "n":
+                                    verified = False 
+                            continue 
+                        else:
+                            print("---- ERROR EN LOS DATOS INTRODUCIDOS --- \n Debe escribir una dirección IP para continuar. ")
+                            # Volvemos al inicip del while
+                            continue 
+                    # Iniciamos las pasos de ruta
+                    # Convertimos el diccionario path_data con los datos JSON para usarlos en json.dumps()
+                    path = json.dumps(path_data)
+                    # Solicitamos un ticket a la api 
+                    respuesta = requests.post(url, path, headers = header, verify=False)
+                    # Vemos el valor que nos devuelve  y lo almacenamos en una variable respuesta_json, comprobamos su analisis ID con los datos almacenados.
+                    respuesta_json = respuesta.json()
+                    flowAnalysisId = respuesta_json["response"]["flowAnalysisId"]
+                    # Vemos los saltos de las rutas, debe terminar con un 'ACCEPTED' si el destino está OK.
+                    # URL para añadir los valores que analizar
+                    check_url = url+"/"+flowAnalysisId
+                    # Iniciamos la variable de estado, pero sin valor por defecto, por si acaso
+                    estado = ""
+                    checks = 1 
+                    while status != "COMPLETED":
+                        envia = requests.get(check_url, headers= header, verify=False)
+                        respuesta_json = envia.json()
+                        estado =  respuesta_json["response"]["request"]["status"]
+                        # Vemos el resultado de los estados 
+                        print("REQUEST STATUS: {:2}".format(status))
+                        time.sleep(1)
+                        # Nº de iteraciones antes de salir del while.
+                        if checks == 15:
+                            raise Exception("Número de estados analizados excede el límite. POSIBLE PROBLEMA CON LOS DATOS DE LA RUTA !!! ")
+                        elif estado == "FAILED":
+                            raise Exception("PROBLEMA CON LOS DATOS DE ENTRADA -- IMPOSIBLE RESOLVER LA RUTA. -> (F)")
+                        checks+=1
+                    # Mostramos por pantalla el resultado.
+                    path_source = respuesta_json["response"]["request"]["sourceIP"]
+                    path_dest = respuesta_json["response"]["request"]["destIP"]
+                    # Asignamos una lista con las conexiones de respuesta_json
+                    networkElemetsInfo = respuesta_json["response"]["networkElemetsInfo"]
 
+                    all_devices=[]
+                    device_no = 1
+
+                    # Bucle  retorna la respuesta del JSON y la lista de rutas.
+                    for i in networkElemetsInfo:
+                        if "name" not in i:
+                            name="Unnamed Host"
+                            ip = i["ip"]
+                            egressInterfaceName = "UNKNOWN"
+                            ingressInterfaceName = "UNKNOWN"
+                        else:
+                            name = 
 # Función que 'salta' en caso de que la opción introducida por el usuario sea inválida.
 def default():   
     root =  tkinter.Tk()
@@ -315,6 +383,7 @@ def main():
             opcion = int(input("Escriba una opción: "))
         except:
             dict.get(opcion.default)()
+
+# Programa principal
 if __name__ == "-_main__":
     main()
-
