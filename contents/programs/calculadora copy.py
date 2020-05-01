@@ -399,21 +399,22 @@ def opera(y):
         """)
         opcion =(input("Seleccione una opcion: "))
         
-        c1 = math.sin(ang)
-        c2 = math.cos(ang)
-        c3 = math.tan(ang)
+        c1 = math.tan(ang)
+        c2 = math.sin(ang)
+        c3 = math.cos(ang)
         c4 = math.tanh(ang)
 
         # Diccionario de minioperaciones
-        opciones = {1:tan,2:sen,3:cos,4:ctan}
+        opciones = {1:c1,2:c2,3:c3,4:c4}
         
         print(15*"_____")
         print(opciones)
         print(15*"_____")
         
-        clave = list(opciones.keys(opcion))
         valor = opciones.get(opcion)
-        print("Resultado en RADIANES de", clave.index() , " de  es: ", valor)
+        clave = list(opciones.keys())[list(opciones.values()).index(valor)]
+        
+        print("Resultado en RADIANES de", clave , " de  es: ", valor)
     
         # Recuerda que la fórmula de calcularlo manualmente es:
         # 
