@@ -25,6 +25,7 @@ git sube
 echo "Fin del script"
 sleep 5
 clear
+print("Vamos con calma")
 sleep 300
 
 sh s.sh
