@@ -8,3 +8,7 @@ from netmiko import ConnectHandler
 os.system('clear')
 os.system('cls')
 
+# Desactivamos las alarmas de warning del SSL
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+class conecta:
