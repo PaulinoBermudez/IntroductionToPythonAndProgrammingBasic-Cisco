@@ -473,7 +473,7 @@ def opera(y):
             else:
                 print("He tenido un problema resolviendo la función.")
             
-        x = np.array([8, 4, 1, 0, -5, -2]) #Crear vector valores de x
+        x = np.array([4, 8, 0, 6, 2, -2]) #Crear vector valores de x
 
         y = f(x)
 
