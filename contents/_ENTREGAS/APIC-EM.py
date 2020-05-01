@@ -211,13 +211,13 @@ class class_API_EM:
                     print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(id_select))
                 pausa = input("Pulse ENTER para continuar.")
     # Método de ????? 
-    def ????(self):  
+    def quemas????(self):  
 # Función que 'salta' en caso de que la opción introducida por el usuario sea inválida.
 def default():   
     root =  tkinter.Tk()
     root.withdraw()
 
-    MessageBox.showinfo("ERROR!", "La opción introducida no es válida. Vuelva a intentarlo de nuevo.")
+    MessageBox.showinfo("ERROR!", "La opción introducida no es válida. Vuelva a intentarlo de nuevo. [Escribir nº de opción del menú]")
 # Función de final de programa
 def finalizar():   
     root =  tkinter.Tk()
@@ -262,4 +262,25 @@ def main():
         0:finalizar
     }
 
+    # Bucle del menú de opciones
+    while opcion != 0:
+        os.system('clear')
+        os.system('cls')
+        print("""
+            APIC-EM AUTOMATIZADA.
+
+        Selecciones una de las opciones:
+        +_________________________________________________+
+        | 1- Crear ticket nuevo.                          |
+        | 2- Host de la red.                              |
+        | 3- Dispositivos en la red.                      |
+        | 4- Ver interfaces de red de un dispositivo (ID) |
+        +_________________________________________________+
+        | 0- Salir del programa.                          |
+        +_________________________________________________+
+        """)
+        try:
+            opcion = int(input("Escriba una opción: "))
+        except:
+            dict.get(opcion.default)()
 
