@@ -316,7 +316,35 @@ class class_API_EM:
                             if "egressInterface" in i:
                                 egressInterfaceName = i["egressInterface"]["physicalInterface"]["name"]
                             else:
-
+                                egressInterfaceName = "UNKNOWN"
+                            if "ingressInterface" in i:
+                                ingressInterfaceName = i["ingressInterface"]["physicalInterface"]["name"]
+                            else:
+                                ingressInterfaceName = "UNKNOWN"
+                        # Creamos una lista de información a la qie mostrar.
+                        device = [
+                            device_no,
+                            name,
+                            ip,
+                            egressInterfaceName,
+                            ingressInterfaceName
+                        ]
+                        # Añadimos la lista de 'device' en la variable 'all_devices'
+                        all_devices.append(device)
+                        # Creamos una cadena incremental de nº de dispositivos
+                        device_no += 1
+                    # Mostramos el origen y destino de las IP's para la traza
+                    print("-- Path Trace: -- \n * Source: {:2} \n * Destination: {:2}".format(path_source,path_dest))
+                    # Imprimo la lista de dispositivos en la tabla de rutas.
+                    print("\t \t Lista de dispositivos \n")
+                    table_header = [
+                        "Dispositivo",
+                        "Nombre",
+                        "IP",
+                        "Egress Int",
+                        "Ingress Int"
+                    ]
+                    print(tabulate(all_devices, table_header))
 # Función que 'salta' en caso de que la opción introducida por el usuario sea inválida.
 def default():   
     root =  tkinter.Tk()
