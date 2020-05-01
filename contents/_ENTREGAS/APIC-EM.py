@@ -1,14 +1,15 @@
 #!/bin/python 
 # @author: [ Paulino Bermúdez R.]
 # @Description: 
-import os, request, json, time, urllib3 
+import os, request, json, time, urllib3
+from tkinder import MessageBox
 from tabulate import *
 os.system('clear')
 os.system('cls')
 
 
 # Clase principal
-class main_API_EM:
+class class_API_EM:
     # Defino método de inicio de los objetos de la clase
     def __init__(self):
         # Deshabilito los warning
@@ -145,7 +146,7 @@ class main_API_EM:
                 pausa = input("OJO AL PETARDAZO")
                 return(tabulate(network_list_print, table_header))
         except Exception as err:
-            print("Imposible de resolver: LISTADO DE DEVICES EN RED. - {:2}".format(err))
+            print("Imposible de resolver: LISTADO DE DISPOSITIVOS EN RED. - {:2}".format(err))
         pausa = input("Pulse ENTER para continuar.")
     # Método de identificador de dispositvo y sus interfaces
     def get_interfaces_list(self):
@@ -174,6 +175,91 @@ class main_API_EM:
                     # Autenticación
                     "X-Auth-Token":self.ticket
                 }
+                 # Usamos el método GET para obtener la información de interfaces
+                 # 1- Conexión - Status
+                respuesta = requests.get(url, headers=header, verify = False)
+                print(50*"·", "\n Status host request: ", respuesta.status_code, "\n", 50*"·")
+                try:
+                    if respuesta.status_code != 200:
+                        print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
+                        print("")
+                        print("Verifique: \n", eval(respuesta.txt)["response"]["detail"], sep="\n")
+                    else:
+                        # Creamos el diccionario python de los datos JSON.
+                        response_json = respuesta.json()
+                        # La cabecera de la tabla será:
+                        #
+                        # + ---------------+------+-----+--------+---------+
+                        # | Tipo interface | IPv4 | MAC | Puerto |  Status |
+                        # +----------------+------+-----+--------+---------+
+                        # Para esto, creamos una lista con estos atributos
+                        table_header = ["Tipo_Interfaz","IPv4","MAC","Puerto", "Status"]
+                        # Lista de dispositivos
+                        interfaceList = []
+                        for item in response_json["response"]:
+                            if item["deviceId"] == id_select:
+                                # Creamos la línea de datos 
+                                interfaceList.append([item["interfaceType"], item["ipv4Address"], item["macAddress"], item["portName"], item["status"]])
+                            interface_list_print = "\n".join(str(x) for x in deviceList)
+                            interface_list_print = interface_list_print.replace("u'", "'")
+                            interface_list_print = interface_list_print.replace("[", "")
+                            interface_list_print = interface_list_print.replace("]", "")
+                            interface_list_print = interface_list_print.replace("'", "")
+                            pausa = input("OJO AL PETARDAZO")
+                            return(tabulate(interface_list_print, table_header))
+                except Exception as err:
+                    print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(id_select))
+                pausa = input("Pulse ENTER para continuar.")
+    # Método de ????? 
+    def ????(self):  
+# Función que 'salta' en caso de que la opción introducida por el usuario sea inválida.
+def default():   
+    root =  tkinter.Tk()
+    root.withdraw()
 
+    MessageBox.showinfo("ERROR!", "La opción introducida no es válida. Vuelva a intentarlo de nuevo.")
+# Función de final de programa
+def finalizar():   
+    root =  tkinter.Tk()
+    root.withdraw()
 
+    MessageBox.showinfo("Fin del programa", "Gracias por usar el programa de APIC-EM. Un 10 no estaría mal. :sweat_smile: \n @Version: Becas_Digitaliza:2019-2020")
+# Funcion principal del programa
+def main():
+    # Invoco la clase principal del programa
+    api = class_API_EM()
+    # Inicio la variable de selección
+    opcion = input("""
+        HOLA y Bienvenid@s!
+        
+        Este es el programa de automatización del controlador APIC-EM de Cisco.
+        Lea detenidamente esta pantalla para tener una idea de lo que encontrará.
+
+        Datos importantes usados.
+            - Antes de empezar:
+                - URL: https://devnetsbx-netacad-apicem-3.cisco.com/api/'x' <-- Varía según la 
+                                                                                info solicitada
+                - Usuario: devnetuser.
+                - Contraseña: Xj***bU
+            - Formato de salida de los datos:
+                - JSON
+        
+        
+        [ Cuando esté list@ pulse ENTER para continuar.]
+        ____________________________________________________________________________________
+        @Author: Paulino E. Bermúdez
+        - Cisco Netacad: https://www.netacad.com/
+        - PUE: https://www.pue.es/
+        @Versión: 2020.
     
+    """)
+    # Creamos un diccionario para el menu de opciones
+    opciones = {
+        1:api:get_ticket,
+        2:api:get_hosts_list,
+        3:api:get_network_devices_list,
+        4:api:get_interfaces_list,
+        0:finalizar
+    }
+
+
