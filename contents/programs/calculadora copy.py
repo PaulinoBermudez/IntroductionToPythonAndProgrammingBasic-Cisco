@@ -427,87 +427,87 @@ def opera(y):
 
         
     elif (y==19):
-        print("Opción: Gráficas de una función")
-        import pandas as pd
-        import numpy as np
+        # print("Opción: Gráficas de una función")
+        # import pandas as pd
+        # import numpy as np
 
-        pausa = input("""
+        # pausa = input("""
         
-                Hola de nuevo!
-                Nada, quería comentarte que en esta parte del programa
-                soy un poco más FAIL aunque ando aprendiendo para mejorar mi agilidad
-                en este tipo de problemas...
+        #         Hola de nuevo!
+        #         Nada, quería comentarte que en esta parte del programa
+        #         soy un poco más FAIL aunque ando aprendiendo para mejorar mi agilidad
+        #         en este tipo de problemas...
                 
-                Te comento, resuelvo gráficas simples:
-                    - 1er grado.
-                    - 2do gradp.
-                    - 3er grado.
-                    - Raices.
-                    - Logaritmicas.
-                Aun así, lo intentaré hacer lo mejor posible.
+        #         Te comento, resuelvo gráficas simples:
+        #             - 1er grado.
+        #             - 2do gradp.
+        #             - 3er grado.
+        #             - Raices.
+        #             - Logaritmicas.
+        #         Aun así, lo intentaré hacer lo mejor posible.
 
-                Vamos allá!
+        #         Vamos allá!
                 
-                [ Cuándo estés listo, pulsa ENTER para continuar. ]
-        """)        
+        #         [ Cuándo estés listo, pulsa ENTER para continuar. ]
+        # """)        
 
-        def f(x):
-            os.system('clear')
-            os.system('cls')
-            print(""" TIPOS.
-                    1- 1er grado.
-                    2- 2do gradp.
-                    3- 3er grado.
-                    4- Raices.
-                    5- Logaritmicas.
-            """)
-            tipo = int(input("¿Tipo de función? 1-5. :"))
-            funcion = input ("Escriba la función: ")
-            funcion = funcion.lower()
-            print("Su función es: ",funcion)
-            if tipo == 5:
-                return np.log(funcion)
-            elif tipo == 4:
-                return np.sqrt(funcion)
-            elif tipo == 3:
-                return np.power(funcion,3)
-            elif tipo == 2:
-                return funcion
-            elif tipo == 1:
-                return funcion
-            else:
-                print("He tenido un problema resolviendo la función.")
+        # def f(x):
+        #     os.system('clear')
+        #     os.system('cls')
+        #     print(""" TIPOS.
+        #             1- 1er grado.
+        #             2- 2do gradp.
+        #             3- 3er grado.
+        #             4- Raices.
+        #             5- Logaritmicas.
+        #     """)
+        #     tipo = int(input("¿Tipo de función? 1-5. :"))
+        #     funcion = input ("Escriba la función: ")
+        #     funcion = funcion.lower()
+        #     print("Su función es: ",funcion)
+        #     if tipo == 5:
+        #         return np.log(funcion)
+        #     elif tipo == 4:
+        #         return np.sqrt(funcion)
+        #     elif tipo == 3:
+        #         return np.power(funcion,3)
+        #     elif tipo == 2:
+        #         return funcion
+        #     elif tipo == 1:
+        #         return funcion
+        #     else:
+        #         print("He tenido un problema resolviendo la función.")
  
-        x = np.array([4, 8, 0, 6, 2, -2]) #Crear vector valores de x
+        # x = np.array([4, 8, 0, 6, 2, -2]) #Crear vector valores de x
 
-        y = f(x)
-        n = input("PARADA 484")
+        # y = f(x)
+        # n = input("PARADA 484")
 
-        #Tabla de los valores de la funcion
-        tabla = pd.DataFrame(list(zip(x, y)), columns=['x', 'f(x)'])
-        print(tabla)
-        n = input("PARADA 489")
-        def move_spines():
-            # Esta funcion divide pone al eje 'Y' en el valor 0 de 'X para dividir claramente los valores positivos y negativos.
-            fix, ax = plt.subplots()
-            for spine in ["left", "bottom"]:
-                ax.spines[spine].set_position("zero")
+        # #Tabla de los valores de la funcion
+        # tabla = pd.DataFrame(list(zip(x, y)), columns=['x', 'f(x)'])
+        # print(tabla)
+        # n = input("PARADA 489")
+        # def move_spines():
+        #     # Esta funcion divide pone al eje 'Y' en el valor 0 de 'X para dividir claramente los valores positivos y negativos.
+        #     fix, ax = plt.subplots()
+        #     for spine in ["left", "bottom"]:
+        #         ax.spines[spine].set_position("zero")
             
-            for spine in ["right", "top"]:
-                ax.spines[spine].set_color("none")
+        #     for spine in ["right", "top"]:
+        #         ax.spines[spine].set_color("none")
             
-            return ax
-        n = input("PARADA 500")
-        x = np.linspace(-2, 6, num=30)
+        #     return ax
+        # n = input("PARADA 500")
+        # x = np.linspace(-2, 6, num=30)
 
-        ax = move_spines()
-        ax.grid()
-        ax.plot(x, f(x))
-        plt.title(r"Grafico de $f(x)=\f(x) $")
-        plt.ylabel('f(x)')
-        plt.xlabel('x')
-        plt.show() 
-        n = input("PARADA 510")
+        # ax = move_spines()
+        # ax.grid()
+        # ax.plot(x, f(x))
+        # plt.title(r"Grafico.")
+        # plt.ylabel('f(x)')
+        # plt.xlabel('x')
+        # plt.show() 
+        # n = input("PARADA 510")
         
 if y == 0:
     exit
