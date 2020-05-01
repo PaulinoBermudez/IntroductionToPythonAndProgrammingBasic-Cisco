@@ -453,9 +453,9 @@ def opera(y):
 
         def f(x):
             funcion = input ("Escriba la función: ")
+            funcion = funcion.lower()
             print(funcion)
-            nada = input("NADA")
-            tipo1 = len(funcion.find("x+"))
+            tipo1 = funcion.find("x+")
             tipo2 = funcion.find("x**2")
             tipo3 = funcion.find("x**3")
             tipo4 = funcion.find("sqrt(x")
@@ -469,7 +469,7 @@ def opera(y):
             elif tipo2 != -1:
                 return np.power(funcion,2)
             elif tipo1 != -1:
-                return np.power(funcion,1)
+                return (funcion)
             else:
                 print("He tenido un problema resolviendo la función.")
             
