@@ -44,7 +44,7 @@ class main_API_EM:
             print(50*"·", "Su ticket. \n- Status: Fail!")
             pausa = input("Pulse ENTER para continuar")
     # Método para ver los dispositivos existentes en el sistema.            
-    def  get_print_hosts(self):
+    def  get_hosts_list(self):
         # Ver estado de solicitud de ticket
         if self.ticket == None:
             print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
@@ -98,7 +98,7 @@ class main_API_EM:
     # Método para ver los dispositivos en red conectados.
     def get_network_devices_list(self):
         # Estado de solicitud de ticket.
-        if self.tcket == None:
+        if self.ticket == None:
             print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
             return
         # Solicitamos la info
@@ -148,9 +148,9 @@ class main_API_EM:
             print("Imposible de resolver: LISTADO DE DEVICES EN RED. - {:2}".format(err))
         pausa = input("Pulse ENTER para continuar.")
     # Método de identificador de dispositvo y sus interfaces
-    def get_interfaces(self):
+    def get_interfaces_list(self):
         #  Estado de solicitud de ticket.
-        if self.tcket == None:
+        if self.ticket == None:
             print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
             return
         else:
