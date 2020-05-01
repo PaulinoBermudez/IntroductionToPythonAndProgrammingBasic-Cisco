@@ -287,18 +287,18 @@ def opera(y):
         elif tipo == 'c' or tipo == 'C':
             print("""
                        
-            A
-            *
-            | + +
-            |  +    +
-            |   +     +    
-        h   |     +     +   c
-            |      +       +        
-            |     b +        +          
-            |        +          +    
-            |         +           +      
-            |          +              +    
-           -+-        C *---------------* B
+                A
+                *
+                | + +
+                |  +    +
+                |   +     +    
+            h   |     +     +   c
+                |      +       +        
+                |     b +        +          
+                |        +          +    
+                |         +           +      
+                |          +              +    
+            -+-        C *---------------* B
                                a
             """)
             h = input("¿Sabes la altura (h)? (Y/N) ")
@@ -354,19 +354,75 @@ def opera(y):
                     b = h/(math.sin(ang))
                     print("El lado 'a' mide: ", b)
                 elif lado == 'C':
-                    b = input("")
-
+                    a = float(input("Valor de 'a': "))
+                    b = float(input("Valor de 'b': "))
+                    if h < b:
+                        hipo = h**2
+                        cat2 = b**2
+                    else:
+                        hipo = b**2
+                        cat2 = h**2
+                    x = (math.sqrt(hipo-cat2))
+                    base = x + a 
+                    c = math.sqrt((base**2)+(h**2))
                     print("El lado 'c' mide: ", c)
-
-                
-
-                
-
+                else:
+                    print("Error en los datos de entrada")
+        elif tipo == 'd' or tipo == 'D':
+            lado = input("¿Qué lado desconoce? (c1 , c2 o h) ")
+            if lado == 'c1' or lado == 'C1':
+                h =input("Hipotenusa: ")
+                c2 =input("Cateto :") 
+                c1 = math.sqrt((h**2)-(c2**2))
+                print(" La medida del cateto es: ", c1)
+            elif lado == 'c2' or lado == 'C2':
+                h =input("Hipotenusa: ")
+                c1 =input("Cateto :") 
+                c2 = math.sqrt((h**2)-(c1**2))
+                print(" La medida del cateto es: ", c2)
+            elif lado == 'h' or lado == 'H':
+                c1 =input("Cateto 1: ")
+                c2 =input("Cateto 2:") 
+                h = math.sqrt((c1**2)+(c2**2))
+                print(" La medida de la hipotenusa es: ", h)                
     elif (y==18):
-        print("Opción: Raíz cuadrada")
-        a=int(input("Introduzca el número: "))
-        resultado=(math.sqrt(a))
-        print("El resultado es:", resultado)
+        print("Opción:Trigonometría")
+        ang = float(input("¿Ángulo? "))
+        print("")
+        print("""
+        OPCIONES (Sin usar pitágoras):
+        Calcula
+            1- La tangente de un ángulo. 
+            2- El seno de un ángulo.
+            3- El coseno de un ángulo.
+            4- La cotangente de un ángulo
+        """)
+        opcion =(input("Seleccione una opcion: "))
+        
+        c1 = math.sin(ang)
+        c2 = math.cos(ang)
+        c3 = math.tan(ang)
+        c4 = math.tanh(ang)
+
+        # Diccionario de minioperaciones
+        opciones = {1:tan,2:sen,3:cos,4:ctan}
+        
+        print(15*"_____")
+        print(opciones)
+        print(15*"_____")
+        
+        clave = list(opciones.keys(opcion))
+        valor = opciones.get(opcion)
+        print("Resultado en RADIANES de", clave.index() , " de  es: ", valor)
+    
+        # Recuerda que la fórmula de calcularlo manualmente es:
+        # 
+        # - tan x = sen x / cos x    ;  tan x = 1 / cotang x ; (Por pitágoras) sen^2(x)+cos^2(x)=1
+        # - sen x = 1 / cos x
+        # - cos x = 1 / sen x
+        # - cotan x = cos x / sen x  ;  1 + tang^2(x) = sec^2(x) 
+        # - tan x = 1 / cot(x)
+
         
     elif (y==19):
         print("Opción: Raíz cuadrada")
