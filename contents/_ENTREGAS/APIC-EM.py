@@ -143,12 +143,21 @@ class main_API_EM:
                 network_list_print = network_list_print.replace("]", "")
                 network_list_print = network_list_print.replace("'", "")
                 pausa = input("OJO AL PETARDAZO")
-                return(tabulate(device_list_print, table_header))
+                return(tabulate(network_list_print, table_header))
         except Exception as err:
             print("Imposible de resolver: LISTADO DE DEVICES EN RED. - {:2}".format(err))
         pausa = input("Pulse ENTER para continuar.")
+    # Método de identificador de dispositvo y sus interfaces
     def get_interfaces(self):
-        
+        #  Estado de solicitud de ticket.
+        if self.tcket == None:
+            print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
+            return
+        else:
+            # Ver info de dispositivos en la red
+            print("---------- Dispositivos en la red. -------------") 
+            self.get_network_devices_list()
+
 
 
     
