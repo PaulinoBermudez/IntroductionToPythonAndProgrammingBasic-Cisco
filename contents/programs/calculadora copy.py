@@ -464,7 +464,7 @@ def opera(y):
             tipo = int(input("¿Tipo de función? 1-5. :"))
             funcion = input ("Escriba la función: ")
             funcion = funcion.lower()
-            print(funcion)
+            print("Su función es: ",funcion)
             if tipo == 5:
                 return np.log(funcion)
             elif tipo == 4:
@@ -472,20 +472,21 @@ def opera(y):
             elif tipo == 3:
                 return np.power(funcion,3)
             elif tipo == 2:
-                return np.power(funcion,2)
+                return funcion
             elif tipo == 1:
-                return (funcion)
+                return funcion
             else:
                 print("He tenido un problema resolviendo la función.")
  
         x = np.array([4, 8, 0, 6, 2, -2]) #Crear vector valores de x
 
         y = f(x)
+        n = input("PARADA 484")
 
         #Tabla de los valores de la funcion
         tabla = pd.DataFrame(list(zip(x, y)), columns=['x', 'f(x)'])
         print(tabla)
-
+        n = input("PARADA 489")
         def move_spines():
             # Esta funcion divide pone al eje 'Y' en el valor 0 de 'X para dividir claramente los valores positivos y negativos.
             fix, ax = plt.subplots()
@@ -496,7 +497,7 @@ def opera(y):
                 ax.spines[spine].set_color("none")
             
             return ax
-
+        n = input("PARADA 500")
         x = np.linspace(-2, 6, num=30)
 
         ax = move_spines()
@@ -506,6 +507,7 @@ def opera(y):
         plt.ylabel('f(x)')
         plt.xlabel('x')
         plt.show() 
+        n = input("PARADA 510")
         
 if y == 0:
     exit
