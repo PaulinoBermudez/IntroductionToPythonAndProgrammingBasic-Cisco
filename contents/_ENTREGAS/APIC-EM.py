@@ -12,7 +12,7 @@ os.system('cls')
 class class_API_EM:
     # Defino método de inicio de los objetos de la clase
     def __init__(self):
-        # Deshabilito los warning
+        # Deshabilito los warning de SSL
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         self.ticket = None
     # Método para obtener ticket de acceso a la plataforma APIC-EM
@@ -283,4 +283,6 @@ def main():
             opcion = int(input("Escriba una opción: "))
         except:
             dict.get(opcion.default)()
+if __name__ == "-_main__":
+    main()
 
