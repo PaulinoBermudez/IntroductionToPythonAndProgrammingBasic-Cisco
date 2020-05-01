@@ -1,7 +1,7 @@
 #!/bin/python 
 import os, sys, getpass, platform
 import math, time
-import matplotlib import pyplot
+import matplotlib.pyplot as plt
 
 os.system('clear')
 os.system('cls')
@@ -428,9 +428,79 @@ def opera(y):
         
     elif (y==19):
         print("Opción: Gráficas de una función")
-        def(x):
-            prin("Función cuadrática.")
-            return 
+        import pandas as pd
+        import numpy as np
+
+        pausa = input("""
+        
+                Hola de nuevo!
+                Nada, quería comentarte que en esta parte del programa
+                soy un poco más FAIL aunque ando aprendiendo para mejorar mi agilidad
+                en este tipo de problemas...
+                
+                Te comento, resuelvo gráficas simples:
+                    - 1er grado.
+                    - 2do gradp.
+                    - 3er grado.
+                    - Raices.
+                    - Logaritmicas.
+                Aun así, lo intentaré hacer lo mejor posible.
+
+                Vamos allá!
+                
+                [ Cuándo estés listo, pulsa ENTER para continuar. ]
+        """)        
+
+        def f(x):
+            funcion = input ("Escriba la función: ")
+            print(funcion)
+            nada = input("NADA")
+            tipo1 = len(funcion.find("x+"))
+            tipo2 = funcion.find("x**2")
+            tipo3 = funcion.find("x**3")
+            tipo4 = funcion.find("sqrt(x")
+            tipo5 = funcion.find("log(x")
+            if tipo5 != -1:
+                return np.log(funcion)
+            elif tipo4 != -1:
+                return np.sqrt(funcion)
+            elif tipo3 != -1:
+                return np.power(funcion,3)
+            elif tipo2 != -1:
+                return np.power(funcion,2)
+            elif tipo1 != -1:
+                return np.power(funcion,1)
+            else:
+                print("He tenido un problema resolviendo la función.")
+            
+        x = np.array([8, 4, 1, 0, -5, -2]) #Crear vector valores de x
+
+        y = f(x)
+
+        #Tabla de los valores de la funcion
+        tabla = pd.DataFrame(list(zip(x, y)), columns=['x', 'f(x)'])
+        print(tabla)
+
+        def move_spines():
+            # Esta funcion divide pone al eje 'Y' en el valor 0 de 'X para dividir claramente los valores positivos y negativos.
+            fix, ax = plt.subplots()
+            for spine in ["left", "bottom"]:
+                ax.spines[spine].set_position("zero")
+            
+            for spine in ["right", "top"]:
+                ax.spines[spine].set_color("none")
+            
+            return ax
+
+        x = np.linspace(-2, 6, num=30)
+
+        ax = move_spines()
+        ax.grid()
+        ax.plot(x, f(x))
+        plt.title(r"Grafico de $f(x)=\f(x) $")
+        plt.ylabel('f(x)')
+        plt.xlabel('x')
+        plt.show() 
         
 if y == 0:
     exit
