@@ -311,7 +311,12 @@ class class_API_EM:
                             egressInterfaceName = "UNKNOWN"
                             ingressInterfaceName = "UNKNOWN"
                         else:
-                            name = 
+                            name = i["name"],
+                            ip = i["ip"]
+                            if "egressInterface" in i:
+                                egressInterfaceName = i["egressInterface"]["physicalInterface"]["name"]
+                            else:
+
 # Función que 'salta' en caso de que la opción introducida por el usuario sea inválida.
 def default():   
     root =  tkinter.Tk()
