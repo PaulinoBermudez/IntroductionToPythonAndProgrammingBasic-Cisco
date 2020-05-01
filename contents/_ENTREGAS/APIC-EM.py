@@ -211,7 +211,8 @@ class class_API_EM:
                     print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(id_select))
                 pausa = input("Pulse ENTER para continuar.")
     # Método de ????? 
-    def quemas????(self):  
+    def get_path_trace(self):  
+        print("Path trace IP")
 # Función que 'salta' en caso de que la opción introducida por el usuario sea inválida.
 def default():   
     root =  tkinter.Tk()
