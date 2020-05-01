@@ -1,7 +1,7 @@
 #!/bin/python 
 # @author: [ Paulino Bermúdez R.]
 # @Description: 
-import os, request, json, time, urllib3
+import os, requests, json, time, urllib3
 from tkinder import MessageBox
 from tabulate import *
 os.system('clear')
@@ -210,9 +210,40 @@ class class_API_EM:
                 except Exception as err:
                     print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(id_select))
                 pausa = input("Pulse ENTER para continuar.")
-    # Método de ????? 
+    # Método de rutas de una IP origen a una IP desetino.
     def get_path_trace(self):  
         print("Path trace IP")
+        # Estado de solicitud de ticket.
+        if self.ticket == None:
+            print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
+            return
+        else:
+            # Solicitamos la info 
+            
+            # URL de conexión
+            url="https://devnetsbx-netacad-apicem-3.cisco.com/api/v1/flow-analysis"
+            header = {
+                # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
+                "Content_type":"application/json",
+                # Autenticación
+                "X-Auth-Token":self.ticket
+            }
+            # Usamos el método GET para obtener la información de los dispositivos conectados.
+            respuesta = requests.get(url, headers=header, verify = False)
+            print(50*"·", "\n Status host request: ", respuesta.status_code, "\n", 50*"·")
+            try:
+                if respuesta.status_code != 200:
+                    print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
+                    print("")
+                    print("Verifique: \n", eval(respuesta.txt)["response"]["detail"], sep="\n")
+                else:
+                    # Ver info de dispositivos en la red
+                    print("---------- DISPOSITIVOS DE RED DISPONIBLES. -------------") 
+                    self.get_network_devices_list()                    
+                    # Creamos el diccionario python de los datos JSON.
+                    response_json = respuesta.json()
+                        
+
 # Función que 'salta' en caso de que la opción introducida por el usuario sea inválida.
 def default():   
     root =  tkinter.Tk()
