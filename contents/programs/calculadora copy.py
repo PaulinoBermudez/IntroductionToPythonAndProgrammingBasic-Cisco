@@ -1,6 +1,7 @@
 #!/bin/python 
 import os, sys, getpass, platform
 import math, time
+import matplotlib import pyplot
 
 os.system('clear')
 os.system('cls')
@@ -397,7 +398,7 @@ def opera(y):
             3- El coseno de un ángulo.
             4- La cotangente de un ángulo
         """)
-        opcion =(input("Seleccione una opcion: "))
+        opcion =int(input("Seleccione una opcion: "))
         
         c1 = math.tan(ang)
         c2 = math.sin(ang)
@@ -413,8 +414,8 @@ def opera(y):
         
         valor = opciones.get(opcion)
         clave = list(opciones.keys())[list(opciones.values()).index(valor)]
-        
-        print("Resultado en RADIANES de", clave , " de  es: ", valor)
+
+        print("Resultado en RADIANES de la opción ", clave , " es: ", valor)
     
         # Recuerda que la fórmula de calcularlo manualmente es:
         # 
@@ -426,25 +427,10 @@ def opera(y):
 
         
     elif (y==19):
-        print("Opción: Raíz cuadrada")
-        a=int(input("Introduzca el número: "))
-        resultado=(math.sqrt(a))
-        print("El resultado es:", resultado)
-        
-    elif (y==20):
-        print("Opción: Raíz cuadrada")
-        a=int(input("Introduzca el número: "))
-        resultado=(math.sqrt(a))
-        print("El resultado es:", resultado)
-        
-    elif (y==10):
-        print("Opción: Raíz cuadrada")
-        a=int(input("Introduzca el número: "))
-        resultado=(math.sqrt(a))
-        print("El resultado es:", resultado)
-        
-    else:
-        print("Número inválido!")
+        print("Opción: Gráficas de una función")
+        def(x):
+            prin("Función cuadrática.")
+            return 
         
 if y == 0:
     exit
