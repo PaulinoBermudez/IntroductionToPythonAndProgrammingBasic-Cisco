@@ -452,27 +452,32 @@ def opera(y):
         """)        
 
         def f(x):
+            os.system('clear')
+            os.system('cls')
+            print(""" TIPOS.
+                    1- 1er grado.
+                    2- 2do gradp.
+                    3- 3er grado.
+                    4- Raices.
+                    5- Logaritmicas.
+            """)
+            tipo = int(input("¿Tipo de función? 1-5. :"))
             funcion = input ("Escriba la función: ")
             funcion = funcion.lower()
             print(funcion)
-            tipo1 = funcion.find("x+")
-            tipo2 = funcion.find("x**2")
-            tipo3 = funcion.find("x**3")
-            tipo4 = funcion.find("sqrt(x")
-            tipo5 = funcion.find("log(x")
-            if tipo5 != -1:
+            if tipo == 5:
                 return np.log(funcion)
-            elif tipo4 != -1:
+            elif tipo == 4:
                 return np.sqrt(funcion)
-            elif tipo3 != -1:
+            elif tipo == 3:
                 return np.power(funcion,3)
-            elif tipo2 != -1:
+            elif tipo == 2:
                 return np.power(funcion,2)
-            elif tipo1 != -1:
+            elif tipo == 1:
                 return (funcion)
             else:
                 print("He tenido un problema resolviendo la función.")
-            
+ 
         x = np.array([4, 8, 0, 6, 2, -2]) #Crear vector valores de x
 
         y = f(x)
