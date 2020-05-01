@@ -360,6 +360,8 @@ def finalizar():
     root.withdraw()
 
     MessageBox.showinfo("Fin del programa", "Gracias por usar el programa de APIC-EM. Un 10 no estaría mal. :sweat_smile: \n @Version: Becas_Digitaliza:2019-2020")
+    time.sleep(5)
+    sys.exit()
 # Funcion principal del programa
 def main():
     # Invoco la clase principal del programa
@@ -395,6 +397,7 @@ def main():
         2:api:get_hosts_list,
         3:api:get_network_devices_list,
         4:api:get_interfaces_list,
+        #5:api:get_path_trace,
         0:finalizar
     }
 
@@ -411,9 +414,12 @@ def main():
         | 2- Host de la red.                              |
         | 3- Dispositivos en la red.                      |
         | 4- Ver interfaces de red de un dispositivo (ID) |
+        | 5- Ruta de saltos hasta una IP de destino. *    |
         +_________________________________________________+
         | 0- Salir del programa.                          |
         +_________________________________________________+
+
+        (*) Revisar.
         """)
         try:
             opcion = int(input("Escriba una opción: "))

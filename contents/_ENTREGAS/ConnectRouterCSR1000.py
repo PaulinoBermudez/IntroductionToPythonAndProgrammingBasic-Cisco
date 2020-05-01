@@ -11,6 +11,9 @@ os.system('cls')
 # Desactivamos las alarmas de warning del SSL
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+class inicia:
+    conectaRouter(ip,user,key)
+
 class conectaRouter:
     # Definimos los métodos para obtener la información del router
     # Método inicial para las credenciales.
@@ -18,6 +21,9 @@ class conectaRouter:
         self.host = ip
         self.user = user 
         self.passw = passw
+    # Método para ver las interfaces de red.
+    def view_interfaces(self):
+        print("Interfaces de red.")
     # Método para crear una interfaz nueva
     def new_interface(self):
         # Pedimos los datos necesarios:
@@ -51,8 +57,14 @@ class conectaRouter:
             }
             # Authentication: User + Password method
             basicAuth = (self.user, self.passw)
-
-def main():
+    def delete_interface(self):
+        print("Borrar interfaz de red.")
+    def table_route(self):
+        print("Crear tabla de rutas")
+        print("Ver ORIGEN - DESTINO -  INTERFAZ DE SALIDA - ")
+    def yang_files(self):
+        print("Menú de archivos YANG que ver/configurar.")
+def credencial():
     # Solicito los datos necesarios para realizar el menú correctamente
     # IP router
     ip = input("Introduzca la dirección IP del Router Cisco 1000v: ")
@@ -69,10 +81,73 @@ def main():
     except Exception as err:
         print("Imposible conectarse al Router con la IP: {:2} \nCompruebe los datos y vuelva a intentarlo de nuevo.".format(ip))
         sys.exit()
+            
+def default():
+    print("OPCION INVÁLIDA! - Revise las opciones y vuelva a intentarlo")
+def salir():
+    os.system('clear')
+    os.system('cls')
+    print("Espero que mi trabajo te ayude en el tuyo. \n Adiós!")
+    time.sleep(5)
+    sys.exit()
+def main():
+    # Solicitamos datos
+    credencial
+    opcion = input("""
 
-    conectaRouter = conectaRouter(ip,user,key)
+        Hola y bienvenid@!
 
-    init = conectaRouter
+        Este es un script de ayuda para sacar información del Router Cisco Serie 1000.
+        Las opciones de este script son:
+            - Listado de interfaces con información relevante.
+            - Creación de interfaces de red.
+            - Borrar una interfaz de red.
+            - Ver la tabla de rutas.
+            - Peticiones a módulos YANG compatibles.
+                - Configuración.
+                - Obtener información del dispositivo.
+        Para ver todos los ejercicios resueltos ver la carpeta  'Model Driven Programmability - DevNet20'
 
-if __name__ == "__main__":
+        [ Cuando esté list@ pulse ENTER para continuar.]
+        ____________________________________________________________________________________
+        @Author: Paulino E. Bermúdez
+        - Cisco Netacad: https://www.netacad.com/
+        - PUE: https://www.pue.es/
+        @Versión: 2020.
+    """)
     
+    # Creamos un diccionario para el menu de opciones
+    opciones = {
+        1:api:get_interfaces,
+        2:api:add_interfaces,
+        3:api:delete_interfaces,
+        4:api:routing_table,
+        5:api:get_peticion_yang,
+        0:salir
+    }
+
+    while opcion != 0:
+        os.system('clear')
+        os.system('cls')
+        print("""
+        SCRIPT DE AYUDA OBTENER INFO. - Router Cisco 1000v
+
+        Selecciones una de las opciones:
+        +_________________________________________________+
+        | 1- Ver interfaces red.                          |
+        | 2- Crear nueva interfaz de red.                 |
+        | 3- Borrar interfaz de red.                      |
+        | 4- Ver tabla de rutas guardadas.                |
+        | 5- Realizar solitudes a los archivos YANG.      |
+        +_________________________________________________+
+        | 0- Salir del programa.                          |
+        +_________________________________________________+
+
+        (*) Revisar.
+        """)
+        try:
+            opcion = int(input("Escriba una opción: "))
+        except:
+            dict.get(opcion.default)()
+if __name__ == "__main__":
+    main()
