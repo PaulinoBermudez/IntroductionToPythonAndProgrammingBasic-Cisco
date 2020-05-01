@@ -421,5 +421,5 @@ def main():
             dict.get(opcion.default)()
 
 # Programa principal
-if __name__ == "-_main__":
+if __name__ == "__main__":
     main()
