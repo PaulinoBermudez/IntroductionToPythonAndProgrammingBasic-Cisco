@@ -200,12 +200,12 @@ def main():
     """)
     os.system('clear')
     os.system('cls')  
-    credencial()
+    # credencial()
     api = conectaRouter
     # Creamos un diccionario para el menu de opciones
     opciones = {
         1:api.view_interfaces,
-        2:api.new_interface,
+        2:'api.new_interface',
         3:api.delete_interface,
         4:api.table_route,
         5:api.get_peticion_yang,
@@ -234,7 +234,7 @@ def main():
             opciones.opcion()
             pausa = input("> Pulse ENTER para continuar")
         except:
-            print(type(opciones.items))
+            print(opciones)
             print(type(opcion))
             default()
 # Ejecución de programa principal
