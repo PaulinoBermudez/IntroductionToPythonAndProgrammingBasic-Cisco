@@ -26,7 +26,7 @@ class conectaRouter():
         self.passw = input("Escriba la contraseña del usuario {:2} ".format(user))
         # Cambiar, si cambiamos de host, para hacerlo 'mejor' 
         # podría preguntarlo pero como en este caso siempre es el mismo, con eso vale
-        self.host = '192.168.56.1'
+        self.host = '192.168.1.137'
         print()
         print("Verificación de configuración \n")
         
@@ -37,7 +37,8 @@ class conectaRouter():
         stdin,stdout, stderr = ssh.exec_command('show platform yang-management process')
         output = stdout.readlines()
         #type(output)
-        print("\n".join(output))
+        # print("\n".join(output))
+        return join(output)
 
         self.masterurl = "https://"+self.host+"/resconf/data/ietf-interfaces:interfaces/"
         
@@ -50,7 +51,8 @@ class conectaRouter():
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         stdin,stdout, stderr = ssh.exec_command("show ip interface brief")
         output = stdout.readlines()
-        print("\n".join(output))
+        # print("\n".join(output))
+        return join(output)
 
     # Método para crear una interfaz nueva
     def new_interface(self):
