@@ -204,12 +204,12 @@ def main():
     api = conectaRouter
     # Creamos un diccionario para el menu de opciones
     opciones = {
-        '1':api.view_interfaces,
-        '2':api.new_interface,
-        '3':api.delete_interface,
-        '4':api.table_route,
-        '5':api.get_peticion_yang,
-        '0':salir
+        1:api.view_interfaces,
+        2:api.new_interface,
+        3:api.delete_interface,
+        4:api.table_route,
+        5:api.get_peticion_yang,
+        0:salir
     }
 
     while opcion != 0:
@@ -230,11 +230,11 @@ def main():
        
         """)
         try:
-            opcion = input("Escriba una opción: ")
+            opcion = int(input("Escriba una opción: "))
             opciones[opcion]()
             pausa = input("> Pulse ENTER para continuar")
         except:
-            default
+            default()
 # Ejecución de programa principal
 if __name__ == "__main__":
     main()
