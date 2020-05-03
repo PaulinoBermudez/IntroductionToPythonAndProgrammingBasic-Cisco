@@ -211,21 +211,6 @@ def main():
     os.system('cls')  
     # Solicitamos datos
     credencial()
-    # Creamos un condicional para el menu de opciones
-    if opcion == 1:
-        view_interfaces
-    elif opcion == 2:
-        new_interface
-    elif opcion == 3:
-        delete_interface
-    elif opcion == 4:
-        table_route
-    elif opcion == 5:
-        get_peticion_yang
-    elif opcion == 0:
-        salir
-    else:
-        default
     
 
     while opcion != 0:
@@ -250,6 +235,22 @@ def main():
             pausa = input("> Pulse ENTER para continuar")
         except:
             default()
+# Creamos un condicional para el menu de opciones
+    if opcion == 1:
+        view_interfaces
+    elif opcion == 2:
+        new_interface
+    elif opcion == 3:
+        delete_interface
+    elif opcion == 4:
+        table_route
+    elif opcion == 5:
+        get_peticion_yang
+    elif opcion == 0:
+        salir
+    else:
+        default
+                
 # Ejecución de programa principal
 if __name__ == "__main__":
     main()
