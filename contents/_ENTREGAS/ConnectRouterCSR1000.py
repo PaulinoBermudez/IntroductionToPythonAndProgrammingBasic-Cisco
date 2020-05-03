@@ -16,14 +16,50 @@ from netmiko import ConnectHandler
 # Limpio pantalla del sistema
 os.system('clear')
 os.system('cls')
+
 # Desactivamos las alarmas de warning del SSL
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+# Credenciales de inicio y verificación del host - ¿Activo?
+def credencial(user,passw,ip):
+    # Solicito los datos necesarios para realizar el menú correctamente
+    # IP router
+    ip = input("Introduzca la dirección IP del Router Cisco 1000v: ")
+    puerto = int(input("Puerto de conexión SSH (En mi caso: 830 (NETConf), por default: 22): "))
+    print("Credenciales para {:2}.".format(ip))
+    # Usuario
+    user = input ("Introduzca el usuario login del sistema: ")
+    # Contraseña
+    passw = input ("Introduzca la contraseña de acceso: ")
+    # Conexión SSH al Router.
+    try:
+        clienteSSH = ConnectHandler(device_type='cisco_ios', host=ip, port=puerto, username=user, password=passw)
+        clienteSSH.disconnect()
+        print(30*"___","\n SSH Status Connection - OK.\n",30*"___")
+    except Exception as err:
+        os.system('clear')
+        os.system('cls')    
+        print(60*'·')
+        print("Imposible conectarse al Router con la IP: {:2} \nCompruebe los datos y vuelva a intentarlo de nuevo.".format(ip))
+        print(60*'·')
+        sys.exit()
+
+# Inncesaria, ya que se hace al principio
+def inicia():
+    # Los datos necesarios para que funcione son:
+    # - IP del router
+    # - Usuario
+    # - Contraseña
+    # - URL para obtener la info
+
+    conectaRouter(credencial.user, credencial.passw)
+
 class conectaRouter():
     # Definimos los métodos para obtener la información del router
     # Método inicial para las credenciales.
-    def __init__(self):
-        self.user = input("Escriba el usuario de login: ") 
-        self.passw = input("Escriba la contraseña del usuario {:2} ".format(self.user))
+    def __init__(self,user, passw):
+        self.user = credencial.user
+        self.passw = credencial.passw
         # Cambiar, si cambiamos de host, para hacerlo 'mejor' 
         # podría preguntarlo pero como en este caso siempre es el mismo, con eso vale
         self.host = '192.168.1.137'
@@ -133,40 +169,6 @@ class conectaRouter():
     # Método para ver archivos yang Cisco
     def get_peticion_yang(self):
         print("Menú de archivos YANG que ver/configurar.")
-
-# Inncesaria
-def inicia():
-    # Los datos necesarios para que funcione son:
-    # - IP del router
-    # - Usuario
-    # - Contraseña
-    # - URL para obtener la info
-
-    conectaRouter(credencial.user, credencial.passw)
-
-# Credenciales de inicio y verificación del host - ¿Activo?
-def credencial():
-    # Solicito los datos necesarios para realizar el menú correctamente
-    # IP router
-    ip = input("Introduzca la dirección IP del Router Cisco 1000v: ")
-    puerto = int(input("Puerto de conexión SSH (En mi caso: 830 (NETConf), por default: 22): "))
-    print("Credenciales para {:2}.".format(ip))
-    # Usuario
-    user = input ("Introduzca el usuario login del sistema: ")
-    # Contraseña
-    passw = input ("Introduzca la contraseña de acceso: ")
-    # Conexión SSH al Router.
-    try:
-        clienteSSH = ConnectHandler(device_type='cisco_ios', host=ip, port=puerto, username=user, password=passw)
-        clienteSSH.disconnect()
-        print(30*"___","\n SSH Status Connection - OK.\n",30*"___")
-    except Exception as err:
-        os.system('clear')
-        os.system('cls')    
-        print(60*'·')
-        print("Imposible conectarse al Router con la IP: {:2} \nCompruebe los datos y vuelva a intentarlo de nuevo.".format(ip))
-        print(60*'·')
-        sys.exit()
 
 # Defino clase que se ejecuta en caso de seleccionar una opcion inexistente o inválida          
 def default():
