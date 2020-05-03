@@ -75,7 +75,7 @@ def new_interface():
     # 4- Máscara de red
     # 5- Descripción de la nueva interfaz
     nueva='y'
-    while nueva == 'n':
+    while nueva != 'n':
         hostDef='192.168.56.101'
         puertoDef=22
         userD='cisco'
@@ -236,6 +236,8 @@ def main():
         elif opcion == 0:
             print("Selecciono: {}".format(salir))
             salir()
+        elif opcion == None:
+            print("Debe ingresar una opción del menú o 0 para salir.")
         else:
             default
         pausa = input("> Pulse ENTER para continuar")
