@@ -45,8 +45,6 @@ def credencial():
         print(60*'·')
         sys.exit()
     
-    masterurl = "https://"+ip+"/resconf/data/ietf-interfaces:interfaces/"
-    
 # Método para ver las interfaces de red.
 def view_interfaces():
     print("Interfaces de red. \n")
@@ -142,6 +140,7 @@ def new_interface():
 def delete_interface():
     print("Borrar interfaz de red.")
     # Pasos:
+    # 0 - Credenciales
     # 1 - Solicito la interfaz que quiero borrar
     # 2 - Creo la cabecera del archivo o headers
     # 3 - Inicio sesion con las credenciales de usuario
@@ -149,6 +148,28 @@ def delete_interface():
     # 5 - Muestro por pantalla el resultado
     
     # URL 
+    
+    masterurl = "https://"+ip+"/resconf/data/ietf-interfaces:interfaces/"
+    ip = "192.168.1.137"
+    validarIP = input("IP del router {} , es válida? (Y/N) ".format(ip))
+    validarIP.upper
+    # Pongo los dos valores porque (no se el porque, pero no siempre me vale el 'lower'/'upper'
+    # para cuidarnos en salud y evitar el fallo... Pongo los dos)
+    if validarIP == 'N' or validarIP == 'n':
+        ip=input("Escriba la IP correcta: ")
+    # Comando de consola para ver las interfaces de red
+    sshCli = ConnectHandler(
+     device_type='cisco_ios',
+    host=ip,
+    port=22,
+    username='cisco',
+    password='cisco123!'
+    )
+    # Sent some simple commands and display the returned output
+    print("Sendind 'sh ip int brief' ... ")
+    output2 = sshCli.send_command("show ip int brief")
+    print("show ip int brief: \n{}\n".format(output2))
+    print("_________________________________________")
     laborro = input("¿Qué interfaz borro? ")
     url = self.masterurl+"interface={}".format(laborro)
     # header 
