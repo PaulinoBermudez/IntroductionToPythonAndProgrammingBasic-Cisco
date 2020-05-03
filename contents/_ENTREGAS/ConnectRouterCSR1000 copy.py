@@ -47,11 +47,11 @@ def credencial():
     masterurl = "https://"+ip+"/resconf/data/ietf-interfaces:interfaces/"
     
 # Método para ver las interfaces de red.
-def view_interfaces(self):
+def view_interfaces():
     print("Interfaces de red. \n")
     # Comando de consola para ver las interfaces de red
     ssh = paramiko.SSHClient()
-    ssh.connect(self.ip, port=22, username = self.user, password = self.passw)
+    ssh.connect(credencial.ip, port=22, username = credencial.user, password = credencial.passw
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     stdin,stdout, stderr = ssh.exec_command("show ip interface brief")
     output = stdout.readlines()
@@ -201,22 +201,22 @@ def main():
         print("Escribió: ", opcion)
         if opcion == 1:
             print("Selecciono: {}".format(view_interfaces))
-            view_interfaces
+            view_interfaces()
         elif opcion == 2:
             print("Selecciono: {}".format(new_interface))
-            new_interface
+            new_interface()
         elif opcion == 3:
             print("Selecciono: {}".format(delete_interface))
-            delete_interface
+            delete_interface()
         elif opcion == 4:
             print("Selecciono: {}".format(table_route))
             table_route
         elif opcion == 5:
             print("Selecciono: {}".format(get_peticion_yang))
-            get_peticion_yang
+            get_peticion_yang()
         elif opcion == 0:
             print("Selecciono: {}".format(salir))
-            salir
+            salir()
         else:
             default
         pausa = input("> Pulse ENTER para continuar")
