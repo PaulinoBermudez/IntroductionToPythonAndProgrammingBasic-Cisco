@@ -144,7 +144,7 @@ def credencial():
     # Solicito los datos necesarios para realizar el menú correctamente
     # IP router
     ip = input("Introduzca la dirección IP del Router Cisco 1000v: ")
-    puerto = int(input("Puerto de conexión (En mi caso: 830, por default: 22): "))
+    puerto = int(input("Puerto de conexión SSH (En mi caso: 830 (NETConf), por default: 22): "))
     print("Credenciales para {:2}.".format(ip))
     # Usuario
     user = input ("Introduzca el usuario login del sistema: ")
@@ -156,9 +156,11 @@ def credencial():
         clienteSSH.disconnect()
         print(50*"___","\n SSH Status Connection - OK.\n",50*"___")
     except Exception as err:
-        print(50*'·')
+        os.system('clear')
+        os.system('cls')    
+        print(60*'·')
         print("Imposible conectarse al Router con la IP: {:2} \nCompruebe los datos y vuelva a intentarlo de nuevo.".format(ip))
-        print(50*'·')
+        print(60*'·')
         sys.exit()
 
 # Defino clase que se ejecuta en caso de seleccionar una opcion inexistente o inválida          
