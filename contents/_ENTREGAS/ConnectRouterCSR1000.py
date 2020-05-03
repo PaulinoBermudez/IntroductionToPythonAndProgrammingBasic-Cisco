@@ -58,11 +58,11 @@ class conectaRouter():
     # Definimos los métodos para obtener la información del router
     # Método inicial para las credenciales.
     def __init__(self,user, passw):
-        self.user = credencial.user
-        self.passw = credencial.passw
+        self.user = credencial(user)
+        self.passw = credencial(passw)
         # Cambiar, si cambiamos de host, para hacerlo 'mejor' 
         # podría preguntarlo pero como en este caso siempre es el mismo, con eso vale
-        self.host = '192.168.1.137'
+        self.host = credencial(ip)
         print()
         print("Verificación de configuración \n")
         
