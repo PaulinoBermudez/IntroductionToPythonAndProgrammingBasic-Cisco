@@ -2,7 +2,6 @@
 # @author: [ Paulino Bermúdez R.]
 # @Description: 
 import os, requests, json, time, urllib3
-from tkinder import MessageBox
 from tabulate import *
 os.system('clear')
 os.system('cls')
@@ -356,14 +355,23 @@ def default():
     MessageBox.showinfo("ERROR!", "La opción introducida no es válida. Vuelva a intentarlo de nuevo. [Escribir nº de opción del menú]")
 # Función de final de programa
 def finalizar():   
-    root =  tkinter.Tk()
-    root.withdraw()
-
-    MessageBox.showinfo("Fin del programa", "Gracias por usar el programa de APIC-EM. Un 10 no estaría mal. :sweat_smile: \n @Version: Becas_Digitaliza:2019-2020")
+    t = time.localtime()
+    current_time = time.strftime("%H:%M:%S", t)    
+    print("""
+            Fin del programa
+        Gracias por usar el programa de APIC-EM. 
+        Un 10 no estaría mal. :sweat_smile: 
+        \n 
+        @Version: Becas_Digitaliza:2019-2020 \n
+        {:2}
+    """.format(current_time))
     time.sleep(5)
-    sys.exit()
+    exit()
 # Funcion principal del programa
 def main():
+    t = time.localtime()
+    current_time = time.strftime("%H:%M:%S", t)
+    print(current_time)
     # Invoco la clase principal del programa
     api = class_API_EM()
     # Inicio la variable de selección
@@ -391,21 +399,22 @@ def main():
         @Versión: 2020.
     
     """)
+    os.system('clear')
+    os.system('cls')
+        
     # Creamos un diccionario para el menu de opciones
     opciones = {
-        1:api:get_ticket,
-        2:api:get_hosts_list,
-        3:api:get_network_devices_list,
-        4:api:get_interfaces_list,
-        #5:api:get_path_trace,
+        1:api.get_ticket,
+        2:api.get_hosts_list,
+        3:api.get_network_devices_list,
+        4:api.get_interfaces_list,
+        #5:api.get_path_trace,
         0:finalizar
     }
 
     # Bucle del menú de opciones
     while opcion != 0:
-        os.system('clear')
-        os.system('cls')
-        print("""
+        print("""current_time
             APIC-EM AUTOMATIZADA.
 
         Selecciones una de las opciones:
@@ -423,6 +432,7 @@ def main():
         """)
         try:
             opcion = int(input("Escriba una opción: "))
+            opciones[opcion]()
         except:
             dict.get(opcion.default)()
 

@@ -10,9 +10,9 @@
 #   - Redacción del archivo
 
 # Librerias importadas
-import os, sys, json, xml.dom.minidom ,paramiko, requests,tabulate, ncclient, urllib3, time 
+import os, sys, json, xml.dom.minidom ,paramiko, requests,tabulate, urllib3, time 
 from netmiko import ConnectHandler
-from ncclient import manager
+#from ncclient import manager
 # Limpio pantalla del sistema
 os.system('clear')
 os.system('cls')
@@ -90,7 +90,7 @@ class conectaRouter:
             #print(netconf_reply)
 
             # QUEDA FEO PERO FEO FEO - PERO FUNCIONA
-            netconf_data ='<config> \n \t <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native"> \n',2*"\t","<interface> \n", 3*"\t"," <{:2}> \n".format(tipo),4*"\t","<name>{:2}</name> \n".format(name),4*"\t","<description>{:2}</description> \n".format(description),4*"\t","<ip> \n",5*"\t","<address> \n",6*"\t","<primary> \n",7*"\t","<address>{:2}</address> \n".format(ip),7*"\t","<mask>{:2}</mask> \n".format(mask),6*"\t","</primary> \n",5*"\t","</address> \n",4*"\t","</ip> \n",3*"\t"," <{:2}> \n".format(tipo),2*"\t","</interface> \n","\t </native> \n","</config> \n"'
+            netconf_data ='<config> \n \t <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native"> \n',2*"\t","<interface> \n", 3*"\t"," <{:2}> \n".format(tipo),4*"\t","<name>{:2}</name> \n".format(name),4*"\t","<description>{:2}</description> \n".format(description),4*"\t","<ip> \n",5*"\t","<address> \n",6*"\t","<primary> \n",7*"\t","<address>{:2}</address> \n".format(ip),7*"\t","<mask>{:2}</mask> \n".format(mask),6*"\t","</primary> \n",5*"\t","</address> \n",4*"\t","</ip> \n",3*"\t"," <{:2}> \n".format(tipo),2*"\t","</interface> \n","\t </native> \n","</config> \n"
             
             netconf_reply = m.edit_config(target="running", config = netconf_data)
             print(xml.dom.minidom.parseString(netconf_reply.xml).toprettyxml())
@@ -125,8 +125,10 @@ class conectaRouter:
         print("Crear tabla de rutas")
         print("Ver ORIGEN - DESTINO -  INTERFAZ DE SALIDA - ")
 
+    # Método para ver archivos yang Cisco
     def yang_files(self):
         print("Menú de archivos YANG que ver/configurar.")
+
 def credencial():
     # Solicito los datos necesarios para realizar el menú correctamente
     # IP router
@@ -154,7 +156,7 @@ def salir():
     os.system('cls')
     print("Espero que mi trabajo te ayude en el tuyo. \n Adiós!")
     time.sleep(5)
-    sys.exit()
+    exit()
 # Función principal
 def main():
     # Solicitamos datos
@@ -181,14 +183,14 @@ def main():
         - PUE: https://www.pue.es/
         @Versión: 2020.
     """)
-    
+    api = conectaRouter()
     # Creamos un diccionario para el menu de opciones
     opciones = {
-        1:api:view_interfaces,
-        2:api:add_interfaces,
-        3:api:delete_interfaces,
-        4:api:routing_table,
-        5:api:get_peticion_yang,
+        1:api.view_interfaces,
+        2:api.new_interfaces,
+        3:api.delete_interfaces,
+        4:api.routing_table,
+        5:api.get_peticion_yang,
         0:salir
     }
 
