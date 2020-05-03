@@ -128,8 +128,12 @@ def new_interface():
             ]
             # Output configuration commands.
             output1 = sshCli.send_config_set(config_commands)
+            output2 = sshCli.send_command("show ip int brief")
             # Sent some simple commands and display the returned output
             print("Config output from the device: \n{}\n".format(output1))
+            print("Print all info: \n")
+            print("\n{}\n".format(output2))
+
         else:
             print("Vale. Vuelvo al menú")
             main()
