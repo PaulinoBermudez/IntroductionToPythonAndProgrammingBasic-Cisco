@@ -10,7 +10,7 @@
 #   - Redacción del archivo
 
 # Librerias importadas
-import os, sys, json, xml.dom.minidom ,paramiko, requests,tabulate, urllib3, time 
+import os, sys, json, xml.dom.minidom ,cli, requests,tabulate, urllib3, time 
 from netmiko import ConnectHandler
 #from ncclient import manager
 # Limpio pantalla del sistema
@@ -52,9 +52,8 @@ def view_interfaces():
     # Comando de consola para ver las interfaces de red
     ssh = paramiko.SSHClient()
     ssh.connect(credencial.ip, port=22, username = credencial.user, password = credencial.passw
-    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    stdin,stdout, stderr = ssh.exec_command("show ip interface brief")
-    output = stdout.readlines()
+    cli.execute('show ip interface brief')
+
     print("\n".join(output))
     return join(output)
 
