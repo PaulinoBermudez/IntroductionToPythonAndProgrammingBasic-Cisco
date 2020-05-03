@@ -11,7 +11,6 @@
 
 # Librerias importadas
 import os, sys, json, xml.dom.minidom, requests,tabulate, urllib3, time 
-from Exscript.util.interact import read_login
 from Exscript.protocols import SSH2
 from netmiko import ConnectHandler
 #from ncclient import manager
@@ -52,14 +51,7 @@ def credencial():
 def view_interfaces():
     print("Interfaces de red. \n")
     # Comando de consola para ver las interfaces de red
-    
-    account = read_login()              
-    conn = SSH2()                       
-    conn.connect(credencial.ip)     
-    conn.login(account)  
-
     conn.execute('terminal length 0')           
-
     conn.execute('show version')
     print(conn.response)
     print(50*"_")
