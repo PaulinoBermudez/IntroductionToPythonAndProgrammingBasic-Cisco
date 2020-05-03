@@ -197,17 +197,17 @@ def main():
     api = conectaRouter
     # Creamos un diccionario para el menu de opciones
     opciones = {
-        1:api.view_interfaces,
-        2:api.new_interface,
-        3:api.delete_interface,
-        4:api.table_route,
-        5:api.get_peticion_yang,
-        0:salir
+        '1':api.view_interfaces(),
+        '2':api.new_interface(),
+        '3':api.delete_interface(),
+        '4':api.table_route(),
+        '5':api.get_peticion_yang(),
+        '0':salir()
     }
 
     while opcion != 0:
-        os.system('clear')
-        os.system('cls')
+        #os.system('clear')
+        #os.system('cls')
         print("""
         SCRIPT DE AYUDA OBTENER INFO. - Router Cisco 1000v
 
@@ -225,7 +225,9 @@ def main():
         (*) Revisar.
         """)
         try:
-            opcion = int(input("Escriba una opción: "))
+            opcion = input("Escriba una opción: ")
+            opciones[opcion]()
+            pausa = input("> Pulse ENTER para continuar")
         except:
             dict.get(opcion.default)()
 # Ejecución de programa principal
