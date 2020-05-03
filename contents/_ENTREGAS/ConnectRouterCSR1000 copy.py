@@ -11,7 +11,8 @@
 
 # Librerias importadas
 import os, sys, json, xml.dom.minidom, requests,tabulate, urllib3, time 
-from cli import cli,clip,configure,configurep, execute, executep
+from Exscript.util.interact import read_login
+from Exscript.protocols import SSH2
 from netmiko import ConnectHandler
 #from ncclient import manager
 # Limpio pantalla del sistema
@@ -51,12 +52,22 @@ def credencial():
 def view_interfaces():
     print("Interfaces de red. \n")
     # Comando de consola para ver las interfaces de red
-    ssh = paramiko.SSHClient()
-    ssh.connect(credencial.ip, port=22, username = credencial.user, password = credencial.passw
-    execute('show ip interface brief')
-    output = cli.cli
-    print("\n",output)
-    return output
+    
+    account = read_login()              
+    conn = SSH2()                       
+    conn.connect(credencial.ip)     
+    conn.login(account)  
+
+    conn.execute('terminal length 0')           
+
+    conn.execute('show version')
+    print(conn.response)
+    print(50*"_")
+    conn.execute('show ip interface brief')
+    print(conn.response)
+
+    conn.send('exit\r')               
+    conn.close() 
 
 # Método para crear una interfaz nueva
 def new_interface(self):
