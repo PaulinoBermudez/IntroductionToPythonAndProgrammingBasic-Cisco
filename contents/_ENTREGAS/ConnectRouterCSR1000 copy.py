@@ -182,6 +182,30 @@ def salir():
     time.sleep(3)
     sys.exit()
 
+# Creamos un condicional para el menu de opciones
+def seleccion(self):
+    opcion = -1
+    if opcion == 1:
+        print("Selecciono: {}".format(view_interfaces))
+        view_interfaces
+    elif opcion == 2:
+        print("Selecciono: {}".format(new_interface))
+        new_interface
+    elif opcion == 3:
+        print("Selecciono: {}".format(delete_interface))
+        delete_interface
+    elif opcion == 4:
+        print("Selecciono: {}".format(table_route))
+        table_route
+    elif opcion == 5:
+        print("Selecciono: {}".format(get_peticion_yang))
+        get_peticion_yang
+    elif opcion == 0:
+        print("Selecciono: {}".format(salir))
+        salir
+    else:
+        default
+     
 # Función principal
 def main():
     # Inicio la variable opcion
@@ -232,25 +256,11 @@ def main():
         """)
         try:
             opcion = int(input("Escriba una opción: "))
+            selecion(opcion)
             pausa = input("> Pulse ENTER para continuar")
         except:
             default()
-# Creamos un condicional para el menu de opciones
-    if opcion == 1:
-        view_interfaces
-    elif opcion == 2:
-        new_interface
-    elif opcion == 3:
-        delete_interface
-    elif opcion == 4:
-        table_route
-    elif opcion == 5:
-        get_peticion_yang
-    elif opcion == 0:
-        salir
-    else:
-        default
-                
+           
 # Ejecución de programa principal
 if __name__ == "__main__":
     main()
