@@ -8,29 +8,51 @@
 #   - probar el script
 #   - Ver la información de los archivos YANG.
 #   - Redacción del archivo
-import os, sys, json, requests, tabulate, ncclient, urllib3, time 
+
+# Librerias importadas
+import os, sys, json, xml.dom.minidom ,paramiko, requests,tabulate, ncclient, urllib3, time 
 from netmiko import ConnectHandler
+from ncclient import manager
+# Limpio pantalla del sistema
 os.system('clear')
 os.system('cls')
-
 # Desactivamos las alarmas de warning del SSL
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
 class inicia:
     conectaRouter(ip,user,key)
 
 class conectaRouter:
     # Definimos los métodos para obtener la información del router
     # Método inicial para las credenciales.
-    def __init__(self,ip,user,passw):
+    def __init__(self,ip,user,passw, masterurl):
         self.host = ip
         self.user = user 
         self.passw = passw
+        print()
+        print("Verificación de configuración \n")
+        
+        # Otra de las opciones es con la instalación de YANGEXPLORER: https://github.com/CiscoDevNet/yang-explorer
+        ssh = paramiko.SSHClient()
+        ssh.connect(self.host, port=22, username = self.user, password = self.passw)
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        stdin,stdout, stderr = ssh.exec_command('show platform yang-management process')
+        output = stdout.readlines()
+        #type(output)
+        print("\n".join(output))
+
+        self.masterurl = "https://"+self.host+"/resconf/data/ietf-interfaces:interfaces/"
+        
     # Método para ver las interfaces de red.
-    def view_interfaces(self):
-        print("Interfaces de red.")
+    def view_interfaces():
+        print("Interfaces de red. \n")
+        # Comando de consola para ver las interfaces de red
+        stdin,stdout, stderr = ssh.exec_command("show ip interface brief")
+        output = stdout.readlines()
+        print("\n".join(output))
+
     # Método para crear una interfaz nueva
     def new_interface(self):
+        print("Nueva interfaz de red.")
         # Pedimos los datos necesarios:
         # 1- Tipo de interfaz
         # 2- Nombre de la interfaz
@@ -39,8 +61,10 @@ class conectaRouter:
         # 5- Descripción de la nueva interfaz
         while True:
             # URL de conexión al Router
-            url = "https://"+self.host+"/resconf/data/ietf-interfaces:interfaces"
+            url = masterurl
+            # print("La URL a la que voy a consultar es: ",url, "\n")
             # Pedimos los datos de la nueva interfaz
+            tipo = input("¿Qué tipo de interfaz es? (Loopback, FastEthernet,...) ")
             name = input("¿Qué nombre asigno a la nueva interfaz? ")
             ip = input("¿Qué IP assigno a la interfaz? ")
             mask = input("¿Qué máscara de red tiene la interfaz? ")
@@ -54,19 +78,54 @@ class conectaRouter:
             # Creamos la nueva interfaz
             conecta = url+"/interface="+name
             print("\n URL a la que nos conectamos es: {:2}".format(conecta)+"\n\n")
-            # Cabecera de la aplicación.
-            cabecera = {
-                # Tipo de dato con el que trabajamos: yang+json
-                "Accept":"application/yang-data+json",
-                "Content-type:":"application/yang-data+json"
-            }
-            # Authentication: User + Password method
-            basicAuth = (self.user, self.passw)
+            
+            m = manager.connect(
+                host=self.host,
+                port=830,
+                username=self.user,
+                password = self.passw,
+                hostkey_verify = False 
+            )
+
+            netconf_reply = manager.get_config(source="running")
+            #print(netconf_reply)
+
+            # QUEDA FEO PERO FEO FEO - PERO FUNCIONA
+            netconf_data ='<config> \n \t <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native"> \n',2*"\t","<interface> \n", 3*"\t"," <{:2}> \n".format(tipo),4*"\t","<name>{:2}</name> \n".format(name),4*"\t","<description>{:2}</description> \n".format(description),4*"\t","<ip> \n",5*"\t","<address> \n",6*"\t","<primary> \n",7*"\t","<address>{:2}</address> \n".format(ip),7*"\t","<mask>{:2}</mask> \n".format(mask),6*"\t","</primary> \n",5*"\t","</address> \n",4*"\t","</ip> \n",3*"\t"," <{:2}> \n".format(tipo),2*"\t","</interface> \n","\t </native> \n","</config> \n"'
+            
+            netconf_reply = m.edit_config(target="running", config = netconf_data)
+            print(xml.dom.minidom.parseString(netconf_reply.xml).toprettyxml())
+
+    # Método para borrar una interfaz de red del router.
     def delete_interface(self):
         print("Borrar interfaz de red.")
+        # Pasos:
+        # 1 - Solicito la interfaz que quiero borrar
+        # 2 - Creo la cabecera del archivo o headers
+        # 3 - Inicio sesion con las credenciales de usuario
+        # 4 - Genero la conexión para borrar la interfaz 
+        # 5 - Muestro por pantalla el resultado
+        
+        # URL 
+        laborro = input("¿Qué interfaz borro? ")
+        url = self.masterurl+"interface={}".format(laborro)
+        # header 
+        headers = {
+            "Accept":"application/yang-data+json",
+            "Content-Tpe":"application/yang-data+json"
+        }
+        # Authentication credentiales
+        basic_auth = (self.user, self.passw)
+        # Generate connexion
+        respuesta = requests.delete(url, auth= basic_auth, headers = headers, verify = False)
+        response_json = respuesta.json()
+        print(json.dumps(response_json, indent = 2))
+    
+    # Método para ver la tabla de rutas.
     def table_route(self):
         print("Crear tabla de rutas")
         print("Ver ORIGEN - DESTINO -  INTERFAZ DE SALIDA - ")
+
     def yang_files(self):
         print("Menú de archivos YANG que ver/configurar.")
 def credencial():
@@ -86,15 +145,18 @@ def credencial():
     except Exception as err:
         print("Imposible conectarse al Router con la IP: {:2} \nCompruebe los datos y vuelva a intentarlo de nuevo.".format(ip))
         sys.exit()
-            
+
+# Defino clase que se ejecuta en caso de seleccionar una opcion inexistente o inválida          
 def default():
-    print("OPCION INVÁLIDA! - Revise las opciones y vuelva a intentarlo")
+    print("OPCION INVÁLIDA! - Revise las opciones y vuelva a intentarlo")    
+# Función para salir del programa    
 def salir():
     os.system('clear')
     os.system('cls')
     print("Espero que mi trabajo te ayude en el tuyo. \n Adiós!")
     time.sleep(5)
     sys.exit()
+# Función principal
 def main():
     # Solicitamos datos
     credencial
@@ -123,7 +185,7 @@ def main():
     
     # Creamos un diccionario para el menu de opciones
     opciones = {
-        1:api:get_interfaces,
+        1:api:view_interfaces,
         2:api:add_interfaces,
         3:api:delete_interfaces,
         4:api:routing_table,
@@ -154,5 +216,6 @@ def main():
             opcion = int(input("Escriba una opción: "))
         except:
             dict.get(opcion.default)()
+# Ejecución de programa principal
 if __name__ == "__main__":
     main()
