@@ -43,34 +43,15 @@ def credencial():
         print("Imposible conectarse al Router con la IP: {:2} \nCompruebe los datos y vuelva a intentarlo de nuevo.".format(ip))
         print(60*'·')
         sys.exit()
-
-def __init__(self,user, passw):
-    self.user = credencial(user)
-    self.passw = credencial(passw)
-    # Cambiar, si cambiamos de host, para hacerlo 'mejor' 
-    # podría preguntarlo pero como en este caso siempre es el mismo, con eso vale
-    self.host = credencial(ip)
-    print()
-    print("Verificación de configuración \n")
     
-    # Otra de las opciones es con la instalación de YANGEXPLORER: https://github.com/CiscoDevNet/yang-explorer
-    ssh = paramiko.SSHClient()
-    ssh.connect(self.host, port=22, username = self.user, password = self.passw)
-    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    stdin,stdout, stderr = ssh.exec_command('show platform yang-management process')
-    output = stdout.readlines()
-    #type(output)
-    # print("\n".join(output))
-    return join(output)
-
-    self.masterurl = "https://"+self.host+"/resconf/data/ietf-interfaces:interfaces/"
+    masterurl = "https://"+ip+"/resconf/data/ietf-interfaces:interfaces/"
     
 # Método para ver las interfaces de red.
 def view_interfaces(self):
     print("Interfaces de red. \n")
     # Comando de consola para ver las interfaces de red
     ssh = paramiko.SSHClient()
-    ssh.connect(self.host, port=22, username = self.user, password = self.passw)
+    ssh.connect(self.ip, port=22, username = self.user, password = self.passw)
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     stdin,stdout, stderr = ssh.exec_command("show ip interface brief")
     output = stdout.readlines()
