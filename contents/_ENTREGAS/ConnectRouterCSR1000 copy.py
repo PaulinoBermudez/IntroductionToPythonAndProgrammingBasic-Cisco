@@ -119,9 +119,9 @@ def new_interface():
             else:
                 descripcion = ("Qué descripción quiere para {}. ".format(nomInter))
             config_commands = [
-                nomInter,
-                'ip address {} {}'.format(ipInter, maskInter),
-                descripcion
+                "int "+nomInter,
+                "ip address "+ipInter+maskInter,
+                "description "+ descripcion
             ]
             # Output configuration commands.
             output1 = sshCli.send_config_set(config_commands)
