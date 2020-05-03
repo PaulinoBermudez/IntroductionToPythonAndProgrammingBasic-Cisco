@@ -84,7 +84,13 @@ def new_interface():
         nueva = input("¿Quiere crear una nueva interfaz?(Y/N) ")
         nueva.lower
         if nueva == "y":
-            print("Valores por defecto. \n",hostDef , "\t", puertoDef , "\t", userD , "\t", passD)
+            print("""
+                Valores por defecto. \n
+                IP:{}
+                Port:{:2}
+                User:{}
+                Pass:{} 
+            """.format(hostDef ,  puertoDef ,  userD , passD)
             defaultValues = input(" ¿Uso las credenciales por defecto del sistema? (Y/N) ")
             defaultValues.lower 
             if defaultValues == 'n':
@@ -101,8 +107,9 @@ def new_interface():
             password=passD
             )
             # Datos para la nueva interfaz
+            print("\n Genial! Ahora los datos de la nueva interfaz. \n")
             nomInter = input(" ¿Qué nombre le ponemos a la interfaz? ")
-            ipInter = input(" ¿Qué IP escribo para {}".format(nomInter))
+            ipInter = input(" ¿Qué IP escribo para {} :".format(nomInter))
             maskInter = input(" ¿Máscara para {}? ".format(nomInter)) 
             sino = input(" ¿Escribo una descripión por defecto? (Y/N) ")
             sino.lower
