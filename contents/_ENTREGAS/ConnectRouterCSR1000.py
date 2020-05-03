@@ -18,8 +18,6 @@ os.system('clear')
 os.system('cls')
 # Desactivamos las alarmas de warning del SSL
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-class inicia:
-    conectaRouter(ip,user,key)
 class conectaRouter:
     # Definimos los métodos para obtener la información del router
     # Método inicial para las credenciales.
@@ -42,7 +40,7 @@ class conectaRouter:
         self.masterurl = "https://"+self.host+"/resconf/data/ietf-interfaces:interfaces/"
         
     # Método para ver las interfaces de red.
-    def view_interfaces():
+    def view_interfaces(self):
         print("Interfaces de red. \n")
         # Comando de consola para ver las interfaces de red
         stdin,stdout, stderr = ssh.exec_command("show ip interface brief")
@@ -128,6 +126,8 @@ class conectaRouter:
     # Método para ver archivos yang Cisco
     def yang_files(self):
         print("Menú de archivos YANG que ver/configurar.")
+def inicia():
+    conectaRouter(ip,user,key, url)
 
 def credencial():
     # Solicito los datos necesarios para realizar el menú correctamente
