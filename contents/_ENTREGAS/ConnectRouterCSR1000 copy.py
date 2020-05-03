@@ -151,6 +151,9 @@ def delete_interface():
     
     masterurl = "https://"+ip+"/resconf/data/ietf-interfaces:interfaces/"
     ip = "192.168.1.137"
+    port=22,
+    user ='cisco',
+    passw='cisco123!'
     validarIP = input("IP del router {} , es válida? (Y/N) ".format(ip))
     validarIP.upper
     # Pongo los dos valores porque (no se el porque, pero no siempre me vale el 'lower'/'upper'
@@ -159,28 +162,29 @@ def delete_interface():
         ip=input("Escriba la IP correcta: ")
     # Comando de consola para ver las interfaces de red
     sshCli = ConnectHandler(
-     device_type='cisco_ios',
+    device_type='cisco_ios',
     host=ip,
-    port=22,
-    username='cisco',
-    password='cisco123!'
+    port=port,
+    user=user,
+    password=passw
     )
     # Sent some simple commands and display the returned output
-    print("Sendind 'sh ip int brief' ... ")
     output2 = sshCli.send_command("show ip int brief")
-    print("show ip int brief: \n{}\n".format(output2))
+    print("_________________________________________")
+    print("Estas son las interfaces encontradas: \n{}\n".format(output2))
     print("_________________________________________")
     laborro = input("¿Qué interfaz borro? ")
-    url = self.masterurl+"interface={}".format(laborro)
+    url = masterurl+"interface={}".format(laborro)
+    print(url ," - OK")
     # header 
     headers = {
         "Accept":"application/yang-data+json",
         "Content-Tpe":"application/yang-data+json"
     }
     # Authentication credentiales
-    basic_auth = (self.user, self.passw)
+    basic_auth = (user, passw)
     # Generate connexion
-    respuesta = requests.delete(url, auth= basic_auth, headers = headers, verify = False)
+    respuesta = requests.delete(url, auth=basic_auth, headers=headers, verify = False)
     response_json = respuesta.json()
     print(json.dumps(response_json, indent = 2))
 
