@@ -20,7 +20,6 @@ os.system('cls')
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 class inicia:
     conectaRouter(ip,user,key)
-
 class conectaRouter:
     # Definimos los métodos para obtener la información del router
     # Método inicial para las credenciales.
