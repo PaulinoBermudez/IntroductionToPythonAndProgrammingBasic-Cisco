@@ -154,7 +154,7 @@ def credencial():
     try:
         clienteSSH = ConnectHandler(device_type='cisco_ios', host=ip, port=puerto, username=user, password=passw)
         clienteSSH.disconnect()
-        print(50*"___","\n SSH Status Connection - OK.\n",50*"___")
+        print(30*"___","\n SSH Status Connection - OK.\n",30*"___")
     except Exception as err:
         os.system('clear')
         os.system('cls')    
@@ -198,6 +198,8 @@ def main():
         - PUE: https://www.pue.es/
         @Versión: 2020.
     """)
+    os.system('clear')
+    os.system('cls')  
     credencial()
     api = conectaRouter
     # Creamos un diccionario para el menu de opciones
@@ -229,14 +231,10 @@ def main():
         """)
         try:
             opcion = input("Escriba una opción: ")
-            os.system('clear')
-            os.system('cls')        
             opciones[opcion]()
             pausa = input("> Pulse ENTER para continuar")
         except:
-            os.system('clear')
-            os.system('cls')        
-            opciones[opcion.default]()
+            default
 # Ejecución de programa principal
 if __name__ == "__main__":
     main()
