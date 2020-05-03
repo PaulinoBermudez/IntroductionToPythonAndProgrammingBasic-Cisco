@@ -21,10 +21,11 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 class conectaRouter():
     # Definimos los métodos para obtener la información del router
     # Método inicial para las credenciales.
-    def __init__(self):
-        self.user = user 
-        self.passw = passw
-        # Cambiar si cambiamos de host
+    def __init__(self,user,passw):
+        self.user = input("Escriba el usuario de login: ") 
+        self.passw = input("Escriba la contraseña del usuario {:2} ".format(user))
+        # Cambiar, si cambiamos de host, para hacerlo 'mejor' 
+        # podría preguntarlo pero como en este caso siempre es el mismo, con eso vale
         self.host = '192.168.56.1'
         print()
         print("Verificación de configuración \n")
@@ -128,7 +129,7 @@ class conectaRouter():
         print("Ver ORIGEN - DESTINO -  INTERFAZ DE SALIDA - ")
 
     # Método para ver archivos yang Cisco
-    def yang_files(self):
+    def get_peticion_yang(self):
         print("Menú de archivos YANG que ver/configurar.")
 def inicia():
     # Los datos necesarios para que funcione son:
@@ -193,13 +194,13 @@ def main():
         - PUE: https://www.pue.es/
         @Versión: 2020.
     """)
-    api = conectaRouter()
+    api = conectaRouter
     # Creamos un diccionario para el menu de opciones
     opciones = {
         1:api.view_interfaces,
-        2:api.new_interfaces,
-        3:api.delete_interfaces,
-        4:api.routing_table,
+        2:api.new_interface,
+        3:api.delete_interface,
+        4:api.table_route,
         5:api.get_peticion_yang,
         0:salir
     }
