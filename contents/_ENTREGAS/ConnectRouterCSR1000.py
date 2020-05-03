@@ -138,7 +138,7 @@ def inicia():
     # - Contraseña
     # - URL para obtener la info
 
-    conectaRouter(self)
+    conectaRouter(credencial.user, credencial.passw)
 
 def credencial():
     # Solicito los datos necesarios para realizar el menú correctamente
@@ -167,11 +167,11 @@ def salir():
     os.system('cls')
     print("Espero que mi trabajo te ayude en el tuyo. \n Adiós!")
     time.sleep(5)
-    exit()
+    sys.exit()
 # Función principal
 def main():
     # Solicitamos datos
-    credencial
+    credencial()
     opcion = input("""
 
         Hola y bienvenid@!
