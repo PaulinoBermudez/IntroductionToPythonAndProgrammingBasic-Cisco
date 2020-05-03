@@ -77,14 +77,14 @@ def new_interface():
     # 5- Descripción de la nueva interfaz
     nueva='y'
     while nueva != 'n':
-        hostDef='192.168.56.101'
+        hostDef='192.168.1.137'
         puertoDef=22
         userD='cisco'
         passD='cisco123!'
 
         nueva = input("¿Quiere crear una nueva interfaz?(Y/N) ")
         nueva.lower
-        if nueva == "y":
+        if nueva == "y" or nueva == 'Y':
             print("""
                 Valores por defecto. \n
                 IP:{}
@@ -94,11 +94,14 @@ def new_interface():
             """.format(hostDef ,  puertoDef ,  userD , passD))
             defaultValues = input(" ¿Uso las credenciales por defecto del sistema? (Y/N) ")
             defaultValues.lower 
-            if defaultValues == 'n':
+            if defaultValues == 'n' or defaultValues == 'N':
                 hostDef=input("IP del host? ")
                 puertoDef=input("Puerto: ")
                 userD = input("Login User: ")
                 passD = input("{} Password: ".format(userD))
+            if defaultValues == None:
+                print("Uso los Default Values")
+
             # Conexión SSH             
             sshCli = ConnectHandler(
             device_type='cisco_ios',
@@ -117,7 +120,7 @@ def new_interface():
             if sino == 'y' or sino== 'Y':
                 descripcion = "AUTO DESCRIPTION INTERFACE."
             else:
-                descripcion = ("Qué descripción quiere para {}. ".format(nomInter))
+                descripcion = input("Qué descripción quiere para {}. ".format(nomInter))
             config_commands = [
                 "int "+nomInter,
                 "ip address "+ipInter+" "+maskInter,
