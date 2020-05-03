@@ -18,13 +18,14 @@ os.system('clear')
 os.system('cls')
 # Desactivamos las alarmas de warning del SSL
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-class conectaRouter(self):
+class conectaRouter():
     # Definimos los métodos para obtener la información del router
     # Método inicial para las credenciales.
-    def __init__(self,user,passw,ip):
+    def __init__(self):
         self.user = user 
         self.passw = passw
-        self.host = ip
+        # Cambiar si cambiamos de host
+        self.host = '192.168.56.1'
         print()
         print("Verificación de configuración \n")
         
@@ -136,7 +137,7 @@ def inicia():
     # - Contraseña
     # - URL para obtener la info
 
-    conectaRouter(ip,user,key,url)
+    conectaRouter(self)
 
 def credencial():
     # Solicito los datos necesarios para realizar el menú correctamente
