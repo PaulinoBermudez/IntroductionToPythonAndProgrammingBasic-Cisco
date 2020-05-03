@@ -115,7 +115,7 @@ def new_interface():
             sino = input(" ¿Escribo una descripión por defecto? (Y/N) ")
             sino.lower
             if sino == 'y':
-                descripcion = "Interface: {} con IP: ".format(nomInter,ipInter,maskInter)
+                descripcion = "Interface: {} con IP: {}/{} ".format(nomInter,ipInter,maskInter)
             else:
                 descripcion = ("Qué descripción quiere para {}. ".format(nomInter))
             config_commands = [
@@ -171,6 +171,8 @@ def default():
 
 # Función para salir del programa    
 def salir():
+    os.system('clear')
+    os.system('cls')
     print("""
         Finalizado el ConnectRouter CSR 1000v Helper.\n
     
@@ -186,7 +188,9 @@ def salir():
 
     \n Adiós!
     """)
-    time.sleep(3)
+    time.sleep(5)
+    os.system('clear')
+    os.system('cls')
     sys.exit()
      
 # Función principal
