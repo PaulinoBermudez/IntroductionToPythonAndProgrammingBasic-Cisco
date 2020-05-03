@@ -11,7 +11,6 @@
 
 # Librerias importadas
 import os, sys, json, xml.dom.minidom, requests,tabulate, urllib3, time 
-from Exscript.protocols import SSH2
 from netmiko import ConnectHandler
 #from ncclient import manager
 # Limpio pantalla del sistema
@@ -50,19 +49,24 @@ def credencial():
 # Método para ver las interfaces de red.
 def view_interfaces():
     print("Interfaces de red. \n")
+    ip = input("IP del router? ")
     # Comando de consola para ver las interfaces de red
-    conn.execute('terminal length 0')           
-    conn.execute('show version')
-    print(conn.response)
-    print(50*"_")
-    conn.execute('show ip interface brief')
-    print(conn.response)
-
-    conn.send('exit\r')               
-    conn.close() 
+    sshCli = ConnectHandler(
+     device_type='cisco_ios',
+    host=ip,
+    port=22,
+    username='cisco',
+    password='cisco123!'
+    )
+    # Sent some simple commands and display the returned output
+    print("Sendind 'sh ip int brief' ... ")
+    output2 = sshCli.send_command("show ip int brief")
+    print("show ip int brief: \n{}\n".format(output2))
+    print("_________________________________________")
+    
 
 # Método para crear una interfaz nueva
-def new_interface(self):
+def new_interface():
     print("Nueva interfaz de red.")
     # Pedimos los datos necesarios:
     # 1- Tipo de interfaz
@@ -70,45 +74,56 @@ def new_interface(self):
     # 3- IP
     # 4- Máscara de red
     # 5- Descripción de la nueva interfaz
-    while True:
-        # URL de conexión al Router
-        url = masterurl
-        # print("La URL a la que voy a consultar es: ",url, "\n")
-        # Pedimos los datos de la nueva interfaz
-        tipo = input("¿Qué tipo de interfaz es? (Loopback, FastEthernet,...) ")
-        name = input("¿Qué nombre asigno a la nueva interfaz? ")
-        ip = input("¿Qué IP assigno a la interfaz? ")
-        mask = input("¿Qué máscara de red tiene la interfaz? ")
-        add = input("¿Añadimos algo de descripción? (Y/N) - Sino, añado una por default: ")
-        add.lower
-        if add == 'Y':
-            description = input("¡Cuéntame! ¿Qué descripción añado? ")
+    nueva='y'
+    while nueva == 'n':
+        hostDef='192.168.56.101'
+        puertoDef=22
+        userD='cisco'
+        passD='cisco123!'
+
+        nueva = input("¿Quiere crear una nueva interfaz?(Y/N) ")
+        nueva.lower
+        if nueva == "y":
+            print("Valores por defecto. \n",hostDef , "\t", puertoDef , "\t", userD , "\t", passD)
+            defaultValues = input(" ¿Uso las credenciales por defecto del sistema? (Y/N) ")
+            defaultValues.lower 
+            if defaultValues == 'n':
+                hostDef=input("IP del host? ")
+                puertoDef=input("Puerto: ")
+                userD = input("Login User: ")
+                passD = input("{} Password: ".format(userD))
+            # Conexión SSH             
+            sshCli = ConnectHandler(
+            device_type='cisco_ios',
+            host=hostDef,
+            port=puertoDef,
+            username=userD,
+            password=passD
+            )
+            # Comand code who send the router Cisco, configure the new Interface device.
+            nomInter = input(" ¿Qué nombre le ponemos a la interfaz? ")
+            ipInter = input(" ¿Qué IP escribo para {}".format(nomInter))
+            maskInter = input(" ¿Máscara para {}? ".format(nomInter)) 
+            sino = input(" ¿Escribo una descripión por defecto? (Y/N) ")
+            sino.lower
+            if sino == 'y':
+                descripcion = ("Interface: ",nomInter," con IP: ",ipInter,maskInter)
+
+            config_commands = [
+                'int loopback 1',
+                'ip address 9.9.9.9 255.255.255.0',
+                'description LAB INTERFACE'
+            ]
+            # Output configuration commands.
+            output1 = sshCli.send_config_set(config_commands)
+            # Sent some simple commands and display the returned output
+            print("Config output from the device: \n{}\n".format(output1))
         else:
-            description = "Interfaz: {:2}-{:2}/{:2}".format(name,ip,mask)
-            print("Descripción por defaut: {:2}".format(description))
-        # Creamos la nueva interfaz
-        conecta = url+"/interface="+name
-        print("\n URL a la que nos conectamos es: {:2}".format(conecta)+"\n\n")
-        
-        m = manager.connect(
-            host=self.host,
-            port=830,
-            username=self.user,
-            password = self.passw,
-            hostkey_verify = False 
-        )
-
-        netconf_reply = manager.get_config(source="running")
-        #print(netconf_reply)
-
-        # QUEDA FEO PERO FEO FEO - PERO FUNCIONA
-        netconf_data ='<config> \n \t <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native"> \n',2*"\t","<interface> \n", 3*"\t"," <{:2}> \n".format(tipo),4*"\t","<name>{:2}</name> \n".format(name),4*"\t","<description>{:2}</description> \n".format(description),4*"\t","<ip> \n",5*"\t","<address> \n",6*"\t","<primary> \n",7*"\t","<address>{:2}</address> \n".format(ip),7*"\t","<mask>{:2}</mask> \n".format(mask),6*"\t","</primary> \n",5*"\t","</address> \n",4*"\t","</ip> \n",3*"\t"," <{:2}> \n".format(tipo),2*"\t","</interface> \n","\t </native> \n","</config> \n"
-        
-        netconf_reply = m.edit_config(target="running", config = netconf_data)
-        print(xml.dom.minidom.parseString(netconf_reply.xml).toprettyxml())
+            print("Vale. Vuelvo al menú")
+            exit
 
 # Método para borrar una interfaz de red del router.
-def delete_interface(self):
+def delete_interface():
     print("Borrar interfaz de red.")
     # Pasos:
     # 1 - Solicito la interfaz que quiero borrar
@@ -133,12 +148,12 @@ def delete_interface(self):
     print(json.dumps(response_json, indent = 2))
 
 # Método para ver la tabla de rutas.
-def table_route(self):
+def table_route():
     print("Crear tabla de rutas")
     print("Ver ORIGEN - DESTINO -  INTERFAZ DE SALIDA - ")
 
 # Método para ver archivos yang Cisco
-def get_peticion_yang(self):
+def get_peticion_yang():
     print("Menú de archivos YANG que ver/configurar.")
 
 # Defino clase que se ejecuta en caso de seleccionar una opcion inexistente o inválida          
