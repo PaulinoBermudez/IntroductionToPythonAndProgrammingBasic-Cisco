@@ -231,9 +231,11 @@ def main():
         """)
         try:
             opcion = int(input("Escriba una opción: "))
-            opciones[opcion]()
+            opciones.opcion()
             pausa = input("> Pulse ENTER para continuar")
         except:
+            print(type(opciones.items))
+            print(type(opcion))
             default()
 # Ejecución de programa principal
 if __name__ == "__main__":
