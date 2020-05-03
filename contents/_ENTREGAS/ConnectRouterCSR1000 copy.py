@@ -163,7 +163,17 @@ def default():
 
 # Función para salir del programa    
 def salir():
-    print("Espero que mi trabajo te ayude en el tuyo. \n Adiós!")
+    print("""
+        Finalizado el ConnectRouter CSR 1000v Helper.\n
+    
+    Espero que mi trabajo te ayude en el tuyo. 
+    Los conocimientos adquiridos para crear esta ayuda son gracias a:
+    PUE-Curso Cisco Devnet y el instructor Dhttps://www.pue.es/
+    > Es una prueba de modelo, no es mi mejor código pero espero que cumpla con sus requisitos.
+
+    @PaulinoBermúdezR.
+
+    \n Adiós!")
     time.sleep(3)
     sys.exit()
      
