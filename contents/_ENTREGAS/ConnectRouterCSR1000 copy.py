@@ -32,6 +32,7 @@ def credencial():
     # Contraseña
     passw = "cisco123!"
     # Conexión SSH al Router.
+    print("Espere por favor ... ")
     try:
         clienteSSH = ConnectHandler(device_type='cisco_ios', host=ip, port=puerto, username=user, password=passw)
         clienteSSH.disconnect()
@@ -90,7 +91,7 @@ def new_interface():
                 Port:{:2}
                 User:{}
                 Pass:{} 
-            """.format(hostDef ,  puertoDef ,  userD , passD)
+            """.format(hostDef ,  puertoDef ,  userD , passD))
             defaultValues = input(" ¿Uso las credenciales por defecto del sistema? (Y/N) ")
             defaultValues.lower 
             if defaultValues == 'n':
@@ -114,7 +115,7 @@ def new_interface():
             sino = input(" ¿Escribo una descripión por defecto? (Y/N) ")
             sino.lower
             if sino == 'y':
-                descripcion = ("Interface: ",nomInter," con IP: ",ipInter,maskInter)
+                descripcion = "Interface: {} con IP: ".format(nomInter,ipInter,maskInter)
             else:
                 descripcion = ("Qué descripción quiere para {}. ".format(nomInter))
             config_commands = [
