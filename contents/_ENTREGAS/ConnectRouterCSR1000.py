@@ -21,7 +21,7 @@ os.system('cls')
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Credenciales de inicio y verificación del host - ¿Activo?
-def credencial(user,passw,ip):
+def credencial():
     # Solicito los datos necesarios para realizar el menú correctamente
     # IP router
     ip = input("Introduzca la dirección IP del Router Cisco 1000v: ")
@@ -50,11 +50,13 @@ def inicia():
     # - IP del router
     # - Usuario
     # - Contraseña
-    # - URL para obtener la info
+   
 
-    conectaRouter(credencial.user, credencial.passw)
+    credencial.user
+    credencial.passw
+    credencial.ip
 
-class conectaRouter(credencial):
+class conectaRouter():
     # Definimos los métodos para obtener la información del router
     # Método inicial para las credenciales.
     def __init__(self,user, passw):
@@ -208,12 +210,12 @@ def main():
     os.system('clear')
     os.system('cls')  
     # Solicitamos datos
-    # credencial()
-    api = conectaRouter()
+    credencial()
+    api = conectaRouter
     # Creamos un diccionario para el menu de opciones
     opciones = {
         1:api.view_interfaces,
-        2:'api.new_interface',
+        2:api.new_interface,
         3:api.delete_interface,
         4:api.table_route,
         5:api.get_peticion_yang,
