@@ -54,7 +54,7 @@ def inicia():
 
     conectaRouter(credencial.user, credencial.passw)
 
-class conectaRouter():
+class conectaRouter(credencial):
     # Definimos los métodos para obtener la información del router
     # Método inicial para las credenciales.
     def __init__(self,user, passw):
