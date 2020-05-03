@@ -114,13 +114,13 @@ def new_interface():
             maskInter = input(" ¿Máscara para {}? ".format(nomInter)) 
             sino = input(" ¿Escribo una descripión por defecto? (Y/N) ")
             sino.lower
-            if sino == 'y':
-                descripcion = "Interface: {} con IP: {}/{} ".format(nomInter,ipInter,maskInter)
+            if sino == 'y' or sino== 'Y':
+                descripcion = "AUTO DESCRIPTION INTERFACE."
             else:
                 descripcion = ("Qué descripción quiere para {}. ".format(nomInter))
             config_commands = [
                 "int "+nomInter,
-                "ip address "+ipInter+maskInter,
+                "ip address "+ipInter+" "+maskInter,
                 "description "+ descripcion
             ]
             # Output configuration commands.
