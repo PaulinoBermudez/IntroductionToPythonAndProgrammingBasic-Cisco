@@ -100,7 +100,7 @@ def new_interface():
             username=userD,
             password=passD
             )
-            # Comand code who send the router Cisco, configure the new Interface device.
+            # Datos para la nueva interfaz
             nomInter = input(" ¿Qué nombre le ponemos a la interfaz? ")
             ipInter = input(" ¿Qué IP escribo para {}".format(nomInter))
             maskInter = input(" ¿Máscara para {}? ".format(nomInter)) 
@@ -108,11 +108,12 @@ def new_interface():
             sino.lower
             if sino == 'y':
                 descripcion = ("Interface: ",nomInter," con IP: ",ipInter,maskInter)
-
+            else:
+                descripcion = ("Qué descripción quiere para {}. ".format(nomInter))
             config_commands = [
-                'int loopback 1',
-                'ip address 9.9.9.9 255.255.255.0',
-                'description LAB INTERFACE'
+                nomInter,
+                'ip address {} {}'.format(ipInter, maskInter),
+                descripcion
             ]
             # Output configuration commands.
             output1 = sshCli.send_config_set(config_commands)
@@ -120,7 +121,7 @@ def new_interface():
             print("Config output from the device: \n{}\n".format(output1))
         else:
             print("Vale. Vuelvo al menú")
-            exit
+            main()
 
 # Método para borrar una interfaz de red del router.
 def delete_interface():
