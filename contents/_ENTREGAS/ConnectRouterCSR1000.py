@@ -21,9 +21,9 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 class conectaRouter():
     # Definimos los métodos para obtener la información del router
     # Método inicial para las credenciales.
-    def __init__(self,user,passw):
+    def __init__(self):
         self.user = input("Escriba el usuario de login: ") 
-        self.passw = input("Escriba la contraseña del usuario {:2} ".format(user))
+        self.passw = input("Escriba la contraseña del usuario {:2} ".format(self.user))
         # Cambiar, si cambiamos de host, para hacerlo 'mejor' 
         # podría preguntarlo pero como en este caso siempre es el mismo, con eso vale
         self.host = '192.168.1.137'
@@ -133,6 +133,8 @@ class conectaRouter():
     # Método para ver archivos yang Cisco
     def get_peticion_yang(self):
         print("Menú de archivos YANG que ver/configurar.")
+
+# Inncesaria
 def inicia():
     # Los datos necesarios para que funcione son:
     # - IP del router
@@ -142,6 +144,7 @@ def inicia():
 
     conectaRouter(credencial.user, credencial.passw)
 
+# Credenciales de inicio y verificación del host - ¿Activo?
 def credencial():
     # Solicito los datos necesarios para realizar el menú correctamente
     # IP router
@@ -168,16 +171,16 @@ def credencial():
 # Defino clase que se ejecuta en caso de seleccionar una opcion inexistente o inválida          
 def default():
     print("OPCION INVÁLIDA! - Revise las opciones y vuelva a intentarlo")    
+
 # Función para salir del programa    
 def salir():
-    os.system('clear')
-    os.system('cls')
     print("Espero que mi trabajo te ayude en el tuyo. \n Adiós!")
-    time.sleep(5)
+    time.sleep(3)
     sys.exit()
+
 # Función principal
 def main():
-    # Solicitamos datos
+    # Inicio la variable opcion
     opcion = input("""
 
         Hola y bienvenid@!
@@ -202,8 +205,9 @@ def main():
     """)
     os.system('clear')
     os.system('cls')  
+    # Solicitamos datos
     # credencial()
-    api = conectaRouter
+    api = conectaRouter()
     # Creamos un diccionario para el menu de opciones
     opciones = {
         1:api.view_interfaces,
