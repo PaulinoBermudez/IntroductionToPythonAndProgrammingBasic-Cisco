@@ -18,13 +18,13 @@ os.system('clear')
 os.system('cls')
 # Desactivamos las alarmas de warning del SSL
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-class conectaRouter:
+class conectaRouter(self):
     # Definimos los métodos para obtener la información del router
     # Método inicial para las credenciales.
-    def __init__(self,ip,user,passw, masterurl):
-        self.host = ip
+    def __init__(self,user,passw,ip):
         self.user = user 
         self.passw = passw
+        self.host = ip
         print()
         print("Verificación de configuración \n")
         
@@ -43,6 +43,9 @@ class conectaRouter:
     def view_interfaces(self):
         print("Interfaces de red. \n")
         # Comando de consola para ver las interfaces de red
+        ssh = paramiko.SSHClient()
+        ssh.connect(self.host, port=22, username = self.user, password = self.passw)
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         stdin,stdout, stderr = ssh.exec_command("show ip interface brief")
         output = stdout.readlines()
         print("\n".join(output))
@@ -127,7 +130,13 @@ class conectaRouter:
     def yang_files(self):
         print("Menú de archivos YANG que ver/configurar.")
 def inicia():
-    conectaRouter(ip,user,key, url)
+    # Los datos necesarios para que funcione son:
+    # - IP del router
+    # - Usuario
+    # - Contraseña
+    # - URL para obtener la info
+
+    conectaRouter(ip,user,key,url)
 
 def credencial():
     # Solicito los datos necesarios para realizar el menú correctamente
