@@ -144,18 +144,20 @@ def credencial():
     # Solicito los datos necesarios para realizar el menú correctamente
     # IP router
     ip = input("Introduzca la dirección IP del Router Cisco 1000v: ")
-    puerto = int(input("Puerto de conexión: (En mi caso: 830, por default: 22) "))
+    puerto = int(input("Puerto de conexión (En mi caso: 830, por default: 22): "))
     print("Credenciales para {:2}.".format(ip))
     # Usuario
     user = input ("Introduzca el usuario login del sistema: ")
     # Contraseña
-    key = input ("Introduzca la contraseña de acceso: ")
+    passw = input ("Introduzca la contraseña de acceso: ")
     # Conexión SSH al Router.
     try:
-        clienteSSH = ConnectHandler(device_type='cisco_ios', host=ip, port=puerto, username=user, password=key)
+        clienteSSH = ConnectHandler(device_type='cisco_ios', host=ip, port=puerto, username=user, password=passw)
         clienteSSH.disconnect()
     except Exception as err:
+        print(50*'·')
         print("Imposible conectarse al Router con la IP: {:2} \nCompruebe los datos y vuelva a intentarlo de nuevo.".format(ip))
+        print(50*'·')
         sys.exit()
 
 # Defino clase que se ejecuta en caso de seleccionar una opcion inexistente o inválida          
@@ -171,7 +173,6 @@ def salir():
 # Función principal
 def main():
     # Solicitamos datos
-    credencial()
     opcion = input("""
 
         Hola y bienvenid@!
@@ -194,6 +195,7 @@ def main():
         - PUE: https://www.pue.es/
         @Versión: 2020.
     """)
+    credencial()
     api = conectaRouter
     # Creamos un diccionario para el menu de opciones
     opciones = {
