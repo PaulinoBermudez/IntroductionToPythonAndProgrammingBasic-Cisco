@@ -211,15 +211,22 @@ def main():
     os.system('cls')  
     # Solicitamos datos
     credencial()
-    # Creamos un diccionario para el menu de opciones
-    opciones = {
-        1:view_interfaces,
-        2:new_interface,
-        3:delete_interface,
-        4:table_route,
-        5:get_peticion_yang,
-        0:salir
-    }
+    # Creamos un condicional para el menu de opciones
+    if opcion == 1:
+        view_interfaces
+    elif opcion == 2:
+        new_interface
+    elif opcion == 3:
+        delete_interface
+    elif opcion == 4:
+        table_route
+    elif opcion == 5:
+        get_peticion_yang
+    elif opcion == 0:
+        salir
+    else:
+        default
+    
 
     while opcion != 0:
         print("""
@@ -240,11 +247,8 @@ def main():
         """)
         try:
             opcion = int(input("Escriba una opción: "))
-            opciones.opcion()
             pausa = input("> Pulse ENTER para continuar")
         except:
-            print(opciones)
-            print(type(opcion))
             default()
 # Ejecución de programa principal
 if __name__ == "__main__":
