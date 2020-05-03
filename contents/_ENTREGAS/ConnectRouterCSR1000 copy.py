@@ -24,13 +24,13 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 def credencial():
     # Solicito los datos necesarios para realizar el menú correctamente
     # IP router
-    ip = input("Introduzca la dirección IP del Router Cisco 1000v: ")
-    puerto = int(input("Puerto de conexión SSH (En mi caso: 830 (NETConf), por default: 22): "))
+    ip = "192.168.1.137"
+    puerto = 22
     print("Credenciales para {:2}.".format(ip))
     # Usuario
-    user = input ("Introduzca el usuario login del sistema: ")
+    user = "cisco"
     # Contraseña
-    passw = input ("Introduzca la contraseña de acceso: ")
+    passw = "cisco123!"
     # Conexión SSH al Router.
     try:
         clienteSSH = ConnectHandler(device_type='cisco_ios', host=ip, port=puerto, username=user, password=passw)
@@ -44,21 +44,6 @@ def credencial():
         print(60*'·')
         sys.exit()
 
-# Inncesaria, ya que se hace al principio
-def inicia():
-    # Los datos necesarios para que funcione son:
-    # - IP del router
-    # - Usuario
-    # - Contraseña
-   
-
-    credencial.user
-    credencial.passw
-    credencial.ip
-
-#class conectaRouter():
-    # Definimos los métodos para obtener la información del router
-    # Método inicial para las credenciales.
 def __init__(self,user, passw):
     self.user = credencial(user)
     self.passw = credencial(passw)
@@ -89,7 +74,7 @@ def view_interfaces(self):
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     stdin,stdout, stderr = ssh.exec_command("show ip interface brief")
     output = stdout.readlines()
-    # print("\n".join(output))
+    print("\n".join(output))
     return join(output)
 
 # Método para crear una interfaz nueva
@@ -230,32 +215,31 @@ def main():
 
        
         """)
-        try:
-            opcion = int(input("Escriba una opción: "))
-            print("Escribió: ", opcion)
-            if opcion == 1:
-                print("Selecciono: {}".format(view_interfaces))
-                view_interfaces
-            elif opcion == 2:
-                print("Selecciono: {}".format(new_interface))
-                new_interface
-            elif opcion == 3:
-                print("Selecciono: {}".format(delete_interface))
-                delete_interface
-            elif opcion == 4:
-                print("Selecciono: {}".format(table_route))
-                table_route
-            elif opcion == 5:
-                print("Selecciono: {}".format(get_peticion_yang))
-                get_peticion_yang
-            elif opcion == 0:
-                print("Selecciono: {}".format(salir))
-                salir
-            else:
-                default
-            pausa = input("> Pulse ENTER para continuar")
-        except:
-            default()
+        
+        opcion = int(input("Escriba una opción: "))
+        print("Escribió: ", opcion)
+        if opcion == 1:
+            print("Selecciono: {}".format(view_interfaces))
+            view_interfaces
+        elif opcion == 2:
+            print("Selecciono: {}".format(new_interface))
+            new_interface
+        elif opcion == 3:
+            print("Selecciono: {}".format(delete_interface))
+            delete_interface
+        elif opcion == 4:
+            print("Selecciono: {}".format(table_route))
+            table_route
+        elif opcion == 5:
+            print("Selecciono: {}".format(get_peticion_yang))
+            get_peticion_yang
+        elif opcion == 0:
+            print("Selecciono: {}".format(salir))
+            salir
+        else:
+            default
+        pausa = input("> Pulse ENTER para continuar")
+    
            
 # Ejecución de programa principal
 if __name__ == "__main__":
