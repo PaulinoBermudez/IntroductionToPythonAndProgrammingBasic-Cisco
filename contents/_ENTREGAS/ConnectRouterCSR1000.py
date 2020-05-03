@@ -154,6 +154,7 @@ def credencial():
     try:
         clienteSSH = ConnectHandler(device_type='cisco_ios', host=ip, port=puerto, username=user, password=passw)
         clienteSSH.disconnect()
+        print(50*"___","\n SSH Status Connection - OK.\n",50*"___")
     except Exception as err:
         print(50*'·')
         print("Imposible conectarse al Router con la IP: {:2} \nCompruebe los datos y vuelva a intentarlo de nuevo.".format(ip))
@@ -208,8 +209,6 @@ def main():
     }
 
     while opcion != 0:
-        #os.system('clear')
-        #os.system('cls')
         print("""
         SCRIPT DE AYUDA OBTENER INFO. - Router Cisco 1000v
 
@@ -224,13 +223,17 @@ def main():
         | 0- Salir del programa.                          |
         +_________________________________________________+
 
-        (*) Revisar.
+       
         """)
         try:
             opcion = input("Escriba una opción: ")
+            os.system('clear')
+            os.system('cls')        
             opciones[opcion]()
             pausa = input("> Pulse ENTER para continuar")
         except:
+            os.system('clear')
+            os.system('cls')        
             opciones[opcion.default]()
 # Ejecución de programa principal
 if __name__ == "__main__":
