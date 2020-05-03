@@ -168,12 +168,16 @@ def salir():
     
     Espero que mi trabajo te ayude en el tuyo. 
     Los conocimientos adquiridos para crear esta ayuda son gracias a:
-    PUE-Curso Cisco Devnet y el instructor Dhttps://www.pue.es/
+    
+        PUE- Fundamentos de Python - Devnet y el instructor Iván. --> https://www.pue.es
+        Cisco - Becas Digitaliza. Equipo Cisco. --> https://www.netacad.com
+
     > Es una prueba de modelo, no es mi mejor código pero espero que cumpla con sus requisitos.
 
-    @PaulinoBermúdezR.
+    @Paulino E.Bermúdez R.
 
-    \n Adiós!")
+    \n Adiós!
+    """)
     time.sleep(3)
     sys.exit()
      
@@ -227,7 +231,7 @@ def main():
         """)
         
         opcion = int(input("Escriba una opción: "))
-        print("Escribió: ", opcion)
+        print("\n Escribió: {:2} \n".format(opcion))
         if opcion == 1:
             print("Selecciono: {}".format(view_interfaces))
             view_interfaces()
