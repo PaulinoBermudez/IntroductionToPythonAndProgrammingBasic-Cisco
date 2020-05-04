@@ -297,7 +297,7 @@ def capabilities():
     print("#Supported Capabilities (YANG models):")
     for capability in manager.server_capabilities:
         print(capability)
-        
+
 # Ver todas las itnerfaces de red
 def all_interfaces():
     # Create a variable named 'api_url' and assign the URL
@@ -329,8 +329,31 @@ def all_interfaces():
     print(json.dumps(response_json, indent=2))
 
 # ver una interfaz
-def una_interface():
+def una_interface():    
+    m = manager.connect(
+        host="192.168.56.101",
+        port=830,
+        username="cisco",
+        password="cisco123!",
+        hostkey_verify=False
+    )
+    netconf_reply  = manager.get_config(source="running")
+    print(netconf_reply) 
+    estaInter=input("Escriba el nombre de la intrerfaz que desea ver: ") 
+    api_url = "https://192.168.56.101/restconf/data/ietf-interfaces:interfaces/interface={}".format(estaInter)
+    headers = {
+        "Accept":"application/yang-data+json",
+        "Content-Type":"application/yang-data+json"
+    }
 
+    # Create variable authentication
+    basic_auth = ("cisco","cisco123!")
+
+    # Exec the delete request method.
+    resp = requests.get(api_url, auth=basic_auth, headers=headers,verify=False)
+    response_json = resp.json()
+
+    print(json.dumps(response_json, indent=2))
 
 # Método para ver archivos yang Cisco
 def get_peticion_yang():
