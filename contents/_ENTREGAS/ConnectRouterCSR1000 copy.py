@@ -356,15 +356,37 @@ def get_peticion_yang():
 
         1.) Ver las capabilities del Router Cisco 1000v
         2.) Ver info de las interfaces.
-            1) Ver todas
-            2) Ver una interfaz en concreto
+            |
+            |-> Ver todas
+            |-> Ver una interfaz en concreto
         
+        0.) Ir al inicio
+
         (Seleccione una de las opciones y pulse ENTER.)
         
     """))
     if opcion == 1:
-
+        capabilities()
     elif opcion == 2:
+        opcion2 = int(input("""
+        Qué opción:
+            0. salir
+            1. Ver todas
+            2. Ver una interfaz en concreto
+
+        """))
+        if opcion2 == 0:
+            exit
+        elif opcion2 == 1:
+            all_interfaces()
+        elif opcion2 == 2:
+            una_interface()
+        else:
+            print("Esa opción no la entiendo.")
+    elif opcion == 0:
+        main()
+    else:
+        print("Esa opción no la entiendo.")
 
 # Defino clase que se ejecuta en caso de seleccionar una opcion inexistente o inválida          
 def default():
@@ -466,7 +488,7 @@ def main():
         elif opcion == None:
             print("Debe ingresar una opción del menú o 0 para salir.")
         else:
-            default
+            default()
         pausa = input("> Pulse ENTER para continuar")
     
            
