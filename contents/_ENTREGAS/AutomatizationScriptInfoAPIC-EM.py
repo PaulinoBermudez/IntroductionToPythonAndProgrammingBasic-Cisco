@@ -88,7 +88,7 @@ def get_network_devices_list():
     # Estado de solicitud de ticket.
     ticket = get_ticket()
     if ticket == None:
-        print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
+        print(50*"·", "\n NO TIENE TICKET, solicite uno antes o revise la configuración . \n",50*"·")
         return
     # Solicitamos la info
     url="https://sandboxapicem.cisco.com/api/v1/network-device"
@@ -138,7 +138,7 @@ def get_interfaces_list():
     #  Estado de solicitud de ticket.
     ticket = get_ticket()
     if ticket == None:
-        print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
+        print(50*"·", "\n NO TIENE TICKET, solicite uno antes o revise la configuración . \n",50*"·")
         return
     else:
         # Ver info de dispositivos en la red
@@ -152,7 +152,7 @@ def get_interfaces_list():
             """)
         id_select.lower
         if id_select == 'q':
-            return
+            main()
         else:
             url=url="https://sandboxapicem.cisco.com/api/v1/interface"
             header = {
@@ -202,7 +202,7 @@ def get_path_trace():
         print("Path trace IP")
         # Estado de solicitud de ticket.
         if ticket == None:
-            print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
+            print(50*"·", "\n NO TIENE TICKET, solicite uno antes o revise la configuración . \n",50*"·")
             return
         else:
             # Solicitamos la info 
