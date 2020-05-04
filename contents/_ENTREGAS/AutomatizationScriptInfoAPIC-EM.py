@@ -66,21 +66,21 @@ def  get_hosts_list():
         # Añadimos los datos de host a la lista hostList.
         # 1- Creamos el objeto con los datos
         # 2- Lo añadimos  a la lista 'hostList' con .append
-        hostList.append([i,
+        hostList=[i,
             item["hostIp"], 
             item["hostMac"], 
             item["hostType"], 
             item["connectedNetworkDeviceIpAddress"], 
             item["id"]]
-        )
+        hostList.append(hostList)
     # La cabecera de la tabla será:
     #
     # + ---+-----+-----+--------------+---------------------+----+
     # | Nº |  IP | MAC | Tipo de host | IP disp. conectado  | ID |
     # +----+-----+-----+--------------+---------------------+----+
     # Para esto, creamos una lista con estos atributos
-    table_header = ["Num","IP","MAC","Tipo de host", "IP disp. conectado", "ID"]    
-    print(tabulate([ hostList, table_header], indent=2))
+    table_header = ["Num \t","IP \t","MAC","Tipo de host", "IP disp. conectado", "ID"]    
+    print(tabulate([ hostList, table_header]))
     
 # Método para ver los dispositivos en red conectados.
 def get_network_devices_list():
