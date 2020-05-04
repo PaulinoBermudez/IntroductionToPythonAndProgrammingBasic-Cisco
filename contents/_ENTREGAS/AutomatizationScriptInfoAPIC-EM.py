@@ -1,7 +1,7 @@
 #!/bin/python 
 # @author: [ Paulino Bermúdez R.]
 # @Description: 
-import os, requests, json, time, urllib3
+import os, requests, json, time, urllib3, copy
 from tabulate import *
 os.system('clear')
 os.system('cls')
@@ -31,20 +31,20 @@ def Tickets():
         # Creamos diccionario de los datos JSON de la API
         response_json = pidoTicket.json()
         ticket = response_json['response']['serviceTicket']
-        print(50*"·", "\n Su ticket. \n- Status: {}".format(pidoTicket.status_code))
-        print("- Identificador de ticket: ", ticket ,"\n", 50*"·")        
+        #print(50*"·", "\n Su ticket. \n- Status: {}".format(pidoTicket.status_code))
+        #print("- Identificador de ticket: ", ticket ,"\n", 50*"·")        
     else:
         print(50*"·", "Su ticket. \n- Status: {}!".format(pidoTicket.status_code))
-    ticket = newticket
-    print(newticket)
+    newticket = ticket
+    return newticket
 # Método para obtener ticket de acceso a la plataforma APIC-EM
 def get_ticket():
     # Pido ticket
-    Tickets(self)
+    Tickets()
     # Vemos el estado de la petición
     # Estado 200: OK!
     # Estado 202: Accepted.   
-    print(newticket)
+    
     pausa = input("Pulse ENTER para continuar")
 # Método para ver los dispositivos existentes en el sistema.            
 def  get_hosts_list():
