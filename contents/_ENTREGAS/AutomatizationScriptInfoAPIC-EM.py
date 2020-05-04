@@ -133,6 +133,51 @@ def get_network_devices_list():
     table_header = ["Number", "ID","Host name","IP Address", "MAC Address", "S/N", "Family", "Rol"]
     print( tabulate(devices_list, table_header) )
 
+def mini_net_devices():
+    # Estado de solicitud de ticket.
+    ticket = get_ticket()
+    if ticket == None:
+        print(50*"·", "\n NO TIENE TICKET, solicite uno antes o revise la configuración . \n",50*"·")
+        return
+    # Solicitamos la info
+    url="https://sandboxapicem.cisco.com/api/v1/network-device"
+    header = {
+        # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
+        "Content_type":"application/json",
+        # Autenticación
+        "X-Auth-Token":ticket
+    }
+
+    # Usamos el método GET para obtener la información de los dispositivos conectados.
+    respuesta = requests.get(url, headers=header, verify = False)
+    os.system("clear")
+    os.system("cls")
+
+    if respuesta.status_code != 200:
+        raise Exception("Status code does not equal 200. Response text: " + respuesta.text)
+    response_json = respuesta.json()
+
+
+    # Parse and format the JSON response data
+    # Create a new list
+    devices_list = []
+
+    # Generate the for loop to create a list
+    i = 0
+    for item in response_json["response"]:
+        i+=1
+        host = [
+                i,
+                item["id"],
+                item["hostname"],
+                item["family"],
+                item["role"],
+                item["interfaceCount"]
+                ]
+        devices_list.append(host)
+    table_header = ["Number", "ID","Host name","Family ", "Role", "Interface Count"]
+    print( tabulate(devices_list, table_header) )
+
 # Método de identificador de dispositvo y sus interfaces
 def get_interfaces_list():
     #  Estado de solicitud de ticket.
@@ -143,7 +188,7 @@ def get_interfaces_list():
     else:
         # Ver info de dispositivos en la red
         print("---------- Dispositivos en la red. -------------") 
-        get_network_devices_list()
+        
         # ¿Qué ID estudiamos?
         id_select = input("""       INFORMACION DE INTERFACES.
             > Introduzca el ID del dispositivo del que quiere ver sus interfaces de red: 
