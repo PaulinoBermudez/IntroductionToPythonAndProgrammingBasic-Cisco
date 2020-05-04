@@ -182,7 +182,7 @@ def mini_net_devices():
 # Método de identificador de dispositvo y sus interfaces
 def get_config_run():
     # Pido ticket
-    get_ticket()
+    ticket=get_ticket()
     # URL de consulta
     url="https://sandboxapicem.cisco.com/api/v1/network-device/config"
     # Header
@@ -190,6 +190,20 @@ def get_config_run():
         # Autenticación
         "X-Auth-Token":ticket
     }
+    # Realizo la consulta y lo guardo en formato JSON
+    response = requests.get(url, headers=header, verify=False).json()
+    # Genero un bucle que guarde la configuración que saca la consulta anterior
+    count=1
+    for data in response['response']:
+        filename="access_host_" + str(count) +".txt"
+        # Creo un fichero txt (temporal) en el directorio actual
+        file = open(filename, 'w')
+        # Escribo los datos de configuracion 'en funcionamiento' dentro del fichero 'file'
+        file.write(data['runningConfig'])
+        # Cierro el fichero con los datos almancenados
+        file.close()
+        count+=1
+    
     pausa = input("Pulse ENTER para continuar.")
 
 # Método de rutas de una IP origen a una IP desetino.
