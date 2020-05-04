@@ -44,8 +44,8 @@ def Tickets():
 def get_ticket():
     # Pido ticket
     print("Su ticket: ")
-    mitic = copy.copy(Tickets())
-    print(mitic)
+    mitic = copy.deepcopy(Tickets())
+    print("Valor de Ticket:",mitic)
     pausa = input("Pulse ENTER para continuar")
 # Método para ver los dispositivos existentes en el sistema.            
 def  get_hosts_list():
@@ -418,33 +418,36 @@ def main():
         +_________________________________________________+
         | 0- Salir del programa.                          |
         +_________________________________________________+
-
+        
         (*) Revisar.
         """.format(current_time))
         opcion = int(input("Seleccione una de las opciones del menú: "))
-        if opcion == 1:
-            print("Selecciono: {}".format(get_ticket))
-            get_ticket()
-        elif opcion == 2:
-            print("Selecciono: {}".format(get_hosts_list))
-            get_hosts_list()
-        elif opcion == 3:
-            print("Selecciono: {}".format(get_network_devices_list))
-            get_network_devices_list()
-        elif opcion == 4:
-            print("Selecciono: {}".format(get_interfaces_list))
-            get_interfaces_list()
-        elif opcion == 5:
-            print("Selecciono: {}".format(get_path_trace))
-            get_path_trace()
-        elif opcion == 0:
-            print("Selecciono: {}".format(finalizar))
-            finalizar()
-        elif opcion == None:
-            print("Debe ingresar una opción del menú o 0 para salir.")
-        else:
+            
+        try:
+            if opcion == 1:
+                print("Selecciono: {}".format(get_ticket))
+                get_ticket()
+            elif opcion == 2:
+                print("Selecciono: {}".format(get_hosts_list))
+                get_hosts_list()
+            elif opcion == 3:
+                print("Selecciono: {}".format(get_network_devices_list))
+                get_network_devices_list()
+            elif opcion == 4:
+                print("Selecciono: {}".format(get_interfaces_list))
+                get_interfaces_list()
+            elif opcion == 5:
+                print("Selecciono: {}".format(get_path_trace))
+                get_path_trace()
+            elif opcion == 0:
+                print("Selecciono: {}".format(finalizar))
+                finalizar()
+            else:
+                default()
+            pausa = input("> Pulse ENTER para continuar")    
+        except(None):
             default()
-        pausa = input("> Pulse ENTER para continuar")    
+            print("Debe ingresar una opción del menú o 0 para salir.")
     
            
 
