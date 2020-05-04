@@ -11,6 +11,8 @@
 
 # Librerias importadas
 import os, sys, json, xml.dom.minidom, requests,tabulate, urllib3, time 
+import xml.dom.minidom
+from ncclient import manager
 from netmiko import ConnectHandler
 #from ncclient import manager
 # Limpio pantalla del sistema
@@ -307,7 +309,7 @@ def table_route():
 # Modelos YANG
 # Ver capabilities
 def capabilities():        
-    manager = manager.connect(
+    m = manager.connect(
         host="192.168.56.101",
         # Remote port of the NETConf service
         port=830,
@@ -317,7 +319,7 @@ def capabilities():
     )
 
     print("#Supported Capabilities (YANG models):")
-    for capability in manager.server_capabilities:
+    for capability in m.server_capabilities:
         print(capability)
 
 # Ver todas las itnerfaces de red
