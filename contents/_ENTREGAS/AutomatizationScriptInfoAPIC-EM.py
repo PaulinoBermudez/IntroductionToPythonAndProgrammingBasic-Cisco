@@ -80,7 +80,7 @@ def  get_hosts_list():
     # +----+-----+-----+--------------+---------------------+----+
     # Para esto, creamos una lista con estos atributos
     table_header = ["Num \t","IP \t","MAC","Tipo de host", "IP disp. conectado", "ID"]    
-    print(tabulate([ hostList, table_header]))
+    print(tabulate([ table_header, hostList, indent=2 ]))
     
 # Método para ver los dispositivos en red conectados.
 def get_network_devices_list():
