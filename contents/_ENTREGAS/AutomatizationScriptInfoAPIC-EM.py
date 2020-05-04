@@ -55,11 +55,12 @@ def  get_hosts_list():
         return
     # Solicitamos la info
     url="https://sandboxapicem.cisco.com/api/v1/host"
+    ticket = Tickets()
     header = {
         # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
         "Content_type":"application/json",
         # Autenticación
-        "X-Auth-Token":Tickets
+        "X-Auth-Token": ticket
     }
 
     # Usamos el método GET para obtener la información de los hosts existentes.
@@ -69,7 +70,7 @@ def  get_hosts_list():
         if respuesta.status_code != 200:
             print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
             print("")
-            print("Verifique: \n", eval(respuesta.txt)["response"]["detail"], sep="\n")
+            raise Exception("Status code does not equal 200. Response text: " + resp.text)
         else:
             # Creamos el diccionario python de los datos JSON.
             response_json = respuesta.json()
@@ -82,18 +83,21 @@ def  get_hosts_list():
             table_header = ["Num","IP","MAC","Tipo de host", "IP disp. conectado", "ID"]
             # Lista de hosts
             hostList = []
+            i = 0
             for item in response_json["response"]:
                 # Sumámos +1 a la lista de hosts
                 i += 1
                 # Añadimos los datos de host a la lista hostList.
                 # 1- Creamos el objeto con los datos
                 # 2- Lo añadimos  a la lista 'hostList' con .append
-                hostList.append([i, item["hostIp"], item["hostMac"], item["hostType"], item["connectedNetworkDeviceIpAddress"], item["id"]])
-            host_list_print = "\n".join(str(x) for x in hostList)
-            host_list_print = host_list_print.replace("u'", "'")
-            host_list_print = host_list_print.replace("[", "")
-            host_list_print = host_list_print.replace("]", "")
-            host_list_print = host_list_print.replace("'", "")
+                hostList.append([i,
+                    item["hostIp"], 
+                    item["hostMac"], 
+                    item["hostType"], 
+                    item["connectedNetworkDeviceIpAddress"], 
+                    item["id"]]
+                )
+            
             pausa = input("OJO AL PETARDAZO")
             return(tabulate(host_list_print, table_header))
     except Exception as err:
