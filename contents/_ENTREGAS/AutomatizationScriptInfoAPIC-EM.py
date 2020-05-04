@@ -34,7 +34,7 @@ class class_API_EM():
         # Vemos el estado de la petición
         # Estado 200: OK!
         # Estado 202: Accepted.
-        if (respuesta.status_code == 200 ) or ( respuesta.status_code == 202):
+        if (pidoTicket.status_code == 200 ) or ( pidoTicket.status_code == 202):
             # Creamos diccionario de los datos JSON de la API
             response_json = pidoTicket.json()
             self.ticket = response_json['response']['serviceTicket']
@@ -401,11 +401,11 @@ def main():
         
     # Creamos un diccionario para el menu de opciones
     opciones = {
-        '1':api.get_ticket(),
-        '2':api.get_hosts_list(),
-        '3':api.get_network_devices_list(),
-        '4':api.get_interfaces_list(),
-        #'5':api.get_path_trace(),
+        '1':api.get_ticket,
+        '2':api.get_hosts_list,
+        '3':api.get_network_devices_list,
+        '4':api.get_interfaces_list,
+        #'5':api.get_path_trace,
         '0':finalizar
     }
 
@@ -429,7 +429,7 @@ def main():
         """.format(current_time))
         try:
             opcion = input("Escriba una opción: ")
-            opciones[opcion]()
+            opciones[opcion]
         except:
            default()
 
