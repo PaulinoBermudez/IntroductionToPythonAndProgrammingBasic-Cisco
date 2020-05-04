@@ -24,13 +24,33 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 def credencial():
     # Solicito los datos necesarios para realizar el menú correctamente
     # IP router
-    ip = "192.168.1.137"
+    print("""
+        Hola de nuevo, contarte...
+        Tengo almacenados con valores por defecto estos datos:
+            - IP: 192.168.56.101
+            - Puerto: 22
+            - Usuario: cisco
+            - Contraseña: cisco123!
+        
+    """)
+    ip = "192.168.6.101"
     puerto = 22
-    print("Credenciales para {:2}.".format(ip))
     # Usuario
     user = "cisco"
     # Contraseña
     passw = "cisco123!"
+
+    # Validamos datos
+    preguntaC = input("¿Sí son correctos? (Y/N) ")
+    preguntaC.upper
+    # Pongo las dos opciones porque vi que me fallo 2 veces...por si acaso asi no falla.
+    if preguntaC == 'N' or preguntaC == 'n':
+        ip = input("IP del dispositivo: ")
+        puerto = input("¿Puerto al que conectarse? ")
+        print("Credenciales para {:2}.".format(ip))
+        user= input("Nombre de usuario: ")
+        passw = input("Contraseña: ")
+        
     # Conexión SSH al Router.
     print("Espere por favor ... ")
     try:
@@ -74,7 +94,7 @@ def new_interface():
     # 5- Descripción de la nueva interfaz
     nueva='y'
     while nueva != 'n':
-        hostDef='192.168.1.137'
+        hostDef='192.168.56.101'
         puertoDef=22
         userD='cisco'
         passD='cisco123!'
@@ -148,7 +168,7 @@ def delete_interface():
     
     # Datos por defecto
     
-    ip = "192.168.1.137"
+    ip = "192.168.56.101"
     portD = 22
     userD = "cisco"
     passwD = "cisco123!"
