@@ -70,7 +70,7 @@ def  get_hosts_list():
         if respuesta.status_code != 200:
             print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
             print("")
-            raise Exception("Status code does not equal 200. Response text: " + resp.text)
+            raise Exception("Status code does not equal 200. Response text: " + respuesta.text)
         else:
             # Creamos el diccionario python de los datos JSON.
             response_json = respuesta.json()
@@ -97,9 +97,9 @@ def  get_hosts_list():
                     item["connectedNetworkDeviceIpAddress"], 
                     item["id"]]
                 )
-            
+            print(tabulate = [ hostList, table_header])
             pausa = input("OJO AL PETARDAZO")
-            return(tabulate(host_list_print, table_header))
+            # return(tabulate(hostList, table_header))
     except Exception as err:
         print("Imposible de resolver: LISTADO DE HOST EN EL SISTEMA. - {:2}".format(err))
     pausa = input("Pulse ENTER para continuar.")
