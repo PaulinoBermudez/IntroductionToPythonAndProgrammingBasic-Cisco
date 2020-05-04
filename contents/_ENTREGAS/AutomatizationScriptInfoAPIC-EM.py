@@ -8,7 +8,7 @@ os.system('cls')
 
 
 # Clase principal
-class class_API_EM:
+class class_API_EM():
     # Defino método de inicio de los objetos de la clase
     def __init__(self):
         # Deshabilito los warning de SSL
@@ -17,7 +17,7 @@ class class_API_EM:
     # Método para obtener ticket de acceso a la plataforma APIC-EM
     def get_ticket(self):
         # URL de acceso
-        url = "https://devnetsbx-netacad-apicem-3.cisco.com/api/v1/ticket"
+        url = "https://sandboxapicem.cisco.com/api/v1/ticket"
         # Cabecera
         header = {
             # Tipo de contenido 
@@ -25,23 +25,24 @@ class class_API_EM:
         }
         # Credenciales
         credentials = {
-            "password":"Xj3BDqbU",
-            "username":"devnetuser"
+            # Usamos las credenciales que da el laboratorio
+            "username":"devnetuser",
+            "password":"Cisco123!"
         }
         # Solicitamos un ticket
-        respuesta =  requests.post(url,json.dumps(credentials), header=header, verify = False)
+        pidoTicket =  requests.post(url,json.dumps(credentials), headers=header, verify = False)
         # Vemos el estado de la petición
         # Estado 200: OK!
         # Estado 202: Accepted.
         if (respuesta.status_code == 200 ) or ( respuesta.status_code == 202):
             # Creamos diccionario de los datos JSON de la API
-            response_json = respuesta.json()
+            response_json = pidoTicket.json()
             self.ticket = response_json['response']['serviceTicket']
-            print(50*"·", "\n Su ticket. \n- Status: OK!")
+            print(50*"·", "\n Su ticket. \n- Status: {}".format(pidoTicket.status_code))
             print("- Identificador de ticket: ", self.ticket ,"\n", 50*"·")
             pausa = input("Pulse ENTER para continuar")
         else:
-            print(50*"·", "Su ticket. \n- Status: Fail!")
+            print(50*"·", "Su ticket. \n- Status: {}!".format(pidoTicket.status_code))
             pausa = input("Pulse ENTER para continuar")
     # Método para ver los dispositivos existentes en el sistema.            
     def  get_hosts_list(self):
@@ -372,8 +373,7 @@ def main():
     # Invoco la clase principal del programa
     api = class_API_EM()
     # Inicio la variable de selección
-    opcion = input("""
-        HOLA y Bienvenid@s!
+    opcion = input("""HOLA y Bienvenid@s!
         
         Este es el programa de automatización del controlador APIC-EM de Cisco.
         Lea detenidamente esta pantalla para tener una idea de lo que encontrará.
@@ -401,17 +401,17 @@ def main():
         
     # Creamos un diccionario para el menu de opciones
     opciones = {
-        1:api.get_ticket,
-        2:api.get_hosts_list,
-        3:api.get_network_devices_list,
-        4:api.get_interfaces_list,
-        #5:api.get_path_trace,
-        0:finalizar
+        '1':api.get_ticket(),
+        '2':api.get_hosts_list(),
+        '3':api.get_network_devices_list(),
+        '4':api.get_interfaces_list(),
+        #'5':api.get_path_trace(),
+        '0':finalizar
     }
 
     # Bucle del menú de opciones
-    while opcion != 0:
-        print("""current_time
+    while True:
+        print("""{}
             APIC-EM AUTOMATIZADA.
 
         Selecciones una de las opciones:
@@ -426,9 +426,9 @@ def main():
         +_________________________________________________+
 
         (*) Revisar.
-        """)
+        """.format(current_time))
         try:
-            opcion = int(input("Escriba una opción: "))
+            opcion = input("Escriba una opción: ")
             opciones[opcion]()
         except:
            default()
