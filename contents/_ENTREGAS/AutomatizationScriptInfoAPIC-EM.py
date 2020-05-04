@@ -231,7 +231,7 @@ def get_interfaces_list():
                 # Lista de dispositivos
                 interfaceList = []
                 for item in response_json["response"]:
-                    if item[ip] == num_select:
+                    if item["managementIpAddress"] == num_select:
                         # Creamos la línea de datos 
                         interface=[
                             item["id"],
@@ -243,9 +243,9 @@ def get_interfaces_list():
                         interfaceList.append(interface)
                     pausa = input("OJO AL PETARDAZO")
                     return(tabulate(interfaceList, table_header))
-            except Exception as err:
-                print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(id_select))
-            pausa = input("Pulse ENTER para continuar.")
+        except Exception as err:
+            print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(num_select))
+        pausa = input("Pulse ENTER para continuar.")
 
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
