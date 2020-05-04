@@ -199,7 +199,7 @@ class class_API_EM:
                             if item["deviceId"] == id_select:
                                 # Creamos la línea de datos 
                                 interfaceList.append([item["interfaceType"], item["ipv4Address"], item["macAddress"], item["portName"], item["status"]])
-                            interface_list_print = "\n".join(str(x) for x in deviceList)
+                            interface_list_print = "\n".join(str(x) for x in interfaceList)
                             interface_list_print = interface_list_print.replace("u'", "'")
                             interface_list_print = interface_list_print.replace("[", "")
                             interface_list_print = interface_list_print.replace("]", "")
@@ -278,7 +278,7 @@ class class_API_EM:
                     # URL para añadir los valores que analizar
                     check_url = url+"/"+flowAnalysisId
                     # Iniciamos la variable de estado, pero sin valor por defecto, por si acaso
-                    estado = ""
+                    status = ""
                     checks = 1 
                     while status != "COMPLETED":
                         envia = requests.get(check_url, headers= header, verify=False)
@@ -345,14 +345,11 @@ class class_API_EM:
                     ]
                     print(tabulate(all_devices, table_header))
             except Exception as err:
-                print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(id_select))
+                print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(id))
             pausa = input("Pulse ENTER para continuar.")
 # Función que 'salta' en caso de que la opción introducida por el usuario sea inválida.
 def default():   
-    root =  tkinter.Tk()
-    root.withdraw()
-
-    MessageBox.showinfo("ERROR!", "La opción introducida no es válida. Vuelva a intentarlo de nuevo. [Escribir nº de opción del menú]")
+    print("ERROR!", "La opción introducida no es válida. Vuelva a intentarlo de nuevo. [Escribir nº de opción del menú]")
 # Función de final de programa
 def finalizar():   
     t = time.localtime()
@@ -434,7 +431,7 @@ def main():
             opcion = int(input("Escriba una opción: "))
             opciones[opcion]()
         except:
-            dict.get(opcion.default)()
+           default()
 
 # Programa principal
 if __name__ == "__main__":
