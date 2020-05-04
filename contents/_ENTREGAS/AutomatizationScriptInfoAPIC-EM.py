@@ -44,9 +44,8 @@ def Tickets():
 def get_ticket():
     # Pido ticket
     print("Su ticket: ")
-    mitic = copy.deepcopy(Tickets())
+    mitic = Tickets()
     print("Valor de Ticket:",mitic)
-    pausa = input("Pulse ENTER para continuar")
 # Método para ver los dispositivos existentes en el sistema.            
 def  get_hosts_list():
     # Ver estado de solicitud de ticket
@@ -362,7 +361,8 @@ def finalizar():
     print("""
                 Fin del programa
         Gracias por usar el programa de APIC-EM. 
-        Un 10 no estaría mal. :sweat_smile: 
+       
+        @Paulino E. Bermúdez R. 
         \n 
         @Version: Becas_Digitaliza:2019-2020 \n
         {:2}
@@ -445,11 +445,11 @@ def main():
             else:
                 default()
             pausa = input("> Pulse ENTER para continuar")    
-        except(None):
+        except ValueError:
             default()
             print("Debe ingresar una opción del menú o 0 para salir.")
-    
-           
+        finally:
+            finalizar()               
 
 # Programa principal
 if __name__ == "__main__":
