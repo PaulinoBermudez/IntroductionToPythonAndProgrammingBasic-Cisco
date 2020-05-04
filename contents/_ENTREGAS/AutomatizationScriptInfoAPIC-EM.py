@@ -12,50 +12,33 @@ def __init__():
     # Deshabilito los warning de SSL
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # Solicitud de ticket nuevo
-def Tickets(): 
-    # URL de acceso
-    url = "https://sandboxapicem.cisco.com/api/v1/ticket"
-    # Cabecera
-    header = {
-        # Tipo de contenido 
-        "Content-Type":"application/json"
-    }
-    # Credenciales
-    credentials = {
-        # Usamos las credenciales que da el laboratorio
-        "username":"devnetuser",
-        "password":"Cisco123!"
-    }
-    # Solicitamos un ticket
-    pidoTicket =  requests.post(url,json.dumps(credentials), headers=header, verify = False)    
-    # Vemos el estado de la petición
-    # Estado 200: OK!
-    # Estado 202: Accepted.
-    if (pidoTicket.status_code == 200 ) or ( pidoTicket.status_code == 202):
-        # Creamos diccionario de los datos JSON de la API
-        response_json = pidoTicket.json()
-        ticket = response_json['response']['serviceTicket']
-        print(50*"·", "\n Su ticket. \n- Status: {}".format(pidoTicket.status_code))
-        print("- Identificador de ticket: ", ticket ,"\n", 50*"·")        
-    else:
-        print(50*"·", "Su ticket. \n- Status: {}!".format(pidoTicket.status_code))
-    
-# Método para obtener ticket de acceso a la plataforma APIC-EM
+# Create the 'get_ticket' function
 def get_ticket():
-    # Pido ticket
-    print("Solicitando ticket...Espere, por favor. ")
-    Tickets()
-
+    api_url = "https://sandboxapicem.cisco.com/api/v1/ticket"
+    headers = {
+        "content-type": "application/json"
+    }
+    body_json = {
+        "username": "devnetuser",
+        "password": "Cisco123!"
+    }
+    # Send the request
+    resp=requests.post(api_url,json.dumps(body_json),headers=headers,verify=False)
+    #  Print the response and see the status 
+    print("______________________________________________________")
+    print("Ticket request status: ", resp.status_code)
+    response_json = resp.json()
+    serviceTicket = response_json["response"]["serviceTicket"] 
+    print("The service ticket number is: ", serviceTicket)
+    print("______________________________________________________")
+    return serviceTicket
 # Método para ver los dispositivos existentes en el sistema.            
 def  get_hosts_list():
     # Ver estado de solicitud de ticket
-    Tickets()
-    if Tickets == None:
-        print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
-        return
+    get_ticket()
     # Solicitamos la info
     url="https://sandboxapicem.cisco.com/api/v1/host"
-    ticket = Tickets()
+    ticket = get_ticket()
     header = {
         # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
         "Content_type":"application/json",
