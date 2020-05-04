@@ -27,6 +27,9 @@ def Tickets():
     }
     # Solicitamos un ticket
     pidoTicket =  requests.post(url,json.dumps(credentials), headers=header, verify = False)    
+    # Vemos el estado de la petición
+    # Estado 200: OK!
+    # Estado 202: Accepted.
     if (pidoTicket.status_code == 200 ) or ( pidoTicket.status_code == 202):
         # Creamos diccionario de los datos JSON de la API
         response_json = pidoTicket.json()
@@ -36,15 +39,13 @@ def Tickets():
     else:
         print(50*"·", "Su ticket. \n- Status: {}!".format(pidoTicket.status_code))
     newticket = ticket
-    return newticket
+    print( newticket)
 # Método para obtener ticket de acceso a la plataforma APIC-EM
 def get_ticket():
     # Pido ticket
-    Tickets()
-    # Vemos el estado de la petición
-    # Estado 200: OK!
-    # Estado 202: Accepted.   
-    
+    print("Su ticket: ")
+    mitic = copy.copy(Tickets())
+    print(mitic)
     pausa = input("Pulse ENTER para continuar")
 # Método para ver los dispositivos existentes en el sistema.            
 def  get_hosts_list():
@@ -359,14 +360,16 @@ def finalizar():
     t = time.localtime()
     current_time = time.strftime("%H:%M:%S", t)    
     print("""
-            Fin del programa
+                Fin del programa
         Gracias por usar el programa de APIC-EM. 
         Un 10 no estaría mal. :sweat_smile: 
         \n 
         @Version: Becas_Digitaliza:2019-2020 \n
         {:2}
     """.format(current_time))
-    time.sleep(5)
+    time.sleep(3)
+    os.system('clear')
+    os.system('cls')
     exit()
 # Funcion principal del programa
 def main():
