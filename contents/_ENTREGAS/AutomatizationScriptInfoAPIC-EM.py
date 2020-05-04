@@ -395,17 +395,7 @@ def main():
     """)
     os.system('clear')
     os.system('cls')
-        
-    # Creamos un diccionario para el menu de opciones
-    opciones = {
-        '1':get_ticket(),
-        '2':get_hosts_list(),
-        '3':get_network_devices_list(),
-        '4':get_interfaces_list(),
-        #'5'get_path_trace(),
-        '0':finalizar()
-    }
-
+   
     # Bucle del menú de opciones
     while True:
         print("""{}
@@ -424,11 +414,56 @@ def main():
 
         (*) Revisar.
         """.format(current_time))
-        try:
-            opcion = input("Escriba una opción: ")
-            opciones[opcion]
-        except:
-           default()
+        opcion = input("Seleccione una de las opciones del menú: ")
+        if opcion == 1:
+            print("Selecciono: {}".format(get_ticket))
+            get_ticket()
+        elif opcion == 2:
+            print("Selecciono: {}".format(get_hosts_list))
+            get_hosts_list()
+        elif opcion == 3:
+            print("Selecciono: {}".format(get_network_devices_list))
+            get_network_devices_list()
+        elif opcion == 4:
+            print("Selecciono: {}".format(get_interfaces_list))
+            get_interfaces_list()
+        elif opcion == 5:
+            print("Selecciono: {}".format(get_path_trace))
+            get_path_trace()
+        elif opcion == 0:
+            print("Selecciono: {}".format(finalizar))
+            salir() if opcion == 1:
+            print("Selecciono: {}".format(view_interfaces))
+            view_interfaces()
+        elif opcion == 2:
+            print("Selecciono: {}".format(new_interface))
+            new_interface()
+        elif opcion == 3:
+            print("Selecciono: {}".format(delete_interface))
+            delete_interface()
+        elif opcion == 4:
+            print("Selecciono: {}".format(table_route))
+            table_route()
+        elif opcion == 5:
+            print("Selecciono: {}".format(get_peticion_yang))
+            get_peticion_yang()
+        elif opcion == 0:
+            print("Selecciono: {}".format(salir))
+            finalizar()
+        elif opcion == None:
+            print("Debe ingresar una opción del menú o 0 para salir.")
+        else:
+            default()
+        pausa = input("> Pulse ENTER para continuar")
+    
+           
+        elif opcion == None:
+            print("Debe ingresar una opción del menú o 0 para salir.")
+        else:
+            default()
+        pausa = input("> Pulse ENTER para continuar")
+    
+           
 
 # Programa principal
 if __name__ == "__main__":
