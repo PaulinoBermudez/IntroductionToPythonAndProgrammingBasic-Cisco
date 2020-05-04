@@ -285,7 +285,7 @@ def table_route():
 # Método para ver archivos yang Cisco
 def get_peticion_yang():
     print("Menú de archivos YANG que ver/configurar.")
-
+    
 # Defino clase que se ejecuta en caso de seleccionar una opcion inexistente o inválida          
 def default():
     print("OPCION INVÁLIDA! - Revise las opciones y vuelva a intentarlo")    
