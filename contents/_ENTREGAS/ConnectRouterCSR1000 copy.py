@@ -282,10 +282,74 @@ def table_route():
         print('Error in the request, status code:', response.status_code)
         print(response.text)
 
+# Modelos YANG
+# Ver capabilities
+def capabilities():        
+    manager = manager.connect(
+        host="192.168.56.101",
+        # Remote port of the NETConf service
+        port=830,
+        username="cisco",
+        password="cisco123!",
+        hostkey_verify=False
+    )
+
+    print("#Supported Capabilities (YANG models):")
+    for capability in manager.server_capabilities:
+        print(capability)
+        
+# Ver todas las itnerfaces de red
+def all_interfaces():
+    # Create a variable named 'api_url' and assign the URL
+    api_url = "https://192.168.56.101/restconf/data/ietf-interfaces:interfaces"
+    # Create the dictionary variable named headers that has keys for Accept and Content-Type
+    # Assign the key and values.
+    headers = {
+        "Accept":"application/yang-data+json",
+        "Content-Type":"application/yang-data+json"
+    }
+
+    # Create variable authentication
+    basic_auth = ("cisco","cisco123!")
+
+    # Send the get request method.
+    # Note: Disable verification of the SSL certificate
+    resp = requests.get(api_url, auth=basic_auth, headers=headers, verify=False)
+
+    # Evaluate the response
+    # Use the YANG model response values can be extracted from the response JSON.
+    response_json = resp.json()
+    # Verify the code return
+    print(response_json)
+
+    # Prettify the output, json.dumps() function with the indent parameters
+    read = input("\n Enter to continue ...")
+    os.system("clear")
+    os.system("cls")
+    print(json.dumps(response_json, indent=2))
+
+# ver una interfaz
+def una_interface():
+
+
 # Método para ver archivos yang Cisco
 def get_peticion_yang():
     print("Menú de archivos YANG que ver/configurar.")
-    
+    opcion=int(input("""
+        OPCIONES DE ARCHIVOS YANG.
+
+        1.) Ver las capabilities del Router Cisco 1000v
+        2.) Ver info de las interfaces.
+            1) Ver todas
+            2) Ver una interfaz en concreto
+        
+        (Seleccione una de las opciones y pulse ENTER.)
+        
+    """))
+    if opcion == 1:
+
+    elif opcion == 2:
+
 # Defino clase que se ejecuta en caso de seleccionar una opcion inexistente o inválida          
 def default():
     print("OPCION INVÁLIDA! - Revise las opciones y vuelva a intentarlo")    
