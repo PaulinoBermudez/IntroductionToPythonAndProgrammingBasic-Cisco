@@ -33,7 +33,8 @@ def credencial():
             - Contraseña: cisco123!
         
     """)
-    ip = "192.168.6.101"
+    # Default
+    ip = "192.168.56.101"
     puerto = 22
     # Usuario
     user = "cisco"
