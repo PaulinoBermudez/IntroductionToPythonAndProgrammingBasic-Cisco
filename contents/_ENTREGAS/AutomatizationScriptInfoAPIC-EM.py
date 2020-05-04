@@ -30,7 +30,7 @@ def get_ticket():
     print("Ticket request status: ", resp.status_code)
     response_json = resp.json()
     serviceTicket = response_json["response"]["serviceTicket"] 
-    print("The service ticket number is: ", serviceTicket)
+    print("Your ticket ID is: ", serviceTicket)
     print("______________________________________________________")
     return serviceTicket
 # Método para ver los dispositivos existentes en el sistema.            
