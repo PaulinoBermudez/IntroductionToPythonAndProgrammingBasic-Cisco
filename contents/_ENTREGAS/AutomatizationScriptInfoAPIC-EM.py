@@ -38,7 +38,7 @@ def get_ticket():
         ticket = response_json['response']['serviceTicket']
         print(50*"·", "\n Su ticket. \n- Status: {}".format(pidoTicket.status_code))
         print("- Identificador de ticket: ", ticket ,"\n", 50*"·")
-        pausa = input("Pulse ENTER para continuar")
+        
     else:
         print(50*"·", "Su ticket. \n- Status: {}!".format(pidoTicket.status_code))
         pausa = input("Pulse ENTER para continuar")
@@ -377,10 +377,10 @@ def main():
 
         Datos importantes usados.
             - Antes de empezar:
-                - URL: https://devnetsbx-netacad-apicem-3.cisco.com/api/'x' <-- Varía según la 
+                - URL: https://sandboxapicem.cisco.com//api/'x' <-- Varía según la 
                                                                                 info solicitada
                 - Usuario: devnetuser.
-                - Contraseña: Xj***bU
+                - Contraseña: Cisco123!
             - Formato de salida de los datos:
                 - JSON
         
@@ -414,7 +414,7 @@ def main():
 
         (*) Revisar.
         """.format(current_time))
-        opcion = input("Seleccione una de las opciones del menú: ")
+        opcion = int(input("Seleccione una de las opciones del menú: "))
         if opcion == 1:
             print("Selecciono: {}".format(get_ticket))
             get_ticket()
@@ -432,36 +432,12 @@ def main():
             get_path_trace()
         elif opcion == 0:
             print("Selecciono: {}".format(finalizar))
-            salir() if opcion == 1:
-            print("Selecciono: {}".format(view_interfaces))
-            view_interfaces()
-        elif opcion == 2:
-            print("Selecciono: {}".format(new_interface))
-            new_interface()
-        elif opcion == 3:
-            print("Selecciono: {}".format(delete_interface))
-            delete_interface()
-        elif opcion == 4:
-            print("Selecciono: {}".format(table_route))
-            table_route()
-        elif opcion == 5:
-            print("Selecciono: {}".format(get_peticion_yang))
-            get_peticion_yang()
-        elif opcion == 0:
-            print("Selecciono: {}".format(salir))
             finalizar()
         elif opcion == None:
             print("Debe ingresar una opción del menú o 0 para salir.")
         else:
             default()
-        pausa = input("> Pulse ENTER para continuar")
-    
-           
-        elif opcion == None:
-            print("Debe ingresar una opción del menú o 0 para salir.")
-        else:
-            default()
-        pausa = input("> Pulse ENTER para continuar")
+        pausa = input("> Pulse ENTER para continuar")    
     
            
 
