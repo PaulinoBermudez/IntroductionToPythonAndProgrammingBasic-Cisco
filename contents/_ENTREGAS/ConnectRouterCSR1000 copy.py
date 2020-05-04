@@ -271,9 +271,16 @@ def table_route():
             }
         }
     }
-    urlEndPoint = url+kwargs['endpoint']
+    # URL final con los datos
+    endpoin='ENDPOINT'
+    urlEndPoint = url+endpoin['endpoint']
     response = requests.path(urlEndPoint, headers = headers, auth = basic_auth, data=json.dumps(body), timeout=5, verify=False)
-    
+    # Veo el estado de respuesta del servicio
+    if response.status_code in range(200, 300):
+        print('Successful request, status code:', response.status_code)
+    else:
+        print('Error in the request, status code:', response.status_code)
+        print(response.text)
 
 # Método para ver archivos yang Cisco
 def get_peticion_yang():
