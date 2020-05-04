@@ -63,7 +63,6 @@ def view_interfaces():
     print("show ip int brief: \n{}\n".format(output2))
     print("_________________________________________")
     
-
 # Método para crear una interfaz nueva
 def new_interface():
     print("Nueva interfaz de red.")
