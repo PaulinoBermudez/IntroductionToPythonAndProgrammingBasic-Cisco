@@ -193,6 +193,7 @@ def delete_interface():
     print("_________________________________________")
     print("Estas son las nuevas interfaces encontradas: \n{}\n".format(output2))
     print("_________________________________________")
+
 # Método para ver la tabla de rutas.
 def table_route():
     print("Crear tabla de rutas")
