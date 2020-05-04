@@ -188,7 +188,7 @@ def get_interfaces_list():
     else:
         # Ver info de dispositivos en la red
         print("---------- Dispositivos en la red. -------------") 
-        
+        mini_net_devices()
         # ¿Qué ID estudiamos?
         id_select = input("""       INFORMACION DE INTERFACES.
             > Introduzca el ID del dispositivo del que quiere ver sus interfaces de red: 
@@ -230,14 +230,16 @@ def get_interfaces_list():
                     for item in response_json["response"]:
                         if item["deviceId"] == id_select:
                             # Creamos la línea de datos 
-                            interfaceList.append([item["interfaceType"], item["ipv4Address"], item["macAddress"], item["portName"], item["status"]])
-                        interface_list_print = "\n".join(str(x) for x in interfaceList)
-                        interface_list_print = interface_list_print.replace("u'", "'")
-                        interface_list_print = interface_list_print.replace("[", "")
-                        interface_list_print = interface_list_print.replace("]", "")
-                        interface_list_print = interface_list_print.replace("'", "")
+                            interface=[
+                                item["id"],
+                                item["interfaceType"], 
+                                item["ipv4Address"], 
+                                item["macAddress"], 
+                                item["portName"], 
+                                item["status"]]
+                            interfaceList.append(interface)
                         pausa = input("OJO AL PETARDAZO")
-                        return(tabulate(interface_list_print, table_header))
+                        return(tabulate(interfaceList, table_header))
             except Exception as err:
                 print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(id_select))
             pausa = input("Pulse ENTER para continuar.")
