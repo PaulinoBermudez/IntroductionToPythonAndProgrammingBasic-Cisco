@@ -330,15 +330,8 @@ def all_interfaces():
 
 # ver una interfaz
 def una_interface():    
-    m = manager.connect(
-        host="192.168.56.101",
-        port=830,
-        username="cisco",
-        password="cisco123!",
-        hostkey_verify=False
-    )
-    netconf_reply  = manager.get_config(source="running")
-    print(netconf_reply) 
+    view_interfaces()
+    print(2*"\n")
     estaInter=input("Escriba el nombre de la intrerfaz que desea ver: ") 
     api_url = "https://192.168.56.101/restconf/data/ietf-interfaces:interfaces/interface={}".format(estaInter)
     headers = {
