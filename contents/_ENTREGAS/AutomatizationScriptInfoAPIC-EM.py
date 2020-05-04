@@ -251,6 +251,7 @@ def get_interfaces_list():
 def get_path_trace():  
         print("Path trace IP")
         # Estado de solicitud de ticket.
+        ticket=get_ticket()
         if ticket == None:
             print(50*"·", "\n NO TIENE TICKET, solicite uno antes o revise la configuración . \n",50*"·")
             return
@@ -450,7 +451,7 @@ def main():
         | 2- Host de la red.                              |
         | 3- Dispositivos en la red.                      |
         | 4- Ver interfaces de red de un dispositivo (ID) |
-        | 5- Ruta de saltos hasta una IP de destino. *    |
+        | 5- Trazado de ruta. *                           |
         +_________________________________________________+
         | 0- Salir del programa.                          |
         +_________________________________________________+
