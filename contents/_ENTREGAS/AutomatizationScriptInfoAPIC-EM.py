@@ -11,7 +11,7 @@ os.system('cls')
 def __init__():
     # Deshabilito los warning de SSL
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-def Tickets():
+def Tickets(): 
     # URL de acceso
     url = "https://sandboxapicem.cisco.com/api/v1/ticket"
     # Cabecera
@@ -26,26 +26,26 @@ def Tickets():
         "password":"Cisco123!"
     }
     # Solicitamos un ticket
-    pidoTicket =  requests.post(url,json.dumps(credentials), headers=header, verify = False)
-    
-       
-# Método para obtener ticket de acceso a la plataforma APIC-EM
-def get_ticket():
-    # Pido ticket
-    Tickets()
-    # Vemos el estado de la petición
-    # Estado 200: OK!
-    # Estado 202: Accepted.
+    pidoTicket =  requests.post(url,json.dumps(credentials), headers=header, verify = False)    
     if (pidoTicket.status_code == 200 ) or ( pidoTicket.status_code == 202):
         # Creamos diccionario de los datos JSON de la API
         response_json = pidoTicket.json()
         ticket = response_json['response']['serviceTicket']
         print(50*"·", "\n Su ticket. \n- Status: {}".format(pidoTicket.status_code))
-        print("- Identificador de ticket: ", ticket ,"\n", 50*"·")
-        
+        print("- Identificador de ticket: ", ticket ,"\n", 50*"·")        
     else:
         print(50*"·", "Su ticket. \n- Status: {}!".format(pidoTicket.status_code))
-        pausa = input("Pulse ENTER para continuar")
+    ticket = newticket
+    print(newticket)
+# Método para obtener ticket de acceso a la plataforma APIC-EM
+def get_ticket():
+    # Pido ticket
+    Tickets(self)
+    # Vemos el estado de la petición
+    # Estado 200: OK!
+    # Estado 202: Accepted.   
+    print(newticket)
+    pausa = input("Pulse ENTER para continuar")
 # Método para ver los dispositivos existentes en el sistema.            
 def  get_hosts_list():
     # Ver estado de solicitud de ticket
