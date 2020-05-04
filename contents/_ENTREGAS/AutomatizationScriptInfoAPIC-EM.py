@@ -7,214 +7,212 @@ os.system('clear')
 os.system('cls')
 
 
-# Clase principal
-class class_API_EM():
-    # Defino método de inicio de los objetos de la clase
-    def __init__(self):
-        # Deshabilito los warning de SSL
-        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        self.ticket = None
-    # Método para obtener ticket de acceso a la plataforma APIC-EM
-    def get_ticket(self):
-        # URL de acceso
-        url = "https://sandboxapicem.cisco.com/api/v1/ticket"
-        # Cabecera
-        header = {
-            # Tipo de contenido 
-            "Content-Type":"application/json"
-        }
-        # Credenciales
-        credentials = {
-            # Usamos las credenciales que da el laboratorio
-            "username":"devnetuser",
-            "password":"Cisco123!"
-        }
-        # Solicitamos un ticket
-        pidoTicket =  requests.post(url,json.dumps(credentials), headers=header, verify = False)
-        # Vemos el estado de la petición
-        # Estado 200: OK!
-        # Estado 202: Accepted.
-        if (pidoTicket.status_code == 200 ) or ( pidoTicket.status_code == 202):
-            # Creamos diccionario de los datos JSON de la API
-            response_json = pidoTicket.json()
-            self.ticket = response_json['response']['serviceTicket']
-            print(50*"·", "\n Su ticket. \n- Status: {}".format(pidoTicket.status_code))
-            print("- Identificador de ticket: ", self.ticket ,"\n", 50*"·")
-            pausa = input("Pulse ENTER para continuar")
-        else:
-            print(50*"·", "Su ticket. \n- Status: {}!".format(pidoTicket.status_code))
-            pausa = input("Pulse ENTER para continuar")
-    # Método para ver los dispositivos existentes en el sistema.            
-    def  get_hosts_list(self):
-        # Ver estado de solicitud de ticket
-        if self.ticket == None:
-            print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
-            return
-        # Solicitamos la info
-        url="https://devnetsbx-netacad-apicem-3.cisco.com/api/v1/host"
-        header = {
-            # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
-            "Content_type":"application/json",
-            # Autenticación
-            "X-Auth-Token":self.ticket
-        }
+# Defino método de inicio de los objetos de la clase
+def __init__():
+    # Deshabilito los warning de SSL
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    ticket = None
+# Método para obtener ticket de acceso a la plataforma APIC-EM
+def get_ticket():
+    # URL de acceso
+    url = "https://sandboxapicem.cisco.com/api/v1/ticket"
+    # Cabecera
+    header = {
+        # Tipo de contenido 
+        "Content-Type":"application/json"
+    }
+    # Credenciales
+    credentials = {
+        # Usamos las credenciales que da el laboratorio
+        "username":"devnetuser",
+        "password":"Cisco123!"
+    }
+    # Solicitamos un ticket
+    pidoTicket =  requests.post(url,json.dumps(credentials), headers=header, verify = False)
+    # Vemos el estado de la petición
+    # Estado 200: OK!
+    # Estado 202: Accepted.
+    if (pidoTicket.status_code == 200 ) or ( pidoTicket.status_code == 202):
+        # Creamos diccionario de los datos JSON de la API
+        response_json = pidoTicket.json()
+        .ticket = response_json['response']['serviceTicket']
+        print(50*"·", "\n Su ticket. \n- Status: {}".format(pidoTicket.status_code))
+        print("- Identificador de ticket: ", .ticket ,"\n", 50*"·")
+        pausa = input("Pulse ENTER para continuar")
+    else:
+        print(50*"·", "Su ticket. \n- Status: {}!".format(pidoTicket.status_code))
+        pausa = input("Pulse ENTER para continuar")
+# Método para ver los dispositivos existentes en el sistema.            
+def  get_hosts_list():
+    # Ver estado de solicitud de ticket
+    if .ticket == None:
+        print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
+        return
+    # Solicitamos la info
+    url="https://devnetsbx-netacad-apicem-3.cisco.com/api/v1/host"
+    header = {
+        # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
+        "Content_type":"application/json",
+        # Autenticación
+        "X-Auth-Token":.ticket
+    }
 
-        # Usamos el método GET para obtener la información de los hosts existentes.
-        respuesta = requests.get(url, headers=header, verify = False)
-        print(50*"·", "\n Status host request: ", respuesta.status_code, "\n", 50*"·")
-        try:
-            if respuesta.status_code != 200:
-                print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
-                print("")
-                print("Verifique: \n", eval(respuesta.txt)["response"]["detail"], sep="\n")
-            else:
-                # Creamos el diccionario python de los datos JSON.
-                response_json = respuesta.json()
-                # La cabecera de la tabla será:
-                #
-                # + ---+-----+-----+--------------+---------------------+----+
-                # | Nº |  IP | MAC | Tipo de host | IP disp. conectado  | ID |
-                # +----+-----+-----+--------------+---------------------+----+
-                # Para esto, creamos una lista con estos atributos
-                table_header = ["Num","IP","MAC","Tipo de host", "IP disp. conectado", "ID"]
-                # Lista de hosts
-                hostList = []
-                for item in response_json["response"]:
-                    # Sumámos +1 a la lista de hosts
-                    i += 1
-                    # Añadimos los datos de host a la lista hostList.
-                    # 1- Creamos el objeto con los datos
-                    # 2- Lo añadimos  a la lista 'hostList' con .append
-                    hostList.append([i, item["hostIp"], item["hostMac"], item["hostType"], item["connectedNetworkDeviceIpAddress"], item["id"]])
-                host_list_print = "\n".join(str(x) for x in hostList)
-                host_list_print = host_list_print.replace("u'", "'")
-                host_list_print = host_list_print.replace("[", "")
-                host_list_print = host_list_print.replace("]", "")
-                host_list_print = host_list_print.replace("'", "")
-                pausa = input("OJO AL PETARDAZO")
-                return(tabulate(host_list_print, table_header))
-        except Exception as err:
-            print("Imposible de resolver: LISTADO DE HOST EN EL SISTEMA. - {:2}".format(err))
-        pausa = input("Pulse ENTER para continuar.")
-    # Método para ver los dispositivos en red conectados.
-    def get_network_devices_list(self):
-        # Estado de solicitud de ticket.
-        if self.ticket == None:
-            print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
-            return
-        # Solicitamos la info
-        url="https://devnetsbx-netacad-apicem-3.cisco.com/api/v1/network-device"
-        header = {
-            # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
-            "Content_type":"application/json",
-            # Autenticación
-            "X-Auth-Token":self.ticket
-        }
+    # Usamos el método GET para obtener la información de los hosts existentes.
+    respuesta = requests.get(url, headers=header, verify = False)
+    print(50*"·", "\n Status host request: ", respuesta.status_code, "\n", 50*"·")
+    try:
+        if respuesta.status_code != 200:
+            print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
+            print("")
+            print("Verifique: \n", eval(respuesta.txt)["response"]["detail"], sep="\n")
+        else:
+            # Creamos el diccionario python de los datos JSON.
+            response_json = respuesta.json()
+            # La cabecera de la tabla será:
+            #
+            # + ---+-----+-----+--------------+---------------------+----+
+            # | Nº |  IP | MAC | Tipo de host | IP disp. conectado  | ID |
+            # +----+-----+-----+--------------+---------------------+----+
+            # Para esto, creamos una lista con estos atributos
+            table_header = ["Num","IP","MAC","Tipo de host", "IP disp. conectado", "ID"]
+            # Lista de hosts
+            hostList = []
+            for item in response_json["response"]:
+                # Sumámos +1 a la lista de hosts
+                i += 1
+                # Añadimos los datos de host a la lista hostList.
+                # 1- Creamos el objeto con los datos
+                # 2- Lo añadimos  a la lista 'hostList' con .append
+                hostList.append([i, item["hostIp"], item["hostMac"], item["hostType"], item["connectedNetworkDeviceIpAddress"], item["id"]])
+            host_list_print = "\n".join(str(x) for x in hostList)
+            host_list_print = host_list_print.replace("u'", "'")
+            host_list_print = host_list_print.replace("[", "")
+            host_list_print = host_list_print.replace("]", "")
+            host_list_print = host_list_print.replace("'", "")
+            pausa = input("OJO AL PETARDAZO")
+            return(tabulate(host_list_print, table_header))
+    except Exception as err:
+        print("Imposible de resolver: LISTADO DE HOST EN EL SISTEMA. - {:2}".format(err))
+    pausa = input("Pulse ENTER para continuar.")
+# Método para ver los dispositivos en red conectados.
+def get_network_devices_list():
+    # Estado de solicitud de ticket.
+    if .ticket == None:
+        print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
+        return
+    # Solicitamos la info
+    url="https://devnetsbx-netacad-apicem-3.cisco.com/api/v1/network-device"
+    header = {
+        # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
+        "Content_type":"application/json",
+        # Autenticación
+        "X-Auth-Token":.ticket
+    }
 
-        # Usamos el método GET para obtener la información de los dispositivos conectados.
-        respuesta = requests.get(url, headers=header, verify = False)
-        print(50*"·", "\n Status host request: ", respuesta.status_code, "\n", 50*"·")
-        try:
-            if respuesta.status_code != 200:
-                print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
-                print("")
-                print("Verifique: \n", eval(respuesta.txt)["response"]["detail"], sep="\n")
-            else:
-                # Creamos el diccionario python de los datos JSON.
-                response_json = respuesta.json()
-                # La cabecera de la tabla será:
-                #
-                # + ---+-----------+-----+--------------+------+----+
-                # | Nº |  hostname | MAC | instanceUuid | ROLE | ID |
-                # +----+-----------+-----+--------------+------+----+
-                # Para esto, creamos una lista con estos atributos
-                table_header = ["Num","Host_Name","MAC","Instance uid", "Role", "ID"]
-                # Lista de dispositivos
-                deviceList = []
-                for item in response_json["response"]:
-                    # Sumámos +1 a la lista de dispositivos
-                    i += 1
-                    # Añadimos los datos de 'device' a la lista deviceList.
-                    # 1- Creamos el objeto con los datos
-                    # 2- Lo añadimos  a la lista 'deviceList' con .append
-                    deviceList.append([i, item["hostname"], item["macAddress"], item["instanceUuid"], item["role"], item["id"]])
-                network_list_print = "\n".join(str(x) for x in deviceList)
-                network_list_print = network_list_print.replace("u'", "'")
-                network_list_print = network_list_print.replace("[", "")
-                network_list_print = network_list_print.replace("]", "")
-                network_list_print = network_list_print.replace("'", "")
-                pausa = input("OJO AL PETARDAZO")
-                return(tabulate(network_list_print, table_header))
-        except Exception as err:
-            print("Imposible de resolver: LISTADO DE DISPOSITIVOS EN RED. - {:2}".format(err))
-        pausa = input("Pulse ENTER para continuar.")
-    # Método de identificador de dispositvo y sus interfaces
-    def get_interfaces_list(self):
-        #  Estado de solicitud de ticket.
-        if self.ticket == None:
-            print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
+    # Usamos el método GET para obtener la información de los dispositivos conectados.
+    respuesta = requests.get(url, headers=header, verify = False)
+    print(50*"·", "\n Status host request: ", respuesta.status_code, "\n", 50*"·")
+    try:
+        if respuesta.status_code != 200:
+            print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
+            print("")
+            print("Verifique: \n", eval(respuesta.txt)["response"]["detail"], sep="\n")
+        else:
+            # Creamos el diccionario python de los datos JSON.
+            response_json = respuesta.json()
+            # La cabecera de la tabla será:
+            #
+            # + ---+-----------+-----+--------------+------+----+
+            # | Nº |  hostname | MAC | instanceUuid | ROLE | ID |
+            # +----+-----------+-----+--------------+------+----+
+            # Para esto, creamos una lista con estos atributos
+            table_header = ["Num","Host_Name","MAC","Instance uid", "Role", "ID"]
+            # Lista de dispositivos
+            deviceList = []
+            for item in response_json["response"]:
+                # Sumámos +1 a la lista de dispositivos
+                i += 1
+                # Añadimos los datos de 'device' a la lista deviceList.
+                # 1- Creamos el objeto con los datos
+                # 2- Lo añadimos  a la lista 'deviceList' con .append
+                deviceList.append([i, item["hostname"], item["macAddress"], item["instanceUuid"], item["role"], item["id"]])
+            network_list_print = "\n".join(str(x) for x in deviceList)
+            network_list_print = network_list_print.replace("u'", "'")
+            network_list_print = network_list_print.replace("[", "")
+            network_list_print = network_list_print.replace("]", "")
+            network_list_print = network_list_print.replace("'", "")
+            pausa = input("OJO AL PETARDAZO")
+            return(tabulate(network_list_print, table_header))
+    except Exception as err:
+        print("Imposible de resolver: LISTADO DE DISPOSITIVOS EN RED. - {:2}".format(err))
+    pausa = input("Pulse ENTER para continuar.")
+# Método de identificador de dispositvo y sus interfaces
+def get_interfaces_list():
+    #  Estado de solicitud de ticket.
+    if .ticket == None:
+        print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
+        return
+    else:
+        # Ver info de dispositivos en la red
+        print("---------- Dispositivos en la red. -------------") 
+        .get_network_devices_list()
+        # ¿Qué ID estudiamos?
+        id_select = input("""       INFORMACION DE INTERFACES.
+            > Introduzca el ID del dispositivo del que quiere ver sus interfaces de red: 
+            
+            (Pulse 'Q' para salir.)
+            """)
+        id_select.lower
+        if id_select == 'q':
             return
         else:
-            # Ver info de dispositivos en la red
-            print("---------- Dispositivos en la red. -------------") 
-            self.get_network_devices_list()
-            # ¿Qué ID estudiamos?
-            id_select = input("""       INFORMACION DE INTERFACES.
-                > Introduzca el ID del dispositivo del que quiere ver sus interfaces de red: 
-                
-                (Pulse 'Q' para salir.)
-                """)
-            id_select.lower
-            if id_select == 'q':
-                return
-            else:
-                url=url="https://devnetsbx-netacad-apicem-3.cisco.com/api/v1/interface"
-                header = {
-                    # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
-                    "Content_type":"application/json",
-                    # Autenticación
-                    "X-Auth-Token":self.ticket
-                }
-                 # Usamos el método GET para obtener la información de interfaces
-                 # 1- Conexión - Status
-                respuesta = requests.get(url, headers=header, verify = False)
-                print(50*"·", "\n Status host request: ", respuesta.status_code, "\n", 50*"·")
-                try:
-                    if respuesta.status_code != 200:
-                        print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
-                        print("")
-                        print("Verifique: \n", eval(respuesta.txt)["response"]["detail"], sep="\n")
-                    else:
-                        # Creamos el diccionario python de los datos JSON.
-                        response_json = respuesta.json()
-                        # La cabecera de la tabla será:
-                        #
-                        # + ---------------+------+-----+--------+---------+
-                        # | Tipo interface | IPv4 | MAC | Puerto |  Status |
-                        # +----------------+------+-----+--------+---------+
-                        # Para esto, creamos una lista con estos atributos
-                        table_header = ["Tipo_Interfaz","IPv4","MAC","Puerto", "Status"]
-                        # Lista de dispositivos
-                        interfaceList = []
-                        for item in response_json["response"]:
-                            if item["deviceId"] == id_select:
-                                # Creamos la línea de datos 
-                                interfaceList.append([item["interfaceType"], item["ipv4Address"], item["macAddress"], item["portName"], item["status"]])
-                            interface_list_print = "\n".join(str(x) for x in interfaceList)
-                            interface_list_print = interface_list_print.replace("u'", "'")
-                            interface_list_print = interface_list_print.replace("[", "")
-                            interface_list_print = interface_list_print.replace("]", "")
-                            interface_list_print = interface_list_print.replace("'", "")
-                            pausa = input("OJO AL PETARDAZO")
-                            return(tabulate(interface_list_print, table_header))
-                except Exception as err:
-                    print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(id_select))
-                pausa = input("Pulse ENTER para continuar.")
-    # Método de rutas de una IP origen a una IP desetino.
-    def get_path_trace(self):  
+            url=url="https://devnetsbx-netacad-apicem-3.cisco.com/api/v1/interface"
+            header = {
+                # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
+                "Content_type":"application/json",
+                # Autenticación
+                "X-Auth-Token":.ticket
+            }
+                # Usamos el método GET para obtener la información de interfaces
+                # 1- Conexión - Status
+            respuesta = requests.get(url, headers=header, verify = False)
+            print(50*"·", "\n Status host request: ", respuesta.status_code, "\n", 50*"·")
+            try:
+                if respuesta.status_code != 200:
+                    print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
+                    print("")
+                    print("Verifique: \n", eval(respuesta.txt)["response"]["detail"], sep="\n")
+                else:
+                    # Creamos el diccionario python de los datos JSON.
+                    response_json = respuesta.json()
+                    # La cabecera de la tabla será:
+                    #
+                    # + ---------------+------+-----+--------+---------+
+                    # | Tipo interface | IPv4 | MAC | Puerto |  Status |
+                    # +----------------+------+-----+--------+---------+
+                    # Para esto, creamos una lista con estos atributos
+                    table_header = ["Tipo_Interfaz","IPv4","MAC","Puerto", "Status"]
+                    # Lista de dispositivos
+                    interfaceList = []
+                    for item in response_json["response"]:
+                        if item["deviceId"] == id_select:
+                            # Creamos la línea de datos 
+                            interfaceList.append([item["interfaceType"], item["ipv4Address"], item["macAddress"], item["portName"], item["status"]])
+                        interface_list_print = "\n".join(str(x) for x in interfaceList)
+                        interface_list_print = interface_list_print.replace("u'", "'")
+                        interface_list_print = interface_list_print.replace("[", "")
+                        interface_list_print = interface_list_print.replace("]", "")
+                        interface_list_print = interface_list_print.replace("'", "")
+                        pausa = input("OJO AL PETARDAZO")
+                        return(tabulate(interface_list_print, table_header))
+            except Exception as err:
+                print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(id_select))
+            pausa = input("Pulse ENTER para continuar.")
+# Método de rutas de una IP origen a una IP desetino.
+def get_path_trace():  
         print("Path trace IP")
         # Estado de solicitud de ticket.
-        if self.ticket == None:
+        if .ticket == None:
             print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
             return
         else:
@@ -226,7 +224,7 @@ class class_API_EM():
                 # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
                 "Content_type":"application/json",
                 # Autenticación
-                "X-Auth-Token":self.ticket
+                "X-Auth-Token":.ticket
             }
             # Usamos el método GET para obtener la información de los dispositivos conectados.
             respuesta = requests.get(url, headers=header, verify = False)
@@ -239,7 +237,7 @@ class class_API_EM():
                 else:
                     # Ver info de dispositivos en la red
                     print("---------- DISPOSITIVOS DE RED DISPONIBLES. -------------") 
-                    self.get_network_devices_list()         
+                    .get_network_devices_list()         
                     print("---------------------------------------------------------- \n\n")
                     # Preguntamos las IP's de origen y destino de las direcciones deseadas por el usuario
                     verified=False 
@@ -401,12 +399,12 @@ def main():
         
     # Creamos un diccionario para el menu de opciones
     opciones = {
-        '1':api.get_ticket,
-        '2':api.get_hosts_list,
-        '3':api.get_network_devices_list,
-        '4':api.get_interfaces_list,
-        #'5':api.get_path_trace,
-        '0':finalizar
+        '1':get_ticket(),
+        '2':get_hosts_list(),
+        '3':get_network_devices_list(),
+        '4':get_interfaces_list(),
+        #'5'get_path_trace(),
+        '0':finalizar()
     }
 
     # Bucle del menú de opciones
