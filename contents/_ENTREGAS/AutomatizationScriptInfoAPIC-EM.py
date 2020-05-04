@@ -203,7 +203,7 @@ def get_config_run():
         # Cierro el fichero con los datos almancenados
         file.close()
         count+=1
-    
+    file.read()
     pausa = input("Pulse ENTER para continuar.")
 
 # Método de rutas de una IP origen a una IP desetino.
