@@ -165,13 +165,13 @@ def delete_interface():
         ip=input("Escriba la IP correcta: ")
     # Comando de consola para ver las interfaces de red
     sshCli = ConnectHandler(
-    device_type='cisco_ios',
-    host=ip,
-    port=portD,
-    user=userD,
-    password=passwD
+        device_type='cisco_ios',
+        host=ip,
+        port=portD,
+        username=userD,
+        password=passwD
     )
-    # Sent some simple commands and display the returned output
+    # Ver interfaces
     output2 = sshCli.send_command("show ip int brief")
     print("_________________________________________")
     print("Estas son las interfaces encontradas: \n{}\n".format(output2))
