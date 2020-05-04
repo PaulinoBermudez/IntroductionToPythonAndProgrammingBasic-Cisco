@@ -49,42 +49,40 @@ def  get_hosts_list():
     # Usamos el método GET para obtener la información de los hosts existentes.
     respuesta = requests.get(url, headers=header, verify = False)
     print(50*"·", "\n Status host request: ", respuesta.status_code, "\n", 50*"·")
-    try:
-        if respuesta.status_code != 200:
-            print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
-            print("")
-            raise Exception("Status code does not equal 200. Response text: " + respuesta.text)
-        else:
-            # Creamos el diccionario python de los datos JSON.
-            response_json = respuesta.json()
-            # La cabecera de la tabla será:
-            #
-            # + ---+-----+-----+--------------+---------------------+----+
-            # | Nº |  IP | MAC | Tipo de host | IP disp. conectado  | ID |
-            # +----+-----+-----+--------------+---------------------+----+
-            # Para esto, creamos una lista con estos atributos
-            table_header = ["Num","IP","MAC","Tipo de host", "IP disp. conectado", "ID"]
-            # Lista de hosts
-            hostList = []
-            i = 0
-            for item in response_json["response"]:
-                # Sumámos +1 a la lista de hosts
-                i += 1
-                # Añadimos los datos de host a la lista hostList.
-                # 1- Creamos el objeto con los datos
-                # 2- Lo añadimos  a la lista 'hostList' con .append
-                hostList.append([i,
-                    item["hostIp"], 
-                    item["hostMac"], 
-                    item["hostType"], 
-                    item["connectedNetworkDeviceIpAddress"], 
-                    item["id"]]
-                )
-            print(tabulate = [ hostList, table_header])
-            pausa = input("OJO AL PETARDAZO")
-            # return(tabulate(hostList, table_header))
-    except Exception as err:
-        print("Imposible de resolver: LISTADO DE HOST EN EL SISTEMA. - {:2}".format(err))
+    
+    if respuesta.status_code != 200:
+        print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
+        print("")
+        raise Exception("Status code does not equal 200. Response text: " + respuesta.text)
+    
+    # Creamos el diccionario python de los datos JSON.
+    response_json = respuesta.json()
+    # Lista de hosts
+    hostList = []
+    i = 0
+    for item in response_json["response"]:
+        # Sumámos +1 a la lista de hosts
+        i += 1
+        # Añadimos los datos de host a la lista hostList.
+        # 1- Creamos el objeto con los datos
+        # 2- Lo añadimos  a la lista 'hostList' con .append
+        hostList.append([i,
+            item["hostIp"], 
+            item["hostMac"], 
+            item["hostType"], 
+            item["connectedNetworkDeviceIpAddress"], 
+            item["id"]]
+        )
+    # La cabecera de la tabla será:
+    #
+    # + ---+-----+-----+--------------+---------------------+----+
+    # | Nº |  IP | MAC | Tipo de host | IP disp. conectado  | ID |
+    # +----+-----+-----+--------------+---------------------+----+
+    # Para esto, creamos una lista con estos atributos
+    table_header = ["Num","IP","MAC","Tipo de host", "IP disp. conectado", "ID"]    
+    print(tabulate = [ hostList, table_header])
+    pausa = input("OJO AL PETARDAZO")
+    # return(tabulate(hostList, table_header))
     pausa = input("Pulse ENTER para continuar.")
 # Método para ver los dispositivos en red conectados.
 def get_network_devices_list():
