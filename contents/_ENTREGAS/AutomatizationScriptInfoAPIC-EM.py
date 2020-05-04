@@ -11,6 +11,7 @@ os.system('cls')
 def __init__():
     # Deshabilito los warning de SSL
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+# Solicitud de ticket nuevo
 def Tickets(): 
     # URL de acceso
     url = "https://sandboxapicem.cisco.com/api/v1/ticket"
@@ -34,32 +35,31 @@ def Tickets():
         # Creamos diccionario de los datos JSON de la API
         response_json = pidoTicket.json()
         ticket = response_json['response']['serviceTicket']
-        #print(50*"·", "\n Su ticket. \n- Status: {}".format(pidoTicket.status_code))
-        #print("- Identificador de ticket: ", ticket ,"\n", 50*"·")        
+        print(50*"·", "\n Su ticket. \n- Status: {}".format(pidoTicket.status_code))
+        print("- Identificador de ticket: ", ticket ,"\n", 50*"·")        
     else:
         print(50*"·", "Su ticket. \n- Status: {}!".format(pidoTicket.status_code))
-    newticket = ticket
-    print( newticket)
+    
 # Método para obtener ticket de acceso a la plataforma APIC-EM
 def get_ticket():
     # Pido ticket
-    print("Su ticket: ")
-    mitic = Tickets()
-    print("Valor de Ticket:",mitic)
+    print("Solicitando ticket...Espere, por favor. ")
+    Tickets()
+
 # Método para ver los dispositivos existentes en el sistema.            
 def  get_hosts_list():
     # Ver estado de solicitud de ticket
-    get_ticket()
-    if ticket == None:
+    Tickets()
+    if Tickets == None:
         print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
         return
     # Solicitamos la info
-    url="https://devnetsbx-netacad-apicem-3.cisco.com/api/v1/host"
+    url="https://sandboxapicem.cisco.com/api/v1/host"
     header = {
         # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
         "Content_type":"application/json",
         # Autenticación
-        "X-Auth-Token":ticket
+        "X-Auth-Token":Tickets
     }
 
     # Usamos el método GET para obtener la información de los hosts existentes.
@@ -384,7 +384,7 @@ def main():
 
         Datos importantes usados.
             - Antes de empezar:
-                - URL: https://sandboxapicem.cisco.com//api/'x' <-- Varía según la 
+                - URL: https://sandboxapicem.cisco.com/api/'x' <-- Varía según la 
                                                                                 info solicitada
                 - Usuario: devnetuser.
                 - Contraseña: Cisco123!
@@ -448,8 +448,7 @@ def main():
         except ValueError:
             default()
             print("Debe ingresar una opción del menú o 0 para salir.")
-        finally:
-            finalizar()               
+                       
 
 # Programa principal
 if __name__ == "__main__":
