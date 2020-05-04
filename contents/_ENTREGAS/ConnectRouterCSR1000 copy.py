@@ -176,7 +176,7 @@ def delete_interface():
     print("_________________________________________")
     print("Estas son las interfaces encontradas: \n{}\n".format(output2))
     print("_________________________________________")
-    laborro = input("¿Qué interfaz borro? ")
+    laborro = input("¿Qué interfaz borro? (Nombre de la interfaz). ")
     url = masterurl+"interface={}".format(laborro)
     print(url ," - OK")
     # header 
@@ -190,7 +190,9 @@ def delete_interface():
     respuesta = requests.delete(url, auth=basic_auth, headers=headers, verify = False)
     response_json = respuesta.json()
     print(json.dumps(response_json, indent = 2))
-
+    print("_________________________________________")
+    print("Estas son las nuevas interfaces encontradas: \n{}\n".format(output2))
+    print("_________________________________________")
 # Método para ver la tabla de rutas.
 def table_route():
     print("Crear tabla de rutas")
