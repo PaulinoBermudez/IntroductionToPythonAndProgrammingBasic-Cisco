@@ -147,15 +147,18 @@ def delete_interface():
     # 4 - Genero la conexión para borrar la interfaz 
     # 5 - Muestro por pantalla el resultado
     
-    # URL 
+    # Datos por defecto
     
-    masterurl = "https://"+ip+"/resconf/data/ietf-interfaces:interfaces/"
     ip = "192.168.1.137"
-    port=22,
-    user ='cisco',
-    passw='cisco123!'
+    portD = 22
+    userD = "cisco"
+    passwD = "cisco123!"
+    masterurl = "https://"+ip+"/resconf/data/ietf-interfaces:interfaces/"
+    
+    # Validación de los datos por defecto
     validarIP = input("IP del router {} , es válida? (Y/N) ".format(ip))
     validarIP.upper
+    
     # Pongo los dos valores porque (no se el porque, pero no siempre me vale el 'lower'/'upper'
     # para cuidarnos en salud y evitar el fallo... Pongo los dos)
     if validarIP == 'N' or validarIP == 'n':
@@ -164,9 +167,9 @@ def delete_interface():
     sshCli = ConnectHandler(
     device_type='cisco_ios',
     host=ip,
-    port=port,
-    user=user,
-    password=passw
+    port=portD,
+    user=userD,
+    password=passwD
     )
     # Sent some simple commands and display the returned output
     output2 = sshCli.send_command("show ip int brief")
@@ -182,7 +185,7 @@ def delete_interface():
         "Content-Tpe":"application/yang-data+json"
     }
     # Authentication credentiales
-    basic_auth = (user, passw)
+    basic_auth = (userD, passwD)
     # Generate connexion
     respuesta = requests.delete(url, auth=basic_auth, headers=headers, verify = False)
     response_json = respuesta.json()
