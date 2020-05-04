@@ -190,15 +190,15 @@ def get_interfaces_list():
         print("---------- Dispositivos en la red. -------------") 
         mini_net_devices()
         # ¿Qué ID estudiamos?
-        num_select = int(input(""" 0 Salir      
+        nom_select = input("""  0 Salir      
                                 
                                 INFORMACION DE INTERFACES.
-            > Introduzca el 'Number' del dispositivo del que quiere ver sus interfaces de red: 
+            > Introduzca el 'Host name' o 'IP' del dispositivo que quiere ver. 
             
-            (Pulse '0' para salir.))
+            (Pulse 'Q' para salir.))
             """))
-        
-        if num_select == 0:
+        nom_select.lower
+        if nom_select == 'q' or nom_select == 'Q':
             main()
         else:
             url=url="https://sandboxapicem.cisco.com/api/v1/interface"
@@ -230,7 +230,7 @@ def get_interfaces_list():
                     # Lista de dispositivos
                     interfaceList = []
                     for item in response_json["response"]:
-                        if item[i] == num_select:
+                        if item[ip] == num_select:
                             # Creamos la línea de datos 
                             interface=[
                                 item["id"],
