@@ -35,9 +35,9 @@ def get_ticket():
     if (pidoTicket.status_code == 200 ) or ( pidoTicket.status_code == 202):
         # Creamos diccionario de los datos JSON de la API
         response_json = pidoTicket.json()
-        .ticket = response_json['response']['serviceTicket']
+        ticket = response_json['response']['serviceTicket']
         print(50*"·", "\n Su ticket. \n- Status: {}".format(pidoTicket.status_code))
-        print("- Identificador de ticket: ", .ticket ,"\n", 50*"·")
+        print("- Identificador de ticket: ", ticket ,"\n", 50*"·")
         pausa = input("Pulse ENTER para continuar")
     else:
         print(50*"·", "Su ticket. \n- Status: {}!".format(pidoTicket.status_code))
@@ -45,7 +45,7 @@ def get_ticket():
 # Método para ver los dispositivos existentes en el sistema.            
 def  get_hosts_list():
     # Ver estado de solicitud de ticket
-    if .ticket == None:
+    if ticket == None:
         print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
         return
     # Solicitamos la info
@@ -54,7 +54,7 @@ def  get_hosts_list():
         # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
         "Content_type":"application/json",
         # Autenticación
-        "X-Auth-Token":.ticket
+        "X-Auth-Token":ticket
     }
 
     # Usamos el método GET para obtener la información de los hosts existentes.
@@ -97,7 +97,7 @@ def  get_hosts_list():
 # Método para ver los dispositivos en red conectados.
 def get_network_devices_list():
     # Estado de solicitud de ticket.
-    if .ticket == None:
+    if ticket == None:
         print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
         return
     # Solicitamos la info
@@ -106,7 +106,7 @@ def get_network_devices_list():
         # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
         "Content_type":"application/json",
         # Autenticación
-        "X-Auth-Token":.ticket
+        "X-Auth-Token":ticket
     }
 
     # Usamos el método GET para obtener la información de los dispositivos conectados.
@@ -149,13 +149,13 @@ def get_network_devices_list():
 # Método de identificador de dispositvo y sus interfaces
 def get_interfaces_list():
     #  Estado de solicitud de ticket.
-    if .ticket == None:
+    if ticket == None:
         print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
         return
     else:
         # Ver info de dispositivos en la red
         print("---------- Dispositivos en la red. -------------") 
-        .get_network_devices_list()
+        get_network_devices_list()
         # ¿Qué ID estudiamos?
         id_select = input("""       INFORMACION DE INTERFACES.
             > Introduzca el ID del dispositivo del que quiere ver sus interfaces de red: 
@@ -171,7 +171,7 @@ def get_interfaces_list():
                 # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
                 "Content_type":"application/json",
                 # Autenticación
-                "X-Auth-Token":.ticket
+                "X-Auth-Token":ticket
             }
                 # Usamos el método GET para obtener la información de interfaces
                 # 1- Conexión - Status
@@ -212,7 +212,7 @@ def get_interfaces_list():
 def get_path_trace():  
         print("Path trace IP")
         # Estado de solicitud de ticket.
-        if .ticket == None:
+        if ticket == None:
             print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
             return
         else:
@@ -224,7 +224,7 @@ def get_path_trace():
                 # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
                 "Content_type":"application/json",
                 # Autenticación
-                "X-Auth-Token":.ticket
+                "X-Auth-Token":ticket
             }
             # Usamos el método GET para obtener la información de los dispositivos conectados.
             respuesta = requests.get(url, headers=header, verify = False)
@@ -237,7 +237,7 @@ def get_path_trace():
                 else:
                     # Ver info de dispositivos en la red
                     print("---------- DISPOSITIVOS DE RED DISPONIBLES. -------------") 
-                    .get_network_devices_list()         
+                    get_network_devices_list()         
                     print("---------------------------------------------------------- \n\n")
                     # Preguntamos las IP's de origen y destino de las direcciones deseadas por el usuario
                     verified=False 
@@ -368,8 +368,6 @@ def main():
     t = time.localtime()
     current_time = time.strftime("%H:%M:%S", t)
     print(current_time)
-    # Invoco la clase principal del programa
-    api = class_API_EM()
     # Inicio la variable de selección
     opcion = input("""HOLA y Bienvenid@s!
         
