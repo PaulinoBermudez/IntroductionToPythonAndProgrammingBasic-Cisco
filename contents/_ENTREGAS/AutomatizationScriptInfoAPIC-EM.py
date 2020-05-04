@@ -80,10 +80,8 @@ def  get_hosts_list():
     # +----+-----+-----+--------------+---------------------+----+
     # Para esto, creamos una lista con estos atributos
     table_header = ["Num","IP","MAC","Tipo de host", "IP disp. conectado", "ID"]    
-    print(tabulate = [ hostList, table_header])
-    pausa = input("OJO AL PETARDAZO")
-    # return(tabulate(hostList, table_header))
-    pausa = input("Pulse ENTER para continuar.")
+    print(tabulate([ hostList, table_header], indent=2))
+    
 # Método para ver los dispositivos en red conectados.
 def get_network_devices_list():
     # Estado de solicitud de ticket.
