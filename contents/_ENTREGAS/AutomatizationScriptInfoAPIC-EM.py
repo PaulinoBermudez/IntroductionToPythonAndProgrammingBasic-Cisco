@@ -11,7 +11,7 @@ os.system('cls')
 def __init__():
     # Deshabilito los warning de SSL
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-    ticket = None
+    
 # Método para obtener ticket de acceso a la plataforma APIC-EM
 def get_ticket():
     # URL de acceso
@@ -45,6 +45,7 @@ def get_ticket():
 # Método para ver los dispositivos existentes en el sistema.            
 def  get_hosts_list():
     # Ver estado de solicitud de ticket
+    get_ticket()
     if ticket == None:
         print(50*"·", "\n NO TIENE TICKET, solicite uno antes. \n",50*"·")
         return
