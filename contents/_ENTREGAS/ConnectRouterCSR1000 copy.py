@@ -153,7 +153,7 @@ def delete_interface():
     portD = 22
     userD = "cisco"
     passwD = "cisco123!"
-    masterurl = "https://"+ip+"/resconf/data/ietf-interfaces:interfaces/"
+    masterurl = "https://"+ip+"/restconf/data/ietf-interfaces:interfaces/"
     
     # Validación de los datos por defecto
     validarIP = input("IP del router {} , es válida? (Y/N) ".format(ip))
@@ -196,7 +196,84 @@ def delete_interface():
 # Método para ver la tabla de rutas.
 def table_route():
     print("Crear tabla de rutas")
-    print("Ver ORIGEN - DESTINO -  INTERFAZ DE SALIDA - ")
+    # print("Ver ORIGEN - DESTINO -  INTERFAZ DE SALIDA - ")
+    # Validación de credenciales
+    ip='192.168.56.101'
+    port=22
+    userD='cisco'
+    passwD='cisco123!'
+    print("""
+    Estos son mis credenciales por defecto:
+        IP = {}
+        Port = {}
+        User = {}
+        Password = {}
+
+    """.format(ip,port,userD,passwD))
+    correcto = input("¿Son válidas? (Y/N) ")
+    if correcto == 'n' or correcto == 'N':
+        ip = input("IP: ")
+        port = input ("Puerto: ")
+        userD = input("Usuario: ")
+        passwD = input("Contraseña: ")
+    sshCli = ConnectHandler(
+        device_type='cisco_ios',
+        host=ip,
+        port=22,
+        username=userD,
+        password=passwD
+    )
+    # Ejecutamps el comando para ver las rutas del Router almacenadas
+    output = sshCli.send_command("show ip route")
+    print("_________________________________________")
+    print("show ip route: \n{}\n".format(output))
+    print("_________________________________________")
+
+    # URL a la que me conecto
+    url = "https://{}/restconf/data/".format(ip)
+    print(url)
+    # Credenciales
+    basic_auth = ("cisco","cisco123!")
+
+    endpoint = 'Cisco-IOS-XE-native:native'
+
+    headers = {
+        'Accept': "application/yang-data+json",
+        'Content-Type': "application/yang-data+json"
+    }
+    
+    # Añadimos la ruta que piden 
+    next_hop = "1.2.3.4"
+    prefix = "4.4.4.4"
+    mask = "255.255.255.255"
+    interface = "RouteTest"
+    body = {
+    'Cisco-IOS-XE-native:native': {
+            'ip': {
+                'route': {
+                    'ip-route-interface-forwarding-list': [
+                        {
+                            "fwd-list": [
+                                {
+                                    "interface-next-hop": [
+                                        {
+                                            "ip-address": next_hop
+                                        }
+                                    ],
+                                    "fwd": interface
+                                }
+                            ],
+                            "prefix": prefix,
+                            "mask": mask
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    urlEndPoint = url+kwargs['endpoint']
+    response = requests.path(urlEndPoint, headers = headers, auth = basic_auth, data=json.dumps(body), timeout=5, verify=False)
+    
 
 # Método para ver archivos yang Cisco
 def get_peticion_yang():
@@ -292,7 +369,7 @@ def main():
             delete_interface()
         elif opcion == 4:
             print("Selecciono: {}".format(table_route))
-            table_route
+            table_route()
         elif opcion == 5:
             print("Selecciono: {}".format(get_peticion_yang))
             get_peticion_yang()
