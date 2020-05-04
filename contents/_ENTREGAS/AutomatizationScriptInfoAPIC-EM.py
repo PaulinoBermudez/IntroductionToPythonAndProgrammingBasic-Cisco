@@ -11,9 +11,7 @@ os.system('cls')
 def __init__():
     # Deshabilito los warning de SSL
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-    
-# Método para obtener ticket de acceso a la plataforma APIC-EM
-def get_ticket():
+def Tickets():
     # URL de acceso
     url = "https://sandboxapicem.cisco.com/api/v1/ticket"
     # Cabecera
@@ -29,6 +27,12 @@ def get_ticket():
     }
     # Solicitamos un ticket
     pidoTicket =  requests.post(url,json.dumps(credentials), headers=header, verify = False)
+    
+       
+# Método para obtener ticket de acceso a la plataforma APIC-EM
+def get_ticket():
+    # Pido ticket
+    Tickets()
     # Vemos el estado de la petición
     # Estado 200: OK!
     # Estado 202: Accepted.
