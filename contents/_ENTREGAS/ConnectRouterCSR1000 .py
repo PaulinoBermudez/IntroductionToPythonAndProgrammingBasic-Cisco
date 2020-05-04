@@ -154,6 +154,9 @@ def new_interface():
 
         else:
             print("Vale. Vuelvo al menú")
+            time.sleep(2)
+            os.system('clear')
+            os.system('cls')
             main()
 
 # Método para borrar una interfaz de red del router.
@@ -293,8 +296,6 @@ def table_route():
         }
     }
     # URL final con los datos
-    endpoin='ENDPOINT'
-    urlEndPoint = url+endpoin['endpoint']
     response = requests.path(urlEndPoint, headers = headers, auth = basic_auth, data=json.dumps(body), timeout=5, verify=False)
     # Veo el estado de respuesta del servicio
     if response.status_code in range(200, 300):
