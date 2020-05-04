@@ -180,72 +180,17 @@ def mini_net_devices():
     print( tabulate(devices_list, table_header) )
 
 # Método de identificador de dispositvo y sus interfaces
-def get_interfaces_list():
-    #  Estado de solicitud de ticket.
-    ticket = get_ticket()
-    if ticket == None:
-        print(50*"·", "\n NO TIENE TICKET, solicite uno antes o revise la configuración . \n",50*"·")
-        return
-    else:
-        # Ver info de dispositivos en la red
-        print("---------- Dispositivos en la red. -------------") 
-        mini_net_devices()
-        # ¿Qué ID estudiamos?
-        nom_select = input("""  0 Salir      
-                                
-                                INFORMACION DE INTERFACES.
-            > Introduzca el 'Host name' o 'IP' del dispositivo que quiere ver. 
-            
-            (Pulse 'Q' para salir.))
-            """)
-        nom_select.lower
-        if nom_select == 'q' or nom_select == 'Q':
-            main()
-        
-        url=url="https://sandboxapicem.cisco.com/api/v1/interface"
-        header = {
-            # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
-            "Content_type":"application/json",
-            # Autenticación
-            "X-Auth-Token":ticket
-        }
-            # Usamos el método GET para obtener la información de interfaces
-            # 1- Conexión - Status
-        respuesta = requests.get(url, headers=header, verify = False)
-        print(50*"·", "\n Status host request: ", respuesta.status_code, "\n", 50*"·")
-        try:
-            if respuesta.status_code != 200:
-                print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
-                print("")
-                print("Verifique: \n", eval(respuesta.txt)["response"]["detail"], sep="\n")
-            else:
-                # Creamos el diccionario python de los datos JSON.
-                response_json = respuesta.json()
-                # La cabecera de la tabla será:
-                #
-                # + ---------------+------+-----+--------+---------+
-                # | Tipo interface | IPv4 | MAC | Puerto |  Status |
-                # +----------------+------+-----+--------+---------+
-                # Para esto, creamos una lista con estos atributos
-                table_header = ["Tipo_Interfaz","IPv4","MAC","Puerto", "Status"]
-                # Lista de dispositivos
-                interfaceList = []
-                for item in response_json["response"]:
-                    if item["id"] == nom_select:
-                        # Creamos la línea de datos 
-                        interface=[
-                            item["id"],
-                            item["interfaceType"], 
-                            item["ipv4Address"], 
-                            item["macAddress"], 
-                            item["portName"], 
-                            item["status"]]
-                        interfaceList.append(interface)
-                    pausa = input("OJO AL PETARDAZO")
-                    return(tabulate(interfaceList, table_header))
-        except Exception as err:
-            print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(nom_select))
-        pausa = input("Pulse ENTER para continuar.")
+def get_config_run():
+    # Pido ticket
+    get_ticket()
+    # URL de consulta
+    url="https://sandboxapicem.cisco.com/api/v1/network-device/config"
+    # Header
+    header = {
+        # Autenticación
+        "X-Auth-Token":ticket
+    }
+    pausa = input("Pulse ENTER para continuar.")
 
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
