@@ -311,7 +311,16 @@ def selecciona(prompr, ipList, ident):
     ip =''
     while True:
         entradaPrompt = input(prompt)
-        
+        entrada = user_input
+        entrada.lower
+        if entrada == "q" or entrada == "Q":
+            main()
+        if entrada.isdigit():
+            if int(entrada) in range (1, len(ipList)+1):
+                ip = ipList[int(entrada)][ident]
+                return ip
+            else:
+                print()
 
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
