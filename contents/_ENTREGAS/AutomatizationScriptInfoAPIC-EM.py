@@ -181,6 +181,16 @@ def mini_net_devices():
 
 # Método de identificador de dispositvo y sus interfaces
 def get_config_run():
+    print("""
+                HOLA! 
+                Comentarte una  cosilla, para esta parte generaré un archivo con toda la 
+                configuración.
+                Estatá en el directorio actual de trabajo y es de formato txt.
+
+                Para un reconocimiento fácil lo llamaré: __CONFIGURACION+fecha__.txt
+    
+
+    """)
     # Pido ticket
     ticket=get_ticket()
     # URL de consulta
