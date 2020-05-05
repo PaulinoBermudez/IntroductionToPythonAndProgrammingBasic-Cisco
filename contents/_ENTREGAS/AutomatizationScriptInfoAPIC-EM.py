@@ -242,7 +242,7 @@ def get_config_run():
         # Cierro el fichero con los datos almancenados
         file.close()
         count+=1
-    print("Fichero creado... Para ver la información consulte el fichero {}".format(filename))
+        print("Fichero creado... Para ver la información consulte el fichero {}".format(filename))
     print("Aquí el fichero.")    
     conf = open(filename)
     conf.read()
