@@ -191,8 +191,8 @@ def get_token():
     response = requests.post(url,data=json.dumps(credenciales), headers = header, verify = False).json()
     return response["response"]["serviceTicket"]
 
-# Método de identificador de dispositvo y sus interfaces
-def get_config_run(token):
+# Método para ver la configuracion que está corriendo en los dispositivos actuales, con 1 parametro
+def get_config_run():
     print("""
                 HOLA! 
                 Comentarte una  cosilla, para esta parte generaré un archivo con toda la 
@@ -204,7 +204,18 @@ def get_config_run(token):
 
     """)
     # Pido ticket
-    
+    url = "https://sandboxapicem.cisco.com/api/v1/ticket"
+    credenciales = {
+        "username":"devnetuser",
+        "password":"Cisco123!"
+    }
+    header = {
+        "Content-Type":"application/json"
+    }
+    response = requests.post(url,data=json.dumps(credenciales), headers = header, verify = False).json()
+    token = response["response"]["serviceTicket"]
+    print(token)
+    pausa = input("ENTER para continuar")
     # Header
     header = {
         # Autenticación
@@ -229,7 +240,7 @@ def get_config_run(token):
         # Cierro el fichero con los datos almancenados
         file.close()
         count+=1
-    
+    print("Fichero creado... Para ver la información consulte el fichero {}".format(filename))
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
         print("Path trace IP")
@@ -394,7 +405,7 @@ def finalizar():
 # Funcion principal del programa
 def main():
     t = time.localtime()
-    autoToken = get_token()
+    # autoToken = get_token()
     current_time = time.strftime("%H:%M:%S", t)
     print(current_time)
     
@@ -457,7 +468,7 @@ def main():
                 get_network_devices_list()
             elif opcion == 4:
                 print("Selecciono: {}".format(get_config_run))
-                get_config_run(autoToken)
+                get_config_run()
             elif opcion == 5:
                 print("Selecciono: {}".format(get_path_trace))
                 get_path_trace()
