@@ -3,12 +3,6 @@
 # @Description: Script de conexión automática al Router CSR-1000v.
 # Para obtener información del mismo.
 
-# NOTA: NO SE SI PUEDA CONFIGURAR LOE MÉTODOS QUE FALTAN MAÑANA, ASI QUE QUEDA:
-#   - métodos de la clase conectaRouter.
-#   - probar el script
-#   - Ver la información de los archivos YANG.
-#   - Redacción del archivo
-
 # Librerias importadas
 import os, sys, json, xml.dom.minidom, requests,tabulate, urllib3, time 
 import xml.dom.minidom

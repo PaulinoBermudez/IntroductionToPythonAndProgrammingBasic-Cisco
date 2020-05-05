@@ -157,7 +157,7 @@ def opera(y):
 while True:
     try:
         menu()       
-        print(10*"¨")
+        print(50*"¨")
         time.sleep(5)
     except ValueError:
         pausa=input("ALGO SALIO MAL...F...MAAAALLL!!! --- ENTER para volver a intentarlo.")
