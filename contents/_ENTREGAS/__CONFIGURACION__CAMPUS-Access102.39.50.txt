@@ -1,0 +1,353 @@
+
+Building configuration...
+
+Current configuration : 8742 bytes
+!
+! Last configuration change at 23:50:18 UTC Thu Nov 17 2016 by cisco
+!
+version 15.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service internal
+service compress-config
+!
+hostname CAMPUS-Access1
+!
+boot-start-marker
+boot system switch all flash:cat3k_caa-universalk9.SPA.03.06.04.E.152-2.E4.bin
+boot-end-marker
+!
+!
+vrf definition Mgmt-vrf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+enable password xxxxxxxx
+!
+username xxxxxx
+no aaa new-model
+switch 1 provision ws-c3850-48u
+!
+!
+!
+!
+!
+ip routing
+!
+no ip domain-lookup
+!
+!
+qos queue-softmax-multiplier 100
+!
+crytpo pki xxxxxxx
+ enrollment selfsigned
+certificate xxxxxxxxx
+ revocation-check none
+rsakeypair TP-self-signed- xxxxxxxx
+!
+!
+certificate xxxxxxxxx
+certificate xxxxxxxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+quit
+diagnostic bootup level minimal
+archive
+ log config
+  logging enable
+  logging size 500
+  notify syslog contenttype plaintext
+  hidekeys
+spanning-tree mode pvst
+spanning-tree extend system-id
+hw-switch switch 1 logging onboard message level 3
+!
+redundancy
+ mode sso
+!
+!
+ip tftp source-interface GigabitEthernet1/0/48
+!
+class-map match-any non-client-nrt-class
+!
+policy-map port_child_policy
+ class non-client-nrt-class
+  bandwidth remaining ratio 10
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ vrf forwarding Mgmt-vrf
+ no ip address
+ negotiation auto
+!
+interface GigabitEthernet1/0/1
+ description Connected to Dist1
+ switchport trunk allowed vlan 100-150,200,400
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/2
+ switchport trunk allowed vlan 300
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/3
+!
+interface GigabitEthernet1/0/4
+!
+interface GigabitEthernet1/0/5
+!
+interface GigabitEthernet1/0/6
+!
+interface GigabitEthernet1/0/7
+!
+interface GigabitEthernet1/0/8
+!
+interface GigabitEthernet1/0/9
+!
+interface GigabitEthernet1/0/10
+!
+interface GigabitEthernet1/0/11
+!
+interface GigabitEthernet1/0/12
+!
+interface GigabitEthernet1/0/13
+!
+interface GigabitEthernet1/0/14
+!
+interface GigabitEthernet1/0/15
+!
+interface GigabitEthernet1/0/16
+!
+interface GigabitEthernet1/0/17
+!
+interface GigabitEthernet1/0/18
+!
+interface GigabitEthernet1/0/19
+!
+interface GigabitEthernet1/0/20
+!
+interface GigabitEthernet1/0/21
+!
+interface GigabitEthernet1/0/22
+!
+interface GigabitEthernet1/0/23
+!
+interface GigabitEthernet1/0/24
+!
+interface GigabitEthernet1/0/25
+!
+interface GigabitEthernet1/0/26
+ description Connected to Wireless AP
+ switchport access vlan 400
+ switchport mode access
+!
+interface GigabitEthernet1/0/27
+!
+interface GigabitEthernet1/0/28
+!
+interface GigabitEthernet1/0/29
+!
+interface GigabitEthernet1/0/30
+!
+interface GigabitEthernet1/0/31
+!
+interface GigabitEthernet1/0/32
+!
+interface GigabitEthernet1/0/33
+!
+interface GigabitEthernet1/0/34
+!
+interface GigabitEthernet1/0/35
+!
+interface GigabitEthernet1/0/36
+!
+interface GigabitEthernet1/0/37
+!
+interface GigabitEthernet1/0/38
+!
+interface GigabitEthernet1/0/39
+!
+interface GigabitEthernet1/0/40
+!
+interface GigabitEthernet1/0/41
+!
+interface GigabitEthernet1/0/42
+!
+interface GigabitEthernet1/0/43
+!
+interface GigabitEthernet1/0/44
+!
+interface GigabitEthernet1/0/45
+!
+interface GigabitEthernet1/0/46
+!
+interface GigabitEthernet1/0/47
+ switchport access vlan 200
+ switchport mode access
+ ip device tracking maximum 10
+!
+interface GigabitEthernet1/0/48
+ switchport access vlan 500
+ switchport mode access
+ ip device tracking maximum 0
+!
+interface GigabitEthernet1/1/1
+!
+interface GigabitEthernet1/1/2
+!
+interface GigabitEthernet1/1/3
+!
+interface GigabitEthernet1/1/4
+!
+interface TenGigabitEthernet1/1/1
+!
+interface TenGigabitEthernet1/1/2
+!
+interface TenGigabitEthernet1/1/3
+!
+interface TenGigabitEthernet1/1/4
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan200
+ ip address 10.1.12.1 255.255.255.0
+!
+interface Vlan300
+ ip address 212.1.20.1 255.255.255.252
+!
+interface Vlan400
+ ip address 10.1.14.1 255.255.255.0
+ ip helper-address 10.1.14.100
+!
+interface Vlan500
+ ip address 172.28.97.155 255.255.255.0
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+!
+ip route 0.0.0.0 0.0.0.0 10.1.12.4
+ip route 172.28.97.218 255.255.255.255 Vlan500
+!
+!
+!
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+!
+!
+banner motd ^C
+****************************** ATTENTION *********************************
+*                                                                        *
+*  This is a World Wide Technology Computer System.  This computer       *
+*  system, including all related equipment, networks, and network        *
+*  devices are provided only for authorized World Wide Technology use.   *
+*  WWT computer systems may be monitored for all lawful purposes,        *
+*  including to ensure that their use is authorized, for management      *
+*  of the system, to facilitate protection against unauthorized access,  *
+*  and to verify security procedures, survivability, and operational     *
+*  security. Monitoring includes active attacks by authorized WWT        *
+*  entities to test or verify the security of this system.               *
+*  During monitoring, information may be examined, recorded,             *
+*  copied and used for authorized purposes.  All information,            *
+*  including personal information, placed or sent over this system       *
+*  may be monitored.                                                     *
+*                                                                        *
+*  Use of this WWT computer system, authorized or unauthorized,          *
+*  constitutes consent to monitoring of this system.  Unauthorized       *
+*  use may subject you to criminal prosecution.  Evidence of             *
+*  unauthorized use collected during monitoring may be used for          *
+*  administrative, criminal, or other adverse action.  Use of this       *
+*  system constitutes consent to monitoring for these purposes.          *
+*                                                                        *
+**************************************************************************^C
+!
+line con 0
+ exec-timeout 0 0
+ stopbits 1
+ speed 115200
+line aux 0
+ stopbits 1
+line vty 0 4
+ exec-timeout 0 0
+password xxxxxxxx
+login xxxxxx
+ transport input telnet
+line vty 5 15
+ exec-timeout 0 0
+password xxxxxxxx
+login xxxxxx
+ transport input telnet
+!
+wsma agent exec
+ profile httplistener
+ profile httpslistener
+!
+wsma agent config
+ profile httplistener
+ profile httpslistener
+!
+wsma agent filesys
+ profile httplistener
+ profile httpslistener
+!
+wsma agent notify
+ profile httplistener
+ profile httpslistener
+!
+!
+wsma profile listener httplistener
+ transport http
+!
+wsma profile listener httpslistener
+ transport https
+!
+ap group default-group
+end
+

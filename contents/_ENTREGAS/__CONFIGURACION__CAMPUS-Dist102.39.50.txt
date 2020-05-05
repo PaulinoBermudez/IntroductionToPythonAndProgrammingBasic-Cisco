@@ -1,0 +1,265 @@
+
+Building configuration...
+
+Current configuration : 4751 bytes
+!
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+!
+hostname CAMPUS-Dist1
+!
+boot-start-marker
+boot system flash bootflash:cat4500e-universal.SPA.03.03.00.SG.151-1.SG.bin
+license boot level entservices
+boot-end-marker
+!
+vrf definition mgmtVrf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+enable password xxxxxxxx
+!
+username xxxxxx
+!
+!
+no aaa new-model
+clock timezone PST -8
+hw-module uplink select tengigabitethernet
+!
+flow monitor APIC_EM-FLOW_ANALYSIS_PERFMON_MONITOR
+!
+ip subnet-zero
+no ip domain-lookup
+ip vrf Mgmt-vrf
+!
+ip dhcp excluded-address 55.1.1.1
+!
+ip dhcp pool AP-Pool
+   network 10.1.14.0 255.255.255.0
+   default-router 10.1.14.100 
+   option 43 ip 10.1.14.2 
+!
+ip dhcp pool Client-Pool-172
+   host 172.28.97.82 255.255.255.0
+   default-router 172.28.97.249 
+!
+ip dhcp pool Client-Pool
+   network 10.1.15.0 255.255.255.0
+   default-router 10.1.15.100 
+!
+!
+vtp mode transparent
+!
+power redundancy-mode combined
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+redundancy
+ mode sso
+!
+vlan internal allocation policy ascending
+!
+vlan 25,101,200,300,400,500,600-601,990 
+!
+!
+class-map match-all APIC_EM-FLOW_ANALYSIS_PERFMON_CLASSMAP
+  match access-group name APIC_EM-FLOW_ANALYSIS_ACL
+!
+!
+interface Loopback0
+ ip address 10.255.1.5 255.255.255.255
+!
+interface FastEthernet1
+ ip vrf forwarding Mgmt-vrf
+ no ip address
+ shutdown
+ speed auto
+ duplex auto
+!
+interface TenGigabitEthernet3/1
+ no switchport
+ ip address 10.1.10.2 255.255.255.248
+!
+interface TenGigabitEthernet3/2
+!
+interface GigabitEthernet3/3
+!
+interface GigabitEthernet3/4
+!
+interface GigabitEthernet3/5
+!
+interface GigabitEthernet3/6
+!
+interface GigabitEthernet5/1
+ no switchport
+ ip address 172.28.97.249 255.255.255.0
+!
+interface GigabitEthernet5/2
+!
+interface GigabitEthernet5/3
+!
+interface GigabitEthernet5/4
+!
+interface GigabitEthernet5/5
+ description Connected to CAMPUS-Access1
+ switchport trunk allowed vlan 200,400
+ switchport mode trunk
+!
+interface GigabitEthernet5/6
+!
+interface GigabitEthernet5/7
+ description Connected to CAMPUS-CORE1
+ no switchport
+ ip address 10.1.7.2 255.255.255.248
+!
+interface GigabitEthernet5/8
+!
+interface GigabitEthernet5/9
+!
+interface GigabitEthernet5/10
+!
+interface GigabitEthernet5/11
+!
+interface GigabitEthernet5/12
+!
+interface GigabitEthernet5/13
+!
+interface GigabitEthernet5/14
+!
+interface GigabitEthernet5/15
+!
+interface GigabitEthernet5/16
+!
+interface GigabitEthernet5/17
+!
+interface GigabitEthernet5/18
+!
+interface GigabitEthernet5/19
+!
+interface GigabitEthernet5/20
+!
+interface GigabitEthernet5/21
+!
+interface GigabitEthernet5/22
+!
+interface GigabitEthernet5/23
+!
+interface GigabitEthernet5/24
+!
+interface GigabitEthernet5/25
+!
+interface GigabitEthernet5/26
+!
+interface GigabitEthernet5/27
+!
+interface GigabitEthernet5/28
+!
+interface GigabitEthernet5/29
+!
+interface GigabitEthernet5/30
+!
+interface GigabitEthernet5/31
+!
+interface GigabitEthernet5/32
+!
+interface GigabitEthernet5/33
+!
+interface GigabitEthernet5/34
+!
+interface GigabitEthernet5/35
+!
+interface GigabitEthernet5/36
+!
+interface GigabitEthernet5/37
+ shutdown
+!
+interface GigabitEthernet5/38
+ description Connected to WLC5508
+ switchport trunk allowed vlan 400,600
+ switchport mode trunk
+!
+interface GigabitEthernet5/39
+!
+interface GigabitEthernet5/40
+!
+interface GigabitEthernet5/41
+!
+interface GigabitEthernet5/42
+!
+interface GigabitEthernet5/43
+!
+interface GigabitEthernet5/44
+!
+interface GigabitEthernet5/45
+!
+interface GigabitEthernet5/46
+!
+interface GigabitEthernet5/47
+!
+interface GigabitEthernet5/48
+ description Connected to CAMPUS-DIST2
+ no switchport
+ ip address 10.1.11.2 255.255.255.248
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan200
+ ip address 10.1.12.4 255.255.255.0
+!
+interface Vlan400
+ ip address 10.1.14.100 255.255.255.0
+!
+interface Vlan600
+ ip address 10.1.15.100 255.255.255.0
+!
+router ospf 100
+ router-id 10.255.1.5
+ log-adjacency-changes
+ redistribute connected subnets
+ redistribute static subnets
+ network 10.1.7.0 0.0.0.7 area 0
+ network 10.1.10.0 0.0.0.7 area 0
+!
+ip route 0.0.0.0 0.0.0.0 172.28.97.1
+ip route 10.255.1.6 255.255.255.255 10.1.11.1
+ip route 172.28.97.48 255.255.255.255 10.1.12.1
+ip http server
+!
+!
+ip access-list extended APIC_EM-FLOW_ANALYSIS_ACL
+ permit ip host 10.1.14.2 host 10.1.14.3
+ permit ip host 10.1.14.3 host 10.1.14.2
+!
+!
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+!
+!
+line con 0
+ exec-timeout 0 0
+ stopbits 1
+line vty 0 4
+ exec-timeout 0 0
+password xxxxxxxx
+login xxxxxx
+ transport input telnet
+line vty 5 15
+ exec-timeout 0 0
+password xxxxxxxx
+login xxxxxx
+ transport input telnet
+!
+end
+

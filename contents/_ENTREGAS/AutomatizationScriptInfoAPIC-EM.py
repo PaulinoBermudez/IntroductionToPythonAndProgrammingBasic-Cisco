@@ -229,9 +229,12 @@ def get_config_run():
     response = requests.get(url, headers=header, verify=False).json()
     # Genero un bucle que guarde la configuración que saca la consulta anterior
     count=1
-    fecha = time.strftime("%H.%M.%S")
     for data in response["response"]:
-        filename="__CONFIGURACION__{:}{:}.txt".format(device,fecha)
+        # Variables par alos nombres del fichero
+        fecha = time.strftime("%H.%M.%S")
+        device = re.findall('hostname\s(.+?)\s', data['runningConfig'])[0]
+        # Fichero
+        filename="__CONFIGURACION__{:}_{:}.txt".format(device,fecha)
         # Creo un fichero txt (temporal) en el directorio actual
         file = open(filename, 'w')
         # Escribo los datos de configuracion 'en funcionamiento' dentro del fichero 'file'

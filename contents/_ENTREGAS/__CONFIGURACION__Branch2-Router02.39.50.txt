@@ -1,0 +1,170 @@
+
+Building configuration...
+
+Current configuration : 4044 bytes
+!
+! Last configuration change at 06:46:54 UTC Fri Nov 18 2016 by cisco
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Branch2-Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 51200 warnings
+!
+no aaa new-model
+!
+ip cef
+!
+!
+!
+ip dhcp excluded-address 165.10.1.100
+!
+ip dhcp pool PnP-Demo-Switch-IP-Pool
+ network 165.10.1.0 255.255.255.0
+ default-router 165.10.1.100 
+ option 43 ascii "5A1D;B2;K4;I172.28.97.201;J80"
+!
+ip dhcp pool PnP-Demo-Switch-IP-Pool-1
+ network 165.10.2.0 255.255.255.0
+ default-router 165.10.2.100 
+ option 43 ascii "5A1D;B2;K4;I172.28.97.201;J80"
+!
+!
+!
+ip domain name yourdomain.com
+no ipv6 cef
+multilink bundle-name authenticated
+!
+!
+!
+crytpo pki xxxxxxx
+ enrollment selfsigned
+certificate xxxxxxxxx
+ revocation-check none
+rsakeypair TP-self-signed- xxxxxxxx
+!
+!
+certificate xxxxxxxxx
+certificate xxxxxxxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+quit
+license udi pid CISCO2911/K9 sn FTX1840ALC0
+!
+!
+username xxxxxx
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 218.1.100.100 255.255.255.255
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ description Connected to PnP Demo Switch
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0.1
+ encapsulation dot1Q 1 native
+ ip address 165.10.1.100 255.255.255.0
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1.1
+ encapsulation dot1Q 1 native
+ ip address 165.10.2.100 255.255.255.0
+!
+interface GigabitEthernet0/2
+ ip address 218.1.1.2 255.255.255.0
+ duplex auto
+ speed auto
+!
+router ospf 100
+ router-id 218.1.100.100
+ redistribute connected subnets
+ redistribute static subnets
+ network 218.1.1.0 0.0.0.255 area 0
+ network 219.1.1.0 0.0.0.255 area 0
+!
+ip forward-protocol nd
+!
+ip http server
+ip http access-class 23
+ip http authentication local
+ip http secure-server
+ip http timeout-policy idle 60 life 86400 requests 10000
+!
+!
+!
+!
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+!
+control-plane
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+login xxxxxx
+ stopbits 1
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ access-class 23 in
+ exec-timeout 0 0
+ privilege level 15
+password xxxxxxxx
+login xxxxxx
+ transport input telnet
+line vty 5 15
+ access-class 23 in
+ exec-timeout 0 0
+ privilege level 15
+password xxxxxxxx
+login xxxxxx
+ transport input telnet
+!
+scheduler allocate 20000 1000
+!
+end
+
