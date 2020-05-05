@@ -263,7 +263,24 @@ def checkStatus(a1,a2):
             print("Vuelvo al inicio")
             time.sleep(2)
             main()
-        
+        # Contador de 'saltos' de ruta
+        print("Estoy realizando el trabajo...Espere un segundo por favor.")
+        time.sleep(1)
+        count += 1
+        if count > 30:
+            print("Ruta inalcanzable. Revise los datos y vuelva a intentarlo de nuevo. ")
+            time.sleep(2)
+            main()
+        try:
+            # Ruta a la que voy a resolver y analizar
+            respuesta = get(api="flow-analysis/"+flowAnalysisId)
+            resonse_json = respuesta.json()
+            print ("Response from GET /flow-analysis/"+flowAnalysisId,json.dumps(response_json,indent=4))
+            status = response_json["response"]["request"]["status"]
+            print ("Estado: ",status)
+        except:
+            print("Algo ha fallado para la ruta '{}' compruebe los datos e inténtelo de nuevo. ".format(api))
+
 
 
 
