@@ -2,7 +2,6 @@
 import os, sys, getpass, platform
 import math, time
 import matplotlib.pyplot as plt
-
 os.system('clear')
 os.system('cls')
 # @author: [ Paulino Bermúdez R.]
@@ -15,7 +14,7 @@ y = input("""
         +------------------------------------------------------------------+
         | Este es un menú de calculadora básica en Python.                 |
         | contruida por dos funciones:                                     |
-        |         - MENU()                                                 |
+        |         - MAIN()                                                 |
         |         - OPERA()                                                |
         | Para salir del programa, escriba '0'.                            |
         |                                                                  |
@@ -24,19 +23,20 @@ y = input("""
         | @Su_version Python: {:2} en {:2}           |
         |         (Pulse ENTER para continuar.)                            |
         +------------------------------------------------------------------+
-""".format(pythonv,sist)) 
+    """.format(pythonv,sist)) 
 
-
-def menu():
+def main():
     os.system('clear')
     os.system('cls')
+    
+    # time.sleep(1)
     # Menú
     username = getpass.getuser()
-    print(72*'*')
-    print(27*'*',' CALCULADORA ',30*'*')
-    print(72*'*')
-    print(33*' ','*')
-    print(72*'*')
+    print(72*'_')
+    print(27*'_',' CALCULADORA ',30*'_')
+    print(72*'_')
+    print(33*' ','|')
+    print(72*'_')
     print("{:2} seleccione una de las opciones:  \n".format(username))
     print(72*'_')
     print(22*"_","* Operaciones estándar. ", 24*"_" )
@@ -58,20 +58,26 @@ def menu():
     print(72*'_')
     print("15- Calcular el log en base 'Y' de 'X' \t 16- Calcula In de 'X'")
     print("17- Calcular el lado desconocido de un triángulo ")
-    print("18- Trigonometría \t \t \t 19- Graficar una función f(x)")
+    print("18- Trigonometría \t \t \t 19- Graficar una función f(x)**")
+
+    print("\n\n** PTE de revisar")
     
     print()
     print("0 -  SALIR. ")
+    y = int(input("Opción: "))
     print()
-
-
+    opera(y)
+    time.sleep(3)
+    while True:
+        try:
+            main()
+        except ValueError:
+            pausa=input("ALGO SALIO MAL...F...MAAAALLL!!! --- ENTER para volver al menú.")
+            main()
 
 def opera(y):
-    # En caso de ENTER sin número...
-    y = int(input("Opción: "))
-    print("__________________")
-    if y == '*':
-        print("Error! Necesito una opción correcta. ") 
+    # En caso de ENTER sin número...    
+    print("__________________")    
     # Árbol condicional de opciones.
     if (y == 0):
         username = getpass.getuser()
@@ -86,57 +92,49 @@ def opera(y):
         b=int(input("Introduzca el segundo número: "))
         print("\n")
         resultado=(a+b)
-        print("El resultado es: ", resultado)
-        
+        print("El resultado es: ", resultado)        
     elif (y==2):    
         print("Opción: Resta")
         a=int(input("Introduzca el primer número: "))
         b=int(input("Introduzca el segundo número: "))
         resultado=a-b
-        print("El resultado es: ", resultado)
-        
+        print("El resultado es: ", resultado)        
     elif (y==3):
         print("Opción: Multiplicación")
         a=int(input("Introduzca el primer número: "))
         b=int(input("Introduzca el segundo número: "))
         resultado=(a*b)
-        print("El resultado es: ", resultado)
-        
+        print("El resultado es: ", resultado)        
     elif (y==4):
         print("Opción: División")
         a=int(input("Introduzca el primer número: "))
         b=int(input("Introduzca el segundo número: "))
         resultado=(a/b)
         resto=(a%b)
-        print("El resultado es: ", resultado, " y de resto: ", resto)
-        
+        print("El resultado es: ", resultado, " y de resto: ", resto)        
     elif (y==5):
         print("Opción: Porcentaje")
         b=int(input("¿Porcentaje? (Número) "))
         a=int(input("¿A qué le calculamos el {:2}% ?: ".format(b)))
         resultado=((a*b)/100)
-        print("El ", b,"% de ",a  ," es: ", resultado)
-        
+        print("El ", b,"% de ",a  ," es: ", resultado)        
     elif (y==6):
         print("Opción: Exponencial al cuadrado")
         a=int(input("Introduzca el número: "))
         resultado=(a**2)
-        print("El resultado de {:2} a la '2' es: ".format(a), resultado)
-        
+        print("El resultado de {:2} a la '2' es: ".format(a), resultado)        
     elif (y==7):
         print("Opción: Exponente a la 'x'")
         a=int(input("Introduzca el número natural: "))
         b=int(input("¿A cuánto lo exponemos? "))
         resultado=(a**b)
-        print("El resultado de {:2} a la  {:2} es: ".format(a,b), resultado)
-        
+        print("El resultado de {:2} a la  {:2} es: ".format(a,b), resultado)        
     elif (y==8):
         print("Opción:Polinomio de primer grado")
         a=int(input("Introduzca valor de las 'X's' : "))
         b=int(input("Introduzca valor de los enteros : "))
         resultado=(b/a)
-        print("El resultado de {:2}x+({:2}) = 0, X = ".format(a,b), resultado)
-        
+        print("El resultado de {:2}x+({:2}) = 0, X = ".format(a,b), resultado)        
     elif (y==9):
         print("Opción: Polinomio de segundo grado")
         a=int(input("Introduzca valor de las 'X^2' : "))
@@ -151,14 +149,12 @@ def opera(y):
             resultado1=(((-b)+math.sqrt(calc))/(2*a))
             resultado2=(((-b)-math.sqrt(calc))/(2*a))
             print("El resultado para +X de {:2}x^2+({:2}x)+({:2}) = 0 es: ".format(a,b,c), resultado1)
-            print("El resultado para -X de {:2}x^2+({:2}x)+({:2}) = 0 es: ".format(a,b,c) , resultado2)
-        
+            print("El resultado para -X de {:2}x^2+({:2}x)+({:2}) = 0 es: ".format(a,b,c) , resultado2)        
     elif (y==10):
         print("Opción: Raíz cuadrada")
         a=int(input("Introduzca el número: "))
         resultado=(math.sqrt(a))
         print("El resultado es:", resultado)
-
     elif (y==11):
         print("Opción: DEC a BIN")
         def binario(decimal):
@@ -167,22 +163,18 @@ def opera(y):
                 binario = str(decimal % 2) + binario
                 decimal = decimal // 2
             return str(decimal) + binario
-
         numero = int(input('Introduce el número a convertir a binario: '))
         print(numero, "> ", binario(numero))
         # OPCION FÁCIL: bin(numero)
         print("Opción 2: bin()")
         print(bin(numero)[2:])
-
     elif (y==12):
         print("Opción: BIN a DEC")
         def decimal(binario):
             decimal=int(str(binario),2)
             return decimal
-
         numero = int(input('Introduce el número a convertir a decimal: '))
-        print(numero, "> ", decimal(numero))
-        
+        print(numero, "> ", decimal(numero))        
     elif (y==13):
         print("Opción: DEC a HEX")
         # def hexadec(decimal, base):
@@ -224,9 +216,7 @@ def opera(y):
         numero = int(input('Introduce el número a cambiar de base: '))
         base = 16
         print(hex(numero)[2:])
-        # print("Opción 2: \n", hexadec(numero, base))
-        
-        
+        # print("Opción 2: \n", hexadec(numero, base))            
     elif (y==14):
         print("Opción: DEC a base 'X'")
         def cambio_base(decimal, base):
@@ -235,11 +225,9 @@ def opera(y):
                 conversion = str(decimal % base) + conversion
                 decimal = decimal // base
             return str(decimal) + conversion
-
         numero = int(input('Introduce el número a cambiar de base: '))
         base = int(input('Introduce la base: '))
-        print(cambio_base(numero, base))
-        
+        print(cambio_base(numero, base))        
     elif (y==15):
         print("Opción: LOGARITMO EN CUALQUIER BASE.")
         a=float(input("Introduzca el número: "))
@@ -248,8 +236,7 @@ def opera(y):
             print("TE RECUERDO QUE: \n Los logaritmos no deben ser mayores que cero.")
         else:
             resultado=math.log(a,b)
-            print("El resultado del logaritmo {:2} en base {:2} es:".format(a,b), resultado)
-    
+            print("El resultado del logaritmo {:2} en base {:2} es:".format(a,b), resultado)    
     elif (y==16):
         print("Opción: LOGARITMO NEPERIANO DE UN NÚMERO.")
         a=float(input("Introduzca el número: "))
@@ -258,8 +245,7 @@ def opera(y):
         else:
             resultado=(a)
             print("El resultado del logaritmo neperiano de {:2} es:".format(a), resultado)
-            print("ESTE DE MOMENTO NO LO HE SACADO...")
-        
+            print("ESTE DE MOMENTO NO LO HE SACADO...")        
     elif (y==17):
         print("Opción: Lado desconocido de un triángulo.")
         tipo = input("""
@@ -423,10 +409,8 @@ def opera(y):
         # - sen x = 1 / cos x
         # - cos x = 1 / sen x
         # - cotan x = cos x / sen x  ;  1 + tang^2(x) = sec^2(x) 
-        # - tan x = 1 / cot(x)
-
-        
-    elif (y==19):
+        # - tan x = 1 / cot(x)  
+    #elif (y==19):
         # print("Opción: Gráficas de una función")
         # import pandas as pd
         # import numpy as np
@@ -507,16 +491,7 @@ def opera(y):
         # plt.ylabel('f(x)')
         # plt.xlabel('x')
         # plt.show() 
-        # n = input("PARADA 510")
-        
-if y == 0:
-    exit
-else:
-    while True:  
-        menu()
-        opera(y)
-        pausa=input("Pulse ENTER para continuar.")        
-    else:
-        pausa=input("ALGO SALIO MAL...F...MAAAALLL!!!")
-        exit
-    
+        # n = input("PARADA 510")    
+# Programa principal
+if __name__ == "__main__":
+    main()

@@ -2,7 +2,6 @@
 # @author: [ Paulino Bermúdez R.]
 # @Description: 
 import os, requests, json, time, re, urllib3, threading
-from apicem import *
 from tabulate import *
 os.system('clear')
 os.system('cls')
@@ -123,13 +122,13 @@ def get_network_devices_list():
         i+=1
         host = [
                 i,
-                item["id"],
                 item["hostname"],
                 item["managementIpAddress"],
                 item["macAddress"], 
                 item["serialNumber"],
                 item["family"],
-                item["role"]
+                item["role"],
+                item["id"]
                 ]
         devices_list.append(host)
     table_header = ["Number", "ID","Host name","IP Address", "MAC Address", "S/N", "Family", "Rol"]
@@ -284,91 +283,171 @@ def checkStatus(a1,a2):
 
 # Ver en una lista los dispositivos y host para el realizar el path.
 def get_DeviceAndHost():
-    ipList = []
+    ticket = get_token()
+    ident=0
+    os.system("clear")
+    os.system("cls")
+    urlDevi="https://sandboxapicem.cisco.com/api/v1/network-device"
+    urlHost="https://sandboxapicem.cisco.com/api/v1/host"
+    header = {
+        # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
+        "Content_type":"application/json",
+        # Autenticación
+        "X-Auth-Token":ticket
+    }
+    respuestaD = requests.get(urlDevi, headers=header, verify = False)
+    respuestaH = requests.get(urlHost, headers=header, verify = False)
+    os.system("clear")
+    os.system("cls")
+    response_json = respuestaD.json()
+    rDevices = response_json["response"]
+    response_json = respuestaH.json()
+    rHosts = response_json["response"]
+    
+    hostList = []
+    devicesList = []
+    
+    # print("He creado las listas vacías")
+    # Creo bucle para la lista antes lo inicio a 0
     try:
-        respuesta = (get(api="host"))
-        response_json = respuesta.json()
-        # Creo un condicional para ir guardando dispositivos en la lista vacia
-        # Creo bucle para la lista antes lo inicio a 0
-        i = 0
-        if response_json["response"] != []:
-            for item in response_json["response"]:
-                i += 1
-                aparatos = [
-                    i,
-                    "host",
-                    item["hostIp"],
-                    item["macAddress"]
-                ]
-                ipList.append(aparatos)
-                ident=i
+        i = -1
+        j = 0
+        for item in rDevices:
+            i += 1
+            aparato1 = [
+                i,
+                item["hostname"],
+                item["managementIpAddress"],
+                item["macAddress"],
+                item["id"]
+            ]
+            devicesList.append(aparato1)
+        # table_header = ["Number","Host name","IP Address", "MAC Address", "ID"]
+        j = len(rDevices)-1
+        for item in rHosts:
+            j += 1
+            aparato2 = [
+                j,
+                item["hostType"],
+                item["hostIp"], 
+                item["hostMac"], 
+                item["id"]
+            ]
+            hostList.append(aparato2)
+        ident = i   
+        # table_header = ["Number","Host name","IP Address", "MAC Address", "ID"]
+        # print(tabulate(devicesList, table_header))
+        # print(tabulate(hostList, table_header))
+        print(50*"##")
+        devicesList = devicesList+hostList
+        #print("Unión de las listas, resultado: ")
+        #print(devicesList)
+        return devicesList
     except:
-        print("Falla algo con la IP! Revise los datos y vuelva a intentarlo de nuevo. ")
-    return ipList
+        print("Falla algo con la URL! Revise los datos y vuelva a intentarlo de nuevo. ")
+        pausa=input("ENTER para volver al inicio.")
+        main()
 
 # Método para la opcion seleccionada por el usuario
-def selecciona(prompt, ipList, ident):
-    ip =''
+def seleccionaIP(prompt,devicesList, ident):
+    ip = " "
     while True:
-        entradaPrompt = input(prompt)
+        user_input = input(prompt)
         entrada = user_input
         entrada.lower
-        if entrada == "q" or entrada == "Q":
+        if entrada.isdigit() == -1 or entrada.isdigit() == -1:
+            print("Saliendo de aquí, vuelvo a inicio.")
+            time.sleep(1)
             main()
         if entrada.isdigit():
-            if int(entrada) in range (1, len(ipList)+1):
-                ip = ipList[int(entrada)][ident]
+            if int(entrada) in range (1, len(devicesList)+1):
+                # ident es la posicion de identificador de la IP en la lista devicesList
+                ip = devicesList[int(entrada)][ident]
                 return ip
             else:
+                print("ALGO MALO OCURRIO!")
                 default()
-
+        else:
+            print(entrada, " - NO ES UNA OPCION VÁLIDA")
+            default
+            get_path_trace()
 
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
-        pausa = input("""       Path trace IP 
+    cls1 = os.system("clear")
+    cls2 =os.system("cls")
+    api="https://sandboxapicem.cisco.com/api/v1/"     
+    ipid = 2 # --> 'puntero' hacia las direcciones IP
+    print("""       Path trace IP 
+    
+        Esta parte del script es un poco más completa ya que aquí reuno varias verificaciones del API.
+        (Compleja para mi cuando me lié a hacerlo claro...Sí, aquí ya se me fue.)
+
+        Veo:
+            - Host()
+            - Network-Device()
+            - Flow-analysis()
+            - Flow-analysis/{flowAnalysysId}
+
+        Seguí la ayuda de: https://developer.cisco.com/site/apic-em-rest-api/
         
-            Esta parte del script es un poco más completa ya que aquí reuno varias verificaciones del API.
-            (Compleja para mi cuando me lié a hacerlo claro...Sí, aquí ya se me fue.)
-
-            Veo:
-                - Host()
-                - Network-Device()
-                - Flow-analysis()
-                - Flow-analysis/{flowAnalysysId}
-
-            Seguí la ayuda de: https://developer.cisco.com/site/apic-em-rest-api/
-            
-            Espero que sea de su gusto y pulse ENTER para continuar.
-        """)
-        ip_idx = 2
-        nd_list = get_DeviceAndHost()
-        if len(nd_list) < 2:
-            print ("You need at least two hosts or network devices to perform a path trace!")
-            sys.exit()
-
-        print (tabulate(nd_list,headers=['number','type','ip'],tablefmt="rst"))
-        
-        s_ip = select_ip("Escriba el número de la lista de la IP de origen: ",nd_list,ip_idx) # ip_idx (=2) is the position of IP in the list
-        d_ip = select_ip("Escriba el número de la lista de la IP de destino: ",nd_list,ip_idx) # ip_idx (=2) is the position of IP in the list
-        # Now that you have the source and destination IP addresses you can use them to POST /flow-analysis
-        path_data = {"sourceIP": s_ip, "destIP": d_ip} # JSON input for POST /flow-analysis
-        r = post(api="flow-analysis",data=path_data) # Run POST /flow-analysis
-        response_json = r.json()
-        print ("Respuesta del POST /flow-analysis: ",json.dumps(response_json,indent=4))
-        try:
-            flowAnalysisId = response_json["response"]["flowAnalysisId"]
-        except:
-            print ("\n He intentado pero me ha sido imposible acceder a 'flowAnalysisId'. ")
-            print("Vuelvo al menú principal")
-            time.sleep(1)
-
-            main()
-
-        ###########################################################
-        # Check status of POST /flow-analysis - non-blocking wait #
-        ###########################################################
-        thread = threading.Thread(target=check_status, args=('',flowAnalysisId,)) # Passing 
-        thread.start()
+        Espero que sea de su gusto.
+    """)
+    time.sleep(2)
+    cls1
+    cls2
+    # Ticket nuevo
+    get_token()
+    cls1
+    cls2        
+    # print("Ya pedí ticket")
+    nd_list = get_DeviceAndHost()
+    # print("Ahora voy a get_deviceandhost")
+    if len(nd_list) < 2:
+        print ("Necesito dos valores de entrada.")
+        get_path_trace()
+    # Imprimo la lista de aparatos
+    # print("Estos son los datos que tengo: ")
+    print (tabulate(nd_list,headers = ["Number","Host name","IP Address", "MAC Address", "ID"],tablefmt="rst"))
+    # Selecciona los argumentos
+    print("Pido 'Numbers' para Origen y Destino.")
+    # Solo por practicar
+    print("Utilice la opción 0 para salir.", sep="_", end="\n\n")
+    refresh = input("Antes... Aplicamos PeriodicRefresh a la consulta? (Y/N): ")
+    refresh.lower
+    if refresh =="n" or refresh == "N":
+        period=False
+    else:
+        period=True
+    origen = seleccionaIP("Escriba el número ('Number') de la IP de origen: ", nd_list, ipid)
+    destino = seleccionaIP("Escriba el número ('Number') de la IP de destino: ", nd_list, ipid)
+    cls1
+    cls2 
+    get_token()
+    cls1
+    cls2 
+    print(period)
+    path_data = {
+        "periodicRefresh":period,
+        "sourceIP": "{}".format(origen),
+        "destIP": "{}".format(destino)        
+    }
+    print(path_data)
+    preguntoA = api+"flow-analysis"
+    print(preguntoA)
+    respuesta = requests.post(preguntoA,data=path_data)
+    response_json = respuesta.json()
+    print ("Respuesta del GET /flow-analysis: ",json.dumps(response_json,indent=2))
+    # Respuesta de consulta - Imprimo saltos.
+    try:
+        flowAnalysisId = response_json["response"]["flowAnalysisId"]
+        print("Status Flow Analysis ID", flowAnalysisId)
+    except:
+        print ("\n He intentado pero me ha sido imposible acceder a 'flowAnalysisId'. ")
+        print("Vuelvo al menú principal")
+        time.sleep(4)
+        main()
+    
 # Función que 'salta' en caso de que la opción introducida por el usuario sea inválida.
 def default():   
     print("ERROR!", "La opción introducida no es válida. Vuelva a intentarlo de nuevo. [Escribir nº de opción del menú]")
