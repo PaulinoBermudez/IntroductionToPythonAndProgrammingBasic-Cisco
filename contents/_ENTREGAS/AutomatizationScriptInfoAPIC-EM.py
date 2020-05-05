@@ -341,14 +341,15 @@ def get_path_trace():
             Espero que sea de su gusto y pulse ENTER para continuar.
         """)
         ip_idx = 2
-        nd_list = get_host_and_device()
+        nd_list = get_DeviceAndHost()
         if len(nd_list) < 2:
             print ("You need at least two hosts or network devices to perform a path trace!")
             sys.exit()
 
         print (tabulate(nd_list,headers=['number','type','ip'],tablefmt="rst"))
-        s_ip = select_ip('=> Select a number for the source IP from the list shown: ',nd_list,ip_idx) # ip_idx (=2) is the position of IP in the list
-        d_ip = select_ip('=> Select a number for the destination IP from the list shown: ',nd_list,ip_idx) # ip_idx (=2) is the position of IP in the list
+        
+        s_ip = select_ip("Escriba el número de la lista de la IP de origen: ",nd_list,ip_idx) # ip_idx (=2) is the position of IP in the list
+        d_ip = select_ip("Escriba el número de la lista de la IP de destino: ",nd_list,ip_idx) # ip_idx (=2) is the position of IP in the list
         # Now that you have the source and destination IP addresses you can use them to POST /flow-analysis
         path_data = {"sourceIP": s_ip, "destIP": d_ip} # JSON input for POST /flow-analysis
         r = post(api="flow-analysis",data=path_data) # Run POST /flow-analysis
