@@ -178,10 +178,21 @@ def mini_net_devices():
     table_header = ["Number", "ID","IP Add", "Host name", "Family ", "Role"]
     print("""               DATA DEVICES INFO""")
     print( tabulate(devices_list, table_header) )
+# Peticion de un token rapido -- Se puede eliminar si modificamos la get_ticket
 def get_token():
-    
+    url = "https://sandboxapicem.cisco.com/api/v1/ticket"
+    credenciales = {
+        "username" = "devnetuser",
+        "password" = "Cisco123!"
+    }
+    header = {
+        "Content-Type":"application/json"
+    }
+    response = requests.post(url,data=json.dumps(credenciales), headers = header, verify = False).json()
+    return response["response"]["serviceTicket"]
+
 # Método de identificador de dispositvo y sus interfaces
-def get_config_run():
+def get_config_run(token):
     print("""
                 HOLA! 
                 Comentarte una  cosilla, para esta parte generaré un archivo con toda la 
@@ -382,8 +393,10 @@ def finalizar():
 # Funcion principal del programa
 def main():
     t = time.localtime()
+    autoToken = get_token()
     current_time = time.strftime("%H:%M:%S", t)
     print(current_time)
+    
     # Inicio la variable de selección
     opcion = input("""HOLA y Bienvenid@s!
         
@@ -446,7 +459,7 @@ def main():
                 get_config_run()
             elif opcion == 5:
                 print("Selecciono: {}".format(get_path_trace))
-                get_path_trace()
+                get_path_trace(autoToken)
             elif opcion == 0:
                 print("Selecciono: {}".format(finalizar))
                 finalizar()
