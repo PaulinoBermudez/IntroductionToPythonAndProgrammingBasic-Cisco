@@ -182,8 +182,8 @@ def mini_net_devices():
 def get_token():
     url = "https://sandboxapicem.cisco.com/api/v1/ticket"
     credenciales = {
-        "username" = "devnetuser",
-        "password" = "Cisco123!"
+        "username":"devnetuser",
+        "password":"Cisco123!"
     }
     header = {
         "Content-Type":"application/json"
@@ -205,13 +205,15 @@ def get_config_run(token):
     """)
     # Pido ticket
     
-    # URL de consulta
-    url="https://sandboxapicem.cisco.com/api/v1/network-device/config"
     # Header
     header = {
         # Autenticación
-        "X-Auth-Token":ticket
+        "X-Auth-Token":token
     }
+    
+    # URL de consulta
+    url="https://sandboxapicem.cisco.com/api/v1/network-device/config"
+    
     # Realizo la consulta y lo guardo en formato JSON
     response = requests.get(url, headers=header, verify=False).json()
     # Genero un bucle que guarde la configuración que saca la consulta anterior
@@ -219,7 +221,7 @@ def get_config_run(token):
     fecha = time.strftime("%d_%m_%y")
     print (fecha)
     for data in response["response"]:
-        filename="__CONFIGURACION+{}__.txt".format(fecha)
+        filename="__CONFIGURACION__.txt"#.format(fecha)
         # Creo un fichero txt (temporal) en el directorio actual
         file = open(filename, 'w')
         # Escribo los datos de configuracion 'en funcionamiento' dentro del fichero 'file'
@@ -227,8 +229,7 @@ def get_config_run(token):
         # Cierro el fichero con los datos almancenados
         file.close()
         count+=1
-    pausa = input("Pulse ENTER para continuar.")
-
+    
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
         print("Path trace IP")
@@ -456,10 +457,10 @@ def main():
                 get_network_devices_list()
             elif opcion == 4:
                 print("Selecciono: {}".format(get_config_run))
-                get_config_run()
+                get_config_run(autoToken)
             elif opcion == 5:
                 print("Selecciono: {}".format(get_path_trace))
-                get_path_trace(autoToken)
+                get_path_trace()
             elif opcion == 0:
                 print("Selecciono: {}".format(finalizar))
                 finalizar()
