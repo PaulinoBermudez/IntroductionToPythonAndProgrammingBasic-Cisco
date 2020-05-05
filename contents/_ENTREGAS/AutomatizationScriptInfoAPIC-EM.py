@@ -250,7 +250,22 @@ def get_config_run():
     conf = open(filename)
     conf.read()
 
-def checkStatus():
+# Verificacion del estado de la API
+def checkStatus(a1,a2):
+    status = a1
+    flowAnalysis = a2 
+
+    # Genero un loop para verificar de forma constante el estado del API/flowAnalysis
+    count=0
+    while status != 'COMPLETED':
+        if status == 'FAILED':
+            print("Imposible resolver la ruta para esa IP. \n")
+            print("Vuelvo al inicio")
+            time.sleep(2)
+            main()
+        
+
+
 
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
@@ -266,144 +281,10 @@ def get_path_trace():
                 - Flow-analysis/{flowAnalysysId}
 
             Seguí la ayuda de: https://developer.cisco.com/site/apic-em-rest-api/
-        """)
-        # Estado de solicitud de ticket.
-        ticket=get_ticket()
-        if ticket == None:
-            print(50*"·", "\n NO TIENE TICKET, solicite uno antes o revise la configuración . \n",50*"·")
-            return
-        else:
-            # Solicitamos la info 
             
-            # URL de conexión
-            url="https://sandboxapicem.cisco.com/api/v1/flow-analysis"
-            header = {
-                # Método de salida - La pido que sea JSON aunque también puede ser XML (Por ejemplo)
-                "Content_type":"application/json",
-                # Autenticación
-                "X-Auth-Token":ticket
-            }
-            # Usamos el método GET para obtener la información de los dispositivos conectados.
-            respuesta = requests.get(url, headers=header, verify = False)
-            print(50*"·", "\n Status host request: ", respuesta.status_code, "\n", 50*"·")
-            try:
-                if respuesta.status_code != 200:
-                    print(" Algo ha salido mal, el estado de su solicitud es: ", respuesta.status_code)
-                    print("")
-                    print("Verifique: \n", eval(respuesta.txt)["response"]["detail"], sep="\n")
-                else:
-                    # Ver info de dispositivos en la red
-                    print("---------- DISPOSITIVOS DE RED DISPONIBLES. -------------") 
-                    get_network_devices_list()         
-                    print("---------------------------------------------------------- \n\n")
-                    # Preguntamos las IP's de origen y destino de las direcciones deseadas por el usuario
-                    verified=False 
-                    while True and not verified:
-                        source_ip = input("Introduzca la IP de origen del host: ")
-                        dest_ip = input("Introduzca la IP de destino del host: ")
-                        if source_ip != "" or dest_ip != "":
-                            # Creamos un diccionario con los datos del usuario
-                            path_data = {
-                                "sourceIP":source_ip,
-                                "destIP":dest_ip
-                            }
-                            while not verified:
-                                print("Dirección IP del host de origen : " +  path_data['sourceIP'])
-                                print("Dirección IP del host de destino: "+ path_data['destIP'], end ="\n")
-                                print(50*"·")
-                                pausa = input("¿Son correctos los datos? (Y/N)")
-                                pausa.lower
-                                if pausa == "y":
-                                    verified = True 
-                                if pausa == "n":
-                                    verified = False 
-                            continue 
-                        else:
-                            print("---- ERROR EN LOS DATOS INTRODUCIDOS --- \n Debe escribir una dirección IP para continuar. ")
-                            # Volvemos al inicip del while
-                            continue 
-                    # Iniciamos las pasos de ruta
-                    # Convertimos el diccionario path_data con los datos JSON para usarlos en json.dumps()
-                    path = json.dumps(path_data)
-                    # Solicitamos un ticket a la api 
-                    respuesta = requests.post(url, path, headers = header, verify=False)
-                    # Vemos el valor que nos devuelve  y lo almacenamos en una variable respuesta_json, comprobamos su analisis ID con los datos almacenados.
-                    respuesta_json = respuesta.json()
-                    flowAnalysisId = respuesta_json["response"]["flowAnalysisId"]
-                    # Vemos los saltos de las rutas, debe terminar con un 'ACCEPTED' si el destino está OK.
-                    # URL para añadir los valores que analizar
-                    check_url = url+"/"+flowAnalysisId
-                    # Iniciamos la variable de estado, pero sin valor por defecto, por si acaso
-                    status = ""
-                    checks = 1 
-                    while status != "COMPLETED":
-                        envia = requests.get(check_url, headers= header, verify=False)
-                        respuesta_json = envia.json()
-                        estado =  respuesta_json["response"]["request"]["status"]
-                        # Vemos el resultado de los estados 
-                        print("REQUEST STATUS: {:2}".format(status))
-                        time.sleep(1)
-                        # Nº de iteraciones antes de salir del while.
-                        if checks == 15:
-                            raise Exception("Número de estados analizados excede el límite. POSIBLE PROBLEMA CON LOS DATOS DE LA RUTA !!! ")
-                        elif estado == "FAILED":
-                            raise Exception("PROBLEMA CON LOS DATOS DE ENTRADA -- IMPOSIBLE RESOLVER LA RUTA. -> (F)")
-                        checks+=1
-                    # Mostramos por pantalla el resultado.
-                    path_source = respuesta_json["response"]["request"]["sourceIP"]
-                    path_dest = respuesta_json["response"]["request"]["destIP"]
-                    # Asignamos una lista con las conexiones de respuesta_json
-                    networkElemetsInfo = respuesta_json["response"]["networkElemetsInfo"]
-
-                    all_devices=[]
-                    device_no = 1
-
-                    # Bucle  retorna la respuesta del JSON y la lista de rutas.
-                    for i in networkElemetsInfo:
-                        if "name" not in i:
-                            name="Unnamed Host"
-                            ip = i["ip"]
-                            egressInterfaceName = "UNKNOWN"
-                            ingressInterfaceName = "UNKNOWN"
-                        else:
-                            name = i["name"],
-                            ip = i["ip"]
-                            if "egressInterface" in i:
-                                egressInterfaceName = i["egressInterface"]["physicalInterface"]["name"]
-                            else:
-                                egressInterfaceName = "UNKNOWN"
-                            if "ingressInterface" in i:
-                                ingressInterfaceName = i["ingressInterface"]["physicalInterface"]["name"]
-                            else:
-                                ingressInterfaceName = "UNKNOWN"
-                        # Creamos una lista de información a la qie mostrar.
-                        device = [
-                            device_no,
-                            name,
-                            ip,
-                            egressInterfaceName,
-                            ingressInterfaceName
-                        ]
-                        # Añadimos la lista de 'device' en la variable 'all_devices'
-                        all_devices.append(device)
-                        # Creamos una cadena incremental de nº de dispositivos
-                        device_no += 1
-                    # Mostramos el origen y destino de las IP's para la traza
-                    print("-- Path Trace: -- \n * Source: {:2} \n * Destination: {:2}".format(path_source,path_dest))
-                    # Imprimo la lista de dispositivos en la tabla de rutas.
-                    print("\t \t Lista de dispositivos \n")
-                    table_header = [
-                        "Dispositivo",
-                        "Nombre",
-                        "IP",
-                        "Egress Int",
-                        "Ingress Int"
-                    ]
-                    print(tabulate(all_devices, table_header))
-            except Exception as err:
-                print("Imposible de resolver: LISTADO DE INTERFACES DEL ID {:2}".format(id))
-            pausa = input("Pulse ENTER para continuar.")
-
+            Espero que sea de su gusto y pulse ENTER para continuar.
+        """)
+       
 # Función que 'salta' en caso de que la opción introducida por el usuario sea inválida.
 def default():   
     print("ERROR!", "La opción introducida no es válida. Vuelva a intentarlo de nuevo. [Escribir nº de opción del menú]")
