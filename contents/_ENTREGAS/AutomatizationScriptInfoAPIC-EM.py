@@ -282,15 +282,18 @@ def checkStatus(a1,a2):
         except:
             print("Algo ha fallado para la ruta '{}' compruebe los datos e inténtelo de nuevo. ".format(respuesta))
 
-
-
-
+# Ver en una lista los dispositivos y host para el realizar el path.
+def get_DeviceAndHost():
+    ipList = []
+    try:
+        respuesta = (get(api="host"))
+        
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
         pausa = input("""       Path trace IP 
         
             Esta parte del script es un poco más completa ya que aquí reuno varias verificaciones del API.
-            (Compleja para mi cuando me lié a hacerlo claro...)
+            (Compleja para mi cuando me lié a hacerlo claro...Sí, aquí ya se me fue.)
 
             Veo:
                 - Host()
