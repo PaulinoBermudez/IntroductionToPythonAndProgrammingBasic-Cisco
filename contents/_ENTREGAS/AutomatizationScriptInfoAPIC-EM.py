@@ -1,7 +1,7 @@
 #!/bin/python 
 # @author: [ Paulino Bermúdez R.]
 # @Description: 
-import os, requests, json, time, urllib3, copy
+import os, requests, json, time, re, urllib3, copy
 from tabulate import *
 os.system('clear')
 os.system('cls')
@@ -197,9 +197,9 @@ def get_config_run():
                 HOLA! 
                 Comentarte una  cosilla, para esta parte generaré un archivo con toda la 
                 configuración.
-                Estatá en el directorio actual de trabajo y es de formato txt.
+                Estará en el directorio actual de trabajo y es de formato txt.
 
-                Para un reconocimiento fácil lo llamaré: __CONFIGURACION+fecha__.txt
+                Para un reconocimiento fácil lo llamaré: __CONFIGURACION_'device'+'hora'__.txt
     
 
     """)
@@ -231,7 +231,7 @@ def get_config_run():
     count=1
     fecha = time.strftime("%H.%M.%S")
     for data in response["response"]:
-        filename="__CONFIGURACION__{:}.txt".format(fecha)
+        filename="__CONFIGURACION__{:}{:}.txt".format(device,fecha)
         # Creo un fichero txt (temporal) en el directorio actual
         file = open(filename, 'w')
         # Escribo los datos de configuracion 'en funcionamiento' dentro del fichero 'file'
