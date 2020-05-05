@@ -1,7 +1,8 @@
 #!/bin/python 
 # @author: [ Paulino Bermúdez R.]
 # @Description: 
-import os, requests, json, time, re, urllib3, copy
+import os, requests, json, time, re, urllib3, threading
+from apicem import *
 from tabulate import *
 os.system('clear')
 os.system('cls')
@@ -33,6 +34,7 @@ def get_ticket():
     print("Your ticket ID is: ", serviceTicket)
     print("______________________________________________________")
     return serviceTicket
+
 # Método para ver los dispositivos existentes en el sistema.            
 def  get_hosts_list():
     # Ver estado de solicitud de ticket
@@ -178,6 +180,7 @@ def mini_net_devices():
     table_header = ["Number", "ID","IP Add", "Host name", "Family ", "Role"]
     print("""               DATA DEVICES INFO""")
     print( tabulate(devices_list, table_header) )
+
 # Peticion de un token rapido -- Se puede eliminar si modificamos la get_ticket
 def get_token():
     url = "https://sandboxapicem.cisco.com/api/v1/ticket"
@@ -246,6 +249,8 @@ def get_config_run():
     print("Aquí el fichero.")    
     conf = open(filename)
     conf.read()
+
+def checkStatus():
     
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
