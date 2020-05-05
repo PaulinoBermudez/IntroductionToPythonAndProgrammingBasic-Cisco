@@ -215,7 +215,7 @@ def get_config_run():
     response = requests.post(url,data=json.dumps(credenciales), headers = header, verify = False).json()
     token = response["response"]["serviceTicket"]
     print(token)
-    pausa = input("ENTER para continuar")
+    # pausa = input("ENTER para continuar")
     # Header
     header = {
         # Autenticación
@@ -229,7 +229,7 @@ def get_config_run():
     response = requests.get(url, headers=header, verify=False).json()
     # Genero un bucle que guarde la configuración que saca la consulta anterior
     count=1
-    fecha = time.strftime("%x%X")
+    fecha = time.strftime("%H.%M.%S")
     for data in response["response"]:
         filename="__CONFIGURACION__{:}.txt".format(fecha)
         # Creo un fichero txt (temporal) en el directorio actual
@@ -240,6 +240,10 @@ def get_config_run():
         file.close()
         count+=1
     print("Fichero creado... Para ver la información consulte el fichero {}".format(filename))
+    print("Aquí el fichero.")    
+    conf = open(filename)
+    conf.read()
+    
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
         print("Path trace IP")
