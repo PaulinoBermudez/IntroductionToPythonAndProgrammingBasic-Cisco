@@ -43,7 +43,7 @@ def menu():
     print()
     print("0 -  SALIR. ")
     print()
-
+    opera(y)
 
 
 def opera(y):
@@ -142,14 +142,23 @@ def opera(y):
     else:
         print("Número inválido!")
         
-if y == 0:
-    exit
-else:
-    while True:  
-        menu()
-        opera(y)
-        pausa=input("Pulse ENTER para continuar.")        
-    else:
-        pausa=input("ALGO SALIO MAL...F...MAAAALLL!!!")
-        exit
+# if y == 0:
+#     exit
+# else:
+#     while True:  
+#         menu()
+#         opera(y)
+#         pausa=input("Pulse ENTER para continuar.")        
+#     else:
+#         pausa=input("ALGO SALIO MAL...F...MAAAALLL!!!")
+#         exit
     
+
+while True:
+    try:
+        menu()       
+        print(10*"¨")
+        time.sleep(5)
+    except ValueError:
+        pausa=input("ALGO SALIO MAL...F...MAAAALLL!!! --- ENTER para volver a intentarlo.")
+        menu()
