@@ -251,10 +251,22 @@ def get_config_run():
     conf.read()
 
 def checkStatus():
-    
+
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
-        print("Path trace IP")
+        pausa = input("""       Path trace IP 
+        
+            Esta parte del script es un poco más completa ya que aquí reuno varias verificaciones del API.
+            (Compleja para mi cuando me lié a hacerlo claro...)
+
+            Veo:
+                - Host()
+                - Network-Device()
+                - Flow-analysis()
+                - Flow-analysis/{flowAnalysysId}
+
+            Seguí la ayuda de: https://developer.cisco.com/site/apic-em-rest-api/
+        """)
         # Estado de solicitud de ticket.
         ticket=get_ticket()
         if ticket == None:
