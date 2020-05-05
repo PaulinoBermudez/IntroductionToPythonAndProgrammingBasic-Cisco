@@ -307,7 +307,7 @@ def get_DeviceAndHost():
     return ipList
 
 # Método para la opcion seleccionada por el usuario
-def selecciona(prompr, ipList, ident):
+def selecciona(prompt, ipList, ident):
     ip =''
     while True:
         entradaPrompt = input(prompt)
@@ -320,7 +320,8 @@ def selecciona(prompr, ipList, ident):
                 ip = ipList[int(entrada)][ident]
                 return ip
             else:
-                print()
+                default()
+
 
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
