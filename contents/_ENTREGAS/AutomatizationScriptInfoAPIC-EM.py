@@ -287,7 +287,32 @@ def get_DeviceAndHost():
     ipList = []
     try:
         respuesta = (get(api="host"))
+        response_json = respuesta.json()
+        # Creo un condicional para ir guardando dispositivos en la lista vacia
+        # Creo bucle para la lista antes lo inicio a 0
+        i = 0
+        if response_json["response"] != []:
+            for item in response_json["response"]:
+                i += 1
+                aparatos = [
+                    i,
+                    "host",
+                    item["hostIp"],
+                    item["macAddress"]
+                ]
+                ipList.append(aparatos)
+                ident=i
+    except:
+        print("Falla algo con la IP! Revise los datos y vuelva a intentarlo de nuevo. ")
+    return ipList
+
+# Método para la opcion seleccionada por el usuario
+def selecciona(prompr, ipList, ident):
+    ip =''
+    while True:
+        entradaPrompt = input(prompt)
         
+
 # Método de rutas de una IP origen a una IP desetino.
 def get_path_trace():  
         pausa = input("""       Path trace IP 
