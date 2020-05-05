@@ -273,13 +273,14 @@ def checkStatus(a1,a2):
             main()
         try:
             # Ruta a la que voy a resolver y analizar
+            
             respuesta = get(api="flow-analysis/"+flowAnalysisId)
             resonse_json = respuesta.json()
             print ("Response from GET /flow-analysis/"+flowAnalysisId,json.dumps(response_json,indent=4))
             status = response_json["response"]["request"]["status"]
             print ("Estado: ",status)
         except:
-            print("Algo ha fallado para la ruta '{}' compruebe los datos e inténtelo de nuevo. ".format(api))
+            print("Algo ha fallado para la ruta '{}' compruebe los datos e inténtelo de nuevo. ".format(respuesta))
 
 
 
