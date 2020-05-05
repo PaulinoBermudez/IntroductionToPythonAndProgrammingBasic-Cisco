@@ -136,9 +136,9 @@ def new_interface():
             else:
                 descripcion = input("Qué descripción quiere para {}. ".format(nomInter))
             config_commands = [
-                "int "+nomInter,
-                "ip address "+ipInter+" "+maskInter,
-                "description "+ descripcion
+                "int {}".format(nomInter),
+                "ip address  {} {}".format(ipInter,maskInter),
+                "description  {}".format(descripcion)
             ]
             # Output configuration commands.
             output1 = sshCli.send_config_set(config_commands)
@@ -519,5 +519,7 @@ if __name__ == "__main__":
             print(100*"¨", "+4 seg. y borro")
             time.sleep(6)
         except ValueError:
-            pausa=input("ALGO SALIO MAL...F...MAAAALLL!!! --- ENTER para volver a intentarlo.")
+            pausa=input("ALGO HA IDO MAL. VU€lV€ @ 1nT€nT@rl0 --- ENTER para volver a intentarlo.")
+            os.system('clear')
+            os.system('cls')  
             main()
