@@ -229,10 +229,9 @@ def get_config_run():
     response = requests.get(url, headers=header, verify=False).json()
     # Genero un bucle que guarde la configuración que saca la consulta anterior
     count=1
-    fecha = time.strftime("%d_%m_%y")
-    print (fecha)
+    fecha = time.strftime("%x%X")
     for data in response["response"]:
-        filename="__CONFIGURACION__.txt"#.format(fecha)
+        filename="__CONFIGURACION__{:}.txt".format(fecha)
         # Creo un fichero txt (temporal) en el directorio actual
         file = open(filename, 'w')
         # Escribo los datos de configuracion 'en funcionamiento' dentro del fichero 'file'
