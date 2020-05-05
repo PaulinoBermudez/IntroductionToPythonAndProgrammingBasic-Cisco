@@ -38,7 +38,7 @@ def credencial():
     passw = "cisco123!"
 
     # Validamos datos
-    preguntaC = input("¿Sí son correctos? (Y/N) ")
+    preguntaC = input("¿Son correctos? (Y/N) ")
     preguntaC.upper
     # Pongo las dos opciones porque vi que me fallo 2 veces...por si acaso asi no falla.
     if preguntaC == 'N' or preguntaC == 'n':
@@ -512,4 +512,12 @@ def main():
            
 # Ejecución de programa principal
 if __name__ == "__main__":
-    main()
+    #main()
+    while True:
+        try:
+            main()       
+            print(100*"¨", "+4 seg. y borro")
+            time.sleep(6)
+        except ValueError:
+            pausa=input("ALGO SALIO MAL...F...MAAAALLL!!! --- ENTER para volver a intentarlo.")
+            main()
