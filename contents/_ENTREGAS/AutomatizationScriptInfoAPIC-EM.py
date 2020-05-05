@@ -178,7 +178,8 @@ def mini_net_devices():
     table_header = ["Number", "ID","IP Add", "Host name", "Family ", "Role"]
     print("""               DATA DEVICES INFO""")
     print( tabulate(devices_list, table_header) )
-
+def get_token():
+    
 # Método de identificador de dispositvo y sus interfaces
 def get_config_run():
     print("""
@@ -192,7 +193,7 @@ def get_config_run():
 
     """)
     # Pido ticket
-    ticket=get_ticket()
+    
     # URL de consulta
     url="https://sandboxapicem.cisco.com/api/v1/network-device/config"
     # Header
@@ -204,8 +205,10 @@ def get_config_run():
     response = requests.get(url, headers=header, verify=False).json()
     # Genero un bucle que guarde la configuración que saca la consulta anterior
     count=1
-    for data in response['response']:
-        filename="access_host_" + str(count) +".txt"
+    fecha = time.strftime("%d_%m_%y")
+    print (fecha)
+    for data in response["response"]:
+        filename="__CONFIGURACION+{}__.txt".format(fecha)
         # Creo un fichero txt (temporal) en el directorio actual
         file = open(filename, 'w')
         # Escribo los datos de configuracion 'en funcionamiento' dentro del fichero 'file'
@@ -213,7 +216,6 @@ def get_config_run():
         # Cierro el fichero con los datos almancenados
         file.close()
         count+=1
-    file.read()
     pausa = input("Pulse ENTER para continuar.")
 
 # Método de rutas de una IP origen a una IP desetino.
