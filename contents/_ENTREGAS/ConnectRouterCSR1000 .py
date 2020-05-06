@@ -201,12 +201,13 @@ def delete_interface():
     # header 
     headers = {
         "Accept":"application/yang-data+json",
-        "Content-Tpe":"application/yang-data+json"
+        "Content-Type":"application/yang-data+json"
     }
     # Authentication credentiales
     basic_auth = (userD, passwD)
     # Generate connexion
     respuesta = requests.delete(url, auth=basic_auth, headers=headers, verify = False)
+    print("PASTED")
     response_json = respuesta.json()
     print(json.dumps(response_json, indent = 2))
     print("_________________________________________")
