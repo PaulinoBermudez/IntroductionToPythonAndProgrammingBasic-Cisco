@@ -211,7 +211,7 @@ def delete_interface():
     response_json = respuesta.json()
     print(json.dumps(response_json, indent = 2))
     print("_________________________________________")
-    view_interfaces()
+    print("Estas son las interfaces encontradas: \n{}\n".format(output2))
     print("_________________________________________")
 
 # Método para ver la tabla de rutas.
@@ -293,7 +293,7 @@ def table_route():
         }
     }
     # URL final con los datos
-    response = requests.path(urlEndPoint, headers = headers, auth = basic_auth, data=json.dumps(body), timeout=5, verify=False)
+    response = requests.path(endpoint, headers = headers, auth = basic_auth, data=json.dumps(body), timeout=5, verify=False)
     # Veo el estado de respuesta del servicio
     if response.status_code in range(200, 300):
         print('Successful request, status code:', response.status_code)
