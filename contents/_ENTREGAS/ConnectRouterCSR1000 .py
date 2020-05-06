@@ -263,29 +263,26 @@ def table_route():
         'Content-Type': "application/yang-data+json"
     }
     
-    print("" Añadimos la ruta PARA TEST")
+    print("Añadimos la ruta PARA TEST")
     next_hop = "10.0.1.1"
     print(next_hop)
     mask = "255.255.0.0"
     interface = "RouteTest"
-    prin("""
+    print("""
     Tengo entendido que se quiere es añadir una ruta a otra red, la 10.0.1.0 y que 
     el router que añadiré a la tabla de rutas es: 10.0.1.1 con máscara de subred: 255.255.0.0
+    Usaré el serial 1/1/0 del router principal.
     Entonces: 
     """)
     config_commands = [
-        "ip route {} {}".format(next_hop,mask)
-        "ip route 192.168.56.101 255.255.255.0"        
+        "ip route {} {}".format(next_hop,mask),
+        "ip route 192.168.56.101 255.255.0.0 serial 1/1/0"        
     ]
-    
-    # URL final con los datos
-    response = requests.path(endpoint, headers = headers, auth = basic_auth, data=json.dumps(body), timeout=5, verify=False)
-    # Veo el estado de respuesta del servicio
-    if response.status_code in range(200, 300):
-        print('Successful request, status code:', response.status_code)
-    else:
-        print('Error in the request, status code:', response.status_code)
-        print(response.text)
+    output1 = sshCli.send_config_set(config_commands)
+    # Ver de nuevo la tabla  con los cambios
+    print("_________________________________________")
+    print("show ip route: \n{}\n".format(output))
+    print("_________________________________________")
 
 # Modelos YANG
 # Ver capabilities
