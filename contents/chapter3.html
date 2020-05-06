@@ -2940,8 +2940,90 @@ print(myList)
 													The second (not in) checks if a given elements (its left argument) is absent in a list - the operator returns <code>True</code> in this case. <br>
 													Look at the code in the editor. The snippet shows both  operators in action. Can you guess its output? <br>
 													<div>
-														<img src="images/The-in-and-not-in-operators.PNG" class="" alt="">
+														<a href="../contents/programs/3.1.6.6Operators on lists-in and not in.py" target="_blank" rel="noopener noreferrer"><img src="images/The-in-and-not-in-operators.PNG" class="" alt=""></a>
 													</div>
+												</p>
+												<h2>List - Some simple programs</h2>
+												<p>
+													Now we want to show you some simple programs utilizing lists. The first of them tries the greater value in the list.Look at the code in the editor. <br>
+													The concept is rather simple . we temporarily assume that the first element is the largest one, and check the hypothesis against all the remaining elements in the list. <br>
+													The code outputs <code>17</code> (as expected). <br>
+													The code may be rewritten to make use of the newly introduced form of the <code>for</code> loop:
+													<blockquote>
+<pre>myList = [17, 3, 11, 5, 1, 9, 7, 15, 13]
+largest = myList[0]
+for i in myList:
+	if i > largest:
+		largest = i 
+print(largest)
+</pre>												
+													</blockquote>
+													The program above performs one unnecessary comparison, when the first element is compared with itself, but this isn´t a problam at all. The code outputs <code>17</code>, too (nothing unusual). <br>
+													If you need to save computer power, you can use a slice:
+													<blockquote>
+<pre>myList = [17,,11,5,1,9,7,15,13]
+largest = myList[0]
+for i in myList[1:]: 
+	if i > largest:
+		largest = i 
+print(largest)		
+</pre>											
+													</blockquote>
+													The question is: which of these two actions consumes more computer resources - Just one comparison, or slicing almost all of a list's elements?
+													<div>
+														<a href="../contents/programs/" target="_blank" rel="noopener noreferrer"><img src="images/Lists-somesimpleprograms.PNG" alt=""></a>
+													</div>
+												</p>
+												<h2>Lists - some simple programs</h2>
+												<p>
+													Now let's find the location of a given element inside a list:
+													<blockquote>
+<pre>myList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+toFind = 5
+found = False
+
+for i in range(len(myList)):
+	found = myList[i] == toFind
+	if found:
+		break
+
+if found:
+	print("Element found at index", i)
+else:
+	print("absent")
+</pre>														
+													</blockquote>
+													<a href="../contents/programs/3.1.6.8 List-1.py"><img src="images/3.1.6.8 Lists-1.PNG" alt=""></a>
+													<br>
+													Note:
+													<ul>
+														<li>
+															The target value is storedin the <code>toFind</code> variable.
+														</li>
+														<li>
+															The current status of the search is stored in the <code>found</code> variable (<code>True/False</code>)
+														</li>
+														<li>
+															When <code>found</code> becomes <code>True</code>, the <code>for</code> loop is existed.
+														</li>
+													</ul>
+													Let's assume that you've chosen the following numbers in the lottery: <code>3,7,11,42,34,49</code>. <br>
+													The numbers that have been drawn are: <code>5,11,9,42,3,49</code>. <br>
+													The question is: how many numbers have you hit? <br>
+													The program ill give you the answer:
+													<blockquote>
+<pre>drawn = [5, 11, 9, 42, 3, 49]
+bets = [3, 7, 11, 42, 34, 49]
+hits = 0
+
+for number in bets:
+	if number in drawn:
+		hits += 1
+
+print(hits)
+</pre>														
+													</blockquote>
+													<a href="../contents/programs/3.1.6.8 List-2.py" target="_blank" rel="noopener noreferrer"><img src="images/3.1.6.8 Lists-2.PNG" alt=""></a>
 												</p>
 										</div>
 								</div>								
