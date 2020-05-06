@@ -263,35 +263,21 @@ def table_route():
         'Content-Type': "application/yang-data+json"
     }
     
-    # Añadimos la ruta que piden 
-    next_hop = "1.2.3.4"
-    prefix = "4.4.4.4"
-    mask = "255.255.255.255"
+    print("" Añadimos la ruta PARA TEST")
+    next_hop = "10.0.1.1"
+    print(next_hop)
+    mask = "255.255.0.0"
     interface = "RouteTest"
-    body = {
-    'Cisco-IOS-XE-native:native': {
-            'ip': {
-                'route': {
-                    'ip-route-interface-forwarding-list': [
-                        {
-                            "fwd-list": [
-                                {
-                                    "interface-next-hop": [
-                                        {
-                                            "ip-address": next_hop
-                                        }
-                                    ],
-                                    "fwd": interface
-                                }
-                            ],
-                            "prefix": prefix,
-                            "mask": mask
-                        }
-                    ]
-                }
-            }
-        }
-    }
+    prin("""
+    Tengo entendido que se quiere es añadir una ruta a otra red, la 10.0.1.0 y que 
+    el router que añadiré a la tabla de rutas es: 10.0.1.1 con máscara de subred: 255.255.0.0
+    Entonces: 
+    """)
+    config_commands = [
+        "ip route {} {}".format(next_hop,mask)
+        "ip route 192.168.56.101 255.255.255.0"        
+    ]
+    
     # URL final con los datos
     response = requests.path(endpoint, headers = headers, auth = basic_auth, data=json.dumps(body), timeout=5, verify=False)
     # Veo el estado de respuesta del servicio
