@@ -51,6 +51,8 @@ def credencial():
     # Conexión SSH al Router.
     print("Espere por favor ... ")
     try:
+        os.system("clear")
+        os.system("cls")
         clienteSSH = ConnectHandler(device_type='cisco_ios', host=ip, port=puerto, username=user, password=passw)
         clienteSSH.disconnect()
         print(30*"___","\n SSH Status Connection - OK.\n",30*"___")
@@ -499,8 +501,6 @@ if __name__ == "__main__":
     while True:
         try:
             main()       
-            print(100*"¨", "+4 seg. y borro")
-            time.sleep(6)
         except ValueError:
             pausa=input("ALGO HA IDO MAL. VU€lV€ @ 1nT€nT@rl0 --- ENTER para volver a intentarlo.")
             os.system('clear')
