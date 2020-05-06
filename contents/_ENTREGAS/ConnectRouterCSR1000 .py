@@ -4,7 +4,7 @@
 # Para obtener información del mismo.
 
 # Librerias importadas
-import os, sys, json, xml.dom.minidom, requests,tabulate, urllib3, time 
+import os, sys, netmiko, json, xml.dom.minidom, requests,tabulate, urllib3, time 
 import xml.dom.minidom
 from ncclient import manager
 from netmiko import ConnectHandler
@@ -142,9 +142,9 @@ def new_interface():
             ]
             # Output configuration commands.
             output1 = sshCli.send_config_set(config_commands)
-            output2 = sshCli.send_command("show ip int brief")
             # Sent some simple commands and display the returned output
             print("Config output from the device: \n{}\n".format(output1))
+            output2 = sshCli.send_command("show ip int brief")
             print("Print all info: \n")
             print("\n{}\n".format(output2))
 
