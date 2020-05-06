@@ -1,0 +1,160 @@
+
+Building configuration...
+
+Current configuration : 2465 bytes
+!
+! Last configuration change at 05:57:18 UTC Fri Nov 18 2016 by cisco
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no platform punt-keepalive disable-kernel-core
+!
+hostname CAMPUS-Router2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+enable password xxxxxxxx
+!
+no aaa new-model
+!
+!
+!
+!
+!
+
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+multilink bundle-name authenticated
+!
+flow record FLOW_TEST_1
+ match ipv4 protocol
+ match ipv4 source address
+ match ipv4 destination address
+ match transport source-port
+ match transport destination-port
+ collect interface input
+ collect interface output
+ collect timestamp sys-uptime last
+!
+!
+flow record type performance-monitor APIC_EM-FLOW_ANALYSIS_PERFMON_RECORD
+!
+!
+flow exporter FLOW_TEST_1
+ description blabla
+ destination 0.0.0.0
+!
+!
+flow monitor FLOW_TEST_1
+ exporter FLOW_TEST_1
+ record FLOW_TEST_1
+!
+!
+!
+!
+!
+license udi pid ISR4451-X/K9 sn FOC18365VVE
+!
+username xxxxxx
+!
+redundancy
+ mode none
+!
+!
+!
+ip tftp source-interface GigabitEthernet0
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.1.2 255.255.255.255
+!
+interface GigabitEthernet0/0/0
+ ip address 10.1.4.2 255.255.255.248
+ negotiation auto
+!
+interface GigabitEthernet0/0/1
+ ip address 10.1.3.2 255.255.255.248
+ negotiation auto
+!
+interface GigabitEthernet0/0/2
+ ip address 10.1.1.2 255.255.255.248
+ negotiation auto
+!
+interface GigabitEthernet0/0/3
+ description #WAN#100M#SPP1#
+ ip address 172.16.1.2 255.255.255.248
+ ip flow monitor FLOW_TEST_1 input
+ negotiation auto
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ no ip address
+ shutdown
+ negotiation auto
+!
+router ospf 100
+ router-id 10.255.1.2
+ redistribute connected subnets
+ redistribute static subnets
+ network 10.1.1.0 0.0.0.7 area 0
+ network 10.1.3.0 0.0.0.7 area 0
+ network 10.1.4.0 0.0.0.7 area 0
+ network 172.16.1.0 0.0.0.7 area 0
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+ip access-list extended APIC_EM-FLOW_ANALYSIS_ACL
+!
+!
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+!
+!
+control-plane
+!
+!
+line con 0
+ exec-timeout 0 0
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ exec-timeout 0 0
+password xxxxxxxx
+login xxxxxx
+ transport input telnet
+line vty 5 15
+ exec-timeout 0 0
+password xxxxxxxx
+login xxxxxx
+ transport input telnet
+!
+!
+pnp startup-vlan 167
+end
+

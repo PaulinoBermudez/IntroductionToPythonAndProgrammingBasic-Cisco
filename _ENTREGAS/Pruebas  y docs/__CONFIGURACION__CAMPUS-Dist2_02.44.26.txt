@@ -1,0 +1,339 @@
+
+Building configuration...
+
+Current configuration : 11375 bytes
+!
+! Last configuration change at 16:32:18 UTC Thu Nov 17 2016 by cisco
+!
+version 15.1
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+!
+hostname CAMPUS-Dist2
+!
+boot-start-marker
+boot system bootflash:cat4500e-universalk9.SPA.03.04.00.SG.151-2.SG.bin
+boot-end-marker
+!
+!
+vrf definition mgmtVrf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+enable password xxxxxxxx
+!
+username xxxxxx
+no aaa new-model
+!
+ip vrf Liin-vrf
+!
+!
+!
+ip device tracking
+ipv6 multicast rpf use-bgp
+vtp mode transparent
+!
+cts server deadtime 0
+no cts server test all enable
+cts server test all idle-time 0
+cts server test all deadtime 0
+!
+crytpo pki xxxxxxx
+ revocation-check none
+rsakeypair xxxxxxxx
+!
+crytpo pki xxxxxxx
+ revocation-check none
+!
+!
+certificate xxxxxxxxx
+certificate xxxxxxxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+quit
+certificate xxxxxxxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+quit
+certificate xxxxxxxxx
+certificate xxxxxxxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+xxxx  xxxxx  xxxx  xxxx  xxxx
+quit
+power redundancy-mode redundant
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+redundancy
+ mode rpr
+!
+vlan internal allocation policy ascending
+!
+vlan 10,20,25,101,200,300 
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.1.6 255.255.255.255
+!
+interface FastEthernet1
+ vrf forwarding mgmtVrf
+ no ip address
+ speed auto
+ duplex auto
+!
+interface TenGigabitEthernet3/1
+ no switchport
+ ip address 10.1.9.2 255.255.255.248
+!
+interface TenGigabitEthernet3/2
+!
+interface TenGigabitEthernet3/3
+!
+interface TenGigabitEthernet3/4
+!
+interface GigabitEthernet5/1
+!
+interface GigabitEthernet5/2
+!
+interface GigabitEthernet5/3
+!
+interface GigabitEthernet5/4
+!
+interface GigabitEthernet5/5
+ switchport trunk allowed vlan 300
+ switchport mode trunk
+!
+interface GigabitEthernet5/6
+!
+interface GigabitEthernet5/7
+ no switchport
+ ip address 10.1.8.2 255.255.255.248
+!
+interface GigabitEthernet5/8
+!
+interface GigabitEthernet5/9
+!
+interface GigabitEthernet5/10
+!
+interface GigabitEthernet5/11
+!
+interface GigabitEthernet5/12
+!
+interface GigabitEthernet5/13
+!
+interface GigabitEthernet5/14
+!
+interface GigabitEthernet5/15
+!
+interface GigabitEthernet5/16
+!
+interface GigabitEthernet5/17
+!
+interface GigabitEthernet5/18
+!
+interface GigabitEthernet5/19
+!
+interface GigabitEthernet5/20
+!
+interface GigabitEthernet5/21
+!
+interface GigabitEthernet5/22
+!
+interface GigabitEthernet5/23
+!
+interface GigabitEthernet5/24
+!
+interface GigabitEthernet5/25
+!
+interface GigabitEthernet5/26
+!
+interface GigabitEthernet5/27
+!
+interface GigabitEthernet5/28
+!
+interface GigabitEthernet5/29
+!
+interface GigabitEthernet5/30
+!
+interface GigabitEthernet5/31
+!
+interface GigabitEthernet5/32
+!
+interface GigabitEthernet5/33
+!
+interface GigabitEthernet5/34
+!
+interface GigabitEthernet5/35
+!
+interface GigabitEthernet5/36
+!
+interface GigabitEthernet5/37
+!
+interface GigabitEthernet5/38
+!
+interface GigabitEthernet5/39
+!
+interface GigabitEthernet5/40
+!
+interface GigabitEthernet5/41
+!
+interface GigabitEthernet5/42
+!
+interface GigabitEthernet5/43
+!
+interface GigabitEthernet5/44
+!
+interface GigabitEthernet5/45
+!
+interface GigabitEthernet5/46
+!
+interface GigabitEthernet5/47
+!
+interface GigabitEthernet5/48
+ no switchport
+ ip address 10.1.11.1 255.255.255.248
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan300
+ ip address 212.1.20.2 255.255.255.252
+!
+no ip http server
+no ip http secure-server
+ip route 172.28.0.0 255.255.0.0 10.1.11.2
+!
+!
+!
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+!
+!
+line con 0
+ exec-timeout 0 0
+ stopbits 1
+line vty 0 4
+ exec-timeout 0 0
+password xxxxxxxx
+login xxxxxx
+ transport input telnet
+line vty 5 15
+ exec-timeout 0 0
+password xxxxxxxx
+login xxxxxx
+ transport input telnet
+!
+end
+
