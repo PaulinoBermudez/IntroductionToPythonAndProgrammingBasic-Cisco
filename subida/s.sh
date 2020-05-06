@@ -2,6 +2,9 @@
 
 # Script de subida de contenidos
 git pull
+git add ../_ENTREGAS/.
+git nota "Soluciones de mis prácticas obligatorias - DEVNET"
+git sube
 git add ../contents/.
 git nota "Contents"
 git sube
