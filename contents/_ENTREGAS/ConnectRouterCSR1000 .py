@@ -106,7 +106,7 @@ def new_interface():
                 User:{}
                 Pass:{} 
             """.format(hostDef ,  puertoDef ,  userD , passD))
-            defaultValues = input(" ¿Uso las credenciales por defecto del sistema? (Y/N) ")
+            defaultValues = input(" ¿Uso las credenciales por defecto del sistema? (Y/N) (Default:Y)")
             defaultValues.lower 
             if defaultValues == 'n' or defaultValues == 'N':
                 hostDef=input("IP del host? ")
@@ -136,9 +136,9 @@ def new_interface():
             else:
                 descripcion = input("Qué descripción quiere para {}. ".format(nomInter))
             config_commands = [
-                "int {}".format(nomInter),
-                "ip address  {} {}".format(ipInter,maskInter),
-                "description  {}".format(descripcion)
+                'int {}'.format(nomInter),
+                'ip address  {} {}'.format(ipInter,maskInter),
+                'description  {}'.format(descripcion)
             ]
             # Output configuration commands.
             output1 = sshCli.send_config_set(config_commands)
@@ -508,8 +508,7 @@ def main():
         else:
             default()
         pausa = input("> Pulse ENTER para continuar")
-    
-           
+          
 # Ejecución de programa principal
 if __name__ == "__main__":
     #main()
