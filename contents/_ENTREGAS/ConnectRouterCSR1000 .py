@@ -197,7 +197,7 @@ def delete_interface():
     print("_________________________________________")
     laborro = input("¿Qué interfaz borro? (Nombre de la interfaz). ")
     url = masterurl+"interface={}".format(laborro)
-    print(url ," - OK")
+    print(url ," - COPY")
     # header 
     headers = {
         "Accept":"application/yang-data+json",
@@ -210,7 +210,7 @@ def delete_interface():
     response_json = respuesta.json()
     print(json.dumps(response_json, indent = 2))
     print("_________________________________________")
-    print("Estas son las nuevas interfaces encontradas: \n{}\n".format(output2))
+    view_interfaces()
     print("_________________________________________")
 
 # Método para ver la tabla de rutas.
