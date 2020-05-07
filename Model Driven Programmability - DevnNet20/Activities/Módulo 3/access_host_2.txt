@@ -1,0 +1,441 @@
+
+Building configuration...
+
+Current configuration : 10117 bytes
+!
+! Last configuration change at 00:39:00 UTC Fri Nov 18 2016 by cisco
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service counters max age 5
+!
+hostname CAMPUS-Core1
+!
+boot-start-marker
+boot system bootdisk:s2t54-adventerprisek9-mz.SPA.152-1.SY1.bin
+boot-end-marker
+!
+!
+enable password xxxxxxxx
+!
+username xxxxxx
+no aaa new-model
+platform ip cef load-sharing ip-only
+!
+!
+!
+!
+!
+!
+ip dhcp excluded-address 10.204.61.1 10.204.61.100
+!
+ip dhcp pool kp-pnp
+   network 10.204.61.0 255.255.255.0
+   default-router 10.204.61.1 
+   option 43 ascii "5A1N;B2;K4;I172.28.97.203;J80"
+   lease 0 8
+!
+no ip domain-lookup
+!
+!
+!
+!
+!
+!
+!
+no power enable module 2
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+power redundancy-mode combined
+!
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+spanning-tree vlan 1-4094 priority 24576
+!
+redundancy
+ main-cpu
+  auto-sync running-config
+ mode sso
+!
+vlan internal allocation policy ascending
+vlan access-log ratelimit 2000
+!
+!
+class-map match-any class-copp-icmp-redirect-unreachable
+class-map match-all class-copp-glean
+class-map match-all class-copp-receive
+class-map match-all class-copp-options
+class-map match-all class-copp-broadcast
+class-map match-all class-copp-mcast-acl-bridged
+class-map match-all class-copp-slb
+class-map match-all class-copp-mtu-fail
+class-map match-all class-copp-ttl-fail
+class-map match-all class-copp-arp-snooping
+class-map match-any class-copp-mcast-copy
+class-map match-any class-copp-ip-connected
+class-map match-any class-copp-match-igmp
+ match access-group name acl-copp-match-igmp
+class-map match-all class-copp-unknown-protocol
+class-map match-any class-copp-vacl-log
+class-map match-all class-copp-mcast-ipv6-control
+class-map match-any class-copp-match-pimv6-data
+ match access-group name acl-copp-match-pimv6-data
+class-map match-any class-copp-mcast-punt
+class-map match-all class-copp-unsupp-rewrite
+class-map match-all class-copp-ucast-egress-acl-bridged
+class-map match-all class-copp-ip-admission
+class-map match-any class-copp-dpss-divert
+class-map match-all class-copp-service-insertion
+class-map match-all class-copp-mac-pbf
+class-map match-any class-copp-match-mld
+ match access-group name acl-copp-match-mld
+class-map match-all class-copp-ucast-ingress-acl-bridged
+class-map match-all class-copp-dhcp-snooping
+class-map match-all class-copp-wccp
+class-map match-all class-copp-nd
+class-map match-any class-copp-ipv6-connected
+class-map match-all class-copp-mcast-rpf-fail
+class-map match-any class-copp-ucast-rpf-fail
+class-map match-all class-copp-mcast-ip-control
+class-map match-any class-copp-match-pim-data
+ match access-group name acl-copp-match-pim-data
+class-map match-any class-copp-match-ndv6
+ match access-group name acl-copp-match-ndv6
+class-map match-any class-copp-mcast-v4-data-on-routedPort
+class-map match-any class-copp-mcast-v6-data-on-routedPort
+!
+policy-map policy-default-autocopp
+ class class-copp-mcast-v4-data-on-routedPort
+   police rate 10 pps burst 1 packets    conform-action drop     exceed-action drop 
+ class class-copp-mcast-v6-data-on-routedPort
+   police rate 10 pps burst 1 packets    conform-action drop     exceed-action drop 
+ class class-copp-match-mld
+   police rate 10000 pps burst 10000 packets    conform-action set-discard-class-transmit 48    exceed-action transmit 
+ class class-copp-match-igmp
+   police rate 10000 pps burst 10000 packets    conform-action set-discard-class-transmit 48    exceed-action transmit 
+ class class-copp-icmp-redirect-unreachable
+   police rate 100 pps burst 10 packets    conform-action transmit     exceed-action drop 
+ class class-copp-ucast-rpf-fail
+   police rate 100 pps burst 10 packets    conform-action transmit     exceed-action drop 
+ class class-copp-vacl-log
+   police rate 2000 pps burst 1 packets    conform-action transmit     exceed-action drop 
+ class class-copp-mcast-punt
+   police rate 1000 pps burst 256 packets    conform-action transmit     exceed-action drop 
+ class class-copp-mcast-copy
+   police rate 1000 pps burst 256 packets    conform-action transmit     exceed-action drop 
+ class class-copp-ip-connected
+   police rate 1000 pps burst 256 packets    conform-action transmit     exceed-action drop 
+ class class-copp-ipv6-connected
+   police rate 1000 pps burst 256 packets    conform-action transmit     exceed-action drop 
+ class class-copp-match-pim-data
+   police rate 1000 pps burst 1000 packets    conform-action transmit     exceed-action drop 
+ class class-copp-match-pimv6-data
+   police rate 1000 pps burst 1000 packets    conform-action transmit     exceed-action drop 
+ class class-copp-match-ndv6
+   police rate 1000 pps burst 1000 packets    conform-action set-discard-class-transmit 48    exceed-action drop 
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.1.3 255.255.255.255
+!
+interface GigabitEthernet1/1
+ ip address 10.1.7.1 255.255.255.248
+!
+interface GigabitEthernet1/2
+ ip address 10.1.2.2 255.255.255.248
+!
+interface GigabitEthernet1/3
+ ip address 10.1.4.1 255.255.255.248
+!
+interface TenGigabitEthernet1/4
+ ip address 211.3.1.1 255.255.255.252
+!
+interface TenGigabitEthernet1/5
+ ip address 10.1.9.1 255.255.255.248
+!
+interface GigabitEthernet3/1
+ no ip address
+!
+interface GigabitEthernet3/2
+ no ip address
+!
+interface GigabitEthernet3/3
+ no ip address
+!
+interface GigabitEthernet3/4
+ no ip address
+!
+interface GigabitEthernet3/5
+ no ip address
+!
+interface GigabitEthernet3/6
+ no ip address
+!
+interface GigabitEthernet3/7
+ no ip address
+!
+interface GigabitEthernet3/8
+ no ip address
+!
+interface GigabitEthernet3/9
+ no ip address
+!
+interface GigabitEthernet3/10
+ no ip address
+!
+interface GigabitEthernet3/11
+ no ip address
+!
+interface GigabitEthernet3/12
+ no ip address
+!
+interface GigabitEthernet3/13
+ no ip address
+!
+interface GigabitEthernet3/14
+ no ip address
+!
+interface GigabitEthernet3/15
+ no ip address
+!
+interface GigabitEthernet3/16
+ no ip address
+!
+interface GigabitEthernet3/17
+ no ip address
+!
+interface GigabitEthernet3/18
+ no ip address
+!
+interface GigabitEthernet3/19
+ no ip address
+!
+interface GigabitEthernet3/20
+ no ip address
+!
+interface GigabitEthernet3/21
+ no ip address
+!
+interface GigabitEthernet3/22
+ no ip address
+!
+interface GigabitEthernet3/23
+ no ip address
+!
+interface GigabitEthernet3/24
+ no ip address
+!
+interface GigabitEthernet3/25
+ no ip address
+!
+interface GigabitEthernet3/26
+ no ip address
+!
+interface GigabitEthernet3/27
+ switchport
+ switchport mode access
+ access-group mode prefer port
+!
+interface GigabitEthernet3/28
+ no ip address
+!
+interface GigabitEthernet3/29
+ no ip address
+!
+interface GigabitEthernet3/30
+ no ip address
+!
+interface GigabitEthernet3/31
+ no ip address
+!
+interface GigabitEthernet3/32
+ no ip address
+!
+interface GigabitEthernet3/33
+ no ip address
+!
+interface GigabitEthernet3/34
+ no ip address
+!
+interface GigabitEthernet3/35
+ no ip address
+!
+interface GigabitEthernet3/36
+ no ip address
+!
+interface GigabitEthernet3/37
+ no ip address
+!
+interface GigabitEthernet3/38
+ no ip address
+!
+interface GigabitEthernet3/39
+ no ip address
+!
+interface GigabitEthernet3/40
+ switchport
+ switchport trunk native vlan 350
+ switchport mode trunk
+ switchport trunk allowed vlan 19,61,350,448
+!
+interface GigabitEthernet3/41
+ switchport
+ switchport trunk native vlan 350
+ switchport mode trunk
+ switchport trunk allowed vlan 19,61,350,448
+!
+interface GigabitEthernet3/42
+ switchport
+ switchport trunk native vlan 350
+ switchport mode trunk
+ switchport trunk allowed vlan 19,61,350,448
+ shutdown
+!
+interface GigabitEthernet3/43
+ switchport
+ switchport trunk native vlan 350
+ switchport mode trunk
+ switchport trunk allowed vlan 19,61,350,448
+ shutdown
+!
+interface GigabitEthernet3/44
+ switchport
+ switchport trunk native vlan 350
+ switchport mode trunk
+ switchport trunk allowed vlan 19,61,350,448
+ shutdown
+!
+interface GigabitEthernet3/45
+ switchport
+ switchport trunk native vlan 350
+ switchport mode trunk
+ switchport trunk allowed vlan 19,61,350,448
+ shutdown
+!
+interface GigabitEthernet3/46
+ switchport
+ switchport trunk native vlan 61
+ switchport mode trunk
+ switchport trunk allowed vlan 19,61,350,448
+!
+interface GigabitEthernet3/47
+ description To CAMPUS-Core2
+ switchport
+ switchport trunk native vlan 350
+ switchport mode trunk
+ switchport trunk allowed vlan 19,61,350,448
+!
+interface GigabitEthernet3/48
+ switchport
+ switchport trunk native vlan 350
+ switchport mode trunk
+ switchport trunk allowed vlan 19,61,350,448
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan61
+ ip address 10.204.61.1 255.255.255.0
+!
+router ospf 100
+ router-id 10.255.1.3
+ redistribute connected subnets
+ redistribute static subnets
+ network 10.1.2.0 0.0.0.7 area 0
+ network 10.1.4.0 0.0.0.7 area 0
+ network 10.1.6.0 0.0.0.7 area 0
+ network 10.1.7.0 0.0.0.7 area 0
+ network 10.1.9.0 0.0.0.7 area 0
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+ip route 172.28.97.0 255.255.255.0 212.1.100.100
+!
+ip access-list extended acl-copp-match-igmp
+ permit igmp any any
+ip access-list extended acl-copp-match-pim-data
+ deny   pim any host 224.0.0.13
+ permit pim any any
+!
+!
+snmp-server xxxxxxxx
+snmp-server xxxxxxxx
+!
+!
+ipv6 access-list acl-copp-match-mld
+ permit icmp any any mld-report
+ permit icmp any any mld-query
+ permit icmp any any mld-reduction
+ permit icmp any any 143
+!
+ipv6 access-list acl-copp-match-ndv6
+ permit icmp any any nd-na
+ permit icmp any any nd-ns
+ permit icmp any any router-advertisement
+ permit icmp any any router-solicitation
+ permit icmp any any redirect
+!
+ipv6 access-list acl-copp-match-pimv6-data
+ deny 103 any host FF02::D
+ permit 103 any any
+!
+control-plane
+ service-policy input policy-default-autocopp
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ stopbits 1
+line aux 0
+line vty 0 4
+ exec-timeout 0 0
+password xxxxxxxx
+login xxxxxx
+ transport input telnet
+line vty 5 15
+ exec-timeout 0 0
+password xxxxxxxx
+login xxxxxx
+ transport input telnet
+!
+diagnostic bootup level minimal
+no event manager policy Mandatory.go_switchbus.tcl type system
+!
+pnp startup-vlan 61
+end
+
