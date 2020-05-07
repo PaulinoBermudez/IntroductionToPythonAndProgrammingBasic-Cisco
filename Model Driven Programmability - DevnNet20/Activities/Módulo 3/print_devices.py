@@ -53,5 +53,5 @@ print( tabulate(devices_list, table_header) )
 
 # print("Print the all information devices")
 # print("---------------------------------------------------")
-# print(response_json)
+print(response_json)
 # print("---------------------------------------------------")

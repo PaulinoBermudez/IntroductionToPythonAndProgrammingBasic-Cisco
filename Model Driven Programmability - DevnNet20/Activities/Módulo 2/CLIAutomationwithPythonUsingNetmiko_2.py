@@ -21,7 +21,7 @@ from netmiko import ConnectHandler
     -  Password: Remote SSH password (in this lab "cisco123!" for that was setup in the IOS XE VM)
 '''
 sshCli = ConnectHandler(
-     device_type='cisco_ios',
+    device_type='cisco_ios',
     host='192.168.56.101',
     port=22,
     username='cisco',
@@ -29,8 +29,8 @@ sshCli = ConnectHandler(
 )
 # Comand code who send the router Cisco, configure the new Interface device - Loopback 1.
 config_commands = [
-    'int loopback 1',
-    'ip address 9.9.9.9 255.255.255.0',
+    'int loopback 190',
+    'ip address 190.190.190.190 255.255.255.0',
     'description LAB INTERFACE'
 ]
 # Output configuration commands.
