@@ -32,6 +32,6 @@ echo "Fin del script"
 sleep 5
 clear
 echo "Vamos con calma"
-sleep 300
+sleep 2100
 
 sh s.sh
