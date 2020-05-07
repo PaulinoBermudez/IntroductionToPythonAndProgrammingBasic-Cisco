@@ -8,6 +8,9 @@ git sube
 git add ../contents/.
 git nota "Contents"
 git sube
+git add ../Model Driven Programmability - DevnNet20/.
+git nota "Model Driven Programmability - Exercises"
+git sube
 git add ../images/.
 git nota "Images"
 git sube
