@@ -3063,6 +3063,123 @@ print(hits)
 														(La explicación no estoy al 100% seguro que sea así, pero así vi como funcionaba y me funciona).
 													</cite>
 												</p>
+												<h2>Key takeways</h2>
+												<p>
+													<ul>
+														<li>
+															If you have a list l1, then the following assignment: l2 = l1 does not make a copy of the l1 list, but makes the variables l1 and l2 point to one and the same list in memory. For example:
+															<blockquote>
+<pre>vehiclesOne = ['car', 'bicycle', 'motor']
+print(vehiclesOne) # outputs: ['car', 'bicycle', 'motor']
+
+vehiclesTwo = vehiclesOne
+del vehiclesOne[0] # deletes 'car'
+print(vehiclesTwo) # outputs: ['bicycle', 'motor']
+</pre>																
+															</blockquote>
+														</li>
+														<li>
+															If you want to  copy a lists or part of the lists you can do it by performing slicing.
+															<blockquote>
+<pre>colors = ['red', 'green', 'orange']
+copyWholeColors = colors[:] # copy the whole list
+copyPartColors = colors[0:2] # copy part of the list
+</pre>																
+															</blockquote>
+														</li>
+														<li>
+															You can use negative indices to perform slices, too. For example:
+															<blockquote>
+<pre>sampleList = ["A", "B", "C", "D", "E"]
+newList = sampleList[2:-1]
+print(newList) # outputs: ['C', 'D']
+</pre>																
+															</blockquote>
+														</li>
+														<li>
+															The start and end parameters are optional when performing a slice: <code>list[start:end</code>, e.g.
+														</li>
+														<li>
+															You can delete slices using the del instruction:
+															<blockquote>
+<pre>myList = [1, 2, 3, 4, 5]
+del myList[0:2]
+print(myList) # outputs: [3, 4, 5]
+
+del myList[:]
+print(myList) # deletes the list content, outputs: []
+</pre>																
+															</blockquote>
+														</li>
+														<li>
+															You can test if some items exist in a list or not using the keywords <code>in</code> and <code>not in</code>, e.g. 
+															<blockquote>
+<pre>myList = ["A", "B", 1, 2]
+
+print("A" in myList) # outputs: True
+print("C" not in myList) # outputs: True
+print(2 not in myList) # outputs: False
+</pre>																
+															</blockquote>
+														</li>
+													</ul>
+													<h4>Exercise 1</h4>
+													<p>
+														<blockquote>
+<pre>l1 = ["A", "B", "C"]
+l2 = l1
+l3 = l2
+
+del l1[0]
+del l2[0]
+
+print(l3)
+</pre>															
+														</blockquote>
+													</p>														
+													<h4>Exercise 2</h4>
+													<p>
+														<blockquote>
+<pre>l1 = ["A", "B", "C"]
+l2 = l1
+l3 = l2
+
+del l1[0]
+del l2
+
+print(l3)
+</pre>															
+														</blockquote>
+													</p>															
+													<h4>Exercise 3</h4>
+													<p>
+														<blockquote>
+<pre>l1 = ["A", "B", "C"]
+l2 = l1
+l3 = l2
+
+del l1[0]
+del l2[:]
+
+print(l3)
+</pre>															
+														</blockquote>
+													</p>															
+													<h4>Exercise 4</h4>
+													<p>
+														<blockquote>
+<pre>
+</pre>															
+														</blockquote>
+													</p>															
+													<h4>Exercise 5</h4>
+													<p>
+														<blockquote>
+<pre>
+</pre>															
+														</blockquote>
+													</p>															
+												</p>
 										</div>
 								</div>								
 						</section>
