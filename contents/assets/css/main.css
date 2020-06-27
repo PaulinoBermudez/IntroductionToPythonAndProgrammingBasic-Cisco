@@ -130,7 +130,11 @@ input, select, textarea {
 	p, ul, ol, dl, table, blockquote {
 		margin: 2em 0 2em 1em;
 	}
-
+		center{
+			align-items: center;
+			top: 55%;
+			left: 50%;
+		}
 	h1, h2, h3, h4, h5, h6 {
 		font-family: 'Source Code Pro', sans-serif;
 		color: inherit;
@@ -1867,6 +1871,23 @@ input, select, textarea {
 		border-radius: 5px;	
 		padding-block: initial;
 	}
+	.responsive{
+		
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+
+		position: fixed;    
+		top: 44%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%); 
+			
+		z-index: -100;
+			
+		background-size: cover;
+
+	}
 
 /* Image */
 
@@ -2697,7 +2718,7 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		background: #E8EEF4;
+		background: #e8eef481;
 		color: #7c8081;
 		padding: 5em 5em 10em 5em;
 		text-align: center;
